@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import JVFloatLabeledTextField
 
 class SignInController: UIViewController, Storyboarded {
     
@@ -37,8 +36,9 @@ class SignInController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         let forgotPasswordTap = UITapGestureRecognizer(target: self, action: #selector(showForgotPasswordScreen(_:)))
-        forgotPasswordLbl.isUserInteractionEnabled = true
-        forgotPasswordLbl.addGestureRecognizer(forgotPasswordTap)
+        let registerTap = UITapGestureRecognizer(target: self, action: #selector(showRegistrationScreen(_:)))
+        forgotPasswordLbl.addTagGesture(forgotPasswordTap)
+        createNewAccountLbl.addTagGesture(registerTap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -211,6 +211,9 @@ class SignInController: UIViewController, Storyboarded {
         Router.shared.push(with: self.navigationController, screen: .ForgotPassword, animated: true)
     }
     
+    @objc func showRegistrationScreen(_ sender: UITapGestureRecognizer? = nil) {
+        Router.shared.push(with: self.navigationController, screen: .Register, animated: true)
+    }
     
 }
 

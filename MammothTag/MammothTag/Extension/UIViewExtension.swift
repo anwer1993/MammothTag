@@ -58,6 +58,8 @@ extension UILabel {
         guard let text = self.text else {return NSAttributedString()}
         let range = (text as NSString).range(of: stringToColor)
         let mutableAttributedString = NSMutableAttributedString.init(string: text)
+        let boldFontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: font.pointSize)]
+        mutableAttributedString.addAttributes(boldFontAttribute, range: range)
         mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
         if isUnderline {
             mutableAttributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: range)
@@ -73,6 +75,11 @@ extension UILabel {
     func customizeLabelWhenValid() {
         textColor = UIColor.chestnut
         isHidden = false
+    }
+    
+    func addTagGesture(_ tap:UITapGestureRecognizer) {
+        isUserInteractionEnabled = true
+        addGestureRecognizer(tap)
     }
     
 }

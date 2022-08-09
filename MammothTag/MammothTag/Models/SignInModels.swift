@@ -22,3 +22,8 @@ struct SignInServerResponseData {
     var error: String
     
 }
+
+struct SettingsModel {
+    var terms: String
+    var conditions: String
+}

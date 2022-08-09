@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7B2B70397D46F399273E97AF /* Pods_MammothTag_MammothTagUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA893F554257083711F51B3A /* Pods_MammothTag_MammothTagUITests.framework */; };
 		7FD28A811FD79095284AFF70 /* Pods_MammothTagTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6958C0EE95AA9A0DFDAF23D0 /* Pods_MammothTagTests.framework */; };
+		A60305F228A31F000028F085 /* TermsAndConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60305F128A31F000028F085 /* TermsAndConditionViewController.swift */; };
+		A60305F428A327190028F085 /* TermsAndConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60305F328A327190028F085 /* TermsAndConditionViewModel.swift */; };
 		A60B312F28A033800037F0B3 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B312E28A033800037F0B3 /* SignInController.swift */; };
 		A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313128A173D20037F0B3 /* UIViewExtension.swift */; };
 		A60B313528A175D70037F0B3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313428A175D70037F0B3 /* GradientView.swift */; };
@@ -23,6 +25,8 @@
 		A6DD487A28A275C600747B01 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD487928A275C600747B01 /* ForgotPasswordController.swift */; };
 		A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD487B28A27D5E00747B01 /* AppRouterManager.swift */; };
 		A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD487D28A2802E00747B01 /* ForgotPassWordViewModel.swift */; };
+		A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD488028A2945500747B01 /* RegisterViewConntroller.swift */; };
+		A6DD488328A2946100747B01 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD488228A2946100747B01 /* RegisterViewModel.swift */; };
 		A6FC614428A02A0100756C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614328A02A0100756C74 /* AppDelegate.swift */; };
 		A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614528A02A0100756C74 /* SceneDelegate.swift */; };
 		A6FC614828A02A0100756C74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614728A02A0100756C74 /* ViewController.swift */; };
@@ -60,6 +64,8 @@
 		6958C0EE95AA9A0DFDAF23D0 /* Pods_MammothTagTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MammothTagTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8780D119D8D6016A8FE39F /* Pods-MammothTagTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MammothTagTests.release.xcconfig"; path = "Target Support Files/Pods-MammothTagTests/Pods-MammothTagTests.release.xcconfig"; sourceTree = "<group>"; };
 		8BD3ABCF54B63C149BF278F0 /* Pods_MammothTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MammothTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60305F128A31F000028F085 /* TermsAndConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewController.swift; sourceTree = "<group>"; };
+		A60305F328A327190028F085 /* TermsAndConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewModel.swift; sourceTree = "<group>"; };
 		A60B312E28A033800037F0B3 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		A60B313128A173D20037F0B3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A60B313428A175D70037F0B3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -74,6 +80,8 @@
 		A6DD487928A275C600747B01 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		A6DD487B28A27D5E00747B01 /* AppRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterManager.swift; sourceTree = "<group>"; };
 		A6DD487D28A2802E00747B01 /* ForgotPassWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassWordViewModel.swift; sourceTree = "<group>"; };
+		A6DD488028A2945500747B01 /* RegisterViewConntroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewConntroller.swift; sourceTree = "<group>"; };
+		A6DD488228A2946100747B01 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		A6FC614028A02A0100756C74 /* MammothTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MammothTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC614328A02A0100756C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FC614528A02A0100756C74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +150,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A60305F028A31EE40028F085 /* Terms&&Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				A60305F128A31F000028F085 /* TermsAndConditionViewController.swift */,
+				A60305F328A327190028F085 /* TermsAndConditionViewModel.swift */,
+			);
+			path = "Terms&&Conditions";
+			sourceTree = "<group>";
+		};
 		A60B313028A173B80037F0B3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,7 +207,9 @@
 		A6DD487728A2759D00747B01 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				A6DD487F28A2944000747B01 /* Register */,
 				A6D6F27B28A1C2E100AD3C9C /* SignIn */,
+				A60305F028A31EE40028F085 /* Terms&&Conditions */,
 				A6DD487828A275A900747B01 /* ForgotPassword */,
 			);
 			path = Screens;
@@ -203,6 +222,15 @@
 				A6DD487D28A2802E00747B01 /* ForgotPassWordViewModel.swift */,
 			);
 			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		A6DD487F28A2944000747B01 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				A6DD488028A2945500747B01 /* RegisterViewConntroller.swift */,
+				A6DD488228A2946100747B01 /* RegisterViewModel.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		A6FC613728A02A0100756C74 = {
@@ -512,14 +540,18 @@
 				A6FC614828A02A0100756C74 /* ViewController.swift in Sources */,
 				A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */,
 				A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */,
+				A6DD488328A2946100747B01 /* RegisterViewModel.swift in Sources */,
+				A60305F428A327190028F085 /* TermsAndConditionViewModel.swift in Sources */,
 				A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */,
 				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
+				A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */,
 				A648400C28A190BD000D040D /* CustomTextField.swift in Sources */,
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,
 				A6D6F27D28A1C6C600AD3C9C /* DynamicType.swift in Sources */,
 				A6FC614428A02A0100756C74 /* AppDelegate.swift in Sources */,
 				A6D6F28728A1CFEA00AD3C9C /* AuthenticationService.swift in Sources */,
+				A60305F228A31F000028F085 /* TermsAndConditionViewController.swift in Sources */,
 				A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

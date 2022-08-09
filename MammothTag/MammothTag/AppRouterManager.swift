@@ -22,6 +22,8 @@ protocol INaviagtion{}
 enum AppScreen: INaviagtion{
     case Login
     case ForgotPassword
+    case Register
+    case Terms
 }
 
 /// Class responsible for the routing functionality
@@ -60,6 +62,14 @@ struct Router: IRouter {
                 break
             case .ForgotPassword:
                 guard let vc = ForgotPasswordController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
+                viewController = vc
+                break
+            case .Register:
+                guard let vc = RegisterViewController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
+                viewController = vc
+                break
+            case .Terms:
+                guard let vc = TermsAndConditionViewController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
                 viewController = vc
                 break
             }

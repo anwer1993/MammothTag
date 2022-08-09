@@ -1,20 +1,20 @@
 PODS:
   - Alamofire (5.6.2)
-  - JVFloatLabeledTextField (1.2.2)
+  - CountryPickerView (3.2.0)
 
 DEPENDENCIES:
   - Alamofire
-  - JVFloatLabeledTextField
+  - CountryPickerView (~> 3.2.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - JVFloatLabeledTextField
+    - CountryPickerView
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
-  JVFloatLabeledTextField: df48598472ee015701d509f43e59492a0d4ca208
+  CountryPickerView: 9b093bfffb4b06a69ba6185a798cadbf863720e7
 
-PODFILE CHECKSUM: 47f07ccd6da6f07067ee8874536d7cddcd75a6a5
+PODFILE CHECKSUM: 5ae321dae6fb327a6d6ac28b66938f1320e88f6e
 
 COCOAPODS: 1.11.2
