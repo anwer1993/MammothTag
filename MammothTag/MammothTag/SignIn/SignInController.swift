@@ -71,36 +71,25 @@ class SignInController: UIViewController {
     func toggleStaticLabelAppearence(_ textField: UITextField, isHidden: Bool) {
         if textField == emailTextField {
             emailStaticLbl.isHidden = !isHidden
-            if passwordTextField.isEmpty() {
-                passwordStaticLabl.isHidden = isHidden
-            } else {
-                passwordStaticLabl.isHidden = !isHidden
-                updateViewAppearenceWhenValid(viewPassword, passwordStaticLabl)
-            }
+            updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabl, isHidden: isHidden)
             resetTextField(viewEmail, emailStaticLbl)
         } else {
             passwordStaticLabl.isHidden = isHidden
-            if emailTextField.isEmpty() {
-                if viewEmail.layer.borderWidth != 2 {
-                    emailStaticLbl.isHidden = !isHidden
-                } else {
-                    emailStaticLbl.customizeLabelWhenError()
-                }
-            } else {
-                emailStaticLbl.isHidden = isHidden
-                updateViewAppearenceWhenValid(viewEmail, emailStaticLbl)
-            }
+            updateOtherTextFieldWhenToggle(otherTextField: emailTextField, parentView: viewEmail, textFieldTitle: emailStaticLbl, isHidden: !isHidden)
             resetTextField(viewPassword, passwordStaticLabl)
         }
     }
     
-    func updateViewContainTExtFieldWhenToggleStaticLabelAppearence(textFieldTitle: UILabel, otherTextFieldTitle: UILabel, otherTextField: UITextField, view: UIView, isHidden: Bool){
-        textFieldTitle.isHidden = !isHidden
+    func updateOtherTextFieldWhenToggle(otherTextField: UITextField, parentView: UIView, textFieldTitle: UILabel, isHidden: Bool) {
         if otherTextField.isEmpty() {
-            otherTextFieldTitle.isHidden = isHidden
+            if parentView.layer.borderWidth != 2 {
+                textFieldTitle.isHidden = isHidden
+            } else {
+                textFieldTitle.customizeLabelWhenError()
+            }
         } else {
-            otherTextFieldTitle.isHidden = !isHidden
-            updateViewAppearenceWhenValid(view, otherTextFieldTitle)
+            textFieldTitle.isHidden = !isHidden
+            updateViewAppearenceWhenValid(parentView, textFieldTitle)
         }
     }
     
