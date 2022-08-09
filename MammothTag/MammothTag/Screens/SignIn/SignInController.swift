@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import JVFloatLabeledTextField
 
-class SignInController: UIViewController {
+class SignInController: UIViewController, Storyboarded {
     
     
     @IBOutlet weak var welcomeLbl: UILabel!
@@ -33,6 +33,13 @@ class SignInController: UIViewController {
     @IBOutlet weak var passwordStaticLabl: UILabel!
     
     var signInViewModel = SignInViewModel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let forgotPasswordTap = UITapGestureRecognizer(target: self, action: #selector(showForgotPasswordScreen(_:)))
+        forgotPasswordLbl.isUserInteractionEnabled = true
+        forgotPasswordLbl.addGestureRecognizer(forgotPasswordTap)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -147,10 +154,12 @@ class SignInController: UIViewController {
     
     func updateSignInButtonWhenError() {
         signInButton.customizeButtonWhenError()
+        signInButton.setTitle("Reset field", for: .normal)
     }
     
     func initializeSignInBtn() {
         signInButton.customizeButton()
+        signInButton.setTitle("Sign IN", for: .normal)
     }
     
     func updateViewAppearenceWhenValid(_ view: UIView, _ label: UILabel) {
@@ -198,6 +207,9 @@ class SignInController: UIViewController {
         }
     }
     
+    @objc func showForgotPasswordScreen(_ sender: UITapGestureRecognizer? = nil) {
+        Router.shared.push(with: self.navigationController, screen: .ForgotPassword, animated: true)
+    }
     
     
 }

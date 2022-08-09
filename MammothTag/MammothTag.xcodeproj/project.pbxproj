@@ -20,6 +20,9 @@
 		A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6F28028A1C80700AD3C9C /* Validator.swift */; };
 		A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6F28328A1CCBF00AD3C9C /* SignInModels.swift */; };
 		A6D6F28728A1CFEA00AD3C9C /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6F28628A1CFEA00AD3C9C /* AuthenticationService.swift */; };
+		A6DD487A28A275C600747B01 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD487928A275C600747B01 /* ForgotPasswordController.swift */; };
+		A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD487B28A27D5E00747B01 /* AppRouterManager.swift */; };
+		A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD487D28A2802E00747B01 /* ForgotPassWordViewModel.swift */; };
 		A6FC614428A02A0100756C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614328A02A0100756C74 /* AppDelegate.swift */; };
 		A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614528A02A0100756C74 /* SceneDelegate.swift */; };
 		A6FC614828A02A0100756C74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614728A02A0100756C74 /* ViewController.swift */; };
@@ -68,6 +71,9 @@
 		A6D6F28028A1C80700AD3C9C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		A6D6F28328A1CCBF00AD3C9C /* SignInModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModels.swift; sourceTree = "<group>"; };
 		A6D6F28628A1CFEA00AD3C9C /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		A6DD487928A275C600747B01 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		A6DD487B28A27D5E00747B01 /* AppRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterManager.swift; sourceTree = "<group>"; };
+		A6DD487D28A2802E00747B01 /* ForgotPassWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassWordViewModel.swift; sourceTree = "<group>"; };
 		A6FC614028A02A0100756C74 /* MammothTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MammothTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC614328A02A0100756C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FC614528A02A0100756C74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +187,24 @@
 			path = APIService;
 			sourceTree = "<group>";
 		};
+		A6DD487728A2759D00747B01 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A6D6F27B28A1C2E100AD3C9C /* SignIn */,
+				A6DD487828A275A900747B01 /* ForgotPassword */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A6DD487828A275A900747B01 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A6DD487928A275C600747B01 /* ForgotPasswordController.swift */,
+				A6DD487D28A2802E00747B01 /* ForgotPassWordViewModel.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 		A6FC613728A02A0100756C74 = {
 			isa = PBXGroup;
 			children = (
@@ -208,10 +232,11 @@
 			children = (
 				A6FC614328A02A0100756C74 /* AppDelegate.swift */,
 				A6FC614528A02A0100756C74 /* SceneDelegate.swift */,
+				A6DD487B28A27D5E00747B01 /* AppRouterManager.swift */,
 				A6FC614728A02A0100756C74 /* ViewController.swift */,
 				A6D6F28528A1CFCC00AD3C9C /* APIService */,
 				A6D6F28228A1CCAC00AD3C9C /* Models */,
-				A6D6F27B28A1C2E100AD3C9C /* SignIn */,
+				A6DD487728A2759D00747B01 /* Screens */,
 				A60B313328A175C60037F0B3 /* Utilities */,
 				A60B313028A173B80037F0B3 /* Extension */,
 				A627DAAA28A02F2100F0D54E /* Authentification.storyboard */,
@@ -483,9 +508,12 @@
 				A60B313528A175D70037F0B3 /* GradientView.swift in Sources */,
 				A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */,
 				A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */,
+				A6DD487A28A275C600747B01 /* ForgotPasswordController.swift in Sources */,
 				A6FC614828A02A0100756C74 /* ViewController.swift in Sources */,
 				A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */,
 				A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */,
+				A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */,
+				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
 				A648400C28A190BD000D040D /* CustomTextField.swift in Sources */,
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,

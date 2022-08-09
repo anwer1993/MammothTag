@@ -23,6 +23,10 @@ class AuthenticationService {
         }
     }
     
+    func sendEmail(email: String, completion: (Bool) -> Void) {
+        completion(email.lowercased() == "Anwer".lowercased())
+    }
+    
     
     
 }

@@ -36,14 +36,14 @@ struct SignInViewModel {
     var bindViewModelDataToController: (Bool) -> () = {_ in}
     
     mutating func login() {
-        if let signInModel = signInModel {
+        if let email = email.value, let password = password.value {
+            let signInModel = SignInModel(email: email, password: password)
             AuthenticationService.sharedInstance.login(loginModel: signInModel) { data in
                 self.data = data
             }
         } else {
             self.data = nil
         }
-        
     }
     
     
