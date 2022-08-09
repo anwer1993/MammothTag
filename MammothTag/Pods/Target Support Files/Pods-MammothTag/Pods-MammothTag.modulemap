@@ -1,0 +1,6 @@
+framework module Pods_MammothTag {
+  umbrella header "Pods-MammothTag-umbrella.h"
+
+  export *
+  module * { export * }
+}

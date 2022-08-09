@@ -1,0 +1,6 @@
+framework module Pods_MammothTag_MammothTagUITests {
+  umbrella header "Pods-MammothTag-MammothTagUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
