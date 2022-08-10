@@ -7,10 +7,13 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class SignInController: UIViewController, Storyboarded {
     
     
+    @IBOutlet weak var bgImage: UIImageView!
+    @IBOutlet weak var groupedImage: UIImageView!
     @IBOutlet weak var welcomeLbl: UILabel!
     @IBOutlet weak var discLbl: UILabel!
     @IBOutlet weak var emailTextField: CustomTextField! {
@@ -55,11 +58,14 @@ class SignInController: UIViewController, Storyboarded {
     }
     
     func initializeView() {
+        setupLocalizedText()
+        groupedImage.flipWhenRTL(image: UIImage(named: "Groupe 454")!)
+        bgImage.flipWhenRTL(image: UIImage(named: "bg")!)
         welcomeLbl.textColor = UIColor.chestnut
         discLbl.textColor = UIColor.greyishBrown
         initializeSignInBtn()
-        forgotPasswordLbl.applyLineView(lineColor: UIColor.black)
-        createNewAccountLbl.attributedText = createNewAccountLbl.customizeTextLabel(stringToColor: "Create a new account", color: UIColor.tangerine, isUnderline: true)
+        forgotPasswordLbl.attributedText = forgotPasswordLbl.customizeTextLabel(stringToColor: "FORGOT_PASSWORD".localized, color: UIColor.black, isUnderline: true)
+        createNewAccountLbl.attributedText = createNewAccountLbl.customizeTextLabel(stringToColor: "CREATE_NEW_ACCOUNT".localized, color: UIColor.tangerine, isUnderline: true)
         emailTextField.delegate = self
         passwordTextField.delegate = self
         viewEmail.customizeViewForContainTextField()
@@ -68,6 +74,17 @@ class SignInController: UIViewController, Storyboarded {
         passwordStaticLabl.isHidden = true
         viewPassword.customizeViewForContainTextField()
         passwordTextField.enablePasswordToggle()
+    }
+    
+    func setupLocalizedText() {
+        welcomeLbl.text = "WELCOMELABEL".localized
+        discLbl.text = "SIGNIN_DESCRIPTION_LABEL".localized
+        emailStaticLbl.text = "EMAIL".localized
+        passwordStaticLabl.text = "PASSWORD".localized
+        forgotPasswordLbl.text = "FORGOT_PASSWORD".localized
+        createNewAccountLbl.text = "DONT_HAVE_ACCOUNT".localized
+        passwordStaticLabl.text = "PASSWORD".localized
+        signInButton.setTitle("SIGN_IN".localized, for: .normal)
     }
     
     override func viewWillLayoutSubviews() {

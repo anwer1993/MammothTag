@@ -102,7 +102,7 @@ extension UITextField {
     func enablePasswordToggle(){
         let button = UIButton(type: .custom)
         setPasswordToggleImage(button)
-        button.imageEdgeInsets = UIEdgeInsets(top: -5, left: -16, bottom: 0, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: -5, left: -16, bottom: 0, right: -5)
         button.frame = CGRect(x: CGFloat(self.frame.size.width - 15), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.addTarget(self, action: #selector(self.togglePasswordView), for: .touchUpInside)
         self.rightView = button
@@ -141,5 +141,21 @@ extension GradientButton {
         self.applySketchShadow(color: UIColor.pinkishRed30, alpha: 1, x: 0, y: 5, blur: 20, spread: 0)
     }
     
+    
+}
+
+
+extension UIImageView {
+    
+    func flipWhenRTL(image: UIImage) {
+        switch AppSettings().appLanguage {
+        case .EN:
+            self.image = image
+            break
+        default:
+            self.image = image.imageFlippedForRightToLeftLayoutDirection()
+            break
+        }
+    }
     
 }

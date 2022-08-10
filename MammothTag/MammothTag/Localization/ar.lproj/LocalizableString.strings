@@ -1,0 +1,20 @@
+/* 
+  LocalizableString.strings
+  MammothTag
+
+  Created by Anwar Hajji on 10/08/2022.
+  
+*/
+
+// SHARED
+
+"EMAIL" = "بريد إلكتروني";
+"PASSWORD" = "كلمة المرور";
+"FORGOT_PASSWORD" = "هل نسيت كلمة المرور؟";
+"DONT_HAVE_ACCOUNT" = "هل نسيت كلمة المرور؟";
+"CREATE_NEW_ACCOUNT" = "إنشاء حساب جديد";
+"SIGN_IN" = "تسجيل الدخول";
+
+// Sign IN screen
+"WELCOMELABEL" = "مرحبًا بك في MAMMOTH NFC!";
+"SIGNIN_DESCRIPTION_LABEL" = "شارك عالمك الرقمي بالكامل بلمسة واحدة";

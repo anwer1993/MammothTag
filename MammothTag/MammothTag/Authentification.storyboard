@@ -84,16 +84,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="58"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QeV-mO-LkZ">
-                                                <rect key="frame" x="10" y="10" width="364" height="48"/>
+                                                <rect key="frame" x="10" y="10" width="354" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPL-RL-UUQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N2X-y7-xdy" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="14.5" width="364" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="14.5" width="354" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -105,7 +105,7 @@
                                             <constraint firstItem="QeV-mO-LkZ" firstAttribute="leading" secondItem="PpP-8p-FuS" secondAttribute="leading" constant="10" id="MD6-fs-hfw"/>
                                             <constraint firstAttribute="bottom" secondItem="QeV-mO-LkZ" secondAttribute="bottom" id="P9Q-lf-ss2"/>
                                             <constraint firstAttribute="height" constant="58" id="e0m-2z-nXn"/>
-                                            <constraint firstAttribute="trailing" secondItem="QeV-mO-LkZ" secondAttribute="trailing" id="ifc-qn-Tfv"/>
+                                            <constraint firstAttribute="trailing" secondItem="QeV-mO-LkZ" secondAttribute="trailing" constant="10" id="ifc-qn-Tfv"/>
                                             <constraint firstItem="QeV-mO-LkZ" firstAttribute="top" secondItem="PpP-8p-FuS" secondAttribute="top" constant="10" id="kPl-zg-Izi"/>
                                         </constraints>
                                     </view>
@@ -113,16 +113,16 @@
                                         <rect key="frame" x="0.0" y="78" width="374" height="58"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0mI-1h-Hhu">
-                                                <rect key="frame" x="10" y="10" width="364" height="48"/>
+                                                <rect key="frame" x="10" y="10" width="354" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwv-TE-J29">
-                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VXz-nn-UGZ" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="14.5" width="364" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="14.5" width="354" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -136,7 +136,7 @@
                                             <constraint firstAttribute="bottom" secondItem="0mI-1h-Hhu" secondAttribute="bottom" id="lg7-wA-daL"/>
                                             <constraint firstAttribute="height" constant="58" id="mUz-3d-kGQ"/>
                                             <constraint firstItem="0mI-1h-Hhu" firstAttribute="leading" secondItem="np4-9K-1TX" secondAttribute="leading" constant="10" id="s3Y-kT-WeH"/>
-                                            <constraint firstAttribute="trailing" secondItem="0mI-1h-Hhu" secondAttribute="trailing" id="vrw-jG-NIy"/>
+                                            <constraint firstAttribute="trailing" secondItem="0mI-1h-Hhu" secondAttribute="trailing" constant="10" id="vrw-jG-NIy"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -238,11 +238,13 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="bgImage" destination="dty-Ut-V0g" id="Y5C-jP-nzX"/>
                         <outlet property="createNewAccountLbl" destination="DY5-ua-etB" id="kY9-sz-Dkr"/>
                         <outlet property="discLbl" destination="fay-2U-hBf" id="aZF-bG-oaQ"/>
                         <outlet property="emailStaticLbl" destination="hPL-RL-UUQ" id="5i9-Yx-5Lw"/>
                         <outlet property="emailTextField" destination="N2X-y7-xdy" id="8Bi-us-vn7"/>
                         <outlet property="forgotPasswordLbl" destination="yvr-jp-Xd4" id="v5C-Vf-SXh"/>
+                        <outlet property="groupedImage" destination="OaC-4b-Xyb" id="Q54-FR-zyM"/>
                         <outlet property="passwordStaticLabl" destination="Zwv-TE-J29" id="qP0-8y-hSJ"/>
                         <outlet property="passwordTextField" destination="VXz-nn-UGZ" id="cc8-Db-cNc"/>
                         <outlet property="signInButton" destination="bqt-Ge-ohX" id="B63-WZ-Rkw"/>
