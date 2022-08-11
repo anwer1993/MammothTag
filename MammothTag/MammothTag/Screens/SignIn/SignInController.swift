@@ -197,7 +197,13 @@ class SignInController: UIViewController, Storyboarded {
     }
     
     @IBAction func signInButtonDidTapped(_ sender: UIButton) {
-        Router.shared.present(screen: .Settings, modalePresentatioinStyle: .fullScreen, completion: nil)
+//        Router.shared.present(screen: .Settings, modalePresentatioinStyle: .fullScreen, completion: nil)
+        
+        guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainTabbarViewController") as? MainTabbarViewController else {
+            return
+        }
+        vc.selectedIndex = 0
+        self.present(vc, animated: true)
 //        if signInViewModel.isValid {
 //            updateViewAppearenceWhenValid(viewPassword, passwordStaticLabl)
 //            updateViewAppearenceWhenValid(viewEmail, emailStaticLbl)

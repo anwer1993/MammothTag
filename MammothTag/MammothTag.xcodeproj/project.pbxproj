@@ -23,12 +23,18 @@
 		A6979EB328A46190008C2B60 /* RegisterViewControllerImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979EB228A46190008C2B60 /* RegisterViewControllerImagePicker.swift */; };
 		A6979EB628A474C7008C2B60 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6979EB528A474C7008C2B60 /* ContactTableViewCell.xib */; };
 		A6979EB828A474DD008C2B60 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979EB728A474DD008C2B60 /* ContactTableViewCell.swift */; };
+		A69B199828A52DA700BE92F1 /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B199728A52DA700BE92F1 /* MainTabbarViewController.swift */; };
+		A69B199A28A5303E00BE92F1 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B199928A5303E00BE92F1 /* TabItem.swift */; };
+		A69B199C28A5304B00BE92F1 /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B199B28A5304B00BE92F1 /* TabNavigationMenu.swift */; };
+		A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B199E28A53A6600BE92F1 /* CustomTabbarView.swift */; };
+		A69B19A128A53A8D00BE92F1 /* CustomTabbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69B19A028A53A8D00BE92F1 /* CustomTabbarView.xib */; };
 		A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7360028A17AAC00C09A3C /* UIColor.swift */; };
 		A6C0CE5128A4804A00084D86 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE4C28A4804900084D86 /* Lato-Medium.ttf */; };
 		A6C0CE5228A4804A00084D86 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE4D28A4804A00084D86 /* Lato-Regular.ttf */; };
 		A6C0CE5428A4804A00084D86 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE4F28A4804A00084D86 /* Lato-Semibold.ttf */; };
 		A6C0CE5528A4804A00084D86 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE5028A4804A00084D86 /* Lato-Bold.ttf */; };
 		A6C0CE5628A4828100084D86 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE4E28A4804A00084D86 /* Lato-Black.ttf */; };
+		A6C79C1B28A5584500229739 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C79C1A28A5584500229739 /* UIDeviceExtension.swift */; };
 		A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */; };
 		A6C8494C28A48F3300CF7E61 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8494B28A48F3300CF7E61 /* ContactListViewModel.swift */; };
 		A6C8494F28A4903D00CF7E61 /* SeettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */; };
@@ -101,12 +107,18 @@
 		A6979EB228A46190008C2B60 /* RegisterViewControllerImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerImagePicker.swift; sourceTree = "<group>"; };
 		A6979EB528A474C7008C2B60 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		A6979EB728A474DD008C2B60 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		A69B199728A52DA700BE92F1 /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
+		A69B199928A5303E00BE92F1 /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		A69B199B28A5304B00BE92F1 /* TabNavigationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
+		A69B199E28A53A6600BE92F1 /* CustomTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarView.swift; sourceTree = "<group>"; };
+		A69B19A028A53A8D00BE92F1 /* CustomTabbarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabbarView.xib; sourceTree = "<group>"; };
 		A6B7360028A17AAC00C09A3C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A6C0CE4C28A4804900084D86 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		A6C0CE4D28A4804A00084D86 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		A6C0CE4E28A4804A00084D86 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		A6C0CE4F28A4804A00084D86 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		A6C0CE5028A4804A00084D86 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		A6C79C1A28A5584500229739 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		A6C8494B28A48F3300CF7E61 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 		A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeettingsTableViewCell.xib; sourceTree = "<group>"; };
@@ -204,6 +216,7 @@
 				A60B313128A173D20037F0B3 /* UIViewExtension.swift */,
 				A6979E9E28A3D63C008C2B60 /* StringExtension.swift */,
 				A6B7360028A17AAC00C09A3C /* UIColor.swift */,
+				A6C79C1A28A5584500229739 /* UIDeviceExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -232,10 +245,30 @@
 		A6979EB428A474B3008C2B60 /* XibFile */ = {
 			isa = PBXGroup;
 			children = (
+				A69B199D28A53A2200BE92F1 /* CustomTabbarView */,
 				A6C8494D28A4901300CF7E61 /* SettingsCell */,
 				A6C8494A28A48E9300CF7E61 /* ContactCell */,
 			);
 			path = XibFile;
+			sourceTree = "<group>";
+		};
+		A69B199628A52D8000BE92F1 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				A69B199728A52DA700BE92F1 /* MainTabbarViewController.swift */,
+				A69B199B28A5304B00BE92F1 /* TabNavigationMenu.swift */,
+				A69B199928A5303E00BE92F1 /* TabItem.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		A69B199D28A53A2200BE92F1 /* CustomTabbarView */ = {
+			isa = PBXGroup;
+			children = (
+				A69B199E28A53A6600BE92F1 /* CustomTabbarView.swift */,
+				A69B19A028A53A8D00BE92F1 /* CustomTabbarView.xib */,
+			);
+			path = CustomTabbarView;
 			sourceTree = "<group>";
 		};
 		A6C0CE4B28A4803100084D86 /* Lato */ = {
@@ -314,6 +347,7 @@
 		A6DD487728A2759D00747B01 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				A69B199628A52D8000BE92F1 /* Tabbar */,
 				A6C8495228A4918B00CF7E61 /* Settings */,
 				A6C8494728A4895B00CF7E61 /* ContactList */,
 				A6DD487F28A2944000747B01 /* Register */,
@@ -526,6 +560,7 @@
 				A6C0CE5628A4828100084D86 /* Lato-Black.ttf in Resources */,
 				A6FC614D28A02A0300756C74 /* Assets.xcassets in Resources */,
 				A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */,
+				A69B19A128A53A8D00BE92F1 /* CustomTabbarView.xib in Resources */,
 				A6C0CE5128A4804A00084D86 /* Lato-Medium.ttf in Resources */,
 				A6FC614B28A02A0100756C74 /* Main.storyboard in Resources */,
 			);
@@ -664,12 +699,16 @@
 				A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */,
 				A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */,
 				A6C8495128A4904C00CF7E61 /* SeettingsTableViewCell.swift in Sources */,
+				A69B199828A52DA700BE92F1 /* MainTabbarViewController.swift in Sources */,
+				A69B199A28A5303E00BE92F1 /* TabItem.swift in Sources */,
 				A6DD488328A2946100747B01 /* RegisterViewModel.swift in Sources */,
 				A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */,
 				A60305F428A327190028F085 /* TermsAndConditionViewModel.swift in Sources */,
+				A69B199C28A5304B00BE92F1 /* TabNavigationMenu.swift in Sources */,
 				A6979EB828A474DD008C2B60 /* ContactTableViewCell.swift in Sources */,
 				A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */,
 				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
+				A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
 				A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */,
 				A6C8494C28A48F3300CF7E61 /* ContactListViewModel.swift in Sources */,
@@ -684,6 +723,7 @@
 				A6D6F28728A1CFEA00AD3C9C /* AuthenticationService.swift in Sources */,
 				A60305F228A31F000028F085 /* TermsAndConditionViewController.swift in Sources */,
 				A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */,
+				A6C79C1B28A5584500229739 /* UIDeviceExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -184,4 +184,9 @@ extension UIImageView {
         }
     }
     
+    func changeTintColor(toColor color: UIColor) {
+        self.image = self.image?.withRenderingMode(.alwaysTemplate)
+        self.tintColor = color
+    }
+    
 }

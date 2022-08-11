@@ -17,7 +17,7 @@ class SeettingsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         dropRightArrowIcon.flipWhenRTL(image: UIImage(named: "arrow-dropright")!)
-    }
+    } 
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

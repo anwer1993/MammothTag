@@ -9,10 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Account-->
         <scene sceneID="Q8e-pd-M8j">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tmt-Ce-PCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SettingsViewController" id="zys-3r-ZaD" customClass="SettingsViewController" customModule="MammothTag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MbA-c9-Fp3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -45,18 +44,18 @@
                             <constraint firstItem="CKb-u0-nPl" firstAttribute="trailing" secondItem="MVO-lE-zJM" secondAttribute="trailing" id="nNO-9t-bVF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="qUe-lt-sEe"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="Icon feather-user" id="qUe-lt-sEe"/>
                     <connections>
                         <outlet property="settingsTableView" destination="orh-ha-Jvd" id="EFe-Uq-3Tl"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tmt-Ce-PCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1441" y="575"/>
+            <point key="canvasLocation" x="336" y="901"/>
         </scene>
-        <!--Item 1-->
+        <!--Contact-->
         <scene sceneID="lro-y9-Z1S">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JzQ-xj-B3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ContactListViewController" id="scL-A6-uYq" customClass="ContactListViewController" customModule="MammothTag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HHz-LD-f8K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -122,7 +121,9 @@
                             <constraint firstItem="3uQ-i8-k1B" firstAttribute="leading" secondItem="mAM-7a-PHs" secondAttribute="leading" id="qOG-Z5-nVv"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="3PS-BP-sBI"/>
+                    <tabBarItem key="tabBarItem" title="Contact" image="Icon-users" selectedImage="Icon-user" id="3PS-BP-sBI">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="addIcon" destination="AeW-8a-rGv" id="SWB-bU-WG8"/>
                         <outlet property="contactListLbl" destination="Ea6-4S-A3r" id="CwU-Tb-T75"/>
@@ -130,34 +131,119 @@
                         <outlet property="searchIcon" destination="oy6-gH-zdf" id="A1n-fa-auW"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JzQ-xj-B3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="-702"/>
+            <point key="canvasLocation" x="1401" y="11"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tabbar View Controller-->
         <scene sceneID="gk5-j6-BLE">
             <objects>
-                <tabBarController id="qjK-LE-pem" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabbarViewController" id="qjK-LE-pem" customClass="MainTabbarViewController" customModule="MammothTag" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i8J-DF-ZxB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="scL-A6-uYq" kind="relationship" relationship="viewControllers" id="znd-n6-RD4"/>
-                        <segue destination="zys-3r-ZaD" kind="relationship" relationship="viewControllers" id="wDr-ka-Say"/>
+                        <segue destination="4up-ni-RGj" kind="relationship" relationship="viewControllers" id="5G6-TX-if0"/>
+                        <segue destination="scL-A6-uYq" kind="relationship" relationship="viewControllers" id="pFc-Kj-vu8"/>
+                        <segue destination="zys-3r-ZaD" kind="relationship" relationship="viewControllers" id="X2S-Xt-5bY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPN-3p-fMp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="337" y="12"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="Ow2-bj-FqN">
+            <objects>
+                <viewController id="4up-ni-RGj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kLr-ug-SRD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDu-Hg-4PA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suscribe_bg" translatesAutoresizingMaskIntoConstraints="NO" id="m0E-z3-Nzu">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccp-we-8JZ">
+                                        <rect key="frame" x="24" y="30" width="278" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rej-Zh-yu6">
+                                        <rect key="frame" x="322" y="30" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="vSB-gR-Ew1"/>
+                                            <constraint firstAttribute="height" constant="22" id="zcq-AQ-9zG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Q44-gJ-6hP">
+                                        <rect key="frame" x="368" y="29" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="KEj-CU-7Qn"/>
+                                            <constraint firstAttribute="height" constant="24" id="nD0-sq-PKG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k0Z-Di-NuI">
+                                        <rect key="frame" x="20" y="76" width="374" height="648"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="m0E-z3-Nzu" secondAttribute="trailing" id="2WH-M9-60x"/>
+                                    <constraint firstAttribute="trailing" secondItem="k0Z-Di-NuI" secondAttribute="trailing" constant="20" id="74F-fM-pg2"/>
+                                    <constraint firstAttribute="bottom" secondItem="m0E-z3-Nzu" secondAttribute="bottom" id="GJa-Zp-rdr"/>
+                                    <constraint firstAttribute="bottom" secondItem="k0Z-Di-NuI" secondAttribute="bottom" constant="45" id="INg-CJ-uxa"/>
+                                    <constraint firstItem="m0E-z3-Nzu" firstAttribute="top" secondItem="TDu-Hg-4PA" secondAttribute="top" id="JvP-sX-1br"/>
+                                    <constraint firstItem="Ccp-we-8JZ" firstAttribute="leading" secondItem="TDu-Hg-4PA" secondAttribute="leading" constant="24" id="MA0-bX-enF"/>
+                                    <constraint firstItem="Q44-gJ-6hP" firstAttribute="centerY" secondItem="Rej-Zh-yu6" secondAttribute="centerY" id="RIa-SS-hIL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q44-gJ-6hP" secondAttribute="trailing" constant="22" id="TFd-ue-46J"/>
+                                    <constraint firstItem="Rej-Zh-yu6" firstAttribute="leading" secondItem="Ccp-we-8JZ" secondAttribute="trailing" constant="20" id="U2a-dD-bLp"/>
+                                    <constraint firstItem="Q44-gJ-6hP" firstAttribute="top" secondItem="TDu-Hg-4PA" secondAttribute="top" constant="29" id="V1w-KY-bUU"/>
+                                    <constraint firstItem="Ccp-we-8JZ" firstAttribute="top" secondItem="TDu-Hg-4PA" secondAttribute="top" constant="30" id="XUw-Ps-W8f"/>
+                                    <constraint firstItem="m0E-z3-Nzu" firstAttribute="leading" secondItem="TDu-Hg-4PA" secondAttribute="leading" id="bUi-f0-gMP"/>
+                                    <constraint firstItem="k0Z-Di-NuI" firstAttribute="leading" secondItem="TDu-Hg-4PA" secondAttribute="leading" constant="20" id="eUO-qt-eF1"/>
+                                    <constraint firstItem="k0Z-Di-NuI" firstAttribute="top" secondItem="Rej-Zh-yu6" secondAttribute="bottom" constant="24" id="gcP-wV-Rje"/>
+                                    <constraint firstItem="Q44-gJ-6hP" firstAttribute="leading" secondItem="Rej-Zh-yu6" secondAttribute="trailing" constant="24" id="n1V-ne-dda"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aIA-O7-7sW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TDu-Hg-4PA" firstAttribute="leading" secondItem="aIA-O7-7sW" secondAttribute="leading" id="5J1-xN-duB"/>
+                            <constraint firstItem="aIA-O7-7sW" firstAttribute="trailing" secondItem="TDu-Hg-4PA" secondAttribute="trailing" id="DKK-Nn-lrY"/>
+                            <constraint firstItem="TDu-Hg-4PA" firstAttribute="top" secondItem="aIA-O7-7sW" secondAttribute="top" id="OES-Sx-5CC"/>
+                            <constraint firstItem="aIA-O7-7sW" firstAttribute="bottom" secondItem="TDu-Hg-4PA" secondAttribute="bottom" id="txs-0X-i3X"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="fdW-1I-4om">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Me8-aN-aFL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-728" y="11"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Icon feather-user" width="27" height="30"/>
+        <image name="Icon-user" width="16.5" height="18"/>
+        <image name="Icon-users" width="22" height="18.5"/>
         <image name="add-Icon" width="23.5" height="23.5"/>
+        <image name="home" width="18.5" height="20"/>
         <image name="search-Icon" width="24.5" height="24.5"/>
         <image name="suscribe_bg" width="412" height="778"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
