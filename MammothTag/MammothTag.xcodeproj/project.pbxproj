@@ -35,6 +35,8 @@
 		A6C0CE5528A4804A00084D86 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE5028A4804A00084D86 /* Lato-Bold.ttf */; };
 		A6C0CE5628A4828100084D86 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE4E28A4804A00084D86 /* Lato-Black.ttf */; };
 		A6C79C1B28A5584500229739 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C79C1A28A5584500229739 /* UIDeviceExtension.swift */; };
+		A6C79C1E28A55B0000229739 /* CustomSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C79C1D28A55B0000229739 /* CustomSegmentControlView.swift */; };
+		A6C79C2028A55B1F00229739 /* CustomSegmentControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C79C1F28A55B1F00229739 /* CustomSegmentControlView.xib */; };
 		A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */; };
 		A6C8494C28A48F3300CF7E61 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8494B28A48F3300CF7E61 /* ContactListViewModel.swift */; };
 		A6C8494F28A4903D00CF7E61 /* SeettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */; };
@@ -50,6 +52,7 @@
 		A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD487D28A2802E00747B01 /* ForgotPassWordViewModel.swift */; };
 		A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD488028A2945500747B01 /* RegisterViewConntroller.swift */; };
 		A6DD488328A2946100747B01 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD488228A2946100747B01 /* RegisterViewModel.swift */; };
+		A6E25A3928A5601B009B2D09 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E25A3828A5601B009B2D09 /* HomeViewController.swift */; };
 		A6FC614428A02A0100756C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614328A02A0100756C74 /* AppDelegate.swift */; };
 		A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614528A02A0100756C74 /* SceneDelegate.swift */; };
 		A6FC614828A02A0100756C74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614728A02A0100756C74 /* ViewController.swift */; };
@@ -119,6 +122,8 @@
 		A6C0CE4F28A4804A00084D86 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		A6C0CE5028A4804A00084D86 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		A6C79C1A28A5584500229739 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		A6C79C1D28A55B0000229739 /* CustomSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControlView.swift; sourceTree = "<group>"; };
+		A6C79C1F28A55B1F00229739 /* CustomSegmentControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSegmentControlView.xib; sourceTree = "<group>"; };
 		A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		A6C8494B28A48F3300CF7E61 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 		A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeettingsTableViewCell.xib; sourceTree = "<group>"; };
@@ -134,6 +139,7 @@
 		A6DD487D28A2802E00747B01 /* ForgotPassWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassWordViewModel.swift; sourceTree = "<group>"; };
 		A6DD488028A2945500747B01 /* RegisterViewConntroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewConntroller.swift; sourceTree = "<group>"; };
 		A6DD488228A2946100747B01 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		A6E25A3828A5601B009B2D09 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A6FC614028A02A0100756C74 /* MammothTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MammothTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC614328A02A0100756C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FC614528A02A0100756C74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 		A6979EB428A474B3008C2B60 /* XibFile */ = {
 			isa = PBXGroup;
 			children = (
+				A6C79C1C28A55AEC00229739 /* CustomSegmentControlView */,
 				A69B199D28A53A2200BE92F1 /* CustomTabbarView */,
 				A6C8494D28A4901300CF7E61 /* SettingsCell */,
 				A6C8494A28A48E9300CF7E61 /* ContactCell */,
@@ -281,6 +288,15 @@
 				A6C0CE4F28A4804A00084D86 /* Lato-Semibold.ttf */,
 			);
 			path = Lato;
+			sourceTree = "<group>";
+		};
+		A6C79C1C28A55AEC00229739 /* CustomSegmentControlView */ = {
+			isa = PBXGroup;
+			children = (
+				A6C79C1D28A55B0000229739 /* CustomSegmentControlView.swift */,
+				A6C79C1F28A55B1F00229739 /* CustomSegmentControlView.xib */,
+			);
+			path = CustomSegmentControlView;
 			sourceTree = "<group>";
 		};
 		A6C8494728A4895B00CF7E61 /* ContactList */ = {
@@ -348,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				A69B199628A52D8000BE92F1 /* Tabbar */,
+				A6E25A3728A56008009B2D09 /* Home */,
 				A6C8495228A4918B00CF7E61 /* Settings */,
 				A6C8494728A4895B00CF7E61 /* ContactList */,
 				A6DD487F28A2944000747B01 /* Register */,
@@ -375,6 +392,14 @@
 				A6DD488228A2946100747B01 /* RegisterViewModel.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		A6E25A3728A56008009B2D09 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A6E25A3828A5601B009B2D09 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		A6FC613728A02A0100756C74 = {
@@ -561,6 +586,7 @@
 				A6FC614D28A02A0300756C74 /* Assets.xcassets in Resources */,
 				A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */,
 				A69B19A128A53A8D00BE92F1 /* CustomTabbarView.xib in Resources */,
+				A6C79C2028A55B1F00229739 /* CustomSegmentControlView.xib in Resources */,
 				A6C0CE5128A4804A00084D86 /* Lato-Medium.ttf in Resources */,
 				A6FC614B28A02A0100756C74 /* Main.storyboard in Resources */,
 			);
@@ -713,6 +739,8 @@
 				A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */,
 				A6C8494C28A48F3300CF7E61 /* ContactListViewModel.swift in Sources */,
 				A6979EB328A46190008C2B60 /* RegisterViewControllerImagePicker.swift in Sources */,
+				A6E25A3928A5601B009B2D09 /* HomeViewController.swift in Sources */,
+				A6C79C1E28A55B0000229739 /* CustomSegmentControlView.swift in Sources */,
 				A648400C28A190BD000D040D /* CustomTextField.swift in Sources */,
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,
 				A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */,

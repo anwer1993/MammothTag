@@ -52,10 +52,10 @@ class CustomTabbarView: UIView {
     var didSelectItem : (Int) -> Void = {_ in}
     
     var recognizer: UITapGestureRecognizer {
-            get {
-                return UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-            }
+        get {
+            return UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -203,6 +203,7 @@ class SignInController: UIViewController, Storyboarded {
             return
         }
         vc.selectedIndex = 0
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
 //        if signInViewModel.isValid {
 //            updateViewAppearenceWhenValid(viewPassword, passwordStaticLabl)

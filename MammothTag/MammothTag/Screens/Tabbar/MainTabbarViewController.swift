@@ -23,7 +23,7 @@ class MainTabbarViewController: UITabBarController  {
         customTabbarView.applySketchShadow(color: UIColor.redBrown48, alpha: 1, x: 0, y: 5, blur: 20, spread: 0)
         tabBar.backgroundColor = .clear
         customTabbarView.didSelectItem = { selectedIndex in
-            self.selectedIndex = selectedIndex == 0 ? 2 : selectedIndex
+            self.selectedIndex = selectedIndex
         }
     }
     
