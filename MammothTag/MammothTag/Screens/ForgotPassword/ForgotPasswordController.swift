@@ -38,7 +38,16 @@ class ForgotPasswordController: UIViewController, Storyboarded {
         super.viewWillAppear(animated)
     }
     
+    func setupLocalizedText() {
+        forgotPassswordLbl.text = "FORGOT_PASSWORD".localized
+        forgotPasswordDescLbl.text = "RESET_PASSWORD_DISC".localized
+        emailStaticLbl.text = "EMAIL".localized
+        sendButton.setTitle("SEND".localized, for: .normal)
+    }
+    
     func initializeView() {
+        setupLocalizedText()
+        backButton.flipWhenRTL(image: UIImage(named: "Groupe 469")!)
         forgotPassswordLbl.textColor = UIColor.chestnut
         forgotPasswordDescLbl.textColor = UIColor.greyishBrown
         sendButton.customizeButton()
@@ -110,7 +119,7 @@ class ForgotPasswordController: UIViewController, Storyboarded {
                 case .email:
                     updateViewAppearenceWhenError()
                     break
-                case .password:
+                default:
                     break
                 }
             }

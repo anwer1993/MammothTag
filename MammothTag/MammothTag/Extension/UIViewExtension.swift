@@ -41,6 +41,11 @@ extension UIView {
         layer.backgroundColor = UIColor(displayP3Red: 241/255, green: 232/255, blue: 227/255, alpha: 1).cgColor
     }
     
+    func addTagGesture(_ tap:UITapGestureRecognizer) {
+        isUserInteractionEnabled = true
+        addGestureRecognizer(tap)
+    }
+    
 }
 
 
@@ -75,11 +80,6 @@ extension UILabel {
     func customizeLabelWhenValid() {
         textColor = UIColor.chestnut
         isHidden = false
-    }
-    
-    func addTagGesture(_ tap:UITapGestureRecognizer) {
-        isUserInteractionEnabled = true
-        addGestureRecognizer(tap)
     }
     
 }
@@ -141,9 +141,35 @@ extension GradientButton {
         self.applySketchShadow(color: UIColor.pinkishRed30, alpha: 1, x: 0, y: 5, blur: 20, spread: 0)
     }
     
-    
 }
 
+
+extension UIButton {
+    
+    func flipWhenRTL(image: UIImage) {
+        switch AppSettings().appLanguage {
+        case .EN:
+            self.setImage(image, for: .normal)
+            break
+        default:
+            self.setImage(image.imageFlippedForRightToLeftLayoutDirection(), for: .normal)
+            break
+        }
+    }
+    
+    func flipWhenRTL(withSelectedImage _image: UIImage, normaleImage: UIImage) {
+        switch AppSettings().appLanguage {
+        case .EN:
+            self.setImage(normaleImage, for: .normal)
+            self.setImage(_image, for: .selected)
+            break
+        default:
+            self.setImage(normaleImage.imageFlippedForRightToLeftLayoutDirection(), for: .normal)
+            self.setImage(_image.imageFlippedForRightToLeftLayoutDirection(), for: .selected)
+            break
+        }
+    }
+}
 
 extension UIImageView {
     

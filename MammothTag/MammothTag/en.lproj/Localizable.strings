@@ -14,4 +14,25 @@
 "DONT_HAVE_ACCOUNT" = "Don't have an account? Create a new account";
 "CREATE_NEW_ACCOUNT" = "Create a new account";
 "SIGN_IN" = "Sign IN";
-
+"RESET_PASSWORD_DISC" = "To reset your password, Please enter your email address";
+"SEND" = "Send";
+"NEW_ACCOUNT" = "New account";
+"LAST_NAME" = "Last name";
+"FIRST_NAME" = "First name";
+"DATE_OF_BIRTH" = "Date of Birth";
+"PHONE" = "Phone";
+"CREATE_PASSWORD" = "Create your password";
+"U_HAVE_ACCOUNT" = "You have an account ? Sign in now";
+"SIGN_IN_NOW" = "Sign in now";
+"CHECK_TERMS" = "I read and accept Terms & conditions.";
+"TERMS_AND_CONDITION" = "Terms & conditions.";
+"PRIVACY" = "Privacy";
+"WHY_DO_USE_IT" = "Why do we use it?";
+"WHERE_DOES_IT_COME" = "Where does it come from";
+"RESET_FIELDS" = "Reset fields";
+"CANCEL" = "Cancel";
+"SETTINGS" = "Settings";
+"CAM_PRMISSION_DENIED" = "The application does not have access to your camera";
+"PHOTOS_PRMISSION_DENIED" = "The application does not have access to your galerie";
+"ACCESS_DENIED" = "Access denied";
+"CONTACT_LIST" = "Contact list";

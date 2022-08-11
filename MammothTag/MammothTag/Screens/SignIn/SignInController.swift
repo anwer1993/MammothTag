@@ -171,7 +171,7 @@ class SignInController: UIViewController, Storyboarded {
     
     func updateSignInButtonWhenError() {
         signInButton.customizeButtonWhenError()
-        signInButton.setTitle("Reset field", for: .normal)
+        signInButton.setTitle("RESET_FIELDS".localized, for: .normal)
     }
     
     func initializeSignInBtn() {
@@ -197,23 +197,26 @@ class SignInController: UIViewController, Storyboarded {
     }
     
     @IBAction func signInButtonDidTapped(_ sender: UIButton) {
-        if signInViewModel.isValid {
-            updateViewAppearenceWhenValid(viewPassword, passwordStaticLabl)
-            updateViewAppearenceWhenValid(viewEmail, emailStaticLbl)
-            signInViewModel.signInModel = SignInModel(email: emailTextField.text!, password: passwordTextField.text!)
-            signInViewModel.login()
-        } else {
-            signInViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
-                switch Brokenrule {
-                case .email:
-                    updateTextFieldWhenError(emailTextField)
-                    break
-                case .password:
-                    updateTextFieldWhenError(passwordTextField)
-                    break
-                }
-            }
-        }
+        Router.shared.present(screen: .Settings, modalePresentatioinStyle: .fullScreen, completion: nil)
+//        if signInViewModel.isValid {
+//            updateViewAppearenceWhenValid(viewPassword, passwordStaticLabl)
+//            updateViewAppearenceWhenValid(viewEmail, emailStaticLbl)
+//            signInViewModel.signInModel = SignInModel(email: emailTextField.text!, password: passwordTextField.text!)
+//            signInViewModel.login()
+//        } else {
+//            signInViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
+//                switch Brokenrule {
+//                case .email:
+//                    updateTextFieldWhenError(emailTextField)
+//                    break
+//                case .password:
+//                    updateTextFieldWhenError(passwordTextField)
+//                    break
+//                default:
+//                    break
+//                }
+//            }
+//        }
     }
     
     func updateUIWhenLogin(isLoggedIn: Bool) {

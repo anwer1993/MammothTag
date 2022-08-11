@@ -323,16 +323,16 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="368" height="58"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C49-sS-aIQ">
-                                                                        <rect key="frame" x="10" y="10" width="358" height="48"/>
+                                                                        <rect key="frame" x="10" y="10" width="348" height="48"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18F-E3-RxV">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="348" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o4y-jp-kqR" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="14.5" width="358" height="33.5"/>
+                                                                                <rect key="frame" x="0.0" y="14.5" width="348" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
@@ -344,7 +344,7 @@
                                                                     <constraint firstAttribute="height" constant="58" id="JVb-3g-6Dw"/>
                                                                     <constraint firstAttribute="bottom" secondItem="C49-sS-aIQ" secondAttribute="bottom" id="drt-ch-Gud"/>
                                                                     <constraint firstItem="C49-sS-aIQ" firstAttribute="top" secondItem="cs7-S1-Zgn" secondAttribute="top" constant="10" id="uO2-dN-giD"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="C49-sS-aIQ" secondAttribute="trailing" id="xV4-H6-Z9q"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="C49-sS-aIQ" secondAttribute="trailing" constant="10" id="xV4-H6-Z9q"/>
                                                                     <constraint firstItem="C49-sS-aIQ" firstAttribute="leading" secondItem="cs7-S1-Zgn" secondAttribute="leading" constant="10" id="zC7-qJ-0DP"/>
                                                                 </constraints>
                                                             </view>
@@ -352,16 +352,16 @@
                                                                 <rect key="frame" x="0.0" y="78" width="368" height="58"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-70-gHb">
-                                                                        <rect key="frame" x="10" y="10" width="358" height="48"/>
+                                                                        <rect key="frame" x="10" y="10" width="348" height="48"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeO-VR-ZMl">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="348" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Skj-zN-Qr6" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="14.5" width="358" height="33.5"/>
+                                                                                <rect key="frame" x="0.0" y="14.5" width="348" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
@@ -373,7 +373,7 @@
                                                                     <constraint firstItem="ES2-70-gHb" firstAttribute="leading" secondItem="Ggp-gD-i28" secondAttribute="leading" constant="10" id="2Ip-et-ajN"/>
                                                                     <constraint firstAttribute="bottom" secondItem="ES2-70-gHb" secondAttribute="bottom" id="BLt-Bc-326"/>
                                                                     <constraint firstItem="ES2-70-gHb" firstAttribute="top" secondItem="Ggp-gD-i28" secondAttribute="top" constant="10" id="Hc9-qQ-cqJ"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="ES2-70-gHb" secondAttribute="trailing" id="KNm-Zv-qEu"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ES2-70-gHb" secondAttribute="trailing" constant="10" id="KNm-Zv-qEu"/>
                                                                     <constraint firstAttribute="height" constant="58" id="dke-cb-4O0"/>
                                                                 </constraints>
                                                             </view>
@@ -381,16 +381,16 @@
                                                                 <rect key="frame" x="0.0" y="156" width="368" height="58"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8zy-ef-xnd">
-                                                                        <rect key="frame" x="10" y="10" width="358" height="48"/>
+                                                                        <rect key="frame" x="10" y="10" width="348" height="48"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aF1-iE-vHO">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="348" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dEg-Z9-3Sa" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="14.5" width="358" height="33.5"/>
+                                                                                <rect key="frame" x="0.0" y="14.5" width="348" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
@@ -403,7 +403,7 @@
                                                                     <constraint firstItem="8zy-ef-xnd" firstAttribute="top" secondItem="xXm-CX-qYT" secondAttribute="top" constant="10" id="RUq-B8-Twq"/>
                                                                     <constraint firstAttribute="bottom" secondItem="8zy-ef-xnd" secondAttribute="bottom" id="WVT-qk-Pex"/>
                                                                     <constraint firstAttribute="height" constant="58" id="kiA-KF-Jjv"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="8zy-ef-xnd" secondAttribute="trailing" id="mkd-ie-RfP"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="8zy-ef-xnd" secondAttribute="trailing" constant="10" id="mkd-ie-RfP"/>
                                                                     <constraint firstItem="8zy-ef-xnd" firstAttribute="leading" secondItem="xXm-CX-qYT" secondAttribute="leading" constant="10" id="zHs-Ao-7Ag"/>
                                                                 </constraints>
                                                             </view>
@@ -411,16 +411,16 @@
                                                                 <rect key="frame" x="0.0" y="234" width="368" height="58"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3DJ-Aw-L4i">
-                                                                        <rect key="frame" x="10" y="10" width="358" height="48"/>
+                                                                        <rect key="frame" x="10" y="10" width="348" height="48"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOy-AX-CoN">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="348" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZLs-VR-M2u" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="14.5" width="358" height="33.5"/>
+                                                                                <rect key="frame" x="0.0" y="14.5" width="348" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
@@ -430,7 +430,7 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="3DJ-Aw-L4i" secondAttribute="trailing" id="0mn-bN-aGG"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="3DJ-Aw-L4i" secondAttribute="trailing" constant="10" id="0mn-bN-aGG"/>
                                                                     <constraint firstAttribute="bottom" secondItem="3DJ-Aw-L4i" secondAttribute="bottom" id="7bT-hz-npY"/>
                                                                     <constraint firstItem="3DJ-Aw-L4i" firstAttribute="leading" secondItem="qGw-1y-yxY" secondAttribute="leading" constant="10" id="E9O-Jw-kj1"/>
                                                                     <constraint firstItem="3DJ-Aw-L4i" firstAttribute="top" secondItem="qGw-1y-yxY" secondAttribute="top" constant="10" id="SWO-OZ-JWO"/>
@@ -460,8 +460,8 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XC0-rA-0fA">
                                                                         <rect key="frame" x="108" y="0.0" width="260" height="58"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P2T-0h-ibo">
-                                                                                <rect key="frame" x="10" y="0.0" width="250" height="58"/>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P2T-0h-ibo" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
+                                                                                <rect key="frame" x="10" y="0.0" width="240" height="58"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
@@ -469,7 +469,7 @@
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
                                                                             <constraint firstItem="P2T-0h-ibo" firstAttribute="top" secondItem="XC0-rA-0fA" secondAttribute="top" id="4WM-2m-tYV"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="P2T-0h-ibo" secondAttribute="trailing" id="8RO-8l-WTv"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="P2T-0h-ibo" secondAttribute="trailing" constant="10" id="8RO-8l-WTv"/>
                                                                             <constraint firstAttribute="bottom" secondItem="P2T-0h-ibo" secondAttribute="bottom" id="HKe-ln-dwT"/>
                                                                             <constraint firstItem="P2T-0h-ibo" firstAttribute="leading" secondItem="XC0-rA-0fA" secondAttribute="leading" constant="10" id="lBp-1k-AoY"/>
                                                                         </constraints>
@@ -494,16 +494,16 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="368" height="58"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="stg-wM-odx">
-                                                                        <rect key="frame" x="10" y="10" width="358" height="48"/>
+                                                                        <rect key="frame" x="10" y="10" width="348" height="48"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0k-Et-mDF">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="348" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-z3-geG" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="14.5" width="358" height="33.5"/>
+                                                                                <rect key="frame" x="0.0" y="14.5" width="348" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
@@ -512,7 +512,7 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="stg-wM-odx" secondAttribute="trailing" id="5La-8F-ujf"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="stg-wM-odx" secondAttribute="trailing" constant="10" id="5La-8F-ujf"/>
                                                                     <constraint firstItem="stg-wM-odx" firstAttribute="leading" secondItem="f9R-eL-WKP" secondAttribute="leading" constant="10" id="6lN-8J-kRB"/>
                                                                     <constraint firstItem="stg-wM-odx" firstAttribute="top" secondItem="f9R-eL-WKP" secondAttribute="top" constant="10" id="A2h-iM-Y1E"/>
                                                                     <constraint firstAttribute="bottom" secondItem="stg-wM-odx" secondAttribute="bottom" id="bAq-0l-kmF"/>
@@ -649,7 +649,7 @@
                         <outlet property="lastNameStaticLabel" destination="yeO-VR-ZMl" id="PZV-hg-237"/>
                         <outlet property="lastNameTextField" destination="Skj-zN-Qr6" id="jVO-t3-oAS"/>
                         <outlet property="newAccountLbl" destination="pd4-YZ-ccU" id="Hfc-Bh-9PY"/>
-                        <outlet property="passwordStaticLbl" destination="X0k-Et-mDF" id="3c3-oK-uhV"/>
+                        <outlet property="passwordStaticLabel" destination="X0k-Et-mDF" id="cOh-qu-eGc"/>
                         <outlet property="passwordTextField" destination="2T4-z3-geG" id="2Re-ES-6Gq"/>
                         <outlet property="phoneTextField" destination="P2T-0h-ibo" id="zDt-kV-0eI"/>
                         <outlet property="phoneView" destination="XC0-rA-0fA" id="0zA-na-IBh"/>
@@ -722,16 +722,16 @@ Please enter your email address</string>
                                         <rect key="frame" x="24" y="263.5" width="366" height="58"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OmN-0l-RML">
-                                                <rect key="frame" x="10" y="10" width="356" height="48"/>
+                                                <rect key="frame" x="10" y="10" width="346" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhb-Nu-49m">
-                                                        <rect key="frame" x="0.0" y="0.0" width="356" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="346" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T5w-y1-HPb" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="14.5" width="356" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="14.5" width="346" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -744,7 +744,7 @@ Please enter your email address</string>
                                             <constraint firstAttribute="height" constant="58" id="QT8-WA-TdV"/>
                                             <constraint firstItem="OmN-0l-RML" firstAttribute="top" secondItem="BQ6-EO-VPQ" secondAttribute="top" constant="10" id="kA1-CQ-aSg"/>
                                             <constraint firstAttribute="bottom" secondItem="OmN-0l-RML" secondAttribute="bottom" id="tOE-l1-cmP"/>
-                                            <constraint firstAttribute="trailing" secondItem="OmN-0l-RML" secondAttribute="trailing" id="zJs-m2-T5e"/>
+                                            <constraint firstAttribute="trailing" secondItem="OmN-0l-RML" secondAttribute="trailing" constant="10" id="zJs-m2-T5e"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puo-be-eH0" customClass="GradientButton" customModule="MammothTag" customModuleProvider="target">

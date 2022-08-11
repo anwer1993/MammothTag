@@ -34,7 +34,15 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
         termsAndConditionsViewModel.getTermsAndCondditions()
     }
     
+    func setupLocalizedText() {
+        termsLabel.text = "PRIVACY".localized
+        firstLabel.text = "WHY_DO_USE_IT".localized
+        whereDoesTitleLbl.text = "WHERE_DOES_IT_COME".localized
+        backButton.flipWhenRTL(image: UIImage(named: "Groupe 469")!)
+    }
+    
     func initView() {
+        setupLocalizedText()
         termsLabel.textColor = UIColor.chestnut
         firstLabel.textColor = UIColor.tangerine
         whereDoesTitleLbl.textColor = .tangerine

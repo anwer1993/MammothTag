@@ -26,9 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        
-        
-        
         //        // mainStoryboard
         let mainStoryboard = UIStoryboard(name: "Authentification", bundle: nil)
         

@@ -10,7 +10,14 @@ import Foundation
 extension String {
     
     var localized: String {
-        let t = NSLocalizedString(self, comment: "")
         return NSLocalizedString(self, comment: "")
+    }
+}
+
+
+extension Optional where Wrapped == String {
+    
+    var isEmpty: Bool {
+        return self == nil || self == "" || self == " "
     }
 }
