@@ -18,6 +18,7 @@ class ContactListViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         setupTableView()
         setupLocalizedText()
     }

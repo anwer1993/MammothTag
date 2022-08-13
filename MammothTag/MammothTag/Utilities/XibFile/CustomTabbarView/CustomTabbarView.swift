@@ -96,7 +96,7 @@ class CustomTabbarView: UIView {
     }
     
     func deactivateItem(indicator: UIView, label: UILabel, icon: UIImageView) {
-        indicator.backgroundColor = .clear
+        indicator.backgroundColor = .redBrown
         label.textColor = .white
         icon.changeTintColor(toColor: .white)
     }

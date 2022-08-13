@@ -30,7 +30,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="zJN-UW-jj4" firstAttribute="centerY" secondItem="eHz-aw-9KH" secondAttribute="centerY" id="8fL-mx-LrC"/>
                     <constraint firstAttribute="trailing" secondItem="5Nk-BH-qmC" secondAttribute="trailing" constant="5" id="CDu-NC-lhP"/>
@@ -38,6 +38,7 @@
                     <constraint firstItem="5Nk-BH-qmC" firstAttribute="centerY" secondItem="zJN-UW-jj4" secondAttribute="centerY" id="r2Z-As-YQe"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="descriptionLabel" destination="zJN-UW-jj4" id="Hqo-MX-PSk"/>
                 <outlet property="dropRightArrowIcon" destination="5Nk-BH-qmC" id="2jn-33-6Xh"/>

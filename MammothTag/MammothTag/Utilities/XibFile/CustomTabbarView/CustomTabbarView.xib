@@ -21,7 +21,7 @@
                 <outlet property="contractStackView" destination="C7j-2j-caV" id="WjD-wK-9S7"/>
                 <outlet property="homeIcon" destination="f9h-SN-oCz" id="29Y-JL-lNW"/>
                 <outlet property="homeLabel" destination="k7d-kG-Sxg" id="x2B-B7-3fb"/>
-                <outlet property="homeSelectedIndicatorView" destination="sqX-E3-uzk" id="MdK-ul-hDK"/>
+                <outlet property="homeSelectedIndicatorView" destination="sqX-E3-uzk" id="ee8-9x-LFs"/>
                 <outlet property="homeStackView" destination="4A6-Aw-NCY" id="Bsu-cv-JQo"/>
                 <outlet property="viewContent" destination="MDt-yi-Obk" id="iQ1-Rl-uNc"/>
             </connections>
@@ -60,7 +60,7 @@
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqX-E3-uzk">
                                     <rect key="frame" x="0.0" y="34" width="124.5" height="8"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="1" green="0.70980392160000005" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="8" id="6eh-qi-fJi"/>
                                     </constraints>

@@ -73,6 +73,7 @@
             <viewLayoutGuide key="safeArea" id="jKi-if-o5I"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="TWw-Gt-0OU" firstAttribute="width" secondItem="xtD-bw-Bux" secondAttribute="width" id="0Jg-zT-cgd"/>
                 <constraint firstItem="GBR-hQ-AoN" firstAttribute="top" secondItem="xtD-bw-Bux" secondAttribute="top" id="3kb-FR-36P"/>
                 <constraint firstItem="TWw-Gt-0OU" firstAttribute="trailing" secondItem="jKi-if-o5I" secondAttribute="trailing" id="G1E-1y-0UT"/>
                 <constraint firstItem="TWw-Gt-0OU" firstAttribute="leading" secondItem="jKi-if-o5I" secondAttribute="leading" id="STC-Ig-XgF"/>

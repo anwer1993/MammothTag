@@ -197,40 +197,33 @@ class SignInController: UIViewController, Storyboarded {
     }
     
     @IBAction func signInButtonDidTapped(_ sender: UIButton) {
-//        Router.shared.present(screen: .Settings, modalePresentatioinStyle: .fullScreen, completion: nil)
-        
-        guard let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainTabbarViewController") as? MainTabbarViewController else {
-            return
+        if signInViewModel.isValid {
+            updateViewAppearenceWhenValid(viewPassword, passwordStaticLabl)
+            updateViewAppearenceWhenValid(viewEmail, emailStaticLbl)
+            signInViewModel.signInModel = SignInModel(email: emailTextField.text!, password: passwordTextField.text!)
+            signInViewModel.login()
+        } else {
+            signInViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
+                switch Brokenrule {
+                case .email:
+                    updateTextFieldWhenError(emailTextField)
+                    break
+                case .password:
+                    updateTextFieldWhenError(passwordTextField)
+                    break
+                default:
+                    break
+                }
+            }
         }
-        vc.selectedIndex = 0
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
-//        if signInViewModel.isValid {
-//            updateViewAppearenceWhenValid(viewPassword, passwordStaticLabl)
-//            updateViewAppearenceWhenValid(viewEmail, emailStaticLbl)
-//            signInViewModel.signInModel = SignInModel(email: emailTextField.text!, password: passwordTextField.text!)
-//            signInViewModel.login()
-//        } else {
-//            signInViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
-//                switch Brokenrule {
-//                case .email:
-//                    updateTextFieldWhenError(emailTextField)
-//                    break
-//                case .password:
-//                    updateTextFieldWhenError(passwordTextField)
-//                    break
-//                default:
-//                    break
-//                }
-//            }
-//        }
     }
     
     func updateUIWhenLogin(isLoggedIn: Bool) {
+        AccountManager.shared.isLoggedIn = isLoggedIn
         if isLoggedIn {
-            print("ISLoggedIn")
+            Router.shared.present(screen: .Tabbar, modalePresentatioinStyle: .fullScreen, completion: nil)
         } else {
-            print("Loggin failed")
+            self.showAlert(withTitle: "Error", withMessage: "Invalid credentials")
         }
     }
     

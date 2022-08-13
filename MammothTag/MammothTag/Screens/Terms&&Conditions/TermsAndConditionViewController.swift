@@ -42,6 +42,7 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     }
     
     func initView() {
+        self.navigationController?.isNavigationBarHidden = true
         setupLocalizedText()
         termsLabel.textColor = UIColor.chestnut
         firstLabel.textColor = UIColor.tangerine

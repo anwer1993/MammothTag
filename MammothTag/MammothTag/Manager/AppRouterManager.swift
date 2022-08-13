@@ -26,6 +26,7 @@ enum AppScreen: INaviagtion{
     case Terms
     case ContactList
     case Settings
+    case Tabbar
 }
 
 /// Class responsible for the routing functionality
@@ -81,6 +82,11 @@ struct Router: IRouter {
             case .Settings:
                 guard let vc = SettingsViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
                 viewController = vc
+                break
+            case .Tabbar:
+                guard let vc = MainTabbarViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
+                let navController = UINavigationController(rootViewController: vc)
+                viewController = navController
                 break
             }
         }

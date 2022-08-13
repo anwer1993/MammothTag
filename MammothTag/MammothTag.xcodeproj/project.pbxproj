@@ -28,7 +28,13 @@
 		A69B199C28A5304B00BE92F1 /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B199B28A5304B00BE92F1 /* TabNavigationMenu.swift */; };
 		A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B199E28A53A6600BE92F1 /* CustomTabbarView.swift */; };
 		A69B19A128A53A8D00BE92F1 /* CustomTabbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69B19A028A53A8D00BE92F1 /* CustomTabbarView.xib */; };
+		A6A6959728A6B8870025A3B2 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6959628A6B8870025A3B2 /* AccountManager.swift */; };
+		A6A6959928A6BDB90025A3B2 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6959828A6BDB90025A3B2 /* UIViewControllerExtension.swift */; };
+		A6A6959C28A6E6810025A3B2 /* UpdateProfileModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A6959B28A6E6810025A3B2 /* UpdateProfileModeVC.xib */; };
+		A6A6959E28A6E69B0025A3B2 /* UpdateProfileModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6959D28A6E69A0025A3B2 /* UpdateProfileModeVC.swift */; };
 		A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7360028A17AAC00C09A3C /* UIColor.swift */; };
+		A6B8C9D228A7087B0003C408 /* ScanNFCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B8C9D128A7087B0003C408 /* ScanNFCVC.xib */; };
+		A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8C9D528A7088E0003C408 /* ScanNFCVC.swift */; };
 		A6C0CE5128A4804A00084D86 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE4C28A4804900084D86 /* Lato-Medium.ttf */; };
 		A6C0CE5228A4804A00084D86 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE4D28A4804A00084D86 /* Lato-Regular.ttf */; };
 		A6C0CE5428A4804A00084D86 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE4F28A4804A00084D86 /* Lato-Semibold.ttf */; };
@@ -115,7 +121,13 @@
 		A69B199B28A5304B00BE92F1 /* TabNavigationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
 		A69B199E28A53A6600BE92F1 /* CustomTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarView.swift; sourceTree = "<group>"; };
 		A69B19A028A53A8D00BE92F1 /* CustomTabbarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabbarView.xib; sourceTree = "<group>"; };
+		A6A6959628A6B8870025A3B2 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		A6A6959828A6BDB90025A3B2 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		A6A6959B28A6E6810025A3B2 /* UpdateProfileModeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateProfileModeVC.xib; sourceTree = "<group>"; };
+		A6A6959D28A6E69A0025A3B2 /* UpdateProfileModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileModeVC.swift; sourceTree = "<group>"; };
 		A6B7360028A17AAC00C09A3C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A6B8C9D128A7087B0003C408 /* ScanNFCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanNFCVC.xib; sourceTree = "<group>"; };
+		A6B8C9D528A7088E0003C408 /* ScanNFCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanNFCVC.swift; sourceTree = "<group>"; };
 		A6C0CE4C28A4804900084D86 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		A6C0CE4D28A4804A00084D86 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		A6C0CE4E28A4804A00084D86 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
@@ -220,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				A60B313128A173D20037F0B3 /* UIViewExtension.swift */,
+				A6A6959828A6BDB90025A3B2 /* UIViewControllerExtension.swift */,
 				A6979E9E28A3D63C008C2B60 /* StringExtension.swift */,
 				A6B7360028A17AAC00C09A3C /* UIColor.swift */,
 				A6C79C1A28A5584500229739 /* UIDeviceExtension.swift */,
@@ -251,6 +264,8 @@
 		A6979EB428A474B3008C2B60 /* XibFile */ = {
 			isa = PBXGroup;
 			children = (
+				A6B8C9D028A708530003C408 /* ScanNFCVC */,
+				A6A6959A28A6E65A0025A3B2 /* UpdateProfileModeVC */,
 				A6C79C1C28A55AEC00229739 /* CustomSegmentControlView */,
 				A69B199D28A53A2200BE92F1 /* CustomTabbarView */,
 				A6C8494D28A4901300CF7E61 /* SettingsCell */,
@@ -276,6 +291,33 @@
 				A69B19A028A53A8D00BE92F1 /* CustomTabbarView.xib */,
 			);
 			path = CustomTabbarView;
+			sourceTree = "<group>";
+		};
+		A6A6959528A6B86F0025A3B2 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A6DD487B28A27D5E00747B01 /* AppRouterManager.swift */,
+				A6A6959628A6B8870025A3B2 /* AccountManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		A6A6959A28A6E65A0025A3B2 /* UpdateProfileModeVC */ = {
+			isa = PBXGroup;
+			children = (
+				A6A6959B28A6E6810025A3B2 /* UpdateProfileModeVC.xib */,
+				A6A6959D28A6E69A0025A3B2 /* UpdateProfileModeVC.swift */,
+			);
+			path = UpdateProfileModeVC;
+			sourceTree = "<group>";
+		};
+		A6B8C9D028A708530003C408 /* ScanNFCVC */ = {
+			isa = PBXGroup;
+			children = (
+				A6B8C9D128A7087B0003C408 /* ScanNFCVC.xib */,
+				A6B8C9D528A7088E0003C408 /* ScanNFCVC.swift */,
+			);
+			path = ScanNFCVC;
 			sourceTree = "<group>";
 		};
 		A6C0CE4B28A4803100084D86 /* Lato */ = {
@@ -430,8 +472,8 @@
 				A66FEEE828A47D980062D754 /* MammothTag.entitlements */,
 				A6FC614328A02A0100756C74 /* AppDelegate.swift */,
 				A6FC614528A02A0100756C74 /* SceneDelegate.swift */,
-				A6DD487B28A27D5E00747B01 /* AppRouterManager.swift */,
 				A6FC614728A02A0100756C74 /* ViewController.swift */,
+				A6A6959528A6B86F0025A3B2 /* Manager */,
 				A6D6F28528A1CFCC00AD3C9C /* APIService */,
 				A6D6F28228A1CCAC00AD3C9C /* Models */,
 				A6DD487728A2759D00747B01 /* Screens */,
@@ -578,6 +620,8 @@
 				A6C8494F28A4903D00CF7E61 /* SeettingsTableViewCell.xib in Resources */,
 				A6C0CE5528A4804A00084D86 /* Lato-Bold.ttf in Resources */,
 				A6979EB628A474C7008C2B60 /* ContactTableViewCell.xib in Resources */,
+				A6B8C9D228A7087B0003C408 /* ScanNFCVC.xib in Resources */,
+				A6A6959C28A6E6810025A3B2 /* UpdateProfileModeVC.xib in Resources */,
 				A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */,
 				A6FC615028A02A0300756C74 /* LaunchScreen.storyboard in Resources */,
 				A6C0CE5228A4804A00084D86 /* Lato-Regular.ttf in Resources */,
@@ -731,15 +775,19 @@
 				A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */,
 				A60305F428A327190028F085 /* TermsAndConditionViewModel.swift in Sources */,
 				A69B199C28A5304B00BE92F1 /* TabNavigationMenu.swift in Sources */,
+				A6A6959E28A6E69B0025A3B2 /* UpdateProfileModeVC.swift in Sources */,
 				A6979EB828A474DD008C2B60 /* ContactTableViewCell.swift in Sources */,
+				A6A6959928A6BDB90025A3B2 /* UIViewControllerExtension.swift in Sources */,
 				A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */,
 				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
 				A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
 				A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */,
+				A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */,
 				A6C8494C28A48F3300CF7E61 /* ContactListViewModel.swift in Sources */,
 				A6979EB328A46190008C2B60 /* RegisterViewControllerImagePicker.swift in Sources */,
 				A6E25A3928A5601B009B2D09 /* HomeViewController.swift in Sources */,
+				A6A6959728A6B8870025A3B2 /* AccountManager.swift in Sources */,
 				A6C79C1E28A55B0000229739 /* CustomSegmentControlView.swift in Sources */,
 				A648400C28A190BD000D040D /* CustomTextField.swift in Sources */,
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,

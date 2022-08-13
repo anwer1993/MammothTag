@@ -72,13 +72,14 @@ class CustomSegmentControlView : UIView {
             activateItem(view: publicProfileView, label: publicProfileLbl)
             deactivateItem(view: limitedAccessView, label: limitedAccessLbl)
         } else {
-            deactivateItem(view: publicProfileView, label: publicProfileLbl)
             activateItem(view: limitedAccessView, label: limitedAccessLbl)
+            deactivateItem(view: publicProfileView, label: publicProfileLbl)
         }
     }
     
     private func activateItem(view: UIView, label: UILabel) {
-        styleView(view)
+        view.layer.cornerRadius = 25.0
+        view.layer.backgroundColor = UIColor.tangerine.cgColor
         label.textColor = .white
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTabbarViewController: UITabBarController  {
+class MainTabbarViewController: UITabBarController, Storyboarded  {
     
     var customTabbarView: CustomTabbarView!
     

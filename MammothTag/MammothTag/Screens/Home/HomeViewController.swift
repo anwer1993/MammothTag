@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreNFC
 
 class HomeViewController: UIViewController {
     
@@ -32,22 +33,30 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet weak var topBgImage: UIImageView!
     
+    let profileModeVC = UpdateProfileModeVC(nibName: "UpdateProfileModeVC", bundle: nil)
+    let scanNFCVC = ScanNFCVC(nibName: "ScanNFCVC", bundle: nil)
     
+    var scanNFCGesture: UITapGestureRecognizer {
+        return UITapGestureRecognizer(target: self, action: #selector(showScanNFCPopup(_:)))
+    }
     
-    
-    
-    
-    
-    
+    var detectedMessages = [NFCNDEFMessage]()
+    var session: NFCNDEFReaderSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        let profileModeTap = UITapGestureRecognizer(target: self, action: #selector(updateProfileMode(_:)))
+        privilageView.addTagGesture(profileModeTap)
+        activateNFCImage.addTagGesture(scanNFCGesture)
+        activateNFCLabel.addTagGesture(scanNFCGesture)
         initView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let frame = CGRect(x: 0, y: 0, width: customSegmentControlView.bounds.width, height: customSegmentControlView.bounds.height)
+        let screenWidth = UIScreen.main.bounds.width - 20
+        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
         let view = CustomSegmentControlView(frame: frame)
         self.customSegmentControlView.addSubview(view)
         
@@ -62,9 +71,13 @@ class HomeViewController: UIViewController {
         
     }
     
-    func initView() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-//        customTabbarView.backgroundColor = .redBrown
+    }
+    
+    func initView() {
+        privilageLabl.text = AccountManager.shared.profileMode == .Public ? "Public" : "Private"
         customSegmentControlView.layer.cornerRadius = 25.0
         customSegmentControlView.applySketchShadow(color: .black9, alpha: 0.9, x: 0, y: 2, blur: 20, spread: 0)
         moreView.layer.cornerRadius = moreView.bounds.width * 0.5
@@ -81,14 +94,81 @@ class HomeViewController: UIViewController {
         activateNFCLabel.textColor = .white80
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    @objc func updateProfileMode(_ gesture: UITapGestureRecognizer? = nil) {
+        viewContainer.addBlurEffect()
+        showProfileModeMenu()
+    }
+    
+    func showProfileModeMenu() {
+        profileModeVC.handleTapWhenDismiss = {[weak self] in
+            guard let this = self else {return}
+            this.updateUIWhenRemovePopup()
+            this.privilageLabl.text = AccountManager.shared.profileMode == .Public ? "Public" : "Private"
+        }
+        self.addChild(profileModeVC)
+        self.view.addSubview(profileModeVC.view)
+        profileModeVC.didMove(toParent: self)
+        let leading = profileModeVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        let trailing = profileModeVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        let top = profileModeVC.view.topAnchor.constraint(equalTo: view.topAnchor)
+        let bottom = profileModeVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        NSLayoutConstraint.activate([leading, trailing, top, bottom])
+        profileModeVC.view.translatesAutoresizingMaskIntoConstraints = false
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func showScanNFCPopup(_ gesture: UITapGestureRecognizer? = nil) {
+        guard NFCNDEFReaderSession.readingAvailable else {
+            let alertController = UIAlertController(
+                title: "Scanning Not Supported",
+                message: "This device doesn't support tag scanning.",
+                preferredStyle: .alert
+            )
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)        
+        viewContainer.addBlurEffect()
+        showScanNFCPopup()
+        session?.begin()
+    }
+    
+    func showScanNFCPopup() {
+        scanNFCVC.handleTapWhenDismiss = {[weak self] in
+            guard let this = self else {return}
+            this.updateUIWhenRemovePopup()
+        }
+        self.addChild(scanNFCVC)
+        self.view.addSubview(scanNFCVC.view)
+        scanNFCVC.didMove(toParent: self)
+        let leading = scanNFCVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        let trailing = scanNFCVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        let top = scanNFCVC.view.topAnchor.constraint(equalTo: view.topAnchor)
+        let bottom = scanNFCVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        NSLayoutConstraint.activate([leading, trailing, top, bottom])
+        scanNFCVC.view.translatesAutoresizingMaskIntoConstraints = false
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func updateUIWhenRemovePopup() {
+        self.viewContainer.removeBlur()
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+}
+
+
+extension HomeViewController: NFCNDEFReaderSessionDelegate {
+   
+    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+        
+    }
+    
+    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+        
+    }
+    
     
 }
