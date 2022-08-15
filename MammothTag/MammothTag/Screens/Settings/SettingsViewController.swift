@@ -47,16 +47,20 @@ class SettingsViewController: UIViewController, Storyboarded {
     }
     
     func setupUI() {
-        let screenWidth = UIScreen.main.bounds.width
-        shadowInffoViewWidthConstarinte.constant = screenWidth > 390 ? 374 : 339
-        infoViewWidthConstarinte.constant = screenWidth > 390 ? 375 : 340
-        view.layoutIfNeeded()
+        setupTopViewConstarinte()
         shadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
         shadowView.layer.cornerRadius = 60
         TopView.applyRadiusMaskFor(topLeft: 30.0, bottomLeft: 30.0, bottomRight: 30.0, topRight: 70.0)
         profileImageShadowView.layer.cornerRadius = 60
         profileImageShadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
         viewProfileImage.applyRadiusMaskFor(topLeft: 60.0, bottomLeft: 20.0, bottomRight: 20.0, topRight: 60.0)
+    }
+    
+    func setupTopViewConstarinte() {
+        let screenWidth = UIScreen.main.bounds.width
+        shadowInffoViewWidthConstarinte.constant = screenWidth > 390 ? 374 : 339
+        infoViewWidthConstarinte.constant = screenWidth > 390 ? 375 : 340
+        view.layoutIfNeeded()
     }
     
 }

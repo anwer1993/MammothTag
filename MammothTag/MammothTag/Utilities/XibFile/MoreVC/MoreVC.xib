@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoreVC" customModule="MammothTag" customModuleProvider="target">
+            <connections>
+                <outlet property="activateNFCIcon" destination="MMy-09-FIk" id="sbb-XV-DMi"/>
+                <outlet property="activateNFCLbl" destination="J7M-xh-uZf" id="cUk-AY-E29"/>
+                <outlet property="activateNFCStack" destination="KAz-7F-aJ4" id="LR5-rT-hAw"/>
+                <outlet property="addNewCardIcon" destination="Ljs-2S-98Z" id="gla-Fb-xy4"/>
+                <outlet property="addNewCardLbl" destination="HIF-Wt-poI" id="gbe-yt-cyJ"/>
+                <outlet property="addNewCardStack" destination="Hwl-2V-eJT" id="ra1-7x-h3W"/>
+                <outlet property="bottomStackView" destination="NPd-dI-Qq4" id="ch9-SM-zVp"/>
+                <outlet property="closeButton" destination="kXS-3v-Ndl" id="sIg-3z-tId"/>
+                <outlet property="deleteCardIcon" destination="ebS-8D-H6Y" id="EfA-mR-6Du"/>
+                <outlet property="deleteCardLbl" destination="SEk-Ma-Otk" id="PWS-dh-db9"/>
+                <outlet property="deleteCardStack" destination="1S3-xN-WA8" id="8zH-Xw-2RP"/>
+                <outlet property="lineView" destination="0om-oT-MSv" id="HTQ-Bu-V00"/>
+                <outlet property="menuView" destination="QzG-77-97k" id="IKN-pn-x8Y"/>
+                <outlet property="renameCardIcon" destination="uda-oZ-4pd" id="Hie-ja-gFA"/>
+                <outlet property="renameCardLbl" destination="EjM-nR-rUq" id="aji-IG-Zqw"/>
+                <outlet property="renameCardStackView" destination="iML-QC-QTd" id="RHZ-4k-jys"/>
+                <outlet property="showCardListIcon" destination="d6l-W7-MiE" id="0A6-39-sDa"/>
+                <outlet property="showCardListLbl" destination="hxF-k1-K2P" id="h7m-NB-s2V"/>
+                <outlet property="showCardListStack" destination="KBk-RO-Caz" id="Soq-bp-M8v"/>
+                <outlet property="topStackView" destination="aWB-OZ-L4Y" id="rdh-we-IRF"/>
+                <outlet property="view" destination="Ksu-W5-aVu" id="cje-s7-iHE"/>
+                <outlet property="viewContainer" destination="Ksu-W5-aVu" id="naU-4A-rdw"/>
+                <outlet property="viewControl" destination="DZs-R3-JxC" id="P1i-tK-b3W"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Ksu-W5-aVu">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZs-R3-JxC" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXS-3v-Ndl">
+                    <rect key="frame" x="360" y="601.5" width="38" height="38"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="sPr-EF-p6v"/>
+                        <constraint firstAttribute="width" constant="38" id="tFI-YV-s7z"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="Icon-circle-arrow-down"/>
+                    <connections>
+                        <action selector="closeButtonDidTapped:" destination="-1" eventType="touchUpInside" id="Krc-Wz-v5f"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QzG-77-97k">
+                    <rect key="frame" x="0.0" y="648.5" width="414" height="247.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aWB-OZ-L4Y">
+                            <rect key="frame" x="22" y="17" width="370" height="90.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iML-QC-QTd">
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="19.5"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon feather-edit" translatesAutoresizingMaskIntoConstraints="NO" id="uda-oZ-4pd">
+                                            <rect key="frame" x="0.0" y="2.5" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="15" id="YQT-JX-mRA"/>
+                                                <constraint firstAttribute="height" constant="15" id="waV-FR-qa2"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rename card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjM-nR-rUq">
+                                            <rect key="frame" x="31" y="0.0" width="339" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KAz-7F-aJ4">
+                                    <rect key="frame" x="0.0" y="35.5" width="370" height="19.5"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon feather-check-circle" translatesAutoresizingMaskIntoConstraints="NO" id="MMy-09-FIk">
+                                            <rect key="frame" x="0.0" y="2.5" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="3mP-Sz-r2g"/>
+                                                <constraint firstAttribute="width" constant="15" id="W29-7c-C75"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activate NFC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7M-xh-uZf">
+                                            <rect key="frame" x="31" y="0.0" width="339" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="1S3-xN-WA8">
+                                    <rect key="frame" x="0.0" y="71" width="370" height="19.5"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon feather-trash-2" translatesAutoresizingMaskIntoConstraints="NO" id="ebS-8D-H6Y">
+                                            <rect key="frame" x="0.0" y="2.5" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="15" id="WoE-QM-p3n"/>
+                                                <constraint firstAttribute="height" constant="15" id="gIn-eq-YfV"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEk-Ma-Otk">
+                                            <rect key="frame" x="31" y="0.0" width="339" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0om-oT-MSv">
+                            <rect key="frame" x="22" y="129.5" width="370" height="1"/>
+                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="weR-6E-gvf"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="NPd-dI-Qq4">
+                            <rect key="frame" x="22" y="152.5" width="370" height="55"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KBk-RO-Caz">
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="19.5"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon ionic-md-list-box" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-W7-MiE">
+                                            <rect key="frame" x="0.0" y="2.5" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="0tX-gj-DLN"/>
+                                                <constraint firstAttribute="width" constant="15" id="Fkn-Pa-JYe"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show card list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxF-k1-K2P">
+                                            <rect key="frame" x="31" y="0.0" width="339" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Hwl-2V-eJT">
+                                    <rect key="frame" x="0.0" y="35.5" width="370" height="19.5"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon material-add-circle" translatesAutoresizingMaskIntoConstraints="NO" id="Ljs-2S-98Z">
+                                            <rect key="frame" x="0.0" y="2.5" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="3pW-Nh-Nkq"/>
+                                                <constraint firstAttribute="width" constant="15" id="47i-Jv-QfJ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIF-Wt-poI">
+                                            <rect key="frame" x="31" y="0.0" width="339" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="aWB-OZ-L4Y" firstAttribute="leading" secondItem="QzG-77-97k" secondAttribute="leading" constant="22" id="6bO-T1-bcW"/>
+                        <constraint firstItem="0om-oT-MSv" firstAttribute="leading" secondItem="aWB-OZ-L4Y" secondAttribute="leading" id="9h7-kC-COF"/>
+                        <constraint firstItem="0om-oT-MSv" firstAttribute="centerX" secondItem="QzG-77-97k" secondAttribute="centerX" id="B4O-7V-EvM"/>
+                        <constraint firstItem="NPd-dI-Qq4" firstAttribute="top" secondItem="0om-oT-MSv" secondAttribute="bottom" constant="22" id="LRo-IA-Tri"/>
+                        <constraint firstAttribute="trailing" secondItem="aWB-OZ-L4Y" secondAttribute="trailing" constant="22" id="Pxj-6S-bNR"/>
+                        <constraint firstItem="0om-oT-MSv" firstAttribute="top" secondItem="aWB-OZ-L4Y" secondAttribute="bottom" constant="22" id="VtV-vM-zgh"/>
+                        <constraint firstItem="NPd-dI-Qq4" firstAttribute="leading" secondItem="aWB-OZ-L4Y" secondAttribute="leading" id="XKD-fI-yIN"/>
+                        <constraint firstItem="aWB-OZ-L4Y" firstAttribute="top" secondItem="QzG-77-97k" secondAttribute="top" constant="17" id="aXX-Ui-adP"/>
+                        <constraint firstItem="0om-oT-MSv" firstAttribute="trailing" secondItem="aWB-OZ-L4Y" secondAttribute="trailing" id="hCd-ei-Wrr"/>
+                        <constraint firstAttribute="bottom" secondItem="NPd-dI-Qq4" secondAttribute="bottom" constant="40" id="jRM-Za-b4e"/>
+                        <constraint firstItem="NPd-dI-Qq4" firstAttribute="trailing" secondItem="aWB-OZ-L4Y" secondAttribute="trailing" id="zyT-G9-zx5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="BpW-bh-rNh"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="QzG-77-97k" firstAttribute="leading" secondItem="BpW-bh-rNh" secondAttribute="leading" id="O0T-OD-ACR"/>
+                <constraint firstItem="DZs-R3-JxC" firstAttribute="leading" secondItem="BpW-bh-rNh" secondAttribute="leading" id="OQW-f3-BIQ"/>
+                <constraint firstItem="BpW-bh-rNh" firstAttribute="trailing" secondItem="QzG-77-97k" secondAttribute="trailing" id="Xa6-4e-qhe"/>
+                <constraint firstItem="BpW-bh-rNh" firstAttribute="trailing" secondItem="DZs-R3-JxC" secondAttribute="trailing" id="bs7-QH-C9c"/>
+                <constraint firstItem="DZs-R3-JxC" firstAttribute="top" secondItem="BpW-bh-rNh" secondAttribute="top" id="g4j-NM-8vH"/>
+                <constraint firstAttribute="bottom" secondItem="QzG-77-97k" secondAttribute="bottom" id="iPe-T6-Hc8"/>
+                <constraint firstItem="BpW-bh-rNh" firstAttribute="trailing" secondItem="kXS-3v-Ndl" secondAttribute="trailing" constant="16" id="kmx-fQ-uJs"/>
+                <constraint firstItem="QzG-77-97k" firstAttribute="top" secondItem="kXS-3v-Ndl" secondAttribute="bottom" constant="9" id="uoF-Ku-xOR"/>
+                <constraint firstItem="BpW-bh-rNh" firstAttribute="bottom" secondItem="DZs-R3-JxC" secondAttribute="bottom" id="vLp-eg-zLf"/>
+            </constraints>
+            <point key="canvasLocation" x="-152" y="94"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Icon feather-check-circle" width="17" height="17"/>
+        <image name="Icon feather-edit" width="16.5" height="16.5"/>
+        <image name="Icon feather-trash-2" width="15" height="16"/>
+        <image name="Icon ionic-md-list-box" width="16.5" height="16.5"/>
+        <image name="Icon material-add-circle" width="17" height="17"/>
+        <image name="Icon-circle-arrow-down" width="38.5" height="38.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

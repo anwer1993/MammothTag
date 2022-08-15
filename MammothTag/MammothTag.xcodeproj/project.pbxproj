@@ -15,6 +15,10 @@
 		A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313128A173D20037F0B3 /* UIViewExtension.swift */; };
 		A60B313528A175D70037F0B3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313428A175D70037F0B3 /* GradientView.swift */; };
 		A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A627DAAA28A02F2100F0D54E /* Authentification.storyboard */; };
+		A62B1BDE28AA902300948860 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BDD28AA902300948860 /* MoreVC.swift */; };
+		A62B1BE028AA903800948860 /* MoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BDF28AA903800948860 /* MoreVC.xib */; };
+		A62B1BE328AA9E2B00948860 /* AddNewCardVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */; };
+		A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */; };
 		A648400C28A190BD000D040D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648400B28A190BD000D040D /* CustomTextField.swift */; };
 		A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979E9E28A3D63C008C2B60 /* StringExtension.swift */; };
 		A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6979EA228A3DE92008C2B60 /* Localizable.strings */; };
@@ -32,6 +36,7 @@
 		A6A6959928A6BDB90025A3B2 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6959828A6BDB90025A3B2 /* UIViewControllerExtension.swift */; };
 		A6A6959C28A6E6810025A3B2 /* UpdateProfileModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A6959B28A6E6810025A3B2 /* UpdateProfileModeVC.xib */; };
 		A6A6959E28A6E69B0025A3B2 /* UpdateProfileModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6959D28A6E69A0025A3B2 /* UpdateProfileModeVC.swift */; };
+		A6B4D85C28A7225800E73ACD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */; };
 		A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7360028A17AAC00C09A3C /* UIColor.swift */; };
 		A6B8C9D228A7087B0003C408 /* ScanNFCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B8C9D128A7087B0003C408 /* ScanNFCVC.xib */; };
 		A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8C9D528A7088E0003C408 /* ScanNFCVC.swift */; };
@@ -102,6 +107,10 @@
 		A60B313128A173D20037F0B3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A60B313428A175D70037F0B3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		A627DAAA28A02F2100F0D54E /* Authentification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentification.storyboard; sourceTree = "<group>"; };
+		A62B1BDD28AA902300948860 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		A62B1BDF28AA903800948860 /* MoreVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreVC.xib; sourceTree = "<group>"; };
+		A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardVc.xib; sourceTree = "<group>"; };
+		A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVc.swift; sourceTree = "<group>"; };
 		A648400B28A190BD000D040D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A66FEEE828A47D980062D754 /* MammothTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MammothTag.entitlements; sourceTree = "<group>"; };
 		A6979E9E28A3D63C008C2B60 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -125,6 +134,7 @@
 		A6A6959828A6BDB90025A3B2 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		A6A6959B28A6E6810025A3B2 /* UpdateProfileModeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateProfileModeVC.xib; sourceTree = "<group>"; };
 		A6A6959D28A6E69A0025A3B2 /* UpdateProfileModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileModeVC.swift; sourceTree = "<group>"; };
+		A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A6B7360028A17AAC00C09A3C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A6B8C9D128A7087B0003C408 /* ScanNFCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanNFCVC.xib; sourceTree = "<group>"; };
 		A6B8C9D528A7088E0003C408 /* ScanNFCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanNFCVC.swift; sourceTree = "<group>"; };
@@ -253,6 +263,24 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		A62B1BDC28AA900F00948860 /* MoreVC */ = {
+			isa = PBXGroup;
+			children = (
+				A62B1BDD28AA902300948860 /* MoreVC.swift */,
+				A62B1BDF28AA903800948860 /* MoreVC.xib */,
+			);
+			path = MoreVC;
+			sourceTree = "<group>";
+		};
+		A62B1BE128AA9E1E00948860 /* AddNewCardVc */ = {
+			isa = PBXGroup;
+			children = (
+				A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */,
+				A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */,
+			);
+			path = AddNewCardVc;
+			sourceTree = "<group>";
+		};
 		A6979E9728A3CCE7008C2B60 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +292,8 @@
 		A6979EB428A474B3008C2B60 /* XibFile */ = {
 			isa = PBXGroup;
 			children = (
+				A62B1BE128AA9E1E00948860 /* AddNewCardVc */,
+				A62B1BDC28AA900F00948860 /* MoreVC */,
 				A6B8C9D028A708530003C408 /* ScanNFCVC */,
 				A6A6959A28A6E65A0025A3B2 /* UpdateProfileModeVC */,
 				A6C79C1C28A55AEC00229739 /* CustomSegmentControlView */,
@@ -440,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				A6E25A3828A5601B009B2D09 /* HomeViewController.swift */,
+				A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -630,7 +661,9 @@
 				A6FC614D28A02A0300756C74 /* Assets.xcassets in Resources */,
 				A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */,
 				A69B19A128A53A8D00BE92F1 /* CustomTabbarView.xib in Resources */,
+				A62B1BE028AA903800948860 /* MoreVC.xib in Resources */,
 				A6C79C2028A55B1F00229739 /* CustomSegmentControlView.xib in Resources */,
+				A62B1BE328AA9E2B00948860 /* AddNewCardVc.xib in Resources */,
 				A6C0CE5128A4804A00084D86 /* Lato-Medium.ttf in Resources */,
 				A6FC614B28A02A0100756C74 /* Main.storyboard in Resources */,
 			);
@@ -782,6 +815,8 @@
 				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
 				A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
+				A6B4D85C28A7225800E73ACD /* HomeViewModel.swift in Sources */,
+				A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */,
 				A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */,
 				A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */,
 				A6C8494C28A48F3300CF7E61 /* ContactListViewModel.swift in Sources */,
@@ -790,6 +825,7 @@
 				A6A6959728A6B8870025A3B2 /* AccountManager.swift in Sources */,
 				A6C79C1E28A55B0000229739 /* CustomSegmentControlView.swift in Sources */,
 				A648400C28A190BD000D040D /* CustomTextField.swift in Sources */,
+				A62B1BDE28AA902300948860 /* MoreVC.swift in Sources */,
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,
 				A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */,
 				A6D6F27D28A1C6C600AD3C9C /* DynamicType.swift in Sources */,

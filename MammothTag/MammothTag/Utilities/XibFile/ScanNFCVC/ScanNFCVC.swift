@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ScanNFCVC: UIViewController {
+class ScanNFCVC: UIViewController, SubViewConroller {
     
 
     @IBOutlet weak var viewControl: UIControl!

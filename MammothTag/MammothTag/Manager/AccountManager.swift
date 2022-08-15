@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AccountManager {
     
@@ -17,6 +18,15 @@ class AccountManager {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "isLoggedIn")
+        }
+    }
+    
+    var isActiveNFC: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "isActiveNFC")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "isActiveNFCs")
         }
     }
     
@@ -40,4 +50,11 @@ class AccountManager {
 enum ProfileMode: Int {
     case Public = 0
     case Private = 1
+}
+
+
+protocol SubViewConroller: UIViewController {
+    
+    var handleTapWhenDismiss: () -> Void {get set}
+    
 }

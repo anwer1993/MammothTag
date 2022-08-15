@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class UpdateProfileModeVC : UIViewController {
+class UpdateProfileModeVC : UIViewController, SubViewConroller {
     
     @IBOutlet weak var viewControl: UIControl!
     @IBOutlet weak var downButton: UIButton!
@@ -78,6 +78,7 @@ class UpdateProfileModeVC : UIViewController {
         publicStackView.addTagGesture(tapGesture)
         privateStackView.addTagGesture(tapGesture)
         saveBtn.gradientbutton()
+        saveBtn.applySketchShadow(color: .tangerine30, alpha: 1, x: 0, y: 10, blur: 30, spread: 0)
     }
     
     func updateUIWhenSelectMode() {

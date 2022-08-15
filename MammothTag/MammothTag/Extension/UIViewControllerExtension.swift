@@ -10,6 +10,21 @@ import UIKit
 
 extension UIViewController {
     
+    func addChildVc(_ childVc: SubViewConroller, actionWhenDismiss: @escaping () -> Void) {
+        childVc.handleTapWhenDismiss = {
+            actionWhenDismiss()
+        }
+        self.addChild(childVc)
+        self.view.addSubview(childVc.view)
+        childVc.didMove(toParent: self)
+        let leading = childVc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        let trailing = childVc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        let top = childVc.view.topAnchor.constraint(equalTo: view.topAnchor)
+        let bottom = childVc.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        NSLayoutConstraint.activate([leading, trailing, top, bottom])
+        childVc.view.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     func showAlert(withTitle title: String, withMessage message: String, confirmAction: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)

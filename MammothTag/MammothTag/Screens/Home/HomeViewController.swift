@@ -35,6 +35,8 @@ class HomeViewController: UIViewController {
     
     let profileModeVC = UpdateProfileModeVC(nibName: "UpdateProfileModeVC", bundle: nil)
     let scanNFCVC = ScanNFCVC(nibName: "ScanNFCVC", bundle: nil)
+    let moreVC = MoreVC(nibName: "MoreVC", bundle: nil)
+    let addNewCardVC = AddNewCardVc(nibName: "AddNewCardVc", bundle: nil)
     
     var scanNFCGesture: UITapGestureRecognizer {
         return UITapGestureRecognizer(target: self, action: #selector(showScanNFCPopup(_:)))
@@ -48,6 +50,8 @@ class HomeViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         let profileModeTap = UITapGestureRecognizer(target: self, action: #selector(updateProfileMode(_:)))
         privilageView.addTagGesture(profileModeTap)
+        let AddCardTap = UITapGestureRecognizer(target: self, action: #selector(showAddCardPopup(_:)))
+        addView.addTagGesture(AddCardTap)
         activateNFCImage.addTagGesture(scanNFCGesture)
         activateNFCLabel.addTagGesture(scanNFCGesture)
         initView()
@@ -100,22 +104,14 @@ class HomeViewController: UIViewController {
         showProfileModeMenu()
     }
     
-    func showProfileModeMenu() {
-        profileModeVC.handleTapWhenDismiss = {[weak self] in
+    @objc func showAddCardPopup(_ gesture: UITapGestureRecognizer? = nil) {
+        viewContainer.addBlurEffect()
+        self.tabBarController?.tabBar.isHidden = true
+        addChildVc(addNewCardVC) {
+            [weak self] in
             guard let this = self else {return}
             this.updateUIWhenRemovePopup()
-            this.privilageLabl.text = AccountManager.shared.profileMode == .Public ? "Public" : "Private"
         }
-        self.addChild(profileModeVC)
-        self.view.addSubview(profileModeVC.view)
-        profileModeVC.didMove(toParent: self)
-        let leading = profileModeVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        let trailing = profileModeVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        let top = profileModeVC.view.topAnchor.constraint(equalTo: view.topAnchor)
-        let bottom = profileModeVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        NSLayoutConstraint.activate([leading, trailing, top, bottom])
-        profileModeVC.view.translatesAutoresizingMaskIntoConstraints = false
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     @objc func showScanNFCPopup(_ gesture: UITapGestureRecognizer? = nil) {
@@ -129,26 +125,27 @@ class HomeViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         }
-        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)        
+        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
         viewContainer.addBlurEffect()
         showScanNFCPopup()
         session?.begin()
     }
     
+    func showProfileModeMenu() {
+        addChildVc(profileModeVC) {
+            [weak self] in
+            guard let this = self else {return}
+            this.updateUIWhenRemovePopup()
+            this.privilageLabl.text = AccountManager.shared.profileMode == .Public ? "Public" : "Private"
+        }
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     func showScanNFCPopup() {
-        scanNFCVC.handleTapWhenDismiss = {[weak self] in
+        addChildVc(scanNFCVC) {[weak self] in
             guard let this = self else {return}
             this.updateUIWhenRemovePopup()
         }
-        self.addChild(scanNFCVC)
-        self.view.addSubview(scanNFCVC.view)
-        scanNFCVC.didMove(toParent: self)
-        let leading = scanNFCVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        let trailing = scanNFCVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        let top = scanNFCVC.view.topAnchor.constraint(equalTo: view.topAnchor)
-        let bottom = scanNFCVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        NSLayoutConstraint.activate([leading, trailing, top, bottom])
-        scanNFCVC.view.translatesAutoresizingMaskIntoConstraints = false
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -157,13 +154,23 @@ class HomeViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    
+    @IBAction func moreBtnDidTapped(_ sender: Any) {
+        self.tabBarController?.tabBar.isHidden = true
+        viewContainer.addBlurEffect()
+        addChildVc(moreVC) {[weak self] in
+            guard let this = self else {return}
+            this.updateUIWhenRemovePopup()
+        }
+    }
+    
 }
 
 
 extension HomeViewController: NFCNDEFReaderSessionDelegate {
-   
+    
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-        
+        print(error.localizedDescription)
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
