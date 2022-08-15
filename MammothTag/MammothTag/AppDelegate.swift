@@ -26,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        let navBarAppearance = UINavigationBarAppearance()
+           navBarAppearance.configureWithOpaqueBackground()
+           navBarAppearance.backgroundColor = UIColor.redBrown
+
+           UINavigationBar.appearance().standardAppearance = navBarAppearance
+        
         //        // mainStoryboard
         let mainStoryboard = UIStoryboard(name: "Authentification", bundle: nil)
         

@@ -96,7 +96,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 3 {
             self.showAlert(withTitle: "Logout", withMessage: "Are you sure you want to logout from Mammoth tag application", confirmAction: {
                 AccountManager.shared.isLoggedIn = false
-                Router.shared.present(screen: .Login, modalePresentatioinStyle: .fullScreen, completion: nil)
+                Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
             })
         }
     }

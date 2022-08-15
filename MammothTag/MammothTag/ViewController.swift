@@ -17,6 +17,7 @@ class ViewController: UIViewController {
             Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
         }
         
+        
         // Do any additional setup after loading the view.
     }
     

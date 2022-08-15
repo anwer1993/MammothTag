@@ -91,7 +91,7 @@ class HomeViewController: UIViewController {
         homeView.layer.cornerRadius = homeView.bounds.width * 0.5
         accountView.layer.cornerRadius = accountView.bounds.width * 0.5
         contactView.layer.cornerRadius = contactView.bounds.width * 0.5
-        addView.layer.cornerRadius = 25.0
+        addView.layer.cornerRadius = addView.bounds.width * 0.5
         addView.layer.backgroundColor = UIColor.redBrown.cgColor
         socialMediaLabel.textColor = .tangerine
         addSocialeMediaLabel.textColor = .brownishGrey
