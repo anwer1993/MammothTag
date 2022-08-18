@@ -11,14 +11,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if AccountManager.shared.isLoggedIn {
-            Router.shared.present(screen: .Tabbar, modalePresentatioinStyle: .fullScreen, completion: nil)
+        if let token = AccountManager.shared.token , !token.isEmptyString {
+            Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
         } else {
             Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
         }
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     

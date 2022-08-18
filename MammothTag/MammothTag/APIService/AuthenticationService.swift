@@ -13,13 +13,45 @@ class AuthenticationService {
     
     static var sharedInstance = AuthenticationService()
     
+    func register(userModel: RegisterModel, completion: @escaping(SignInServerResponseData<ProfileModel>) -> Void) {
+        let parameters = ["name": userModel.firstName,
+                                            "username": userModel.LastName,
+                                            "birthday": userModel.dateOfBirth,
+                                            "phone": userModel.phone,
+                                            "email": userModel.email,
+                                            "password": userModel.password,
+                                           "picture": userModel.picture as Any] as Parameters
+        AF.request(URLRequest.REGISTER_URL.url, method: .post, parameters: parameters).validate().responseDecodable(of: SignInServerResponseData<ProfileModel>.self) { data in
+            if let data = data.value {
+                completion(data)
+            }
+        }
+    }
     
-    func login(loginModel: SignInModel, completion: (SignInServerResponseData) -> Void) {
+    func login(loginModel: SignInModel, completion: @escaping(LoginServerResponseData) -> Void) {
+        let parameters = ["email": loginModel.email,
+                          "password": loginModel.password]
+        AF.request(URLRequest.LOGIN_URL.url, method: .post, parameters: parameters).validate().responseDecodable(of: LoginServerResponseData.self) { data in
+            if let data = data.value {
+                completion(data)
+            }
+        }
         
-        if loginModel.email.lowercased() == "Anwer".lowercased() && loginModel.password == "anwer" {
-            completion(SignInServerResponseData(tocken: "welcome", error: ""))
-        } else {
-            completion(SignInServerResponseData(tocken: "", error: "error"))
+    }
+    
+    func logout(token: String, completion: @escaping(SignInServerResponseData<ProfileModel>) -> Void) {
+        AF.request("\(URLRequest.LOGOUT_URL.url)\(token)", method: .get).validate().responseDecodable(of: SignInServerResponseData<ProfileModel>.self) { data in
+            if let data = data.value {
+                completion(data)
+            }
+        }
+    }
+    
+    func getUserProfile(token: String, completion: @escaping(SignInServerResponseData<ProfileModel>) -> Void) {
+        AF.request("\(URLRequest.GET_USER_URL.url)\(token)", method: .get).validate().responseDecodable(of: SignInServerResponseData<ProfileModel>.self) { data in
+            if let data = data.value {
+                completion(data)
+            }
         }
     }
     
@@ -33,6 +65,8 @@ class AuthenticationService {
         let settingsModel = SettingsModel(terms: terms, conditions: conditions)
         completion(settingsModel)
     }
+    
+    
     
     
     

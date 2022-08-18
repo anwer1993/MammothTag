@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var shadowInffoViewWidthConstarinte: NSLayoutConstraint!
     
-    
+    var viewModel = SettingsViewModel()
     
     var settingsArray = ["My information", "Change passoword", "Privacy", "Logout"]
     
@@ -35,7 +35,17 @@ class SettingsViewController: UIViewController, Storyboarded {
         self.navigationController?.isNavigationBarHidden = true
         setupTableView()
         setupUI()
-        // Do any additional setup after loading the view.
+        viewModel.bindViewModelDataToController = {[weak self] model, message in
+            guard let this = self else {
+                return
+            }
+            this.updateUIWhenGetProfile(profile: model, message: message)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getProfile()
     }
     
     func setupTableView() {
@@ -61,6 +71,17 @@ class SettingsViewController: UIViewController, Storyboarded {
         shadowInffoViewWidthConstarinte.constant = screenWidth > 390 ? 374 : 339
         infoViewWidthConstarinte.constant = screenWidth > 390 ? 375 : 340
         view.layoutIfNeeded()
+    }
+    
+    func updateUIWhenGetProfile(profile: ProfileModel?, message: String) {
+        if let profile = profile {
+            emailLbl.text = profile.email
+            profileNameLbl.text = "\(profile.name ?? "") \(profile.username ?? "")"
+            ageLbl.text = "30"
+            countryLbl.text = "Tunisia"
+        } else {
+            showAlert(withTitle: "Error", withMessage: message)
+        }
     }
     
 }
@@ -91,12 +112,25 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else if indexPath.row == 2 {
             Router.shared.push(with: self.navigationController, screen: .Terms, animated: true)
-            //            Router.shared.present(screen: .Terms, modalePresentatioinStyle: .fullScreen, completion: nil)
-            
         } else if indexPath.row == 3 {
-            self.showAlert(withTitle: "Logout", withMessage: "Are you sure you want to logout from Mammoth tag application", confirmAction: {
-                AccountManager.shared.isLoggedIn = false
-                Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
+            self.showAlert(withTitle: "Logout", withMessage: "Are you sure you want to logout from Mammoth tag application", confirmAction: {[weak self]  in
+                guard let this = self else {
+                    return
+                }
+                if let token = AccountManager.shared.token {
+                    this.showOrHideLoader(done: false, doneAction: {})
+                    AuthenticationService.sharedInstance.logout(token: token) { data in
+                        this.showOrHideLoader(done: true, doneAction: {})
+                        if let done = data.result, done == true {
+                            AccountManager.shared.token = nil
+                            Router.shared.push(with: this.navigationController, screen: .Login, animated: true)
+                        } else if let message = data.message, message != "Success request" {
+                            this.showAlert(withTitle: "Error", withMessage: message)
+                        }
+                        
+                    }
+                }
+                
             })
         }
     }

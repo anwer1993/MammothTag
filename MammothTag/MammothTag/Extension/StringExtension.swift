@@ -12,12 +12,19 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
+    
+    var isEmptyString: Bool {
+        return self == "" || self == " "
+    }
+    
+    
+    
 }
 
 
 extension Optional where Wrapped == String {
     
-    var isEmpty: Bool {
+    var isEmptyString: Bool {
         return self == nil || self == "" || self == " "
     }
 }

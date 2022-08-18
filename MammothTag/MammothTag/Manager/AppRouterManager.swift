@@ -85,8 +85,7 @@ struct Router: IRouter {
                 break
             case .Tabbar:
                 guard let vc = MainTabbarViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
-                let navController = UINavigationController(rootViewController: vc)
-                viewController = navController
+                viewController = vc
                 break
             }
         }

@@ -16,5 +16,6 @@ struct RegisterModel {
     var countryCode: String = ""
     var phone: String = ""
     var password: String = ""
+    var picture: Data? = nil
     
 }

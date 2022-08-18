@@ -53,6 +53,13 @@ class RegisterViewController: UIViewController, Storyboarded {
         }
     }
     @IBOutlet weak var passwordStaticLabel: UILabel!
+    @IBOutlet weak var confirmPasswordView: UIView!
+    @IBOutlet weak var confirmPasswordSstaticLbl: UILabel!
+    @IBOutlet weak var confirmPasswordTextField: CustomTextField! {
+        didSet {
+            self.confirmPasswordTextField.bind(callback: {self.registerViewModel.confirmPassword.value = $0 })
+        }
+    }
     @IBOutlet weak var countryViewContainer: CountryPickerView!
     @IBOutlet weak var countryCodeView: CountryPickerView!
     @IBOutlet weak var phoneView: UIView!
@@ -68,6 +75,7 @@ class RegisterViewController: UIViewController, Storyboarded {
     
     
     var registerViewModel = RegisterViewModel()
+    var isTermedChecked: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +95,14 @@ class RegisterViewController: UIViewController, Storyboarded {
         countryCodeView.flagSpacingInView = 10
         countryCodeView.setCountryByCode("SA")
         registerViewModel.updateRegisterModel(withcountryCode: countryCodeView.selectedCountry.phoneCode)
+        registerViewModel.updateUIWhenRegister =  {done, message in
+            self.showOrHideLoader(done: done, doneAction: {})
+            if done == true {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                self.showAlert(withTitle: "Error", withMessage: message)
+            }
+        }
     }
     
     func setupLocalizedText() {
@@ -119,6 +135,7 @@ class RegisterViewController: UIViewController, Storyboarded {
         profileImage.layer.cornerRadius = 55
         profileImage.layer.backgroundColor = UIColor.tangerine.cgColor
         passwordTextField.enablePasswordToggle()
+        confirmPasswordTextField.enablePasswordToggle()
         checkTermsButton.setImage(UIImage(named: "check_on"), for: .selected)
         checkTermsButton.setImage(UIImage(named: "check_off"), for: .normal)
     }
@@ -131,6 +148,7 @@ class RegisterViewController: UIViewController, Storyboarded {
         countryViewContainer.layer.cornerRadius = 20.0
         viewPassword.layer.cornerRadius = 20.0
         phoneView.layer.cornerRadius = 20.0
+        confirmPasswordView.layer.cornerRadius = 20.0
         viewFirstName.customizeViewForContainTextField()
         viewLastName.customizeViewForContainTextField()
         emailView.customizeViewForContainTextField()
@@ -138,6 +156,7 @@ class RegisterViewController: UIViewController, Storyboarded {
         countryViewContainer.customizeViewForContainTextField()
         viewPassword.customizeViewForContainTextField()
         phoneView.customizeViewForContainTextField()
+        confirmPasswordView.customizeViewForContainTextField()
     }
     
     func hideStaticLAbel() {
@@ -146,12 +165,14 @@ class RegisterViewController: UIViewController, Storyboarded {
         emailTextField.delegate = self
         dateOfBirthTextField.delegate = self
         passwordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
         phoneTextField.delegate = self
         firstNameStaticLbl.isHidden = true
         lastNameStaticLabel.isHidden = true
         emailStaticLbl.isHidden = true
         dateOfBirthStaticLbl.isHidden = true
         passwordStaticLabel.isHidden = true
+        confirmPasswordSstaticLbl.isHidden = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -165,23 +186,43 @@ class RegisterViewController: UIViewController, Storyboarded {
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         if registerViewModel.isValid {
-            print("Valid")
+            if registerViewModel.termsChecked {
+                showOrHideLoader(done: false) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                registerViewModel.register()
+            } else {
+                showAlert(withTitle: "Error", withMessage: "Please check terms & conditions first")
+            }
         } else {
             registerViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
                 switch Brokenrule {
+                case .firstName:
+                    updateUIWhenEndEditingTextField(firstNameTestField)
+                    break
+                case .lastName:
+                    updateUIWhenEndEditingTextField(lastNameTextField)
+                    break
                 case .email:
+                    updateUIWhenEndEditingTextField(emailTextField)
                     print("invalid email")
                     break
-                case .password:
+                case .dateOfBirth:
+                    updateUIWhenEndEditingTextField(dateOfBirthTextField)
                     break
-                default:
+                case .phone:
+                    updateUIWhenEndEditingTextField(phoneTextField)
+                    break
+                case .password:
+                    updateUIWhenEndEditingTextField(emailTextField)
+                    break
+                case .confirmPassword:
+                    showAlert(withTitle: "Error", withMessage: "Passwords not matched, please try to confirm your password")
                     break
                 }
             }
-            
         }
     }
-    
     
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -283,6 +324,13 @@ extension RegisterViewController: UITextFieldDelegate {
             } else {
                 updateViewAppearenceWhenError(viewPassword, passwordStaticLabel)
             }
+        } else if textField == confirmPasswordView {
+            confirmPasswordSstaticLbl.isHidden = textField.isEmpty()
+            if !textField.isEmpty() {
+                updateViewAppearenceWhenValid(confirmPasswordView, confirmPasswordSstaticLbl)
+            } else {
+                updateViewAppearenceWhenError(confirmPasswordView, confirmPasswordSstaticLbl)
+            }
         }
     }
     
@@ -301,6 +349,7 @@ extension RegisterViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: confirmPasswordView, textFieldTitle: confirmPasswordSstaticLbl, isHidden: true)
         } else if textField == lastNameTextField {
             lastNameStaticLabel.isHidden = false
             resetTextField(viewLastName, lastNameStaticLabel)
@@ -309,6 +358,7 @@ extension RegisterViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: confirmPasswordView, textFieldTitle: confirmPasswordSstaticLbl, isHidden: true)
         } else if textField == emailTextField {
             registerViewModel.registerModel.email = textField.text ?? ""
             emailStaticLbl.isHidden = false
@@ -318,6 +368,7 @@ extension RegisterViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: confirmPasswordView, textFieldTitle: confirmPasswordSstaticLbl, isHidden: true)
         } else if textField == dateOfBirthTextField {
             dateOfBirthStaticLbl.isHidden = false
             resetTextField(dateOfBirthView, dateOfBirthStaticLbl)
@@ -326,6 +377,7 @@ extension RegisterViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: emailTextField, parentView: emailView, textFieldTitle: emailStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: confirmPasswordView, textFieldTitle: confirmPasswordSstaticLbl, isHidden: true)
         } else if textField == passwordTextField {
             passwordStaticLabel.isHidden = false
             resetTextField(viewPassword, passwordStaticLabel)
@@ -334,12 +386,23 @@ extension RegisterViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: emailTextField, parentView: emailView, textFieldTitle: emailStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
-        } else {
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: confirmPasswordView, textFieldTitle: confirmPasswordSstaticLbl, isHidden: true)
+        } else if textField == phoneTextField{
             resetTextField(phoneView, UILabel())
             updateOtherTextFieldWhenToggle(otherTextField: firstNameTestField, parentView: viewFirstName, textFieldTitle: firstNameStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: lastNameTextField, parentView: viewLastName, textFieldTitle: lastNameStaticLabel, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: emailTextField, parentView: emailView, textFieldTitle: emailStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: confirmPasswordView, textFieldTitle: confirmPasswordSstaticLbl, isHidden: true)
+        } else if textField == confirmPasswordTextField {
+            confirmPasswordView.isHidden = false
+            resetTextField(confirmPasswordView, confirmPasswordSstaticLbl)
+            updateOtherTextFieldWhenToggle(otherTextField: firstNameTestField, parentView: viewFirstName, textFieldTitle: firstNameStaticLbl, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: lastNameTextField, parentView: viewLastName, textFieldTitle: lastNameStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: emailTextField, parentView: emailView, textFieldTitle: emailStaticLbl, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
         }
         print("TextField did begin editing method called")

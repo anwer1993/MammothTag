@@ -51,9 +51,11 @@ class SignInController: UIViewController, Storyboarded {
     }
     
     func linkViewModelToController() {
-        signInViewModel.bindViewModelDataToController = { [weak self] done in
+        signInViewModel.bindViewModelDataToController = { [weak self] done, message in
             guard let this = self else {return}
-             this.updateUIWhenLogin(isLoggedIn: done)
+            this.showOrHideLoader(done: true, doneAction: {
+                this.updateUIWhenLogin(isLoggedIn: done, message: message)
+            })
         }
     }
     
@@ -200,7 +202,7 @@ class SignInController: UIViewController, Storyboarded {
         if signInViewModel.isValid {
             updateViewAppearenceWhenValid(viewPassword, passwordStaticLabl)
             updateViewAppearenceWhenValid(viewEmail, emailStaticLbl)
-            signInViewModel.signInModel = SignInModel(email: emailTextField.text!, password: passwordTextField.text!)
+            showOrHideLoader(done: false, doneAction: {})
             signInViewModel.login()
         } else {
             signInViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
@@ -218,12 +220,11 @@ class SignInController: UIViewController, Storyboarded {
         }
     }
     
-    func updateUIWhenLogin(isLoggedIn: Bool) {
-        AccountManager.shared.isLoggedIn = isLoggedIn
+    func updateUIWhenLogin(isLoggedIn: Bool, message: String) {
         if isLoggedIn {
-            Router.shared.present(screen: .Tabbar, modalePresentatioinStyle: .fullScreen, completion: nil)
+            Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
         } else {
-            self.showAlert(withTitle: "Error", withMessage: "Invalid credentials")
+            self.showAlert(withTitle: "Error", withMessage: message)
         }
     }
     

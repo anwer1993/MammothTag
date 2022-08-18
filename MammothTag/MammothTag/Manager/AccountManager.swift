@@ -12,21 +12,13 @@ class AccountManager {
     
     static var shared = AccountManager()
     
-    var isLoggedIn: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "isLoggedIn")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "isLoggedIn")
-        }
-    }
-    
     var isActiveNFC: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "isActiveNFC")
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "isActiveNFCs")
+            UserDefaults.standard.synchronize()
         }
     }
     
@@ -40,10 +32,19 @@ class AccountManager {
         }
         set {
             UserDefaults.standard.set(newValue?.rawValue, forKey: "profileMode")
+            UserDefaults.standard.synchronize()
         }
     }
     
-    
+    var token: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "token")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "token")
+            UserDefaults.standard.synchronize()
+        }
+    }
     
 }
 

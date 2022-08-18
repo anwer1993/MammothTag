@@ -12,18 +12,7 @@ struct SignInViewModel {
     var brokenRules: [BrokenRule] = [BrokenRule]()
     var email = Dynamic<String>("")
     var password = Dynamic<String>("")
-    var signInModel: SignInModel?
-    
-    private(set) var data: SignInServerResponseData? {
-        didSet {
-            if let data = data {
-                self.bindViewModelDataToController(data.tocken != "")
-            } else {
-                self.bindViewModelDataToController(false)
-            }
-            
-        }
-    }
+    var signInModel = SignInModel()
     
     var isValid :Bool {
         mutating get {
@@ -33,16 +22,22 @@ struct SignInViewModel {
         }
     }
     
-    var bindViewModelDataToController: (Bool) -> () = {_ in}
+    var bindViewModelDataToController: (Bool, String) -> () = {_,_  in}
     
-    mutating func login() {
-        if let email = email.value, let password = password.value {
-            let signInModel = SignInModel(email: email, password: password)
-            AuthenticationService.sharedInstance.login(loginModel: signInModel) { data in
-                self.data = data
+    func login() {
+        AuthenticationService.sharedInstance.login(loginModel: signInModel) { data in
+            if data.result == true {
+                if let token = data.token {
+                    AccountManager.shared.token = token
+                    bindViewModelDataToController(true, "")
+                } else if let message = data.message {
+                    bindViewModelDataToController(false, message)
+                    print("Error: \(message)")
+                }
+            } else if let message = data.message {
+                bindViewModelDataToController(false, message)
+                print("Error: \(message)")
             }
-        } else {
-            self.data = nil
         }
     }
     
@@ -53,16 +48,19 @@ extension SignInViewModel {
     
     mutating private func validate() {
         
-        if email.value == "" || email.value == nil || email.value == ""  {
+        guard let email = email.value, email.isEmptyString == false else {
             let brokenRule = BrokenRule(propertyName: .email)
             self.brokenRules.append(brokenRule)
+            return
         }
         
-        if (password.value == "" || password.value == nil || password.value == "") {
+        guard let password = password.value, password.isEmptyString == false else {
             let brokenRule = BrokenRule(propertyName: .password)
             self.brokenRules.append(brokenRule)
+            return
         }
         
+        signInModel = SignInModel(email: email, password: password)
     }
     
 }

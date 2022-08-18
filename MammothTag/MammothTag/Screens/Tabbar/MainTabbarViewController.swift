@@ -27,4 +27,8 @@ class MainTabbarViewController: UITabBarController, Storyboarded  {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
 }

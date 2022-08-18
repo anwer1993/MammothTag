@@ -20,6 +20,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         if let image = info[.originalImage] as? UIImage {
             profileImage.image = image
             profileImage.contentMode = .scaleAspectFill
+            self.registerViewModel.picturee = profileImage.image?.pngData()
         }else{
             print("Something went wrong")
         }

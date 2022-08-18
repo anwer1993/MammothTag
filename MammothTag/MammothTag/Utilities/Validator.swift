@@ -14,6 +14,7 @@ struct BrokenRule {
 enum BrokenRulesEnum {
     case email
     case password
+    case confirmPassword
     case firstName
     case lastName
     case dateOfBirth

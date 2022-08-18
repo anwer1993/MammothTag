@@ -7,49 +7,145 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0D916C4B-485C-489D-A888-688B51E685F8"
+            uuid = "DB09BC9F-4A0A-4C38-B255-A83F1F0256CD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Utilities/XibFile/AddNewCardVc/AddNewCardVc.swift"
+            filePath = "MammothTag/Screens/SignIn/SignInViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "updateUIWhenSelectMode()"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "login()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DB4622A2-CB95-40E4-97C2-76907DBDF309"
+            uuid = "6A94A4AC-69CC-43C4-8EDD-65ED2AD20C15"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Utilities/XibFile/AddNewCardVc/AddNewCardVc.swift"
+            filePath = "MammothTag/Screens/SignIn/SignInViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "handleTap(_:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "login()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "285D99D6-7C9A-4E87-AADA-3DB4F9525B46"
+            uuid = "EB17BFC6-0126-44DB-89A1-5D2E03DDF54B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Utilities/XibFile/AddNewCardVc/AddNewCardVc.swift"
+            filePath = "MammothTag/Screens/Register/RegisterViewConntroller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "updateUIWhenSelectMode()"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "sendButtonTapped(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D92F1D9-FE55-41EE-963F-740D15E68DC0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/Register/RegisterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "register()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0D92F1D9-FE55-41EE-963F-740D15E68DC0 - 194de1560b6cd8d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.SignInServerResponseData&lt;MammothTag.ProfileModel&gt;) -&gt; () in MammothTag.RegisterViewModel.register() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/Register/RegisterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "0D92F1D9-FE55-41EE-963F-740D15E68DC0 - 194de1560b6cd8d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.SignInServerResponseData&lt;MammothTag.ProfileModel&gt;) -&gt; () in MammothTag.RegisterViewModel.register() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/Register/RegisterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E938A66-C29F-47B0-B754-4843CE8EE181"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/Settings/SettingsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "getProfile()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2E938A66-C29F-47B0-B754-4843CE8EE181 - b7f244542013b913"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.SignInServerResponseData&lt;MammothTag.ProfileModel&gt;) -&gt; () in MammothTag.SettingsViewModel.getProfile() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/Settings/SettingsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "2E938A66-C29F-47B0-B754-4843CE8EE181 - b7f244542013b913"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.SignInServerResponseData&lt;MammothTag.ProfileModel&gt;) -&gt; () in MammothTag.SettingsViewModel.getProfile() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/Settings/SettingsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "352">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

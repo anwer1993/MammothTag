@@ -20,6 +20,7 @@
 		A62B1BE328AA9E2B00948860 /* AddNewCardVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */; };
 		A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */; };
 		A648400C28A190BD000D040D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648400B28A190BD000D040D /* CustomTextField.swift */; };
+		A648691328AEC9AF00C059C9 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648691228AEC9AF00C059C9 /* URLRequest.swift */; };
 		A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979E9E28A3D63C008C2B60 /* StringExtension.swift */; };
 		A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6979EA228A3DE92008C2B60 /* Localizable.strings */; };
 		A6979EAF28A3F5AD008C2B60 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979EAE28A3F5AD008C2B60 /* AppSettings.swift */; };
@@ -64,6 +65,7 @@
 		A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD488028A2945500747B01 /* RegisterViewConntroller.swift */; };
 		A6DD488328A2946100747B01 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD488228A2946100747B01 /* RegisterViewModel.swift */; };
 		A6E25A3928A5601B009B2D09 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E25A3828A5601B009B2D09 /* HomeViewController.swift */; };
+		A6E94DD628AEEE4B00A1D14B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E94DD528AEEE4B00A1D14B /* SettingsViewModel.swift */; };
 		A6FC614428A02A0100756C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614328A02A0100756C74 /* AppDelegate.swift */; };
 		A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614528A02A0100756C74 /* SceneDelegate.swift */; };
 		A6FC614828A02A0100756C74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614728A02A0100756C74 /* ViewController.swift */; };
@@ -112,6 +114,7 @@
 		A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardVc.xib; sourceTree = "<group>"; };
 		A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVc.swift; sourceTree = "<group>"; };
 		A648400B28A190BD000D040D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A648691228AEC9AF00C059C9 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		A66FEEE828A47D980062D754 /* MammothTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MammothTag.entitlements; sourceTree = "<group>"; };
 		A6979E9E28A3D63C008C2B60 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A6979EA028A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
@@ -162,6 +165,7 @@
 		A6DD488028A2945500747B01 /* RegisterViewConntroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewConntroller.swift; sourceTree = "<group>"; };
 		A6DD488228A2946100747B01 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		A6E25A3828A5601B009B2D09 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A6E94DD528AEEE4B00A1D14B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A6FC614028A02A0100756C74 /* MammothTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MammothTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC614328A02A0100756C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FC614528A02A0100756C74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -279,6 +283,14 @@
 				A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */,
 			);
 			path = AddNewCardVc;
+			sourceTree = "<group>";
+		};
+		A648691128AEC99D00C059C9 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				A648691228AEC9AF00C059C9 /* URLRequest.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		A6979E9728A3CCE7008C2B60 /* Localization */ = {
@@ -402,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				A6C8495328A491A700CF7E61 /* SettingsViewController.swift */,
+				A6E94DD528AEEE4B00A1D14B /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -504,9 +517,10 @@
 				A6FC614328A02A0100756C74 /* AppDelegate.swift */,
 				A6FC614528A02A0100756C74 /* SceneDelegate.swift */,
 				A6FC614728A02A0100756C74 /* ViewController.swift */,
-				A6A6959528A6B86F0025A3B2 /* Manager */,
 				A6D6F28528A1CFCC00AD3C9C /* APIService */,
+				A6A6959528A6B86F0025A3B2 /* Manager */,
 				A6D6F28228A1CCAC00AD3C9C /* Models */,
+				A648691128AEC99D00C059C9 /* Enum */,
 				A6DD487728A2759D00747B01 /* Screens */,
 				A60B313328A175C60037F0B3 /* Utilities */,
 				A60B313028A173B80037F0B3 /* Extension */,
@@ -812,6 +826,7 @@
 				A6979EB828A474DD008C2B60 /* ContactTableViewCell.swift in Sources */,
 				A6A6959928A6BDB90025A3B2 /* UIViewControllerExtension.swift in Sources */,
 				A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */,
+				A648691328AEC9AF00C059C9 /* URLRequest.swift in Sources */,
 				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
 				A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
@@ -827,6 +842,7 @@
 				A648400C28A190BD000D040D /* CustomTextField.swift in Sources */,
 				A62B1BDE28AA902300948860 /* MoreVC.swift in Sources */,
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,
+				A6E94DD628AEEE4B00A1D14B /* SettingsViewModel.swift in Sources */,
 				A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */,
 				A6D6F27D28A1C6C600AD3C9C /* DynamicType.swift in Sources */,
 				A6C8495428A491A700CF7E61 /* SettingsViewController.swift in Sources */,
