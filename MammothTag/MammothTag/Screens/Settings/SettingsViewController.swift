@@ -77,7 +77,9 @@ class SettingsViewController: UIViewController, Storyboarded {
         if let profile = profile {
             emailLbl.text = profile.email
             profileNameLbl.text = "\(profile.name ?? "") \(profile.username ?? "")"
-            ageLbl.text = "30"
+            if let dob = profile.birthday?.dateFromString, let age = dob.age {
+                ageLbl.text = "\(age)"
+            }
             countryLbl.text = "Tunisia"
         } else {
             showAlert(withTitle: "Error", withMessage: message)

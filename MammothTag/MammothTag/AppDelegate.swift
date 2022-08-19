@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainStoryboard = UIStoryboard(name: "Authentification", bundle: nil)
         
         // rootViewController
-        let rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController")
+        let rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "SpalchScreen")
         
         // navigationController
         let navigationController = UINavigationController(rootViewController: rootViewController)

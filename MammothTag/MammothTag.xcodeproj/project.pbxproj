@@ -21,6 +21,7 @@
 		A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */; };
 		A648400C28A190BD000D040D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648400B28A190BD000D040D /* CustomTextField.swift */; };
 		A648691328AEC9AF00C059C9 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648691228AEC9AF00C059C9 /* URLRequest.swift */; };
+		A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0428AFAD210010AE54 /* DateExtension.swift */; };
 		A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979E9E28A3D63C008C2B60 /* StringExtension.swift */; };
 		A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6979EA228A3DE92008C2B60 /* Localizable.strings */; };
 		A6979EAF28A3F5AD008C2B60 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979EAE28A3F5AD008C2B60 /* AppSettings.swift */; };
@@ -68,7 +69,7 @@
 		A6E94DD628AEEE4B00A1D14B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E94DD528AEEE4B00A1D14B /* SettingsViewModel.swift */; };
 		A6FC614428A02A0100756C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614328A02A0100756C74 /* AppDelegate.swift */; };
 		A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614528A02A0100756C74 /* SceneDelegate.swift */; };
-		A6FC614828A02A0100756C74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614728A02A0100756C74 /* ViewController.swift */; };
+		A6FC614828A02A0100756C74 /* SpalchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614728A02A0100756C74 /* SpalchScreen.swift */; };
 		A6FC614B28A02A0100756C74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FC614928A02A0100756C74 /* Main.storyboard */; };
 		A6FC614D28A02A0300756C74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FC614C28A02A0300756C74 /* Assets.xcassets */; };
 		A6FC615028A02A0300756C74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FC614E28A02A0300756C74 /* LaunchScreen.storyboard */; };
@@ -116,6 +117,7 @@
 		A648400B28A190BD000D040D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A648691228AEC9AF00C059C9 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		A66FEEE828A47D980062D754 /* MammothTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MammothTag.entitlements; sourceTree = "<group>"; };
+		A688ED0428AFAD210010AE54 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A6979E9E28A3D63C008C2B60 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A6979EA028A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		A6979EA128A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -169,7 +171,7 @@
 		A6FC614028A02A0100756C74 /* MammothTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MammothTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC614328A02A0100756C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FC614528A02A0100756C74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A6FC614728A02A0100756C74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6FC614728A02A0100756C74 /* SpalchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpalchScreen.swift; sourceTree = "<group>"; };
 		A6FC614A28A02A0100756C74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6FC614C28A02A0300756C74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6FC614F28A02A0300756C74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				A6A6959828A6BDB90025A3B2 /* UIViewControllerExtension.swift */,
 				A6979E9E28A3D63C008C2B60 /* StringExtension.swift */,
 				A6B7360028A17AAC00C09A3C /* UIColor.swift */,
+				A688ED0428AFAD210010AE54 /* DateExtension.swift */,
 				A6C79C1A28A5584500229739 /* UIDeviceExtension.swift */,
 			);
 			path = Extension;
@@ -516,7 +519,7 @@
 				A66FEEE828A47D980062D754 /* MammothTag.entitlements */,
 				A6FC614328A02A0100756C74 /* AppDelegate.swift */,
 				A6FC614528A02A0100756C74 /* SceneDelegate.swift */,
-				A6FC614728A02A0100756C74 /* ViewController.swift */,
+				A6FC614728A02A0100756C74 /* SpalchScreen.swift */,
 				A6D6F28528A1CFCC00AD3C9C /* APIService */,
 				A6A6959528A6B86F0025A3B2 /* Manager */,
 				A6D6F28228A1CCAC00AD3C9C /* Models */,
@@ -812,7 +815,7 @@
 				A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */,
 				A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */,
 				A6DD487A28A275C600747B01 /* ForgotPasswordController.swift in Sources */,
-				A6FC614828A02A0100756C74 /* ViewController.swift in Sources */,
+				A6FC614828A02A0100756C74 /* SpalchScreen.swift in Sources */,
 				A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */,
 				A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */,
 				A6C8495128A4904C00CF7E61 /* SeettingsTableViewCell.swift in Sources */,
@@ -844,6 +847,7 @@
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,
 				A6E94DD628AEEE4B00A1D14B /* SettingsViewModel.swift in Sources */,
 				A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */,
+				A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */,
 				A6D6F27D28A1C6C600AD3C9C /* DynamicType.swift in Sources */,
 				A6C8495428A491A700CF7E61 /* SettingsViewController.swift in Sources */,
 				A6FC614428A02A0100756C74 /* AppDelegate.swift in Sources */,

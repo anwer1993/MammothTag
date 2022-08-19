@@ -13,13 +13,15 @@ struct BrokenRule {
 
 enum BrokenRulesEnum {
     case email
-    case password
+    case emptyPassword
+    case passwordTooShort
+    case emptyConfirmPassword
     case confirmPassword
     case firstName
     case lastName
     case dateOfBirth
     case phone
-    
+    case picture
 }
 
 protocol ValidatorProtocol {

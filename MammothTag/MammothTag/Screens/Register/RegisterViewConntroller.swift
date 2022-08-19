@@ -77,6 +77,13 @@ class RegisterViewController: UIViewController, Storyboarded {
     var registerViewModel = RegisterViewModel()
     var isTermedChecked: Bool = false
     
+    private lazy var datePicker: UIDatePicker = {
+      let datePicker = UIDatePicker(frame: .zero)
+      datePicker.datePickerMode = .date
+      datePicker.timeZone = TimeZone.current
+      return datePicker
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeView()
@@ -86,7 +93,16 @@ class RegisterViewController: UIViewController, Storyboarded {
         readTermsLabel.addTagGesture(showTermsTap)
         uHaveAccountLbl.addTagGesture(signInTap)
         addPicImage.addTagGesture(addPicTap)
+        dateOfBirthTextField.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
     }
+    
+    @objc func handleDatePicker(sender: UIDatePicker) {
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "yyyy-MM-dd"
+          dateOfBirthTextField.text = dateFormatter.string(from: sender.date)
+        registerViewModel.dateOfBirth.value = dateOfBirthTextField.text
+     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -96,7 +112,7 @@ class RegisterViewController: UIViewController, Storyboarded {
         countryCodeView.setCountryByCode("SA")
         registerViewModel.updateRegisterModel(withcountryCode: countryCodeView.selectedCountry.phoneCode)
         registerViewModel.updateUIWhenRegister =  {done, message in
-            self.showOrHideLoader(done: done, doneAction: {})
+            self.showOrHideLoader(done: true, doneAction: {})
             if done == true {
                 self.navigationController?.popViewController(animated: true)
             } else {
@@ -163,10 +179,14 @@ class RegisterViewController: UIViewController, Storyboarded {
         firstNameTestField.delegate = self
         lastNameTextField.delegate = self
         emailTextField.delegate = self
+        emailTextField.keyboardType = .emailAddress
         dateOfBirthTextField.delegate = self
         passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
         confirmPasswordTextField.delegate = self
+        confirmPasswordTextField.isSecureTextEntry = true
         phoneTextField.delegate = self
+        phoneTextField.keyboardType = .phonePad
         firstNameStaticLbl.isHidden = true
         lastNameStaticLabel.isHidden = true
         emailStaticLbl.isHidden = true
@@ -213,11 +233,20 @@ class RegisterViewController: UIViewController, Storyboarded {
                 case .phone:
                     updateUIWhenEndEditingTextField(phoneTextField)
                     break
-                case .password:
-                    updateUIWhenEndEditingTextField(emailTextField)
+                case .emptyPassword:
+                    updateUIWhenEndEditingTextField(passwordTextField)
+                    break
+                case .passwordTooShort:
+                    showAlert(withTitle: "Error", withMessage: "Passwords too short, please try another time")
+                    break
+                case .emptyConfirmPassword:
+                    updateUIWhenEndEditingTextField(confirmPasswordTextField)
                     break
                 case .confirmPassword:
                     showAlert(withTitle: "Error", withMessage: "Passwords not matched, please try to confirm your password")
+                    break
+                case .picture:
+                    showAlert(withTitle: "Error", withMessage: "Please select your profile picture")
                     break
                 }
             }
@@ -324,7 +353,7 @@ extension RegisterViewController: UITextFieldDelegate {
             } else {
                 updateViewAppearenceWhenError(viewPassword, passwordStaticLabel)
             }
-        } else if textField == confirmPasswordView {
+        } else if textField == confirmPasswordTextField {
             confirmPasswordSstaticLbl.isHidden = textField.isEmpty()
             if !textField.isEmpty() {
                 updateViewAppearenceWhenValid(confirmPasswordView, confirmPasswordSstaticLbl)

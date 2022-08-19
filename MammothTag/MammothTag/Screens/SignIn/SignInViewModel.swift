@@ -55,7 +55,7 @@ extension SignInViewModel {
         }
         
         guard let password = password.value, password.isEmptyString == false else {
-            let brokenRule = BrokenRule(propertyName: .password)
+            let brokenRule = BrokenRule(propertyName: .emptyPassword)
             self.brokenRules.append(brokenRule)
             return
         }

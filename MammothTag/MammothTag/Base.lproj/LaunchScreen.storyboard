@@ -17,22 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztq-bB-krC">
-                                <rect key="frame" x="186" y="428" width="42" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mammothtag_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="bBm-bx-4BZ">
+                                <rect key="frame" x="182" y="423" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="cWx-zv-vxz"/>
-                                    <constraint firstAttribute="width" constant="42" id="g4N-pj-Ywu"/>
+                                    <constraint firstAttribute="width" constant="50" id="FBP-wv-Tww"/>
+                                    <constraint firstAttribute="height" constant="50" id="scI-Ws-DBa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ztq-bB-krC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9Mw-GZ-pDL"/>
-                            <constraint firstItem="ztq-bB-krC" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="o3H-VH-eO6"/>
+                            <constraint firstItem="bBm-bx-4BZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FJt-MA-7jU"/>
+                            <constraint firstItem="bBm-bx-4BZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="GJg-4H-Ozb"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,6 +39,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_mammothtag_1024x1024" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

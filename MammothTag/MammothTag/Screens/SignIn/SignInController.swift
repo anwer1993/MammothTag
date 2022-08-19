@@ -210,7 +210,7 @@ class SignInController: UIViewController, Storyboarded {
                 case .email:
                     updateTextFieldWhenError(emailTextField)
                     break
-                case .password:
+                case .emptyPassword:
                     updateTextFieldWhenError(passwordTextField)
                     break
                 default:

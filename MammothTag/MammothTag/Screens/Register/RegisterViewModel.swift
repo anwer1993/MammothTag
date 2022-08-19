@@ -46,11 +46,7 @@ struct RegisterViewModel {
     func register() {
         AuthenticationService.sharedInstance.register(userModel: self.registerModel) { data in
             if let message = data.message, let isDone = data.result {
-                if isDone {
-                    updateUIWhenRegister(isDone, message)
-                } else {
-                    print("Error: \(message)")
-                }
+                updateUIWhenRegister(isDone, message)
             }
         }
     }
@@ -92,19 +88,31 @@ extension RegisterViewModel {
         }
         
         guard let password = password.value, password.isEmptyString == false else {
-            let brokenRule = BrokenRule(propertyName: .password)
+            let brokenRule = BrokenRule(propertyName: .emptyPassword)
+            self.brokenRules.append(brokenRule)
+            return
+        }
+        
+        if password.count < 8 {
+            let brokenRule = BrokenRule(propertyName: .passwordTooShort)
             self.brokenRules.append(brokenRule)
             return
         }
         
         guard let confirmPassword = confirmPassword.value, confirmPassword.isEmptyString == false else {
-            let brokenRule = BrokenRule(propertyName: .password)
+            let brokenRule = BrokenRule(propertyName: .emptyConfirmPassword)
             self.brokenRules.append(brokenRule)
             return
         }
         
         if confirmPassword != password {
-            let brokenRule = BrokenRule(propertyName: .password)
+            let brokenRule = BrokenRule(propertyName: .confirmPassword)
+            self.brokenRules.append(brokenRule)
+            return
+        }
+        
+        if picturee == nil {
+            let brokenRule = BrokenRule(propertyName: .picture)
             self.brokenRules.append(brokenRule)
             return
         }

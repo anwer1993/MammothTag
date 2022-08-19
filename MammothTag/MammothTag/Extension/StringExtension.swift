@@ -17,7 +17,11 @@ extension String {
         return self == "" || self == " "
     }
     
-    
+    var dateFromString: Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.date(from: self)
+    }
     
 }
 
