@@ -22,6 +22,10 @@
 		A648400C28A190BD000D040D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648400B28A190BD000D040D /* CustomTextField.swift */; };
 		A648691328AEC9AF00C059C9 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648691228AEC9AF00C059C9 /* URLRequest.swift */; };
 		A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0428AFAD210010AE54 /* DateExtension.swift */; };
+		A688ED0928AFEFF00010AE54 /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0828AFEFF00010AE54 /* CardService.swift */; };
+		A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0A28AFF1410010AE54 /* CardModel.swift */; };
+		A688ED0D28AFF1810010AE54 /* ServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0C28AFF1810010AE54 /* ServerResponseModel.swift */; };
+		A688ED0F28AFF2310010AE54 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0E28AFF2310010AE54 /* ProfileModel.swift */; };
 		A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979E9E28A3D63C008C2B60 /* StringExtension.swift */; };
 		A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6979EA228A3DE92008C2B60 /* Localizable.strings */; };
 		A6979EAF28A3F5AD008C2B60 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979EAE28A3F5AD008C2B60 /* AppSettings.swift */; };
@@ -118,6 +122,10 @@
 		A648691228AEC9AF00C059C9 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		A66FEEE828A47D980062D754 /* MammothTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MammothTag.entitlements; sourceTree = "<group>"; };
 		A688ED0428AFAD210010AE54 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		A688ED0828AFEFF00010AE54 /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
+		A688ED0A28AFF1410010AE54 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		A688ED0C28AFF1810010AE54 /* ServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseModel.swift; sourceTree = "<group>"; };
+		A688ED0E28AFF2310010AE54 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		A6979E9E28A3D63C008C2B60 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A6979EA028A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		A6979EA128A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -436,6 +444,9 @@
 			children = (
 				A6D6F28328A1CCBF00AD3C9C /* SignInModels.swift */,
 				A6979EB028A413DE008C2B60 /* RegisterModel.swift */,
+				A688ED0A28AFF1410010AE54 /* CardModel.swift */,
+				A688ED0E28AFF2310010AE54 /* ProfileModel.swift */,
+				A688ED0C28AFF1810010AE54 /* ServerResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -444,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				A6D6F28628A1CFEA00AD3C9C /* AuthenticationService.swift */,
+				A688ED0828AFEFF00010AE54 /* CardService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -815,7 +827,10 @@
 				A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */,
 				A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */,
 				A6DD487A28A275C600747B01 /* ForgotPasswordController.swift in Sources */,
+				A688ED0F28AFF2310010AE54 /* ProfileModel.swift in Sources */,
+				A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */,
 				A6FC614828A02A0100756C74 /* SpalchScreen.swift in Sources */,
+				A688ED0D28AFF1810010AE54 /* ServerResponseModel.swift in Sources */,
 				A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */,
 				A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */,
 				A6C8495128A4904C00CF7E61 /* SeettingsTableViewCell.swift in Sources */,
@@ -834,6 +849,7 @@
 				A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
 				A6B4D85C28A7225800E73ACD /* HomeViewModel.swift in Sources */,
+				A688ED0928AFEFF00010AE54 /* CardService.swift in Sources */,
 				A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */,
 				A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */,
 				A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */,
