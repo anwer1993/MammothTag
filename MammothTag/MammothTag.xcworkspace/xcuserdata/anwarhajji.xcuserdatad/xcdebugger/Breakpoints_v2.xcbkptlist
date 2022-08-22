@@ -14,8 +14,8 @@
             filePath = "MammothTag/Screens/Register/RegisterViewConntroller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "sendButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "MammothTag/Screens/Register/RegisterViewConntroller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "sendButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "MammothTag/Screens/Register/RegisterViewConntroller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "updateUIWhenEndEditingTextField(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "MammothTag/Screens/UpdatePassword/UpdatePasswordController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "sendButtonDidTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "MammothTag/Screens/UpdatePassword/UpdatePasswordController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "sendButtonDidTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -128,7 +128,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
                   endingLineNumber = "33"
-                  offsetFromSymbolStart = "60">
+                  offsetFromSymbolStart = "101">
                </Location>
                <Location
                   uuid = "6154F19A-13E5-467A-9F76-725D7B2C096A - 42edbc605f904996"
@@ -143,7 +143,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
                   endingLineNumber = "33"
-                  offsetFromSymbolStart = "92">
+                  offsetFromSymbolStart = "129">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "MammothTag/Screens/UpdatePassword/UpdatePasswordController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "updateUIWhenUpdatePassword(done:message:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -228,7 +228,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C2E7FA83-EEF6-4BFE-9A73-95D19CBABBAD - ab0bd4ff0faa038c"
+                  uuid = "C2E7FA83-EEF6-4BFE-9A73-95D19CBABBAD - ab0bd4ff0faa03a3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -238,12 +238,12 @@
                   urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/APIService/AuthenticationService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "94"
-                  endingLineNumber = "94"
-                  offsetFromSymbolStart = "164">
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "158">
                </Location>
                <Location
-                  uuid = "C2E7FA83-EEF6-4BFE-9A73-95D19CBABBAD - ab0bd4ff0faa038c"
+                  uuid = "C2E7FA83-EEF6-4BFE-9A73-95D19CBABBAD - ab0bd4ff0faa03a3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -253,11 +253,267 @@
                   urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/APIService/AuthenticationService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "94"
-                  endingLineNumber = "94"
-                  offsetFromSymbolStart = "732">
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "1127">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A92C489-C034-4270-AFD4-D6488FFE8A96"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/ForgotPassword/ForgotPassWordViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "sendPhone()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0A92C489-C034-4270-AFD4-D6488FFE8A96 - 7a633372350e3b16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.ServerResponseModel&lt;Swift.Array&lt;MammothTag.ForgotPasswordModel&gt;&gt;) -&gt; () in MammothTag.ForgotPasswordViewModel.sendPhone() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/ForgotPassword/ForgotPassWordViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "229">
+               </Location>
+               <Location
+                  uuid = "0A92C489-C034-4270-AFD4-D6488FFE8A96 - 7a633372350e3b16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.ServerResponseModel&lt;Swift.Array&lt;MammothTag.ForgotPasswordModel&gt;&gt;) -&gt; () in MammothTag.ForgotPasswordViewModel.sendPhone() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/ForgotPassword/ForgotPassWordViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "247">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "596E1336-DEDD-4E05-A5A6-94E59E2C08F0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/ChangeForgotPassword/ChangeForgotPasswordViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "changePassword(code:phone:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3731A64C-E5CA-444B-BAF0-D554EF526AC2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/ChangeForgotPassword/ChangeForgotPasswordViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "changePassword(code:phone:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3731A64C-E5CA-444B-BAF0-D554EF526AC2 - efd5a23ea2491ab6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.ServerResponseModel&lt;MammothTag.ForgotPasswordModel&gt;) -&gt; () in MammothTag.ChangeForgotPasswordViewModel.changePassword(code: Swift.String, phone: Swift.String) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/ChangeForgotPassword/ChangeForgotPasswordViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "3731A64C-E5CA-444B-BAF0-D554EF526AC2 - efd5a23ea2491ab6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.ServerResponseModel&lt;MammothTag.ForgotPasswordModel&gt;) -&gt; () in MammothTag.ChangeForgotPasswordViewModel.changePassword(code: Swift.String, phone: Swift.String) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/ChangeForgotPassword/ChangeForgotPasswordViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "113">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4114B47D-6071-492F-A79B-73BEA0C9B82A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/ForgotPassword/ForgotPassWordViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "sendPhone()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B8E959E-166C-4DEE-95C7-A8CEF514503B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/ForgotPassword/ForgotPasswordController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "updateUIWhenSendEmail(done:forgotPasswordModel:message:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8B8E959E-166C-4DEE-95C7-A8CEF514503B - 34f9084f122fe8a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MammothTag.ForgotPasswordController.updateUIWhenSendEmail(done: Swift.Bool, forgotPasswordModel: Swift.Optional&lt;MammothTag.ForgotPasswordModel&gt;, message: Swift.String) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/ForgotPassword/ForgotPasswordController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "261">
+               </Location>
+               <Location
+                  uuid = "8B8E959E-166C-4DEE-95C7-A8CEF514503B - 34f9084f122fe8a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MammothTag.ForgotPasswordController.updateUIWhenSendEmail(done: Swift.Bool, forgotPasswordModel: Swift.Optional&lt;MammothTag.ForgotPasswordModel&gt;, message: Swift.String) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/ForgotPassword/ForgotPasswordController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "337">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C65C6A81-E536-4464-8F91-DC02EE3FA108"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/APIService/AuthenticationService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "changeForgotPassword(phone:code:password:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "604E8A1C-A902-4E82-ACE2-8AC67177A0B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/APIService/AuthenticationService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "changeForgotPassword(phone:code:password:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "604E8A1C-A902-4E82-ACE2-8AC67177A0B4 - f06a898ab0e58013"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;MammothTag.ServerResponseModel&lt;MammothTag.ForgotPasswordModel&gt;, Alamofire.AFError&gt;) -&gt; () in MammothTag.AuthenticationService.changeForgotPassword(phone: Swift.String, code: Swift.String, password: Swift.String, completion: (MammothTag.ServerResponseModel&lt;MammothTag.ForgotPasswordModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/APIService/AuthenticationService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "604E8A1C-A902-4E82-ACE2-8AC67177A0B4 - f06a898ab0e58013"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;MammothTag.ServerResponseModel&lt;MammothTag.ForgotPasswordModel&gt;, Alamofire.AFError&gt;) -&gt; () in MammothTag.AuthenticationService.changeForgotPassword(phone: Swift.String, code: Swift.String, password: Swift.String, completion: (MammothTag.ServerResponseModel&lt;MammothTag.ForgotPasswordModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/APIService/AuthenticationService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "362">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFF5A7AF-B5DB-4E54-9B9B-F84916F88DA3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/ChangeForgotPassword/ChangeForgotPassword.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "updateUIWhenUpdatePassword(done:message:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

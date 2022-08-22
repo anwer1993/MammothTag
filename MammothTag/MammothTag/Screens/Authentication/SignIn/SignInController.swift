@@ -74,7 +74,7 @@ class SignInController: UIViewController, Storyboarded {
         emailStaticLbl.isHidden = true
         passwordStaticLabl.isHidden = true
         viewPassword.customizeViewForContainTextField()
-        passwordTextField.enablePasswordToggle()
+        passwordTextField.SecureTextField(delegate: self)
     }
     
     func setupLocalizedText() {
@@ -232,7 +232,20 @@ class SignInController: UIViewController, Storyboarded {
     }
     
     @objc func showRegistrationScreen(_ sender: UITapGestureRecognizer? = nil) {
+        clearTextField(passwordTextField)
+        clearTextField(emailTextField)
         Router.shared.push(with: self.navigationController, screen: .Register, animated: true)
+    }
+    
+    func clearTextField(_ textField: UITextField) {
+        textField.text = ""
+        if textField == passwordTextField {
+            viewPassword.layer.backgroundColor = UIColor.white.cgColor
+            resetTextField(viewPassword, passwordStaticLabl)
+        } else {
+            viewEmail.layer.backgroundColor = UIColor.white.cgColor
+            resetTextField(viewEmail, emailStaticLbl)
+        }
     }
     
 }

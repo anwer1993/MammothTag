@@ -150,8 +150,8 @@ class RegisterViewController: UIViewController, Storyboarded {
         addPicImage.layer.borderWidth = 1
         profileImage.layer.cornerRadius = 55
         profileImage.layer.backgroundColor = UIColor.tangerine.cgColor
-        passwordTextField.enablePasswordToggle()
-        confirmPasswordTextField.enablePasswordToggle()
+        passwordTextField.SecureTextField(delegate: self)
+        confirmPasswordTextField.SecureTextField(delegate: self)
         checkTermsButton.setImage(UIImage(named: "check_on"), for: .selected)
         checkTermsButton.setImage(UIImage(named: "check_off"), for: .normal)
     }
@@ -181,10 +181,6 @@ class RegisterViewController: UIViewController, Storyboarded {
         emailTextField.delegate = self
         emailTextField.keyboardType = .emailAddress
         dateOfBirthTextField.delegate = self
-        passwordTextField.delegate = self
-        passwordTextField.isSecureTextEntry = true
-        confirmPasswordTextField.delegate = self
-        confirmPasswordTextField.isSecureTextEntry = true
         phoneTextField.delegate = self
         phoneTextField.keyboardType = .phonePad
         firstNameStaticLbl.isHidden = true

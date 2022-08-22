@@ -23,15 +23,18 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initView()
-        termsAndConditionsViewModel.bindViewModelDataToController = { settingsModel in
-            self.updateUIWhenGetTermsAndConditionn(settingsModel: settingsModel)
+        termsAndConditionsViewModel.bindViewModelDataToController = {[weak self] done, settingsModel, message in
+            guard let this = self else {return}
+            this.showOrHideLoader(done: true)
+            this.initView()
+            this.updateUIWhenGetTermsAndConditionn(done: done, settingsModel: settingsModel, message: message)
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        termsAndConditionsViewModel.getTermsAndCondditions()
+        showOrHideLoader(done: false)
+        termsAndConditionsViewModel.getTerms()
     }
     
     func setupLocalizedText() {
@@ -49,9 +52,17 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
         whereDoesTitleLbl.textColor = .tangerine
     }
     
-    func updateUIWhenGetTermsAndConditionn(settingsModel: SettingsModel) {
-        whyDoUseLabel.text = settingsModel.terms
-        whyDoesDescLbl.text = settingsModel.terms
+    func updateUIWhenGetTermsAndConditionn(done: Bool, settingsModel: SettingsModel?, message: String) {
+        if done {
+            if let settingsModel = settingsModel {
+                whyDoUseLabel.text = settingsModel.terms
+                whyDoesDescLbl.text = settingsModel.terms
+            }
+        } else {
+            showAlertWithOk(withTitle: "Error", withMessage: message) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

@@ -14,7 +14,7 @@
 "DONT_HAVE_ACCOUNT" = "Don't have an account? Create a new account";
 "CREATE_NEW_ACCOUNT" = "Create a new account";
 "SIGN_IN" = "Sign IN";
-"RESET_PASSWORD_DISC" = "To reset your password, Please enter your email address";
+"RESET_PASSWORD_DISC" = "To reset your password, Please enter your phone number";
 "SEND" = "Send";
 "NEW_ACCOUNT" = "New account";
 "LAST_NAME" = "Last name";

@@ -316,6 +316,27 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		A68F76A528B44C980051E0D4 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A6DD487F28A2944000747B01 /* Register */,
+				A6D6F27B28A1C2E100AD3C9C /* SignIn */,
+				A60305F028A31EE40028F085 /* Terms&&Conditions */,
+				A6DD487828A275A900747B01 /* ForgotPassword */,
+				A6D2D7F528B297FC00DDF2A1 /* ChangeForgotPassword */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A68F76A628B44CB50051E0D4 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				A6C8495228A4918B00CF7E61 /* Settings */,
+				A6B72E8E28B2645400D69D8E /* UpdatePassword */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		A6979E9728A3CCE7008C2B60 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,16 +516,11 @@
 		A6DD487728A2759D00747B01 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A6B72E8E28B2645400D69D8E /* UpdatePassword */,
 				A69B199628A52D8000BE92F1 /* Tabbar */,
 				A6E25A3728A56008009B2D09 /* Home */,
-				A6C8495228A4918B00CF7E61 /* Settings */,
 				A6C8494728A4895B00CF7E61 /* ContactList */,
-				A6DD487F28A2944000747B01 /* Register */,
-				A6D6F27B28A1C2E100AD3C9C /* SignIn */,
-				A60305F028A31EE40028F085 /* Terms&&Conditions */,
-				A6DD487828A275A900747B01 /* ForgotPassword */,
-				A6D2D7F528B297FC00DDF2A1 /* ChangeForgotPassword */,
+				A68F76A628B44CB50051E0D4 /* Account */,
+				A68F76A528B44C980051E0D4 /* Authentication */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

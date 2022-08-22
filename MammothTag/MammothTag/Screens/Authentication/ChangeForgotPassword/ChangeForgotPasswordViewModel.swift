@@ -13,8 +13,7 @@ struct ChangeForgotPasswordViewModel {
     
     var brokenRules: [BrokenRule] = [BrokenRule]()
     var password = Dynamic<String>("")
-    var code = ""
-    var phone = ""
+    var confirmPassword = Dynamic<String>("")
     
     var isValid :Bool {
         mutating get {
@@ -27,6 +26,7 @@ struct ChangeForgotPasswordViewModel {
     var bindViewModelDataToController: (Bool, String) -> () = {_,_ in}
     
     mutating private func validate() {
+        
         guard let password = password.value, password.isEmptyString == false else {
             let brokenRule = BrokenRule(propertyName: .emptyPassword)
             self.brokenRules.append(brokenRule)
@@ -39,9 +39,21 @@ struct ChangeForgotPasswordViewModel {
             return
         }
         
+        guard let confirmPassword = confirmPassword.value, confirmPassword.isEmptyString == false else {
+            let brokenRule = BrokenRule(propertyName: .emptyConfirmPassword)
+            self.brokenRules.append(brokenRule)
+            return
+        }
+        
+        if confirmPassword != password {
+            let brokenRule = BrokenRule(propertyName: .confirmPassword)
+            self.brokenRules.append(brokenRule)
+            return
+        }
+        
     }
     
-    func sendPhone() {
+    func changePassword(code: String, phone: String) {
         AuthenticationService.sharedInstance.changeForgotPassword(phone: phone, code: code, password: password.value!) { response in
             if let done = response.result, let message = response.message {
                 if done {
@@ -50,9 +62,6 @@ struct ChangeForgotPasswordViewModel {
                     self.bindViewModelDataToController(false, message)
                 }
             }
-        }
-        AuthenticationService.sharedInstance.forgotPassword(phone: password.value!) { response in
-            
         }
     }
     

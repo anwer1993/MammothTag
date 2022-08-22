@@ -66,9 +66,9 @@ class AuthenticationService {
         }
     }
     
-    func forgotPassword(phone: String, completion: @escaping(ServerResponseModel<ForgotPasswordModel>) -> Void) {
+    func forgotPassword(phone: String, completion: @escaping(ServerResponseModel<[ForgotPasswordModel]>) -> Void) {
         let parameters = ["phone": phone] as Parameters
-        AF.request("\(URLRequest.FORGOT_PASSWORD.url)", method: .post, parameters: parameters).validate().responseDecodable(of: ServerResponseModel<ForgotPasswordModel>.self) { data in
+        AF.request("\(URLRequest.FORGOT_PASSWORD.url)", method: .post, parameters: parameters).validate().responseDecodable(of: ServerResponseModel<[ForgotPasswordModel]>.self) { data in
             if let data = data.value {
                 completion(data)
             }
@@ -112,15 +112,5 @@ class AuthenticationService {
             }
         }
     }
-    
-    func sendEmail(email: String, completion: (Bool) -> Void) {
-        completion(email.lowercased() == "Anwer".lowercased())
-    }
-    
-    
-    
-    
-    
-    
     
 }

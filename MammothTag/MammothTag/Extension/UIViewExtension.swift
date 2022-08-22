@@ -121,6 +121,12 @@ extension UILabel {
 
 extension UITextField {
     
+    func SecureTextField(delegate: UITextFieldDelegate) {
+        self.delegate = delegate
+        self.enablePasswordToggle()
+        self.isSecureTextEntry = true
+    }
+    
     func isEmpty() -> Bool {
         return (text == nil || text == "" || text == " ")
     }

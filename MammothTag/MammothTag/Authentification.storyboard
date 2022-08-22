@@ -819,7 +819,7 @@ Please enter your email address</string>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T5w-y1-HPb" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T5w-y1-HPb" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="14.5" width="346" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -940,7 +940,7 @@ Please enter your email address</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PvG-dD-gwT">
                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="138"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why do we use it?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fo-DZ-iHj">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fo-DZ-iHj">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="adf-BU-atI"/>
@@ -955,7 +955,7 @@ Please enter your email address</string>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where does it come from?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoC-oz-zEc">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoC-oz-zEc">
                                                         <rect key="frame" x="0.0" y="84" width="366" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="Ww1-2R-HLg"/>
@@ -1061,7 +1061,7 @@ Please enter your email address</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nwT-8j-xFH">
-                                        <rect key="frame" x="24" y="264.5" width="366" height="58"/>
+                                        <rect key="frame" x="24" y="264.5" width="366" height="136"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlb-JD-spt">
                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="58"/>
@@ -1092,10 +1092,39 @@ Please enter your email address</string>
                                                     <constraint firstAttribute="bottom" secondItem="pQG-tF-3uh" secondAttribute="bottom" id="lgZ-Ac-Cc2"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BtL-Er-08a">
+                                                <rect key="frame" x="0.0" y="78" width="366" height="58"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fi3-Hi-RQ8">
+                                                        <rect key="frame" x="10" y="10" width="346" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR8-VW-aiR">
+                                                                <rect key="frame" x="0.0" y="0.0" width="346" height="14.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FVE-GV-CvV" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="14.5" width="346" height="33.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="UVO-0t-O05"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Fi3-Hi-RQ8" secondAttribute="bottom" id="aX8-ZX-lT2"/>
+                                                    <constraint firstItem="Fi3-Hi-RQ8" firstAttribute="top" secondItem="BtL-Er-08a" secondAttribute="top" constant="10" id="eXO-wJ-Lgg"/>
+                                                    <constraint firstItem="Fi3-Hi-RQ8" firstAttribute="leading" secondItem="BtL-Er-08a" secondAttribute="leading" constant="10" id="gZa-Xx-1uF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Fi3-Hi-RQ8" secondAttribute="trailing" constant="10" id="gqT-Ij-UdL"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="463-dZ-lMx" customClass="GradientButton" customModule="MammothTag" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="372.5" width="366" height="60"/>
+                                        <rect key="frame" x="24" y="450.5" width="366" height="60"/>
                                         <color key="backgroundColor" red="0.94761508699999997" green="0.64004462959999997" blue="0.2351175845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1151,12 +1180,14 @@ Please enter your email address</string>
                     <connections>
                         <outlet property="backButton" destination="Rho-Xp-CS2" id="Kwi-Mo-Fc3"/>
                         <outlet property="changePasswordLbl" destination="LeJ-ws-jq4" id="R4y-V6-Jb9"/>
+                        <outlet property="confirmPassword" destination="bR8-VW-aiR" id="LZl-oE-vma"/>
+                        <outlet property="confirmPasswordTextField" destination="FVE-GV-CvV" id="iiS-H9-CCr"/>
+                        <outlet property="confirmPasswordView" destination="BtL-Er-08a" id="xSd-Un-OFQ"/>
                         <outlet property="inputStackView" destination="nwT-8j-xFH" id="X2d-hv-UaH"/>
                         <outlet property="passwordStaticLabel" destination="8QT-x8-0gh" id="j70-d5-QGV"/>
                         <outlet property="passwordTextField" destination="3dX-kb-2FS" id="Jun-eo-RnW"/>
                         <outlet property="passwordView" destination="mlb-JD-spt" id="TuC-Ox-PMe"/>
                         <outlet property="sendButton" destination="463-dZ-lMx" id="oUQ-I9-FFF"/>
-                        <outlet property="viewOfConfirmPassword" destination="mlb-JD-spt" id="ZTI-ID-iSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7iA-Xt-6jg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

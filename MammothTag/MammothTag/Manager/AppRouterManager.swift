@@ -28,7 +28,7 @@ enum AppScreen: INaviagtion{
     case Settings
     case Tabbar
     case UpdatePassword
-    case ChangeForgotPassword(code: String, phone: String)
+    case ChangeForgotPassword(code: String, phone: String, delegate: Navigatable)
 }
 
 /// Class responsible for the routing functionality
@@ -93,10 +93,11 @@ struct Router: IRouter {
                 guard let vc = UpdatePasswordController.instantiate(storyboardName: "Main") else {return UIViewController()}
                 viewController = vc
                 break
-            case .ChangeForgotPassword(code: let code, phone: let phone):
+            case .ChangeForgotPassword(code: let code, phone: let phone, delegate: let delegate):
                 guard let vc = ChangeForgotPassword.instantiate(storyboardName: "Authentification") else {return UIViewController()}
-                vc.viewModel.code = code
-                vc.viewModel.phone = phone
+                vc.code = code
+                vc.phone = phone
+                vc.delegate = delegate
                 viewController = vc
                 break
             }
@@ -170,3 +171,7 @@ extension Storyboarded where Self: UIViewController {
     }
 }
 
+
+protocol Navigatable {
+    func backToPreviousViewController()
+}

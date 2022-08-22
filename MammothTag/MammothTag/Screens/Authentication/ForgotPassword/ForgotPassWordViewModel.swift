@@ -36,7 +36,7 @@ struct ForgotPasswordViewModel {
         AuthenticationService.sharedInstance.forgotPassword(phone: phone.value!) { response in
             if let done = response.result, let message = response.message {
                 if done {
-                    self.bindViewModelDataToController(true, response.data, message)
+                    self.bindViewModelDataToController(true, response.data?.first, message)
                 } else {
                     self.bindViewModelDataToController(false, nil, message)
                 }

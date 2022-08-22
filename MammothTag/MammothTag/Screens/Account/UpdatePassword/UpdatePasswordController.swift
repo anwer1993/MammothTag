@@ -66,12 +66,6 @@ class UpdatePasswordController: UIViewController, Storyboarded {
         label.textColor = .tangerine
     }
     
-    func setupTextField(_ textField: UITextField) {
-        textField.delegate = self
-        textField.isSecureTextEntry = true
-        textField.enablePasswordToggle()
-    }
-    
     func initView() {
         updatePasswordLabel.textColor = .chestnut
         viewOfOldPassword.customizeViewForContainTextField()
@@ -87,9 +81,9 @@ class UpdatePasswordController: UIViewController, Storyboarded {
         viewOfNewPassword.layer.cornerRadius = 20.0
         viewOfConfirmPassword.layer.cornerRadius = 20.0
         sendButton.customizeButton()
-        setupTextField(oldPasswordTextField)
-        setupTextField(newPasswordTextField)
-        setupTextField(confirmPasswordTextField)
+        oldPasswordTextField.SecureTextField(delegate: self)
+        newPasswordTextField.SecureTextField(delegate: self)
+        confirmPasswordTextField.SecureTextField(delegate: self)
     }
     
     func updateUIWhenUpdatePassword(done: Bool, message: String) {

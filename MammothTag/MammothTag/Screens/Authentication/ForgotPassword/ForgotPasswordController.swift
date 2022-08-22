@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ForgotPasswordController: UIViewController, Storyboarded {
+class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
     
     
     @IBOutlet weak var backButton: UIButton!
@@ -30,6 +30,7 @@ class ForgotPasswordController: UIViewController, Storyboarded {
         initializeView()
         forgotPasswordViewModel.bindViewModelDataToController = { [weak self] done, model, message in
             guard let this = self else {return}
+            this.showOrHideLoader(done: true)
             this.updateUIWhenSendEmail(done: done, forgotPasswordModel: model, message: message)
         }
     }
@@ -41,7 +42,7 @@ class ForgotPasswordController: UIViewController, Storyboarded {
     func setupLocalizedText() {
         forgotPassswordLbl.text = "FORGOT_PASSWORD".localized
         forgotPasswordDescLbl.text = "RESET_PASSWORD_DISC".localized
-        emailStaticLbl.text = "EMAIL".localized
+        emailStaticLbl.text = "PHONE".localized
         sendButton.setTitle("SEND".localized, for: .normal)
     }
     
@@ -95,18 +96,29 @@ class ForgotPasswordController: UIViewController, Storyboarded {
         sendButton.setTitle("Reset field", for: .normal)
     }
     
+    func clearTextField() {
+        emailTextField.text = ""
+        viewEmail.layer.backgroundColor = UIColor.white.cgColor
+        resetTextField()
+    }
+    
     func updateUIWhenSendEmail(done: Bool, forgotPasswordModel: ForgotPasswordModel?, message: String) {
         if done {
             if let forgotPasswordModel = forgotPasswordModel {
-                Router.shared.push(with: self.navigationController, screen: .ChangeForgotPassword(code: forgotPasswordModel.code, phone: forgotPasswordModel.phone), animated: true)
+                clearTextField()
+                Router.shared.push(with: self.navigationController, screen: .ChangeForgotPassword(code: forgotPasswordModel.code!, phone: forgotPasswordModel.phone!, delegate: self), animated: true)
             }
         } else {
             showAlert(withTitle: "Error", withMessage: message)
         }
     }
     
-    @IBAction func backButtonDidTapped(_ sender: Any) {
+    func backToPreviousViewController() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func backButtonDidTapped(_ sender: Any) {
+        backToPreviousViewController()
     }
     
     
@@ -119,7 +131,7 @@ class ForgotPasswordController: UIViewController, Storyboarded {
         } else {
             forgotPasswordViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
                 switch Brokenrule {
-                case .email:
+                case .phone:
                     updateViewAppearenceWhenError()
                     break
                 default:
