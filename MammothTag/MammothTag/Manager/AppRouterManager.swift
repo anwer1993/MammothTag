@@ -27,6 +27,8 @@ enum AppScreen: INaviagtion{
     case ContactList
     case Settings
     case Tabbar
+    case UpdatePassword
+    case ChangeForgotPassword(code: String, phone: String)
 }
 
 /// Class responsible for the routing functionality
@@ -85,6 +87,16 @@ struct Router: IRouter {
                 break
             case .Tabbar:
                 guard let vc = MainTabbarViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
+                viewController = vc
+                break
+            case .UpdatePassword:
+                guard let vc = UpdatePasswordController.instantiate(storyboardName: "Main") else {return UIViewController()}
+                viewController = vc
+                break
+            case .ChangeForgotPassword(code: let code, phone: let phone):
+                guard let vc = ChangeForgotPassword.instantiate(storyboardName: "Authentification") else {return UIViewController()}
+                vc.viewModel.code = code
+                vc.viewModel.phone = phone
                 viewController = vc
                 break
             }

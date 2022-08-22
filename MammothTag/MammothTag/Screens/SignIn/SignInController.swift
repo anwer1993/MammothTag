@@ -53,9 +53,8 @@ class SignInController: UIViewController, Storyboarded {
     func linkViewModelToController() {
         signInViewModel.bindViewModelDataToController = { [weak self] done, message in
             guard let this = self else {return}
-            this.showOrHideLoader(done: true, doneAction: {
-                this.updateUIWhenLogin(isLoggedIn: done, message: message)
-            })
+            this.showOrHideLoader(done: true)
+            this.updateUIWhenLogin(isLoggedIn: done, message: message)
         }
     }
     
@@ -202,7 +201,7 @@ class SignInController: UIViewController, Storyboarded {
         if signInViewModel.isValid {
             updateViewAppearenceWhenValid(viewPassword, passwordStaticLabl)
             updateViewAppearenceWhenValid(viewEmail, emailStaticLbl)
-            showOrHideLoader(done: false, doneAction: {})
+            showOrHideLoader(done: false)
             signInViewModel.login()
         } else {
             signInViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in

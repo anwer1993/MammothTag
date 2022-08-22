@@ -19,6 +19,10 @@ enum URLRequest: String {
     case ADD_CARDS_URL
     case EDIT_CARDS_URL
     case DELETE_CARDS_URL
+    case UPDATE_PASSWORD
+    case SETTINGS
+    case FORGOT_PASSWORD
+    case CHANGE_FORGOT_PASSWORD
     
     var url: String {
         switch self {
@@ -40,6 +44,14 @@ enum URLRequest: String {
             return "http://mubadiroun.com/Mammouth/public/api/v1/card/edit/en"
         case .DELETE_CARDS_URL:
             return "http://mubadiroun.com/Mammouth/public/api/v1/card/delete/en"
+        case .UPDATE_PASSWORD:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/user/change_pass/en"
+        case .SETTINGS:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/general/settings/en"
+        case .FORGOT_PASSWORD:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/user/forgot_pass/en"
+        case .CHANGE_FORGOT_PASSWORD:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/user/forgot_change_pass/en"
         }
     }
 }

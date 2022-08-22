@@ -22,9 +22,10 @@ enum BrokenRulesEnum {
     case dateOfBirth
     case phone
     case picture
+    case emptyOldPassword
 }
 
-protocol ValidatorProtocol {
-    var brokenRules :[BrokenRule] { get set}
-    var isValid :Bool { mutating get }
-}
+//protocol ValidatorProtocol {
+//    var brokenRules :[BrokenRule] { get set}
+//    var isValid :Bool { mutating get }
+//}

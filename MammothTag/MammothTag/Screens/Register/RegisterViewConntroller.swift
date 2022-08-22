@@ -112,7 +112,7 @@ class RegisterViewController: UIViewController, Storyboarded {
         countryCodeView.setCountryByCode("SA")
         registerViewModel.updateRegisterModel(withcountryCode: countryCodeView.selectedCountry.phoneCode)
         registerViewModel.updateUIWhenRegister =  {done, message in
-            self.showOrHideLoader(done: true, doneAction: {})
+            self.showOrHideLoader(done: true)
             if done == true {
                 self.navigationController?.popViewController(animated: true)
             } else {
@@ -207,9 +207,7 @@ class RegisterViewController: UIViewController, Storyboarded {
     @IBAction func sendButtonTapped(_ sender: Any) {
         if registerViewModel.isValid {
             if registerViewModel.termsChecked {
-                showOrHideLoader(done: false) {
-                    self.navigationController?.popViewController(animated: true)
-                }
+                showOrHideLoader(done: false)
                 registerViewModel.register()
             } else {
                 showAlert(withTitle: "Error", withMessage: "Please check terms & conditions first")
@@ -247,6 +245,8 @@ class RegisterViewController: UIViewController, Storyboarded {
                     break
                 case .picture:
                     showAlert(withTitle: "Error", withMessage: "Please select your profile picture")
+                    break
+                case .emptyOldPassword:
                     break
                 }
             }

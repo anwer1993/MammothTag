@@ -11,7 +11,7 @@ import Foundation
 struct ForgotPasswordViewModel {
     
     var brokenRules: [BrokenRule] = [BrokenRule]()
-    var email = Dynamic<String>("")
+    var phone = Dynamic<String>("")
     
     var isValid :Bool {
         mutating get {
@@ -21,24 +21,27 @@ struct ForgotPasswordViewModel {
         }
     }
     
-    var bindViewModelDataToController: (Bool) -> () = {_ in}
+    var bindViewModelDataToController: (Bool, ForgotPasswordModel?, String) -> () = {_,_,_ in}
     
     mutating private func validate() {
-        if email.value == "" || email.value == nil || email.value == ""  {
-            let brokenRule = BrokenRule(propertyName: .email)
+        guard let phone = phone.value, phone.isEmptyString == false else {
+            let brokenRule = BrokenRule(propertyName: .phone)
             self.brokenRules.append(brokenRule)
-        }
-    }
-    
-    mutating func sendEmail() {
-        if let email = email.value {
-            AuthenticationService.sharedInstance.sendEmail(email: email) { done in
-                bindViewModelDataToController(done)
-            }
-        } else {
-            bindViewModelDataToController(false)
+            return
         }
         
+    }
+    
+    func sendPhone() {
+        AuthenticationService.sharedInstance.forgotPassword(phone: phone.value!) { response in
+            if let done = response.result, let message = response.message {
+                if done {
+                    self.bindViewModelDataToController(true, response.data, message)
+                } else {
+                    self.bindViewModelDataToController(false, nil, message)
+                }
+            }
+        }
     }
     
 }

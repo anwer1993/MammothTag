@@ -17,7 +17,7 @@ class ForgotPasswordController: UIViewController, Storyboarded {
     @IBOutlet weak var viewEmail: UIView!
     @IBOutlet weak var emailTextField: CustomTextField! {
         didSet {
-            self.emailTextField.bind(callback: {self.forgotPasswordViewModel.email.value = $0 })
+            self.emailTextField.bind(callback: {self.forgotPasswordViewModel.phone.value = $0 })
         }
     }
     @IBOutlet weak var emailStaticLbl: UILabel!
@@ -28,9 +28,9 @@ class ForgotPasswordController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeView()
-        forgotPasswordViewModel.bindViewModelDataToController = { [weak self] done in
+        forgotPasswordViewModel.bindViewModelDataToController = { [weak self] done, model, message in
             guard let this = self else {return}
-            this.updateUIWhenSendEmail(done: done)
+            this.updateUIWhenSendEmail(done: done, forgotPasswordModel: model, message: message)
         }
     }
     
@@ -95,11 +95,13 @@ class ForgotPasswordController: UIViewController, Storyboarded {
         sendButton.setTitle("Reset field", for: .normal)
     }
     
-    func updateUIWhenSendEmail(done: Bool) {
+    func updateUIWhenSendEmail(done: Bool, forgotPasswordModel: ForgotPasswordModel?, message: String) {
         if done {
-            print("request succeeded")
+            if let forgotPasswordModel = forgotPasswordModel {
+                Router.shared.push(with: self.navigationController, screen: .ChangeForgotPassword(code: forgotPasswordModel.code, phone: forgotPasswordModel.phone), animated: true)
+            }
         } else {
-            print("request failed")
+            showAlert(withTitle: "Error", withMessage: message)
         }
     }
     
@@ -112,7 +114,8 @@ class ForgotPasswordController: UIViewController, Storyboarded {
         if forgotPasswordViewModel.isValid {
             viewEmail.customizeViewContainTextFieldWhenValid()
             emailStaticLbl.customizeLabelWhenValid()
-            forgotPasswordViewModel.sendEmail()
+            showOrHideLoader(done: false)
+            forgotPasswordViewModel.sendPhone()
         } else {
             forgotPasswordViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
                 switch Brokenrule {

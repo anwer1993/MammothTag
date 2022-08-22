@@ -43,6 +43,7 @@
 		A6A6959C28A6E6810025A3B2 /* UpdateProfileModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A6959B28A6E6810025A3B2 /* UpdateProfileModeVC.xib */; };
 		A6A6959E28A6E69B0025A3B2 /* UpdateProfileModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6959D28A6E69A0025A3B2 /* UpdateProfileModeVC.swift */; };
 		A6B4D85C28A7225800E73ACD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */; };
+		A6B72E9028B2646C00D69D8E /* UpdatePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B72E8F28B2646C00D69D8E /* UpdatePasswordController.swift */; };
 		A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7360028A17AAC00C09A3C /* UIColor.swift */; };
 		A6B8C9D228A7087B0003C408 /* ScanNFCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B8C9D128A7087B0003C408 /* ScanNFCVC.xib */; };
 		A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8C9D528A7088E0003C408 /* ScanNFCVC.swift */; };
@@ -59,6 +60,11 @@
 		A6C8494F28A4903D00CF7E61 /* SeettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */; };
 		A6C8495128A4904C00CF7E61 /* SeettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8495028A4904C00CF7E61 /* SeettingsTableViewCell.swift */; };
 		A6C8495428A491A700CF7E61 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8495328A491A700CF7E61 /* SettingsViewController.swift */; };
+		A6D2D7F028B274EC00DDF2A1 /* UpdatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D2D7EF28B274EC00DDF2A1 /* UpdatePasswordViewModel.swift */; };
+		A6D2D7F228B284E900DDF2A1 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D2D7F128B284E900DDF2A1 /* SettingsModel.swift */; };
+		A6D2D7F428B286F600DDF2A1 /* ForgotPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D2D7F328B286F600DDF2A1 /* ForgotPasswordModel.swift */; };
+		A6D2D7F728B2981400DDF2A1 /* ChangeForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D2D7F628B2981400DDF2A1 /* ChangeForgotPassword.swift */; };
+		A6D2D7F928B2A23500DDF2A1 /* ChangeForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D2D7F828B2A23500DDF2A1 /* ChangeForgotPasswordViewModel.swift */; };
 		A6D6F27D28A1C6C600AD3C9C /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6F27C28A1C6C600AD3C9C /* DynamicType.swift */; };
 		A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6F27E28A1C7AB00AD3C9C /* SignInViewModel.swift */; };
 		A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6F28028A1C80700AD3C9C /* Validator.swift */; };
@@ -148,6 +154,7 @@
 		A6A6959B28A6E6810025A3B2 /* UpdateProfileModeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateProfileModeVC.xib; sourceTree = "<group>"; };
 		A6A6959D28A6E69A0025A3B2 /* UpdateProfileModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileModeVC.swift; sourceTree = "<group>"; };
 		A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A6B72E8F28B2646C00D69D8E /* UpdatePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordController.swift; sourceTree = "<group>"; };
 		A6B7360028A17AAC00C09A3C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A6B8C9D128A7087B0003C408 /* ScanNFCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanNFCVC.xib; sourceTree = "<group>"; };
 		A6B8C9D528A7088E0003C408 /* ScanNFCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanNFCVC.swift; sourceTree = "<group>"; };
@@ -164,6 +171,11 @@
 		A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeettingsTableViewCell.xib; sourceTree = "<group>"; };
 		A6C8495028A4904C00CF7E61 /* SeettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeettingsTableViewCell.swift; sourceTree = "<group>"; };
 		A6C8495328A491A700CF7E61 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A6D2D7EF28B274EC00DDF2A1 /* UpdatePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewModel.swift; sourceTree = "<group>"; };
+		A6D2D7F128B284E900DDF2A1 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		A6D2D7F328B286F600DDF2A1 /* ForgotPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModel.swift; sourceTree = "<group>"; };
+		A6D2D7F628B2981400DDF2A1 /* ChangeForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeForgotPassword.swift; sourceTree = "<group>"; };
+		A6D2D7F828B2A23500DDF2A1 /* ChangeForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		A6D6F27C28A1C6C600AD3C9C /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
 		A6D6F27E28A1C7AB00AD3C9C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		A6D6F28028A1C80700AD3C9C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -364,6 +376,15 @@
 			path = UpdateProfileModeVC;
 			sourceTree = "<group>";
 		};
+		A6B72E8E28B2645400D69D8E /* UpdatePassword */ = {
+			isa = PBXGroup;
+			children = (
+				A6B72E8F28B2646C00D69D8E /* UpdatePasswordController.swift */,
+				A6D2D7EF28B274EC00DDF2A1 /* UpdatePasswordViewModel.swift */,
+			);
+			path = UpdatePassword;
+			sourceTree = "<group>";
+		};
 		A6B8C9D028A708530003C408 /* ScanNFCVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +451,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		A6D2D7F528B297FC00DDF2A1 /* ChangeForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A6D2D7F628B2981400DDF2A1 /* ChangeForgotPassword.swift */,
+				A6D2D7F828B2A23500DDF2A1 /* ChangeForgotPasswordViewModel.swift */,
+			);
+			path = ChangeForgotPassword;
+			sourceTree = "<group>";
+		};
 		A6D6F27B28A1C2E100AD3C9C /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +476,8 @@
 				A6979EB028A413DE008C2B60 /* RegisterModel.swift */,
 				A688ED0A28AFF1410010AE54 /* CardModel.swift */,
 				A688ED0E28AFF2310010AE54 /* ProfileModel.swift */,
+				A6D2D7F128B284E900DDF2A1 /* SettingsModel.swift */,
+				A6D2D7F328B286F600DDF2A1 /* ForgotPasswordModel.swift */,
 				A688ED0C28AFF1810010AE54 /* ServerResponseModel.swift */,
 			);
 			path = Models;
@@ -463,6 +495,7 @@
 		A6DD487728A2759D00747B01 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				A6B72E8E28B2645400D69D8E /* UpdatePassword */,
 				A69B199628A52D8000BE92F1 /* Tabbar */,
 				A6E25A3728A56008009B2D09 /* Home */,
 				A6C8495228A4918B00CF7E61 /* Settings */,
@@ -471,6 +504,7 @@
 				A6D6F27B28A1C2E100AD3C9C /* SignIn */,
 				A60305F028A31EE40028F085 /* Terms&&Conditions */,
 				A6DD487828A275A900747B01 /* ForgotPassword */,
+				A6D2D7F528B297FC00DDF2A1 /* ChangeForgotPassword */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -824,13 +858,17 @@
 			files = (
 				A60B313528A175D70037F0B3 /* GradientView.swift in Sources */,
 				A6979EB128A413DE008C2B60 /* RegisterModel.swift in Sources */,
+				A6B72E9028B2646C00D69D8E /* UpdatePasswordController.swift in Sources */,
 				A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */,
 				A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */,
 				A6DD487A28A275C600747B01 /* ForgotPasswordController.swift in Sources */,
 				A688ED0F28AFF2310010AE54 /* ProfileModel.swift in Sources */,
+				A6D2D7F428B286F600DDF2A1 /* ForgotPasswordModel.swift in Sources */,
 				A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */,
 				A6FC614828A02A0100756C74 /* SpalchScreen.swift in Sources */,
 				A688ED0D28AFF1810010AE54 /* ServerResponseModel.swift in Sources */,
+				A6D2D7F028B274EC00DDF2A1 /* UpdatePasswordViewModel.swift in Sources */,
+				A6D2D7F228B284E900DDF2A1 /* SettingsModel.swift in Sources */,
 				A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */,
 				A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */,
 				A6C8495128A4904C00CF7E61 /* SeettingsTableViewCell.swift in Sources */,
@@ -853,6 +891,8 @@
 				A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */,
 				A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */,
 				A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */,
+				A6D2D7F728B2981400DDF2A1 /* ChangeForgotPassword.swift in Sources */,
+				A6D2D7F928B2A23500DDF2A1 /* ChangeForgotPasswordViewModel.swift in Sources */,
 				A6C8494C28A48F3300CF7E61 /* ContactListViewModel.swift in Sources */,
 				A6979EB328A46190008C2B60 /* RegisterViewControllerImagePicker.swift in Sources */,
 				A6E25A3928A5601B009B2D09 /* HomeViewController.swift in Sources */,
@@ -1068,8 +1108,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MammothTag/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MAMMOTHTAG;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) would like to access your camera";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) would like to access your photo";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "NFC tag to read NDEF messages into the application";
+				INFOPLIST_KEY_NSCameraUsageDescription = "MammothTag would like to access your camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MammothTag would like to access your photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Authentification;
@@ -1105,8 +1146,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MammothTag/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MAMMOTHTAG;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) would like to access your camera";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) would like to access your photo";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "NFC tag to read NDEF messages into the application";
+				INFOPLIST_KEY_NSCameraUsageDescription = "MammothTag would like to access your camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MammothTag would like to access your photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Authentification;

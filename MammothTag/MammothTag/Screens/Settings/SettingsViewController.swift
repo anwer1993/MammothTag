@@ -111,7 +111,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             
         } else if indexPath.row == 1 {
-            
+            Router.shared.present(screen: .UpdatePassword, modalePresentatioinStyle: .fullScreen, completion: nil)
         } else if indexPath.row == 2 {
             Router.shared.push(with: self.navigationController, screen: .Terms, animated: true)
         } else if indexPath.row == 3 {
@@ -120,9 +120,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
                     return
                 }
                 if let token = AccountManager.shared.token {
-                    this.showOrHideLoader(done: false, doneAction: {})
+                    this.showOrHideLoader(done: false)
                     AuthenticationService.sharedInstance.logout(token: token) { data in
-                        this.showOrHideLoader(done: true, doneAction: {})
+                        this.showOrHideLoader(done: true)
                         if let done = data.result, done == true {
                             AccountManager.shared.token = nil
                             Router.shared.push(with: this.navigationController, screen: .Login, animated: true)

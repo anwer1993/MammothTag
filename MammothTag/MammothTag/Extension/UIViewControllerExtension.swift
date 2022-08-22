@@ -40,10 +40,20 @@ extension UIViewController {
         self.present(alert, animated: true)
     }
     
-    func showOrHideLoader(done: Bool, doneAction: @escaping() -> Void) {
+    func showAlertWithOk(withTitle title: String, withMessage message: String, confirmAction: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OkAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            if let handler = confirmAction {
+                handler()
+            }
+        }
+        alert.addAction(OkAction)
+        self.present(alert, animated: true)
+    }
+    
+    func showOrHideLoader(done: Bool) {
         if done {
             dismiss(animated: false, completion: nil)
-            doneAction()
         } else {
             let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
 

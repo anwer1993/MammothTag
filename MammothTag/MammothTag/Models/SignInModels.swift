@@ -7,7 +7,7 @@
 import Alamofire
 import Foundation
 
-struct SignInModel {
+struct SignInModel: Codable {
     var email: String = ""
     var password: String = ""
 }
@@ -23,13 +23,3 @@ struct LoginServerResponseData: Codable {
         case token = "token"
     }
 }
-
-
-
-
-
-struct SettingsModel {
-    var terms: String
-    var conditions: String
-}
-

@@ -31,7 +31,7 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        termsAndConditionsViewModel.getTermsAndCondditions()
+//        termsAndConditionsViewModel.getTermsAndCondditions()
     }
     
     func setupLocalizedText() {
@@ -51,7 +51,7 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     
     func updateUIWhenGetTermsAndConditionn(settingsModel: SettingsModel) {
         whyDoUseLabel.text = settingsModel.terms
-        whyDoesDescLbl.text = settingsModel.conditions
+        whyDoesDescLbl.text = settingsModel.terms
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

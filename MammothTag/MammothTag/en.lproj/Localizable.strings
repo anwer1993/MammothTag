@@ -36,3 +36,11 @@
 "PHOTOS_PRMISSION_DENIED" = "The application does not have access to your galerie";
 "ACCESS_DENIED" = "Access denied";
 "CONTACT_LIST" = "Contact list";
+
+// Change password
+
+"CHANGE_PASSWORD" = "Change password";
+"OLD_PASSWORD" = "Old password";
+"NEW_PASSWORD" = "New password";
+"CONFIRM_PASSWORD" = "Confirm password";
+"CODE" = "Code";
