@@ -20,11 +20,14 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     @IBOutlet weak var whereDoesTitleLbl: UILabel!
     
     var termsAndConditionsViewModel = TermsAndConditionsViewModel()
+    var source: SourceController?
+    var isDone = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         termsAndConditionsViewModel.bindViewModelDataToController = {[weak self] done, settingsModel, message in
             guard let this = self else {return}
+            this.isDone = true
             this.showOrHideLoader(done: true)
             this.initView()
             this.updateUIWhenGetTermsAndConditionn(done: done, settingsModel: settingsModel, message: message)
@@ -33,14 +36,21 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showOrHideLoader(done: false)
         termsAndConditionsViewModel.getTerms()
     }
     
     func setupLocalizedText() {
-        termsLabel.text = "PRIVACY".localized
-        firstLabel.text = "WHY_DO_USE_IT".localized
-        whereDoesTitleLbl.text = "WHERE_DOES_IT_COME".localized
+        if source == .FromSettings {
+            termsLabel.text = "About Us"
+            firstLabel.isHidden = true
+            whereDoesTitleLbl.isHidden = true
+            whyDoesDescLbl.isHidden = true
+        } else {
+            termsLabel.text = "PRIVACY".localized
+            firstLabel.text = "WHY_DO_USE_IT".localized
+            whereDoesTitleLbl.text = "WHERE_DOES_IT_COME".localized
+        }
+        
         backButton.flipWhenRTL(image: UIImage(named: "Groupe 469")!)
     }
     
@@ -55,8 +65,13 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     func updateUIWhenGetTermsAndConditionn(done: Bool, settingsModel: SettingsModel?, message: String) {
         if done {
             if let settingsModel = settingsModel {
-                whyDoUseLabel.text = settingsModel.terms
-                whyDoesDescLbl.text = settingsModel.terms
+                if source == .FromSettings {
+                    whyDoUseLabel.text = settingsModel.about
+                } else {
+                    whyDoUseLabel.text = settingsModel.terms
+                    whyDoesDescLbl.text = settingsModel.terms
+                }
+                
             }
         } else {
             showAlertWithOk(withTitle: "Error", withMessage: message) {

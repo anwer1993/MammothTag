@@ -68,4 +68,26 @@ extension UIViewController {
     }
     
     
+    func logout() {
+        self.showAlert(withTitle: "Logout", withMessage: "Are you sure you want to logout from Mammoth tag application", confirmAction: {[weak self]  in
+            guard let this = self else {
+                return
+            }
+            if let token = AccountManager.shared.token {
+                this.showOrHideLoader(done: false)
+                AuthenticationService.sharedInstance.logout(token: token) { data in
+                    this.showOrHideLoader(done: true)
+                    if let done = data.result, done == true {
+                        AccountManager.shared.token = nil
+                        Router.shared.push(with: this.navigationController, screen: .Login, animated: true)
+                    } else if let message = data.message, message != "Success request" {
+                        this.showAlert(withTitle: "Error", withMessage: message)
+                    }
+                    
+                }
+            }
+            
+        })
+    }
+    
 }

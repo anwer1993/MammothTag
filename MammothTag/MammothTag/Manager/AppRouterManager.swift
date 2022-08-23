@@ -23,7 +23,7 @@ enum AppScreen: INaviagtion{
     case Login
     case ForgotPassword
     case Register
-    case Terms
+    case Terms(source: SourceController? = nil)
     case ContactList
     case Settings
     case Tabbar
@@ -73,8 +73,9 @@ struct Router: IRouter {
                 guard let vc = RegisterViewController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
                 viewController = vc
                 break
-            case .Terms:
+            case .Terms(source: let source):
                 guard let vc = TermsAndConditionViewController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
+                vc.source = source
                 viewController = vc
                 break
             case .ContactList:

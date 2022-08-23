@@ -20,12 +20,13 @@
 		A62B1BE328AA9E2B00948860 /* AddNewCardVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */; };
 		A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */; };
 		A648400C28A190BD000D040D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648400B28A190BD000D040D /* CustomTextField.swift */; };
-		A648691328AEC9AF00C059C9 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648691228AEC9AF00C059C9 /* URLRequest.swift */; };
+		A648691328AEC9AF00C059C9 /* URLRequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648691228AEC9AF00C059C9 /* URLRequestEnum.swift */; };
 		A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0428AFAD210010AE54 /* DateExtension.swift */; };
 		A688ED0928AFEFF00010AE54 /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0828AFEFF00010AE54 /* CardService.swift */; };
 		A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0A28AFF1410010AE54 /* CardModel.swift */; };
 		A688ED0D28AFF1810010AE54 /* ServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0C28AFF1810010AE54 /* ServerResponseModel.swift */; };
 		A688ED0F28AFF2310010AE54 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0E28AFF2310010AE54 /* ProfileModel.swift */; };
+		A68F76A828B44DA80051E0D4 /* SourceControllerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F76A728B44DA80051E0D4 /* SourceControllerEnum.swift */; };
 		A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979E9E28A3D63C008C2B60 /* StringExtension.swift */; };
 		A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6979EA228A3DE92008C2B60 /* Localizable.strings */; };
 		A6979EAF28A3F5AD008C2B60 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979EAE28A3F5AD008C2B60 /* AppSettings.swift */; };
@@ -125,13 +126,14 @@
 		A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardVc.xib; sourceTree = "<group>"; };
 		A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVc.swift; sourceTree = "<group>"; };
 		A648400B28A190BD000D040D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		A648691228AEC9AF00C059C9 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		A648691228AEC9AF00C059C9 /* URLRequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestEnum.swift; sourceTree = "<group>"; };
 		A66FEEE828A47D980062D754 /* MammothTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MammothTag.entitlements; sourceTree = "<group>"; };
 		A688ED0428AFAD210010AE54 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A688ED0828AFEFF00010AE54 /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		A688ED0A28AFF1410010AE54 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		A688ED0C28AFF1810010AE54 /* ServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseModel.swift; sourceTree = "<group>"; };
 		A688ED0E28AFF2310010AE54 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		A68F76A728B44DA80051E0D4 /* SourceControllerEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceControllerEnum.swift; sourceTree = "<group>"; };
 		A6979E9E28A3D63C008C2B60 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A6979EA028A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		A6979EA128A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -311,7 +313,8 @@
 		A648691128AEC99D00C059C9 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				A648691228AEC9AF00C059C9 /* URLRequest.swift */,
+				A648691228AEC9AF00C059C9 /* URLRequestEnum.swift */,
+				A68F76A728B44DA80051E0D4 /* SourceControllerEnum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -898,7 +901,7 @@
 				A6979EB828A474DD008C2B60 /* ContactTableViewCell.swift in Sources */,
 				A6A6959928A6BDB90025A3B2 /* UIViewControllerExtension.swift in Sources */,
 				A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */,
-				A648691328AEC9AF00C059C9 /* URLRequest.swift in Sources */,
+				A648691328AEC9AF00C059C9 /* URLRequestEnum.swift in Sources */,
 				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
 				A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
@@ -913,6 +916,7 @@
 				A6979EB328A46190008C2B60 /* RegisterViewControllerImagePicker.swift in Sources */,
 				A6E25A3928A5601B009B2D09 /* HomeViewController.swift in Sources */,
 				A6A6959728A6B8870025A3B2 /* AccountManager.swift in Sources */,
+				A68F76A828B44DA80051E0D4 /* SourceControllerEnum.swift in Sources */,
 				A6C79C1E28A55B0000229739 /* CustomSegmentControlView.swift in Sources */,
 				A648400C28A190BD000D040D /* CustomTextField.swift in Sources */,
 				A62B1BDE28AA902300948860 /* MoreVC.swift in Sources */,

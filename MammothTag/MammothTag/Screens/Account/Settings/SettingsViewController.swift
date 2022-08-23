@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController, Storyboarded {
     
     var viewModel = SettingsViewModel()
     
-    var settingsArray = ["My information", "Change passoword", "Privacy", "Logout"]
+    var settingsArray = ["My information", "Change passoword", "Abous Us", "Terms & conditions", "Logout"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +92,7 @@ class SettingsViewController: UIViewController, Storyboarded {
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -113,27 +113,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 1 {
             Router.shared.present(screen: .UpdatePassword, modalePresentatioinStyle: .fullScreen, completion: nil)
         } else if indexPath.row == 2 {
-            Router.shared.push(with: self.navigationController, screen: .Terms, animated: true)
+            Router.shared.push(with: self.navigationController, screen: .Terms(source: .FromSettings), animated: true)
         } else if indexPath.row == 3 {
-            self.showAlert(withTitle: "Logout", withMessage: "Are you sure you want to logout from Mammoth tag application", confirmAction: {[weak self]  in
-                guard let this = self else {
-                    return
-                }
-                if let token = AccountManager.shared.token {
-                    this.showOrHideLoader(done: false)
-                    AuthenticationService.sharedInstance.logout(token: token) { data in
-                        this.showOrHideLoader(done: true)
-                        if let done = data.result, done == true {
-                            AccountManager.shared.token = nil
-                            Router.shared.push(with: this.navigationController, screen: .Login, animated: true)
-                        } else if let message = data.message, message != "Success request" {
-                            this.showAlert(withTitle: "Error", withMessage: message)
-                        }
-                        
-                    }
-                }
-                
-            })
+            Router.shared.push(with: self.navigationController, screen: .Terms(source: .none), animated: true)
+        } else if indexPath.row == 4 {
+            logout()
         }
     }
     

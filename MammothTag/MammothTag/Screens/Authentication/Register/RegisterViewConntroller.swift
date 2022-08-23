@@ -254,7 +254,7 @@ class RegisterViewController: UIViewController, Storyboarded {
     }
     
     @objc func showTermsAndConditionScreen(_ sender: UITapGestureRecognizer? = nil) {
-        Router.shared.push(with: self.navigationController, screen: .Terms, animated: true)
+        Router.shared.push(with: self.navigationController, screen: .Terms(source: .none), animated: true)
     }
     
     @objc func showSignInScreen(_ sender: UITapGestureRecognizer? = nil) {
