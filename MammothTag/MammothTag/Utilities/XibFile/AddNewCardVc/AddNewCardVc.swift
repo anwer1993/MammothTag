@@ -38,6 +38,7 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     @IBOutlet var viewContainer: UIView!
     
     var handleTapWhenDismiss: () -> Void = {}
+    var handleTapWhenSave: (String, String) -> Void = {_,_ in}
     
     var tapGesture: UITapGestureRecognizer {
         return UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -49,6 +50,8 @@ class AddNewCardVc: UIViewController, SubViewConroller {
             
         }
     }
+    
+    var cardName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,6 +171,7 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     }
     
     @IBAction func saveBtnDidTapped(_ sender: Any) {
+        handleTapWhenSave(cardName, "\(selectedMode)")
     }
     
 }
@@ -177,15 +181,23 @@ extension AddNewCardVc: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        cardName = textField.text ?? ""
         return true;
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        cardName = textField.text ?? ""
         print("TextField did begin editing method called")
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        cardName = textField.text ?? ""
         print("TextField did end editing method called")
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        cardName = textField.text ?? ""
+        print("TextField did change", cardName)
     }
     
 }

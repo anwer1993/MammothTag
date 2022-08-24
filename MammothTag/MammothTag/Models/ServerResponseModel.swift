@@ -20,3 +20,33 @@ struct ServerResponseModel<T: Codable>: Codable {
     }
     
 }
+
+struct LogoutServerResponseModel: Codable {
+    
+    let success: Bool?
+    let message: String?
+//    let data: T?
+    
+    enum CodingKeys: String, CodingKey {
+        case success = "success"
+        case message = "message"
+//        case data = "data"
+    }
+    
+}
+
+struct ProfilModelG<T: Codable>: Codable {
+    
+    let success: Bool?
+    let message: String?
+    let data: T?
+    
+    enum CodingKeys: String, CodingKey {
+        case success = "success"
+        case message = "message"
+        case data = "data"
+    }
+    
+}
+
+

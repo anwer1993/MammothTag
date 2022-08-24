@@ -3,4 +3,246 @@
    uuid = "24449376-3658-4C83-9BD5-0F27CD457A7D"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8210946-F30E-41D4-B65B-DAEE695B48CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "addCard()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F8210946-F30E-41D4-B65B-DAEE695B48CE - 6db5195dd992d08b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.ServerResponseModel&lt;MammothTag.CardModel&gt;) -&gt; () in MammothTag.HomeViewModel.addCard() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "101">
+               </Location>
+               <Location
+                  uuid = "F8210946-F30E-41D4-B65B-DAEE695B48CE - 6db5195dd992d08b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MammothTag.ServerResponseModel&lt;MammothTag.CardModel&gt;) -&gt; () in MammothTag.HomeViewModel.addCard() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "129">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6DF022F-E670-4885-A9C7-103F3CDDD05E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Utilities/XibFile/AddNewCardVc/AddNewCardVc.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "textFieldShouldReturn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9777E7E5-B10E-4F48-A50D-9294A4A63B41"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "showAddCardPopup(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE347D9C-6F51-499A-B978-7632C37512DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/APIService/CardService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "addCard(cardName:cardType:cardPrivacy:token:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DE347D9C-6F51-499A-B978-7632C37512DB - 8a4db43ac1f56aef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;MammothTag.ServerResponseModel&lt;MammothTag.CardModel&gt;, Alamofire.AFError&gt;) -&gt; () in MammothTag.CardService.addCard(cardName: Swift.String, cardType: Swift.String, cardPrivacy: Swift.String, token: Swift.String, completion: (MammothTag.ServerResponseModel&lt;MammothTag.CardModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/APIService/CardService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "158">
+               </Location>
+               <Location
+                  uuid = "DE347D9C-6F51-499A-B978-7632C37512DB - 8a4db43ac1f56aef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;MammothTag.ServerResponseModel&lt;MammothTag.CardModel&gt;, Alamofire.AFError&gt;) -&gt; () in MammothTag.CardService.addCard(cardName: Swift.String, cardType: Swift.String, cardPrivacy: Swift.String, token: Swift.String, completion: (MammothTag.ServerResponseModel&lt;MammothTag.CardModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/APIService/CardService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "679">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC50577E-2305-4DA6-BBAE-5E26F2B452B8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/APIService/CardService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "addCard(cardName:cardType:cardPrivacy:token:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3FE84E2-6296-41AE-9F02-06BC5BBF3F5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "addCard()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03422717-1388-42B1-B8C0-D515FAED18F4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/APIService/CardService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "getCards(token:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "03422717-1388-42B1-B8C0-D515FAED18F4 - 72624cabc751d07a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;MammothTag.ServerResponseModel&lt;Swift.Array&lt;MammothTag.CardModel&gt;&gt;, Alamofire.AFError&gt;) -&gt; () in MammothTag.CardService.getCards(token: Swift.String, completion: (MammothTag.ServerResponseModel&lt;Swift.Array&lt;MammothTag.CardModel&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/APIService/CardService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "03422717-1388-42B1-B8C0-D515FAED18F4 - 72624cabc751d07a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;MammothTag.ServerResponseModel&lt;Swift.Array&lt;MammothTag.CardModel&gt;&gt;, Alamofire.AFError&gt;) -&gt; () in MammothTag.CardService.getCards(token: Swift.String, completion: (MammothTag.ServerResponseModel&lt;Swift.Array&lt;MammothTag.CardModel&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/APIService/CardService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "259">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81DE1D58-2A92-4FE3-A882-977447DD660B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14E98A91-8F9B-484E-A75D-25040E6F3F2C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

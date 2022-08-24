@@ -29,6 +29,7 @@ enum AppScreen: INaviagtion{
     case Tabbar
     case UpdatePassword
     case ChangeForgotPassword(code: String, phone: String, delegate: Navigatable)
+    case UpdateProfile(profile: ProfileModel)
 }
 
 /// Class responsible for the routing functionality
@@ -99,6 +100,11 @@ struct Router: IRouter {
                 vc.code = code
                 vc.phone = phone
                 vc.delegate = delegate
+                viewController = vc
+                break
+            case .UpdateProfile(profile: let profile):
+                guard let vc = UpdateProfileViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
+                vc.profile = profile
                 viewController = vc
                 break
             }

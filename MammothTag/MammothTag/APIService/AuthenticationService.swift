@@ -39,8 +39,8 @@ class AuthenticationService {
         
     }
     
-    func logout(token: String, completion: @escaping(ServerResponseModel<ProfileModel>) -> Void) {
-        AF.request("\(URLRequest.LOGOUT_URL.url)\(token)", method: .get).validate().responseDecodable(of: ServerResponseModel<ProfileModel>.self) { data in
+    func logout(token: String, completion: @escaping(LogoutServerResponseModel) -> Void) {
+        AF.request("\(URLRequest.LOGOUT_URL.url)\(token)", method: .get).validate().responseDecodable(of: LogoutServerResponseModel.self) { data in
             if let data = data.value {
                 completion(data)
             }
@@ -88,11 +88,9 @@ class AuthenticationService {
     
     
     
-    func getUserProfile(token: String, completion: @escaping(ServerResponseModel<ProfileModel>) -> Void) {
+    func getUserProfile(token: String, completion: @escaping(ServerResponseModel<ProfileModel>?) -> Void) {
         AF.request("\(URLRequest.GET_USER_URL.url)\(token)", method: .get).validate().responseDecodable(of: ServerResponseModel<ProfileModel>.self) { data in
-            if let data = data.value {
-                completion(data)
-            }
+            completion(data.value)
         }
     }
     

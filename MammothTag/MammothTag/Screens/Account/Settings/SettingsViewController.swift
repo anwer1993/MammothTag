@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SettingsViewController: UIViewController, Storyboarded {
     
@@ -27,6 +28,7 @@ class SettingsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var shadowInffoViewWidthConstarinte: NSLayoutConstraint!
     
     var viewModel = SettingsViewModel()
+    var profile: ProfileModel?
     
     var settingsArray = ["My information", "Change passoword", "Abous Us", "Terms & conditions", "Logout"]
     
@@ -35,11 +37,11 @@ class SettingsViewController: UIViewController, Storyboarded {
         self.navigationController?.isNavigationBarHidden = true
         setupTableView()
         setupUI()
-        viewModel.bindViewModelDataToController = {[weak self] model, message in
+        viewModel.bindViewModelDataToController = {[weak self] success,model, message in
             guard let this = self else {
                 return
             }
-            this.updateUIWhenGetProfile(profile: model, message: message)
+            this.updateUIWhenGetProfile(sucess: success ,profile: model, message: message)
         }
     }
     
@@ -73,17 +75,25 @@ class SettingsViewController: UIViewController, Storyboarded {
         view.layoutIfNeeded()
     }
     
-    func updateUIWhenGetProfile(profile: ProfileModel?, message: String) {
-        if let profile = profile {
-            emailLbl.text = profile.email
-            profileNameLbl.text = "\(profile.name ?? "") \(profile.username ?? "")"
-            if let dob = profile.birthday?.dateFromString, let age = dob.age {
-                ageLbl.text = "\(age)"
+    func updateUIWhenGetProfile(sucess: String?, profile: ProfileModel?, message: String) {
+        if sucess == "success" {
+            if let profile = profile {
+                self.profile = profile
+                emailLbl.text = profile.email
+                profileNameLbl.text = "\(profile.name ?? "") \(profile.username ?? "")"
+                if let dob = profile.birthday?.dateFromString, let age = dob.age {
+                    ageLbl.text = "\(age)"
+                }
+                countryLbl.text = "Tunisia"
+            } else {
+                showAlert(withTitle: "Error", withMessage: message)
             }
-            countryLbl.text = "Tunisia"
         } else {
-            showAlert(withTitle: "Error", withMessage: message)
+            showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
+                self.expireSession(isExppired: true)
+            }
         }
+        
     }
     
 }
@@ -109,7 +119,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 0 {
-            
+            if let profile = profile {
+                Router.shared.push(with: self.navigationController, screen: .UpdateProfile(profile: profile), animated: true)
+            }
         } else if indexPath.row == 1 {
             Router.shared.present(screen: .UpdatePassword, modalePresentatioinStyle: .fullScreen, completion: nil)
         } else if indexPath.row == 2 {

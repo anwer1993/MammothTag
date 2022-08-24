@@ -44,3 +44,7 @@
 "NEW_PASSWORD" = "New password";
 "CONFIRM_PASSWORD" = "Confirm password";
 "CODE" = "Code";
+
+// Update Profile
+
+"UPDATE_PROFILE"  = "Update profile";

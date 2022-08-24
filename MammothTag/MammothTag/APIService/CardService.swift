@@ -20,10 +20,10 @@ class CardService {
         }
     }
     
-    func addCard(card: CardModel, token: String, completion: @escaping(ServerResponseModel<CardModel>) -> Void) {
-        let parameters = ["name": card.name ?? "",
-                          "type": card.type ?? "",
-                          "privacy": card.privacy ?? ""] as Parameters
+    func addCard(cardName: String, cardType: String, cardPrivacy: String, token: String, completion: @escaping(ServerResponseModel<CardModel>) -> Void) {
+        let parameters = ["name": cardName,
+                          "type": "\(Int(cardType) ?? 1)",
+                          "privacy": "\(Int(cardPrivacy) ?? 1)"] as Parameters
         let headers: HTTPHeaders = [.authorization(bearerToken: token)]
         AF.request(URLRequest.ADD_CARDS_URL.url, method: .post, parameters: parameters, headers: headers)
             .validate()

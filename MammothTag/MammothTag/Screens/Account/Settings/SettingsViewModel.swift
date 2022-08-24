@@ -10,21 +10,25 @@ import Foundation
 struct SettingsViewModel {
     
     
-    var bindViewModelDataToController: (ProfileModel?, String) -> () = {_,_  in}
+    var bindViewModelDataToController: (String?,ProfileModel?, String) -> () = {_,_,_  in}
     
     func getProfile() {
         if let token = AccountManager.shared.token {
             AuthenticationService.sharedInstance.getUserProfile(token: token) { data in
-                if data.result == true {
-                    if let resp = data.data {
-                        bindViewModelDataToController(resp, "")
+                if let data = data {
+                    if data.result == true {
+                        if let resp = data.data {
+                            bindViewModelDataToController("success", resp, "")
+                        } else if let message = data.message {
+                            bindViewModelDataToController("success",nil, message)
+                            print("Error: \(message)")
+                        }
                     } else if let message = data.message {
-                        bindViewModelDataToController(nil, message)
+                        bindViewModelDataToController("success", nil, message)
                         print("Error: \(message)")
                     }
-                } else if let message = data.message {
-                    bindViewModelDataToController(nil, message)
-                    print("Error: \(message)")
+                } else {
+                    bindViewModelDataToController(nil, nil, "")
                 }
             }
         }

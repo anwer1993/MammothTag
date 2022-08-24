@@ -44,6 +44,7 @@ class HomeViewController: UIViewController {
     
     var detectedMessages = [NFCNDEFMessage]()
     var session: NFCNDEFReaderSession?
+    var viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +69,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        CardService.shared.getCards(token: AccountManager.shared.token!) { response in
+            
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -107,6 +111,16 @@ class HomeViewController: UIViewController {
     @objc func showAddCardPopup(_ gesture: UITapGestureRecognizer? = nil) {
         viewContainer.addBlurEffect()
         self.tabBarController?.tabBar.isHidden = true
+        addNewCardVC.handleTapWhenSave = { card, selectedType in
+            self.viewModel.cardName = card
+            self.viewModel.cardTyp = CardTypeEnum(rawValue: selectedType) ?? .Digital
+            if self.viewModel.validateCardName() {
+                self.viewModel.addCard()
+            } else {
+                self.showAlertWithOk(withTitle: "Error", withMessage: "Please enter the card name")
+            }
+            
+        }
         addChildVc(addNewCardVC) {
             [weak self] in
             guard let this = self else {return}
