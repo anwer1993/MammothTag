@@ -53,6 +53,10 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     
     var cardName = ""
     
+    var isUpdateAction: Bool = false
+    
+    var card: DatumCard?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -60,6 +64,15 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let card = card {
+            addNewCardLbl.text = "Update card"
+            selectedMode = Int(card.type ?? "1") ?? 1
+            cardNameTextField.text = card.name ?? ""
+        } else {
+            addNewCardLbl.text = "Add new card"
+            cardNameTextField.text = ""
+            selectedMode = 1
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -90,7 +103,7 @@ class AddNewCardVc: UIViewController, SubViewConroller {
         jobsStack.addTagGesture(tapGesture)
         famillystack.tag = 4
         famillystack.addTagGesture(tapGesture)
-        selectedMode = 1
+        
         saveBtn.gradientbutton()
         saveBtn.applySketchShadow(color: .tangerine30, alpha: 1, x: 0, y: 10, blur: 30, spread: 0)
         cardNameTextField.delegate = self
@@ -163,6 +176,8 @@ class AddNewCardVc: UIViewController, SubViewConroller {
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()
         self.removeFromParent()
+        cardNameTextField.text = ""
+        selectedMode = 1
         handleTapWhenDismiss()
     }
     

@@ -14,6 +14,7 @@
 		A60B312F28A033800037F0B3 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B312E28A033800037F0B3 /* SignInController.swift */; };
 		A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313128A173D20037F0B3 /* UIViewExtension.swift */; };
 		A60B313528A175D70037F0B3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313428A175D70037F0B3 /* GradientView.swift */; };
+		A6138D5328BAB26900DA71F9 /* CardServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6138D5228BAB26900DA71F9 /* CardServerResponseModel.swift */; };
 		A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A627DAAA28A02F2100F0D54E /* Authentification.storyboard */; };
 		A62B1BDE28AA902300948860 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BDD28AA902300948860 /* MoreVC.swift */; };
 		A62B1BE028AA903800948860 /* MoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BDF28AA903800948860 /* MoreVC.xib */; };
@@ -22,6 +23,12 @@
 		A640DE4128B6B105004EDB9B /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640DE4028B6B105004EDB9B /* UpdateProfileViewController.swift */; };
 		A648400C28A190BD000D040D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648400B28A190BD000D040D /* CustomTextField.swift */; };
 		A648691328AEC9AF00C059C9 /* URLRequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648691228AEC9AF00C059C9 /* URLRequestEnum.swift */; };
+		A6511F2228BBEC41003DF731 /* SocialMediaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6511F2128BBEC41003DF731 /* SocialMediaVC.xib */; };
+		A6511F2428BBEC49003DF731 /* SocialMediaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2328BBEC49003DF731 /* SocialMediaVC.swift */; };
+		A6511F2628BBED06003DF731 /* SocialMediaCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6511F2528BBED06003DF731 /* SocialMediaCollectionCell.xib */; };
+		A6511F2828BBED15003DF731 /* SocialMediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2728BBED15003DF731 /* SocialMediaCollectionCell.swift */; };
+		A6511F2A28BBF6F4003DF731 /* SocialMediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */; };
+		A6511F2D28BBFE06003DF731 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2C28BBFE06003DF731 /* Constant.swift */; };
 		A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0428AFAD210010AE54 /* DateExtension.swift */; };
 		A688ED0928AFEFF00010AE54 /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0828AFEFF00010AE54 /* CardService.swift */; };
 		A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0A28AFF1410010AE54 /* CardModel.swift */; };
@@ -123,6 +130,7 @@
 		A60B312E28A033800037F0B3 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		A60B313128A173D20037F0B3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A60B313428A175D70037F0B3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		A6138D5228BAB26900DA71F9 /* CardServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardServerResponseModel.swift; sourceTree = "<group>"; };
 		A627DAAA28A02F2100F0D54E /* Authentification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentification.storyboard; sourceTree = "<group>"; };
 		A62B1BDD28AA902300948860 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		A62B1BDF28AA903800948860 /* MoreVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreVC.xib; sourceTree = "<group>"; };
@@ -131,6 +139,12 @@
 		A640DE4028B6B105004EDB9B /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		A648400B28A190BD000D040D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A648691228AEC9AF00C059C9 /* URLRequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestEnum.swift; sourceTree = "<group>"; };
+		A6511F2128BBEC41003DF731 /* SocialMediaVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialMediaVC.xib; sourceTree = "<group>"; };
+		A6511F2328BBEC49003DF731 /* SocialMediaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaVC.swift; sourceTree = "<group>"; };
+		A6511F2528BBED06003DF731 /* SocialMediaCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialMediaCollectionCell.xib; sourceTree = "<group>"; };
+		A6511F2728BBED15003DF731 /* SocialMediaCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaCollectionCell.swift; sourceTree = "<group>"; };
+		A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaModel.swift; sourceTree = "<group>"; };
+		A6511F2C28BBFE06003DF731 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A66FEEE828A47D980062D754 /* MammothTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MammothTag.entitlements; sourceTree = "<group>"; };
 		A688ED0428AFAD210010AE54 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A688ED0828AFEFF00010AE54 /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
@@ -335,6 +349,25 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		A6511F2028BBEC2E003DF731 /* SocialMediaVC */ = {
+			isa = PBXGroup;
+			children = (
+				A6511F2128BBEC41003DF731 /* SocialMediaVC.xib */,
+				A6511F2528BBED06003DF731 /* SocialMediaCollectionCell.xib */,
+				A6511F2728BBED15003DF731 /* SocialMediaCollectionCell.swift */,
+				A6511F2328BBEC49003DF731 /* SocialMediaVC.swift */,
+			);
+			path = SocialMediaVC;
+			sourceTree = "<group>";
+		};
+		A6511F2B28BBFDF9003DF731 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				A6511F2C28BBFE06003DF731 /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		A68F76A528B44C980051E0D4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +401,7 @@
 		A6979EB428A474B3008C2B60 /* XibFile */ = {
 			isa = PBXGroup;
 			children = (
+				A6511F2028BBEC2E003DF731 /* SocialMediaVC */,
 				A62B1BE128AA9E1E00948860 /* AddNewCardVc */,
 				A62B1BDC28AA900F00948860 /* MoreVC */,
 				A6B8C9D028A708530003C408 /* ScanNFCVC */,
@@ -514,6 +548,8 @@
 			isa = PBXGroup;
 			children = (
 				A6D6F28328A1CCBF00AD3C9C /* SignInModels.swift */,
+				A6138D5228BAB26900DA71F9 /* CardServerResponseModel.swift */,
+				A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */,
 				A6979EB028A413DE008C2B60 /* RegisterModel.swift */,
 				A688ED0A28AFF1410010AE54 /* CardModel.swift */,
 				A688ED0E28AFF2310010AE54 /* ProfileModel.swift */,
@@ -602,6 +638,7 @@
 				A6FC614328A02A0100756C74 /* AppDelegate.swift */,
 				A6FC614528A02A0100756C74 /* SceneDelegate.swift */,
 				A6FC614728A02A0100756C74 /* SpalchScreen.swift */,
+				A6511F2B28BBFDF9003DF731 /* Constant */,
 				A6D6F28528A1CFCC00AD3C9C /* APIService */,
 				A6A6959528A6B86F0025A3B2 /* Manager */,
 				A6D6F28228A1CCAC00AD3C9C /* Models */,
@@ -752,6 +789,7 @@
 				A6979EB628A474C7008C2B60 /* ContactTableViewCell.xib in Resources */,
 				A6B8C9D228A7087B0003C408 /* ScanNFCVC.xib in Resources */,
 				A6A6959C28A6E6810025A3B2 /* UpdateProfileModeVC.xib in Resources */,
+				A6511F2628BBED06003DF731 /* SocialMediaCollectionCell.xib in Resources */,
 				A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */,
 				A6FC615028A02A0300756C74 /* LaunchScreen.storyboard in Resources */,
 				A6C0CE5228A4804A00084D86 /* Lato-Regular.ttf in Resources */,
@@ -762,6 +800,7 @@
 				A69B19A128A53A8D00BE92F1 /* CustomTabbarView.xib in Resources */,
 				A62B1BE028AA903800948860 /* MoreVC.xib in Resources */,
 				A6C79C2028A55B1F00229739 /* CustomSegmentControlView.xib in Resources */,
+				A6511F2228BBEC41003DF731 /* SocialMediaVC.xib in Resources */,
 				A62B1BE328AA9E2B00948860 /* AddNewCardVc.xib in Resources */,
 				A6C0CE5128A4804A00084D86 /* Lato-Medium.ttf in Resources */,
 				A6FC614B28A02A0100756C74 /* Main.storyboard in Resources */,
@@ -894,6 +933,7 @@
 			files = (
 				A60B313528A175D70037F0B3 /* GradientView.swift in Sources */,
 				A6979EB128A413DE008C2B60 /* RegisterModel.swift in Sources */,
+				A6511F2828BBED15003DF731 /* SocialMediaCollectionCell.swift in Sources */,
 				A6B72E9028B2646C00D69D8E /* UpdatePasswordController.swift in Sources */,
 				A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */,
 				A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */,
@@ -913,12 +953,16 @@
 				A69B199A28A5303E00BE92F1 /* TabItem.swift in Sources */,
 				A6DD488328A2946100747B01 /* RegisterViewModel.swift in Sources */,
 				A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */,
+				A6511F2D28BBFE06003DF731 /* Constant.swift in Sources */,
 				A60305F428A327190028F085 /* TermsAndConditionViewModel.swift in Sources */,
 				A69B199C28A5304B00BE92F1 /* TabNavigationMenu.swift in Sources */,
 				A6A6959E28A6E69B0025A3B2 /* UpdateProfileModeVC.swift in Sources */,
 				A6979EB828A474DD008C2B60 /* ContactTableViewCell.swift in Sources */,
 				A6A6959928A6BDB90025A3B2 /* UIViewControllerExtension.swift in Sources */,
 				A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */,
+				A6138D5328BAB26900DA71F9 /* CardServerResponseModel.swift in Sources */,
+				A6511F2A28BBF6F4003DF731 /* SocialMediaModel.swift in Sources */,
+				A6511F2428BBEC49003DF731 /* SocialMediaVC.swift in Sources */,
 				A648691328AEC9AF00C059C9 /* URLRequestEnum.swift in Sources */,
 				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
 				A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */,

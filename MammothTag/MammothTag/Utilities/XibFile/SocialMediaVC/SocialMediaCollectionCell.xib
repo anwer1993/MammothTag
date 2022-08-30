@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SocialMediaCollectionCell" reuseIdentifier="SocialMediaCollectionCell" id="u59-PF-Hyo" customClass="SocialMediaCollectionCell" customModule="MammothTag" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="206" height="179"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qhr-9w-VxN">
+                <rect key="frame" x="0.0" y="0.0" width="206" height="179"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skype" translatesAutoresizingMaskIntoConstraints="NO" id="bNc-eJ-D1w">
+                        <rect key="frame" x="63" y="5" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="HH9-gb-OOK"/>
+                            <constraint firstAttribute="width" constant="80" id="vmm-JN-EZD"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhq-AM-i8A">
+                        <rect key="frame" x="5" y="100" width="196" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bNc-eJ-D1w" firstAttribute="top" secondItem="qhr-9w-VxN" secondAttribute="top" constant="5" id="DnD-Lf-IKo"/>
+                    <constraint firstItem="Zhq-AM-i8A" firstAttribute="top" secondItem="bNc-eJ-D1w" secondAttribute="bottom" constant="15" id="cCv-Az-kwG"/>
+                    <constraint firstItem="Zhq-AM-i8A" firstAttribute="leading" secondItem="qhr-9w-VxN" secondAttribute="leading" constant="5" id="eSo-kB-Afp"/>
+                    <constraint firstItem="bNc-eJ-D1w" firstAttribute="centerX" secondItem="qhr-9w-VxN" secondAttribute="centerX" id="rNv-Kz-ANb"/>
+                    <constraint firstAttribute="trailing" secondItem="Zhq-AM-i8A" secondAttribute="trailing" constant="5" id="sob-Vq-fQl"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="206" height="179"/>
+            <connections>
+                <outlet property="image" destination="bNc-eJ-D1w" id="caX-HI-2VX"/>
+                <outlet property="title" destination="Zhq-AM-i8A" id="13L-Sq-ush"/>
+            </connections>
+            <point key="canvasLocation" x="24.637681159420293" y="27.120535714285712"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="skype" width="300" height="300"/>
+    </resources>
+</document>

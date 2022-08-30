@@ -37,6 +37,14 @@ class MoreVC: UIViewController, SubViewConroller {
     
     var handleTapWhenDismiss: () -> Void = {}
     
+    var handleDeleteTap: () -> Void = {}
+    
+    var handleShowCardTap: () -> Void = {}
+    
+    var handleRenameCard: () -> Void = {}
+    
+    var handleAddCard: () -> Void = {}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -56,10 +64,38 @@ class MoreVC: UIViewController, SubViewConroller {
         closeButton.layer.cornerRadius = closeButton.frame.width * 0.5
         menuView.layer.cornerRadius = 30.0
         menuView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        let deleteCardTap = UITapGestureRecognizer(target: self, action: #selector(deleteCard(_:)))
+        let showCardListTap = UITapGestureRecognizer(target: self, action: #selector(showCardList(_:)))
+        let renammeCardTap = UITapGestureRecognizer(target: self, action: #selector(renameCard(_:)))
+        let addCardTap = UITapGestureRecognizer(target: self, action: #selector(addCard(_:)))
+        addNewCardStack.addTagGesture(addCardTap)
+        deleteCardStack.addTagGesture(deleteCardTap)
+        showCardListStack.addTagGesture(showCardListTap)
+        renameCardStackView.addTagGesture(renammeCardTap)
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {
         removeView()
+    }
+    
+    @objc func deleteCard(_ gesture: UIGestureRecognizer) {
+        removeView()
+        handleDeleteTap()
+    }
+    
+    @objc func showCardList(_ gesture: UIGestureRecognizer) {
+        removeView()
+        handleShowCardTap()
+    }
+    
+    @objc func renameCard(_ gesture: UIGestureRecognizer) {
+        removeView()
+        handleRenameCard()
+    }
+    
+    @objc func addCard(_ gesture: UIGestureRecognizer) {
+        removeView()
+        handleAddCard()
     }
     
     func removeView() {

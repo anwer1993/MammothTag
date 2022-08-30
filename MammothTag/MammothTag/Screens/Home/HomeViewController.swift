@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var activateNFCImage: UIImageView!
     @IBOutlet weak var activateNFCLabel: UILabel!
-    @IBOutlet weak var digitalCardLabel: UILabel!
     @IBOutlet weak var priviligeDropDownIcon: UIImageView!
     @IBOutlet weak var privilageLabl: UILabel!
     @IBOutlet weak var privilageView: UIView!
@@ -37,6 +36,7 @@ class HomeViewController: UIViewController {
     let scanNFCVC = ScanNFCVC(nibName: "ScanNFCVC", bundle: nil)
     let moreVC = MoreVC(nibName: "MoreVC", bundle: nil)
     let addNewCardVC = AddNewCardVc(nibName: "AddNewCardVc", bundle: nil)
+    let socialMediaVC =  SocialMediaVC(nibName: "SocialMediaVC", bundle: nil)
     
     var scanNFCGesture: UITapGestureRecognizer {
         return UITapGestureRecognizer(target: self, action: #selector(showScanNFCPopup(_:)))
@@ -45,6 +45,8 @@ class HomeViewController: UIViewController {
     var detectedMessages = [NFCNDEFMessage]()
     var session: NFCNDEFReaderSession?
     var viewModel = HomeViewModel()
+    
+    var selectedCard: DatumCard?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +57,8 @@ class HomeViewController: UIViewController {
         addView.addTagGesture(AddCardTap)
         activateNFCImage.addTagGesture(scanNFCGesture)
         activateNFCLabel.addTagGesture(scanNFCGesture)
+        let AddshowSocialTap = UITapGestureRecognizer(target: self, action: #selector(showSocialMediaList(_:)))
+        addSocialeMediaImage.addTagGesture(AddshowSocialTap)
         initView()
     }
     
@@ -64,14 +68,71 @@ class HomeViewController: UIViewController {
         let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
         let view = CustomSegmentControlView(frame: frame)
         self.customSegmentControlView.addSubview(view)
-        
+        viewModel.updateUIWhenAddCard = { done, message in
+            self.updateUIWhenAddCard(done: done, message: message)
+        }
+        viewModel.updateUIWhenGetCard =  { done, data, message in
+            self.updateUIWhenGetCard(done: done, message: message, cards: data)
+        }
+        viewModel.updateUIWhenDeleteCard = { done, message in
+            self.updateUIDeleteCared(Done: done, message: message)
+        }
+        viewModel.getCards()
+        moreVC.handleDeleteTap = {
+            self.handleDeleteTap()
+        }
+        moreVC.handleShowCardTap = {
+            self.handleShowCardListTap()
+        }
+        moreVC.handleRenameCard = {
+            self.handleRenameCard()
+        }
+        moreVC.handleAddCard = {
+            self.showAddCardPopup()
+        }
+    }
+    
+    func updateUIWhenAddCard(done: Bool, message: String) {
+        addNewCardVC.removeView()
+        if done {
+            self.viewModel.getCards()
+        } else if done == false && message == "Fail" {
+            showOrHideLoader(done: true)
+            showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
+        } else {
+            showOrHideLoader(done: true)
+            showAlertWithOk(withTitle: "Error", withMessage: message)
+        }
+    }
+    
+    func updateUIWhenGetCard(done: Bool, message: String, cards: [DatumCard]?) {
+        showOrHideLoader(done: true)
+        if done && cards != nil {
+            selectedCard = cards!.first
+            viewModel.cardId = cards!.first?.id  ?? 0
+            privilageLabl.text = cards!.first?.name ?? "Unknown card"
+            profileModeVC.cards = cards!
+            profileModeVC.updateUIWhenSelectCard = { card in
+                self.updateSelectedCard(selectedCard: card)
+            }
+            profileModeVC.updateUIWhenDeleteCard = { card in
+                self.updateSelectedCard(selectedCard: card)
+            }
+            profileModeVC.updateUIWhenDeleteCard = { card in
+                self.deleteCard(card: card)
+            }
+            privilageView.isHidden = cards!.count == 0
+        } else if done == false && message == "Fail" {
+            showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
+            privilageView.isHidden = true
+        } else {
+            showAlertWithOk(withTitle: "Error", withMessage: message)
+            privilageView.isHidden = true
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        CardService.shared.getCards(token: AccountManager.shared.token!) { response in
-            
-        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -85,7 +146,7 @@ class HomeViewController: UIViewController {
     }
     
     func initView() {
-        privilageLabl.text = AccountManager.shared.profileMode == .Public ? "Public" : "Private"
+        privilageView.isHidden = true
         customSegmentControlView.layer.cornerRadius = 25.0
         customSegmentControlView.applySketchShadow(color: .black9, alpha: 0.9, x: 0, y: 2, blur: 20, spread: 0)
         moreView.layer.cornerRadius = moreView.bounds.width * 0.5
@@ -102,20 +163,61 @@ class HomeViewController: UIViewController {
         activateNFCLabel.textColor = .white80
     }
     
+    func updateSelectedCard(selectedCard: DatumCard) {
+        self.selectedCard = selectedCard
+        viewModel.cardId = selectedCard.id ?? 0
+        privilageLabl.text = selectedCard.name
+    }
+    
+    func deleteCard(card: DatumCard) {
+        showOrHideLoader(done: false)
+        viewModel.deleteCard(card: card)
+    }
+    
+    func updateUIDeleteCared(Done: Bool, message: String) {
+        if Done {
+            viewModel.getCards()
+        } else {
+            showAlertWithOk(withTitle: "Error", withMessage: message)
+        }
+    }
     
     @objc func updateProfileMode(_ gesture: UITapGestureRecognizer? = nil) {
         viewContainer.addBlurEffect()
         showProfileModeMenu()
     }
     
-    @objc func showAddCardPopup(_ gesture: UITapGestureRecognizer? = nil) {
+    func handleDeleteTap () {
+        profileModeVC.isDeleteAction = true
+        viewContainer.addBlurEffect()
+        showProfileModeMenu()
+    }
+    
+    func handleShowCardListTap() {
+        profileModeVC.isDeleteAction = false
+        viewContainer.addBlurEffect()
+        showProfileModeMenu()
+    }
+    
+    func handleRenameCard() {
+        addNewCardVC.card = selectedCard
+        addNewCardVC.isUpdateAction = true
+        AddCardPopup()
+    }
+    
+    func AddCardPopup() {
         viewContainer.addBlurEffect()
         self.tabBarController?.tabBar.isHidden = true
         addNewCardVC.handleTapWhenSave = { card, selectedType in
             self.viewModel.cardName = card
             self.viewModel.cardTyp = CardTypeEnum(rawValue: selectedType) ?? .Digital
             if self.viewModel.validateCardName() {
-                self.viewModel.addCard()
+                self.showOrHideLoader(done: false)
+                if self.addNewCardVC.isUpdateAction == true {
+                    self.viewModel.editCard()
+                } else {
+                    self.viewModel.addCard()
+                }
             } else {
                 self.showAlertWithOk(withTitle: "Error", withMessage: "Please enter the card name")
             }
@@ -126,6 +228,14 @@ class HomeViewController: UIViewController {
             guard let this = self else {return}
             this.updateUIWhenRemovePopup()
         }
+    }
+    
+    
+    
+    @objc func showAddCardPopup(_ gesture: UITapGestureRecognizer? = nil) {
+        addNewCardVC.isUpdateAction = false
+        addNewCardVC.card = nil
+        AddCardPopup()
     }
     
     @objc func showScanNFCPopup(_ gesture: UITapGestureRecognizer? = nil) {
@@ -145,12 +255,20 @@ class HomeViewController: UIViewController {
         session?.begin()
     }
     
+    @objc func showSocialMediaList(_ gesture: UITapGestureRecognizer? = nil) {
+        viewContainer.addBlurEffect()
+        addChildVc(socialMediaVC) {[weak self] in
+            guard let this = self else {return}
+            this.updateUIWhenRemovePopup()
+        }
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     func showProfileModeMenu() {
         addChildVc(profileModeVC) {
             [weak self] in
             guard let this = self else {return}
             this.updateUIWhenRemovePopup()
-            this.privilageLabl.text = AccountManager.shared.profileMode == .Public ? "Public" : "Private"
         }
         self.tabBarController?.tabBar.isHidden = true
     }
