@@ -31,6 +31,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var addView: UIView!
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet weak var topBgImage: UIImageView!
+    @IBOutlet weak var networkCollection: UICollectionView!
+    @IBOutlet weak var collectionHeight: NSLayoutConstraint!
+    
     
     let profileModeVC = UpdateProfileModeVC(nibName: "UpdateProfileModeVC", bundle: nil)
     let scanNFCVC = ScanNFCVC(nibName: "ScanNFCVC", bundle: nil)
@@ -44,13 +47,17 @@ class HomeViewController: UIViewController {
     
     var detectedMessages = [NFCNDEFMessage]()
     var session: NFCNDEFReaderSession?
-    var viewModel = HomeViewModel()
     
+    var cardList = [DatumCard]()
+    var listCardNetwork = [DatumListCardNetwork]()
     var selectedCard: DatumCard?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionHeight.constant = 0
         self.navigationController?.isNavigationBarHidden = true
+        networkCollection.delegate = self
+        networkCollection.dataSource = self
         let profileModeTap = UITapGestureRecognizer(target: self, action: #selector(updateProfileMode(_:)))
         privilageView.addTagGesture(profileModeTap)
         let AddCardTap = UITapGestureRecognizer(target: self, action: #selector(showAddCardPopup(_:)))
@@ -60,24 +67,6 @@ class HomeViewController: UIViewController {
         let AddshowSocialTap = UITapGestureRecognizer(target: self, action: #selector(showSocialMediaList(_:)))
         addSocialeMediaImage.addTagGesture(AddshowSocialTap)
         initView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let screenWidth = UIScreen.main.bounds.width - 20
-        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
-        let view = CustomSegmentControlView(frame: frame)
-        self.customSegmentControlView.addSubview(view)
-        viewModel.updateUIWhenAddCard = { done, message in
-            self.updateUIWhenAddCard(done: done, message: message)
-        }
-        viewModel.updateUIWhenGetCard =  { done, data, message in
-            self.updateUIWhenGetCard(done: done, message: message, cards: data)
-        }
-        viewModel.updateUIWhenDeleteCard = { done, message in
-            self.updateUIDeleteCared(Done: done, message: message)
-        }
-        viewModel.getCards()
         moreVC.handleDeleteTap = {
             self.handleDeleteTap()
         }
@@ -92,25 +81,37 @@ class HomeViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let screenWidth = UIScreen.main.bounds.width - 20
+        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
+        let view = CustomSegmentControlView(frame: frame)
+        self.customSegmentControlView.addSubview(view)
+        
+        getData()
+    }
+    
     func updateUIWhenAddCard(done: Bool, message: String) {
         addNewCardVC.removeView()
         if done {
-            self.viewModel.getCards()
+            getData()
         } else if done == false && message == "Fail" {
-            showOrHideLoader(done: true)
             showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
         } else {
-            showOrHideLoader(done: true)
             showAlertWithOk(withTitle: "Error", withMessage: message)
         }
     }
     
     func updateUIWhenGetCard(done: Bool, message: String, cards: [DatumCard]?) {
-        showOrHideLoader(done: true)
         if done && cards != nil {
-            selectedCard = cards!.first
-            viewModel.cardId = cards!.first?.id  ?? 0
-            privilageLabl.text = cards!.first?.name ?? "Unknown card"
+            cardList = cards!
+            if selectedCard == nil {
+                selectedCard = cards!.first
+                privilageLabl.text = cards!.first?.name ?? "Unknown card"
+            } else {
+                selectedCard = cards!.first(where: {$0.id == selectedCard?.id})
+                privilageLabl.text = selectedCard?.name ?? "Unknown card"
+            }
             profileModeVC.cards = cards!
             profileModeVC.updateUIWhenSelectCard = { card in
                 self.updateSelectedCard(selectedCard: card)
@@ -165,18 +166,17 @@ class HomeViewController: UIViewController {
     
     func updateSelectedCard(selectedCard: DatumCard) {
         self.selectedCard = selectedCard
-        viewModel.cardId = selectedCard.id ?? 0
         privilageLabl.text = selectedCard.name
+        getData()
     }
     
     func deleteCard(card: DatumCard) {
-        showOrHideLoader(done: false)
-        viewModel.deleteCard(card: card)
+        deleteCarde(card: card)
     }
     
     func updateUIDeleteCared(Done: Bool, message: String) {
         if Done {
-            viewModel.getCards()
+            getData()
         } else {
             showAlertWithOk(withTitle: "Error", withMessage: message)
         }
@@ -209,14 +209,12 @@ class HomeViewController: UIViewController {
         viewContainer.addBlurEffect()
         self.tabBarController?.tabBar.isHidden = true
         addNewCardVC.handleTapWhenSave = { card, selectedType in
-            self.viewModel.cardName = card
-            self.viewModel.cardTyp = CardTypeEnum(rawValue: selectedType) ?? .Digital
-            if self.viewModel.validateCardName() {
-                self.showOrHideLoader(done: false)
+            if !card.isEmptyString {
                 if self.addNewCardVC.isUpdateAction == true {
-                    self.viewModel.editCard()
+                    let cardd: DatumCard = DatumCard(id: self.selectedCard?.id, userID: self.selectedCard?.userID, name: card, type: selectedType, privacy: CardPrivacy.Public.rawValue, createdAt: self.selectedCard?.updatedAt, updatedAt: self.selectedCard?.createdAt)
+                    self.editCard(card: cardd)
                 } else {
-                    self.viewModel.addCard()
+                    self.addCard(cardName: card, cardType: selectedType, cardPrivacy: CardPrivacy.Public.rawValue)
                 }
             } else {
                 self.showAlertWithOk(withTitle: "Error", withMessage: "Please enter the card name")

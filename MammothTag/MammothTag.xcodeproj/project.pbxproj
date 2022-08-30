@@ -88,6 +88,8 @@
 		A6E94DD628AEEE4B00A1D14B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E94DD528AEEE4B00A1D14B /* SettingsViewModel.swift */; };
 		A6E9E98528B6BCDA0074D45D /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9E98428B6BCDA0074D45D /* UpdateProfileViewModel.swift */; };
 		A6E9E98728B6CBAE0074D45D /* CardTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9E98628B6CBAE0074D45D /* CardTypeEnum.swift */; };
+		A6ECC61628BEB337007E2536 /* HomeCollectionViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECC61528BEB337007E2536 /* HomeCollectionViewVC.swift */; };
+		A6ECC61828BEB3B1007E2536 /* SocialMediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECC61728BEB3B1007E2536 /* SocialMediaCollectionViewCell.swift */; };
 		A6FC614428A02A0100756C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614328A02A0100756C74 /* AppDelegate.swift */; };
 		A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614528A02A0100756C74 /* SceneDelegate.swift */; };
 		A6FC614828A02A0100756C74 /* SpalchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC614728A02A0100756C74 /* SpalchScreen.swift */; };
@@ -210,6 +212,8 @@
 		A6E94DD528AEEE4B00A1D14B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A6E9E98428B6BCDA0074D45D /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
 		A6E9E98628B6CBAE0074D45D /* CardTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeEnum.swift; sourceTree = "<group>"; };
+		A6ECC61528BEB337007E2536 /* HomeCollectionViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewVC.swift; sourceTree = "<group>"; };
+		A6ECC61728BEB3B1007E2536 /* SocialMediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6FC614028A02A0100756C74 /* MammothTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MammothTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC614328A02A0100756C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FC614528A02A0100756C74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -604,6 +608,8 @@
 			isa = PBXGroup;
 			children = (
 				A6E25A3828A5601B009B2D09 /* HomeViewController.swift */,
+				A6ECC61528BEB337007E2536 /* HomeCollectionViewVC.swift */,
+				A6ECC61728BEB3B1007E2536 /* SocialMediaCollectionViewCell.swift */,
 				A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */,
 			);
 			path = Home;
@@ -949,6 +955,7 @@
 				A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */,
 				A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */,
 				A6C8495128A4904C00CF7E61 /* SeettingsTableViewCell.swift in Sources */,
+				A6ECC61628BEB337007E2536 /* HomeCollectionViewVC.swift in Sources */,
 				A69B199828A52DA700BE92F1 /* MainTabbarViewController.swift in Sources */,
 				A69B199A28A5303E00BE92F1 /* TabItem.swift in Sources */,
 				A6DD488328A2946100747B01 /* RegisterViewModel.swift in Sources */,
@@ -958,6 +965,7 @@
 				A69B199C28A5304B00BE92F1 /* TabNavigationMenu.swift in Sources */,
 				A6A6959E28A6E69B0025A3B2 /* UpdateProfileModeVC.swift in Sources */,
 				A6979EB828A474DD008C2B60 /* ContactTableViewCell.swift in Sources */,
+				A6ECC61828BEB3B1007E2536 /* SocialMediaCollectionViewCell.swift in Sources */,
 				A6A6959928A6BDB90025A3B2 /* UIViewControllerExtension.swift in Sources */,
 				A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */,
 				A6138D5328BAB26900DA71F9 /* CardServerResponseModel.swift in Sources */,

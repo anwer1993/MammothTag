@@ -1,93 +1,158 @@
+////
+////  HomeViewModel.swift
+////  MammothTag
+////
+////  Created by Anwar Hajji on 13/08/2022.
+////
 //
-//  HomeViewModel.swift
-//  MammothTag
-//
-//  Created by Anwar Hajji on 13/08/2022.
-//
-
 import Foundation
+import UIKit
+//
+//struct HomeViewModel {
+//
+//
+//    var cardName: String = ""
+//    var cardTyp: CardTypeEnum = .Digital
+//    var cardPrivacy: CardPrivacy = .Public
+//    var cardId: Int = 0
+//
+//    var updateUIWhenAddCard: (Bool, String) -> () = {_,_ in }
+//    var updateUIWhenDeleteCard: (Bool, String) -> () = {_,_ in }
+//    var updateUIWhenGetCard: (Bool, [DatumCard]?,  String) -> () = {_,_,_ in }
+//
+//    mutating func validateCardName() -> Bool {
+//        return cardName.isEmptyString == false
+//    }
+//
+//
+//
+//
+//}
 
-struct HomeViewModel {
+extension HomeViewController {
     
-    
-    var cardName: String = ""
-    var cardTyp: CardTypeEnum = .Digital
-    var cardPrivacy: CardPrivacy = .Public
-    var cardId: Int = 0
-    
-    var updateUIWhenAddCard: (Bool, String) -> () = {_,_ in }
-    var updateUIWhenDeleteCard: (Bool, String) -> () = {_,_ in }
-    var updateUIWhenGetCard: (Bool, [DatumCard]?,  String) -> () = {_,_,_ in }
-    
-    mutating func validateCardName() -> Bool {
-        return cardName.isEmptyString == false
-    }
-    
-    func addCard() {
-        if let token = AccountManager.shared.token {
-            CardService.shared.addCard(cardName: cardName, cardType: cardTyp.rawValue, cardPrivacy: cardPrivacy.rawValue, token: token) { response in
-                if let response = response {
-                    if let done = response.result, let message = response.message {
-                        updateUIWhenAddCard(done, message)
-                    } else {
-                        updateUIWhenAddCard(false, "Fail")
-                    }
-                } else {
-                    updateUIWhenAddCard(false, "Fail")
+    func getData() {
+        getCards { done in
+            if  done {
+                self.getCardNetworks(cardI: "\(self.selectedCard?.id ?? 0)") {
                 }
             }
         }
     }
     
-    func getCards() {
+    func getCards(completion: @escaping (_ done: Bool) -> ()) {
         if let token = AccountManager.shared.token {
-            CardService.shared.getCards(token: token) { resp in
+            showOrHideLoader(done: false)
+            CardService.shared.getCards(token: token) {[weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
                 if let response = resp {
                     if let done = response.result, let message = response.message, let data = response.data {
-                        updateUIWhenGetCard(done, data, message)
+                        this.updateUIWhenGetCard(done: done, message: message, cards: data)
+                        completion(true)
                     } else {
-                        updateUIWhenGetCard(false, nil, "Fail")
+                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
+                        this.privilageView.isHidden = true
+                        completion(false)
                     }
+                    
                 } else {
-                    updateUIWhenGetCard(false, nil, "Fail")
+                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
+                    this.privilageView.isHidden = true
+                    completion(false)
                 }
             }
         }
     }
     
-    func deleteCard(card: DatumCard) {
-        if let token = AccountManager.shared.token {
-            CardService.shared.deleteCard(cardId: card.id ?? 0, token: token) { resp in
+    func getCardNetworks(cardI: String, completion: @escaping () -> ()) {
+        if let token = AccountManager.shared.token, let id = selectedCard?.id {
+            self.showOrHideLoader(done: false)
+            CardService.shared.getListCardNetwork(card_id: "\(id)", token: token) {  [weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
                 if let response = resp {
-                    if let done = response.result, let message = response.message {
-                        updateUIWhenDeleteCard(done, message)
+                    if let done = response.result, let message = response.message, let data = resp?.data {
+                        if done {
+                            DispatchQueue.main.async {
+                                this.listCardNetwork = data
+                                this.networkCollection.reloadData()
+                                this.collectionHeight.constant = data.isEmpty ? 0 : 120
+                            }
+                        } else {
+                            this.updateUIWhenAddCard(done: false, message: message)
+                        }
                     } else {
-                        updateUIWhenDeleteCard(false, "Fail")
+                        this.updateUIWhenAddCard(done: false, message: "Fail")
                     }
+                    completion()
                 } else {
-                    updateUIWhenDeleteCard(false, "Fail")
+                    this.updateUIWhenAddCard(done: false, message: "Fail")
+                    completion()
                 }
             }
         }
     }
     
-    func editCard() {
+    func addCard(cardName: String, cardType: String, cardPrivacy: String) {
         if let token = AccountManager.shared.token {
-            let card = CardModel(userID: 0, name: cardName, type: cardTyp.rawValue, privacy: cardPrivacy.rawValue
-                                 , updatedAt: "", createdAt: "", id: cardId)
-            CardService.shared.editCard(editcardModel: card, token: token) { resp in
-                if let response = resp {
+            self.showOrHideLoader(done: false)
+            CardService.shared.addCard(cardName: cardName, cardType: cardType, cardPrivacy: cardPrivacy, token: token) { [weak self] response in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let response = response {
                     if let done = response.result, let message = response.message {
-                        updateUIWhenAddCard(done, message)
+                        this.updateUIWhenAddCard(done: done, message: message)
                     } else {
-                        updateUIWhenAddCard(false, "Fail")
+                        this.updateUIWhenAddCard(done: false, message: "Fail")
                     }
                 } else {
-                    updateUIWhenAddCard(false, "Fail")
+                    this.updateUIWhenAddCard(done: false, message: "Fail")
                 }
             }
         }
     }
+    
+    func deleteCarde(card: DatumCard) {
+        if let token = AccountManager.shared.token {
+            self.showOrHideLoader(done: false)
+            CardService.shared.deleteCard(cardId: card.id ?? 0, token: token) { [weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let response = resp {
+                    if let done = response.result, let message = response.message {
+                        this.updateUIDeleteCared(Done: done, message: message)
+                    } else {
+                        this.updateUIDeleteCared(Done: false, message: "Fail")
+                    }
+                } else {
+                    this.updateUIDeleteCared(Done: false, message: "Fail")
+                }
+            }
+        }
+    }
+    
+    func editCard(card: DatumCard) {
+        if let token = AccountManager.shared.token {
+            self.showOrHideLoader(done: false)
+            CardService.shared.editCard(editcardModel: card, token: token) { [weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let response = resp {
+                    if let done = response.result, let message = response.message {
+                        this.updateUIWhenAddCard(done: done, message: message)
+                    } else {
+                        this.updateUIWhenAddCard(done: false, message: "Fail")
+                    }
+                } else {
+                    this.updateUIWhenAddCard(done: false, message: "Fail")
+                }
+            }
+        }
+    }
+    
+    
+    
     
     
 }
