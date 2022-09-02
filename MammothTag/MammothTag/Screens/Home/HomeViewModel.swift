@@ -79,10 +79,7 @@ extension HomeViewController {
                         if done {
                             DispatchQueue.main.async {
                                 this.listCardNetwork = data
-//                                this.collectionHeight.constant = this.listCardNetwork.isEmpty ? 0 : 120
-                                this.networkCollection.isHidden = this.listCardNetwork.isEmpty
-//                                this.networkCollection.backgroundColor = UIColor.blue
-                                this.networkCollection.reloadData()
+                                this.socialMediaTable.reloadData()
                             }
                         } else {
                             this.updateUIWhenAddCard(done: false, message: message)

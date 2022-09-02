@@ -31,8 +31,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var addView: UIView!
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet weak var topBgImage: UIImageView!
-    @IBOutlet weak var networkCollection: UICollectionView!
-    @IBOutlet weak var collectionHeight: NSLayoutConstraint!
+    @IBOutlet weak var socialMediaTable: UITableView!
+    
     
     
     let profileModeVC = UpdateProfileModeVC(nibName: "UpdateProfileModeVC", bundle: nil)
@@ -57,8 +57,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 //        collectionHeight.constant = 0
         self.navigationController?.isNavigationBarHidden = true
-        networkCollection.delegate = self
-        networkCollection.dataSource = self
+        socialMediaTable.delegate = self
+        socialMediaTable.dataSource = self
+        socialMediaTable.isEditing = true
+        socialMediaTable.tableFooterView = UIView()
         let profileModeTap = UITapGestureRecognizer(target: self, action: #selector(updateProfileMode(_:)))
         privilageView.addTagGesture(profileModeTap)
         let AddCardTap = UITapGestureRecognizer(target: self, action: #selector(showAddCardPopup(_:)))

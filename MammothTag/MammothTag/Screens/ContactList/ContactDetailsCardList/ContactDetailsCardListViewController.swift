@@ -39,7 +39,6 @@ class ContactDetailsCardListViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         emptyDisLbl.isHidden = true
         setupUI()
-        // Do any additional setup after loading the view.
         getUser()
     }
     
