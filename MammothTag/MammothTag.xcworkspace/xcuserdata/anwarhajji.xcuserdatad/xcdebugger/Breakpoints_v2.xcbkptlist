@@ -7,129 +7,161 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CCD787D5-736A-4BCF-B661-EF69EA6D734D"
+            uuid = "4501D76F-F0FB-4D4A-8796-4F1ECC5AA552"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Screens/Home/HomeViewModel.swift"
+            filePath = "MammothTag/Screens/ContactList/ContactListViewData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
             endingLineNumber = "74"
-            landmarkName = "getCardNetworks(cardI:completion:)"
+            landmarkName = "deleteRequest(user_id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4683446D-FCBD-4049-9039-E17FE1006E45"
+            uuid = "56C4F96C-A811-4B2F-8629-1A6DA3A5157D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Screens/Home/HomeViewModel.swift"
+            filePath = "MammothTag/Utilities/XibFile/ContactCell/ContactTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "getCardNetworks(cardI:completion:)"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "deleteContactOrRequest(_gesture:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C0846F6F-3D56-4C1F-A178-56EEA4148F40"
+            uuid = "BF26DD94-B20A-492C-A175-90A37B39E1FF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/APIService/CardService.swift"
+            filePath = "MammothTag/Screens/ContactList/ContactListViewData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "getListCardNetwork(card_id:token:completion:)"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "deleteRequest(request:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BD33D16-7EDC-4796-9080-4463A6C357F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Screens/ContactList/ContactListViewData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "deleteRequest(user_id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E6D8DBFE-72A6-45DB-A5F4-2EC4A197F081"
+            uuid = "F0578CEF-5BB4-4D72-A82F-55FDD2168CEF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Screens/Home/HomeViewController.swift"
+            filePath = "MammothTag/Screens/ContactList/ContactListViewData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "updateUIWhenGetCard(done:message:cards:)"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "acceptRequest(user_id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B912EB2B-1E0C-40BC-BC7C-E9C0B7E88F0A"
+            uuid = "9D98ADA5-1079-42DC-9A1B-5F6EAA93C932"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Screens/Home/HomeViewModel.swift"
+            filePath = "MammothTag/Screens/ContactList/ContactListViewData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "getCards(completion:)"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "acceptRequest(user_id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "02562A48-35B0-4E20-871A-642478829D83"
+            uuid = "C0ED3E08-EA59-4449-BC45-2598A1A1741D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Screens/Home/HomeViewModel.swift"
+            filePath = "MammothTag/Screens/ContactList/ContactDetails/ContactDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "getData()"
-            landmarkType = "7">
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F1CB0022-01E1-403F-8625-CD81C9835FAF"
+            uuid = "416299D7-BC05-4966-8FE5-20ED09304159"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Screens/Home/HomeViewController.swift"
+            filePath = "MammothTag/Screens/ContactList/ContactDetailsCardList/ContactDetailsCardListData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "updateUIWhenAddCard(done:message:)"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "getUser()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B2430C47-02BE-426A-89B0-1E819CBBEFAC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MammothTag/Screens/Home/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "updateUIWhenGetCard(done:message:cards:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "416299D7-BC05-4966-8FE5-20ED09304159 - 3f9dd9cf8696ea5d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;MammothTag.UserServerResponseModel&gt;) -&gt; () in MammothTag.ContactDetailsCardListViewController.getUser() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/ContactList/ContactDetailsCardList/ContactDetailsCardListData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "416299D7-BC05-4966-8FE5-20ED09304159 - 3f9dd9cf8696ea5d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;MammothTag.UserServerResponseModel&gt;) -&gt; () in MammothTag.ContactDetailsCardListViewController.getUser() -&gt; ()"
+                  moduleName = "MammothTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anwarhajji/Desktop/MaMMOTHTAG/MammothTag/MammothTag/Screens/ContactList/ContactDetailsCardList/ContactDetailsCardListData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "571">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -27,6 +27,9 @@ class SettingsViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var shadowInffoViewWidthConstarinte: NSLayoutConstraint!
     
+    
+    
+    
     var viewModel = SettingsViewModel()
     var profile: ProfileModel?
     

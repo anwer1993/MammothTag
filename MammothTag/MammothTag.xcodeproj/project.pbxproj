@@ -11,16 +11,25 @@
 		7FD28A811FD79095284AFF70 /* Pods_MammothTagTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6958C0EE95AA9A0DFDAF23D0 /* Pods_MammothTagTests.framework */; };
 		A60305F228A31F000028F085 /* TermsAndConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60305F128A31F000028F085 /* TermsAndConditionViewController.swift */; };
 		A60305F428A327190028F085 /* TermsAndConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60305F328A327190028F085 /* TermsAndConditionViewModel.swift */; };
+		A60A8BB728C16E8F00B26621 /* ContactDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A8BB628C16E8F00B26621 /* ContactDetailsCollectionViewCell.swift */; };
+		A60A8BB928C172A000B26621 /* UserServerResonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A8BB828C172A000B26621 /* UserServerResonse.swift */; };
+		A60A8BBC28C173BD00B26621 /* ContactDetailsCardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A8BBB28C173BD00B26621 /* ContactDetailsCardListViewController.swift */; };
+		A60A8BBE28C175DB00B26621 /* ContactCardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A8BBD28C175DB00B26621 /* ContactCardsTableViewCell.swift */; };
+		A60A8BC028C17AB500B26621 /* ContactDetailsCardListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A8BBF28C17AB500B26621 /* ContactDetailsCardListData.swift */; };
 		A60B312F28A033800037F0B3 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B312E28A033800037F0B3 /* SignInController.swift */; };
 		A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313128A173D20037F0B3 /* UIViewExtension.swift */; };
 		A60B313528A175D70037F0B3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313428A175D70037F0B3 /* GradientView.swift */; };
 		A6138D5328BAB26900DA71F9 /* CardServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6138D5228BAB26900DA71F9 /* CardServerResponseModel.swift */; };
 		A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A627DAAA28A02F2100F0D54E /* Authentification.storyboard */; };
+		A628D52828BFDFFB002099B7 /* AddSocialMediaVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A628D52728BFDFFB002099B7 /* AddSocialMediaVc.swift */; };
+		A628D52A28BFE008002099B7 /* AddSocialMediaVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A628D52928BFE008002099B7 /* AddSocialMediaVc.xib */; };
 		A62B1BDE28AA902300948860 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BDD28AA902300948860 /* MoreVC.swift */; };
 		A62B1BE028AA903800948860 /* MoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BDF28AA903800948860 /* MoreVC.xib */; };
 		A62B1BE328AA9E2B00948860 /* AddNewCardVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */; };
 		A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */; };
 		A640DE4128B6B105004EDB9B /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640DE4028B6B105004EDB9B /* UpdateProfileViewController.swift */; };
+		A645798228C0154B00D56196 /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645798128C0154B00D56196 /* ContactService.swift */; };
+		A645798428C0162200D56196 /* ContactModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645798328C0162200D56196 /* ContactModels.swift */; };
 		A648400C28A190BD000D040D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648400B28A190BD000D040D /* CustomTextField.swift */; };
 		A648691328AEC9AF00C059C9 /* URLRequestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648691228AEC9AF00C059C9 /* URLRequestEnum.swift */; };
 		A6511F2228BBEC41003DF731 /* SocialMediaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6511F2128BBEC41003DF731 /* SocialMediaVC.xib */; };
@@ -34,6 +43,7 @@
 		A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0A28AFF1410010AE54 /* CardModel.swift */; };
 		A688ED0D28AFF1810010AE54 /* ServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0C28AFF1810010AE54 /* ServerResponseModel.swift */; };
 		A688ED0F28AFF2310010AE54 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0E28AFF2310010AE54 /* ProfileModel.swift */; };
+		A68F436828C1676000E42284 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F436728C1676000E42284 /* ContactDetailsViewController.swift */; };
 		A68F76A828B44DA80051E0D4 /* SourceControllerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F76A728B44DA80051E0D4 /* SourceControllerEnum.swift */; };
 		A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979E9E28A3D63C008C2B60 /* StringExtension.swift */; };
 		A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6979EA228A3DE92008C2B60 /* Localizable.strings */; };
@@ -65,7 +75,7 @@
 		A6C79C1E28A55B0000229739 /* CustomSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C79C1D28A55B0000229739 /* CustomSegmentControlView.swift */; };
 		A6C79C2028A55B1F00229739 /* CustomSegmentControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C79C1F28A55B1F00229739 /* CustomSegmentControlView.xib */; };
 		A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */; };
-		A6C8494C28A48F3300CF7E61 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8494B28A48F3300CF7E61 /* ContactListViewModel.swift */; };
+		A6C8494C28A48F3300CF7E61 /* ContactListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8494B28A48F3300CF7E61 /* ContactListViewData.swift */; };
 		A6C8494F28A4903D00CF7E61 /* SeettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */; };
 		A6C8495128A4904C00CF7E61 /* SeettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8495028A4904C00CF7E61 /* SeettingsTableViewCell.swift */; };
 		A6C8495428A491A700CF7E61 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8495328A491A700CF7E61 /* SettingsViewController.swift */; };
@@ -129,16 +139,25 @@
 		8BD3ABCF54B63C149BF278F0 /* Pods_MammothTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MammothTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60305F128A31F000028F085 /* TermsAndConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewController.swift; sourceTree = "<group>"; };
 		A60305F328A327190028F085 /* TermsAndConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewModel.swift; sourceTree = "<group>"; };
+		A60A8BB628C16E8F00B26621 /* ContactDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		A60A8BB828C172A000B26621 /* UserServerResonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServerResonse.swift; sourceTree = "<group>"; };
+		A60A8BBB28C173BD00B26621 /* ContactDetailsCardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsCardListViewController.swift; sourceTree = "<group>"; };
+		A60A8BBD28C175DB00B26621 /* ContactCardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCardsTableViewCell.swift; sourceTree = "<group>"; };
+		A60A8BBF28C17AB500B26621 /* ContactDetailsCardListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsCardListData.swift; sourceTree = "<group>"; };
 		A60B312E28A033800037F0B3 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		A60B313128A173D20037F0B3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A60B313428A175D70037F0B3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		A6138D5228BAB26900DA71F9 /* CardServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardServerResponseModel.swift; sourceTree = "<group>"; };
 		A627DAAA28A02F2100F0D54E /* Authentification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentification.storyboard; sourceTree = "<group>"; };
+		A628D52728BFDFFB002099B7 /* AddSocialMediaVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSocialMediaVc.swift; sourceTree = "<group>"; };
+		A628D52928BFE008002099B7 /* AddSocialMediaVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSocialMediaVc.xib; sourceTree = "<group>"; };
 		A62B1BDD28AA902300948860 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		A62B1BDF28AA903800948860 /* MoreVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreVC.xib; sourceTree = "<group>"; };
 		A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardVc.xib; sourceTree = "<group>"; };
 		A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVc.swift; sourceTree = "<group>"; };
 		A640DE4028B6B105004EDB9B /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		A645798128C0154B00D56196 /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
+		A645798328C0162200D56196 /* ContactModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModels.swift; sourceTree = "<group>"; };
 		A648400B28A190BD000D040D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A648691228AEC9AF00C059C9 /* URLRequestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestEnum.swift; sourceTree = "<group>"; };
 		A6511F2128BBEC41003DF731 /* SocialMediaVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialMediaVC.xib; sourceTree = "<group>"; };
@@ -153,6 +172,7 @@
 		A688ED0A28AFF1410010AE54 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		A688ED0C28AFF1810010AE54 /* ServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseModel.swift; sourceTree = "<group>"; };
 		A688ED0E28AFF2310010AE54 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		A68F436728C1676000E42284 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		A68F76A728B44DA80051E0D4 /* SourceControllerEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceControllerEnum.swift; sourceTree = "<group>"; };
 		A6979E9E28A3D63C008C2B60 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A6979EA028A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
@@ -189,7 +209,7 @@
 		A6C79C1D28A55B0000229739 /* CustomSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControlView.swift; sourceTree = "<group>"; };
 		A6C79C1F28A55B1F00229739 /* CustomSegmentControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSegmentControlView.xib; sourceTree = "<group>"; };
 		A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
-		A6C8494B28A48F3300CF7E61 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
+		A6C8494B28A48F3300CF7E61 /* ContactListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewData.swift; sourceTree = "<group>"; };
 		A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeettingsTableViewCell.xib; sourceTree = "<group>"; };
 		A6C8495028A4904C00CF7E61 /* SeettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeettingsTableViewCell.swift; sourceTree = "<group>"; };
 		A6C8495328A491A700CF7E61 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +310,16 @@
 			path = "Terms&&Conditions";
 			sourceTree = "<group>";
 		};
+		A60A8BBA28C1739E00B26621 /* ContactDetailsCardList */ = {
+			isa = PBXGroup;
+			children = (
+				A60A8BBB28C173BD00B26621 /* ContactDetailsCardListViewController.swift */,
+				A60A8BBF28C17AB500B26621 /* ContactDetailsCardListData.swift */,
+				A60A8BBD28C175DB00B26621 /* ContactCardsTableViewCell.swift */,
+			);
+			path = ContactDetailsCardList;
+			sourceTree = "<group>";
+		};
 		A60B313028A173B80037F0B3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +344,15 @@
 				A648400B28A190BD000D040D /* CustomTextField.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A628D52628BFDFBF002099B7 /* AddSocialMediaVC */ = {
+			isa = PBXGroup;
+			children = (
+				A628D52728BFDFFB002099B7 /* AddSocialMediaVc.swift */,
+				A628D52928BFE008002099B7 /* AddSocialMediaVc.xib */,
+			);
+			path = AddSocialMediaVC;
 			sourceTree = "<group>";
 		};
 		A62B1BDC28AA900F00948860 /* MoreVC */ = {
@@ -372,6 +411,24 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		A68F436528C1673300E42284 /* ListContact */ = {
+			isa = PBXGroup;
+			children = (
+				A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */,
+				A6C8494B28A48F3300CF7E61 /* ContactListViewData.swift */,
+			);
+			path = ListContact;
+			sourceTree = "<group>";
+		};
+		A68F436628C1673F00E42284 /* ContactDetailsSocialMediaList */ = {
+			isa = PBXGroup;
+			children = (
+				A68F436728C1676000E42284 /* ContactDetailsViewController.swift */,
+				A60A8BB628C16E8F00B26621 /* ContactDetailsCollectionViewCell.swift */,
+			);
+			path = ContactDetailsSocialMediaList;
+			sourceTree = "<group>";
+		};
 		A68F76A528B44C980051E0D4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +462,7 @@
 		A6979EB428A474B3008C2B60 /* XibFile */ = {
 			isa = PBXGroup;
 			children = (
+				A628D52628BFDFBF002099B7 /* AddSocialMediaVC */,
 				A6511F2028BBEC2E003DF731 /* SocialMediaVC */,
 				A62B1BE128AA9E1E00948860 /* AddNewCardVc */,
 				A62B1BDC28AA900F00948860 /* MoreVC */,
@@ -497,8 +555,9 @@
 		A6C8494728A4895B00CF7E61 /* ContactList */ = {
 			isa = PBXGroup;
 			children = (
-				A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */,
-				A6C8494B28A48F3300CF7E61 /* ContactListViewModel.swift */,
+				A68F436528C1673300E42284 /* ListContact */,
+				A60A8BBA28C1739E00B26621 /* ContactDetailsCardList */,
+				A68F436628C1673F00E42284 /* ContactDetailsSocialMediaList */,
 			);
 			path = ContactList;
 			sourceTree = "<group>";
@@ -552,6 +611,8 @@
 			isa = PBXGroup;
 			children = (
 				A6D6F28328A1CCBF00AD3C9C /* SignInModels.swift */,
+				A645798328C0162200D56196 /* ContactModels.swift */,
+				A60A8BB828C172A000B26621 /* UserServerResonse.swift */,
 				A6138D5228BAB26900DA71F9 /* CardServerResponseModel.swift */,
 				A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */,
 				A6979EB028A413DE008C2B60 /* RegisterModel.swift */,
@@ -568,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				A6D6F28628A1CFEA00AD3C9C /* AuthenticationService.swift */,
+				A645798128C0154B00D56196 /* ContactService.swift */,
 				A688ED0828AFEFF00010AE54 /* CardService.swift */,
 			);
 			path = APIService;
@@ -794,6 +856,7 @@
 				A6C0CE5528A4804A00084D86 /* Lato-Bold.ttf in Resources */,
 				A6979EB628A474C7008C2B60 /* ContactTableViewCell.xib in Resources */,
 				A6B8C9D228A7087B0003C408 /* ScanNFCVC.xib in Resources */,
+				A628D52A28BFE008002099B7 /* AddSocialMediaVc.xib in Resources */,
 				A6A6959C28A6E6810025A3B2 /* UpdateProfileModeVC.xib in Resources */,
 				A6511F2628BBED06003DF731 /* SocialMediaCollectionCell.xib in Resources */,
 				A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */,
@@ -945,6 +1008,7 @@
 				A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */,
 				A640DE4128B6B105004EDB9B /* UpdateProfileViewController.swift in Sources */,
 				A6DD487A28A275C600747B01 /* ForgotPasswordController.swift in Sources */,
+				A645798428C0162200D56196 /* ContactModels.swift in Sources */,
 				A688ED0F28AFF2310010AE54 /* ProfileModel.swift in Sources */,
 				A6D2D7F428B286F600DDF2A1 /* ForgotPasswordModel.swift in Sources */,
 				A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */,
@@ -955,12 +1019,14 @@
 				A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */,
 				A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */,
 				A6C8495128A4904C00CF7E61 /* SeettingsTableViewCell.swift in Sources */,
+				A628D52828BFDFFB002099B7 /* AddSocialMediaVc.swift in Sources */,
 				A6ECC61628BEB337007E2536 /* HomeCollectionViewVC.swift in Sources */,
 				A69B199828A52DA700BE92F1 /* MainTabbarViewController.swift in Sources */,
 				A69B199A28A5303E00BE92F1 /* TabItem.swift in Sources */,
 				A6DD488328A2946100747B01 /* RegisterViewModel.swift in Sources */,
 				A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */,
 				A6511F2D28BBFE06003DF731 /* Constant.swift in Sources */,
+				A60A8BC028C17AB500B26621 /* ContactDetailsCardListData.swift in Sources */,
 				A60305F428A327190028F085 /* TermsAndConditionViewModel.swift in Sources */,
 				A69B199C28A5304B00BE92F1 /* TabNavigationMenu.swift in Sources */,
 				A6A6959E28A6E69B0025A3B2 /* UpdateProfileModeVC.swift in Sources */,
@@ -974,16 +1040,22 @@
 				A648691328AEC9AF00C059C9 /* URLRequestEnum.swift in Sources */,
 				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
 				A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */,
+				A60A8BB928C172A000B26621 /* UserServerResonse.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
 				A6B4D85C28A7225800E73ACD /* HomeViewModel.swift in Sources */,
 				A688ED0928AFEFF00010AE54 /* CardService.swift in Sources */,
+				A60A8BB728C16E8F00B26621 /* ContactDetailsCollectionViewCell.swift in Sources */,
 				A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */,
 				A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */,
 				A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */,
+				A645798228C0154B00D56196 /* ContactService.swift in Sources */,
+				A60A8BBC28C173BD00B26621 /* ContactDetailsCardListViewController.swift in Sources */,
 				A6D2D7F728B2981400DDF2A1 /* ChangeForgotPassword.swift in Sources */,
+				A68F436828C1676000E42284 /* ContactDetailsViewController.swift in Sources */,
 				A6E9E98528B6BCDA0074D45D /* UpdateProfileViewModel.swift in Sources */,
+				A60A8BBE28C175DB00B26621 /* ContactCardsTableViewCell.swift in Sources */,
 				A6D2D7F928B2A23500DDF2A1 /* ChangeForgotPasswordViewModel.swift in Sources */,
-				A6C8494C28A48F3300CF7E61 /* ContactListViewModel.swift in Sources */,
+				A6C8494C28A48F3300CF7E61 /* ContactListViewData.swift in Sources */,
 				A6979EB328A46190008C2B60 /* RegisterViewControllerImagePicker.swift in Sources */,
 				A6E25A3928A5601B009B2D09 /* HomeViewController.swift in Sources */,
 				A6A6959728A6B8870025A3B2 /* AccountManager.swift in Sources */,

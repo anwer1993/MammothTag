@@ -33,6 +33,7 @@ class SpalchScreen: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         animateImage {
             self.translateImage {
                 self.showLabels {

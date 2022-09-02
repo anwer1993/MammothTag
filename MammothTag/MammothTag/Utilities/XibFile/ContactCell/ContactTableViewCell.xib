@@ -26,15 +26,27 @@
                                     <constraint firstAttribute="width" constant="64" id="uJI-kY-ynj"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Delete-icon" translatesAutoresizingMaskIntoConstraints="NO" id="4Ch-fx-8NA">
-                                <rect key="frame" x="359" y="37" width="18" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="18" id="o03-CJ-BRo"/>
-                                    <constraint firstAttribute="height" constant="18" id="qtI-08-xM2"/>
-                                </constraints>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="aIb-wf-axA">
+                                <rect key="frame" x="368" y="15.5" width="18" height="61"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-Icon" translatesAutoresizingMaskIntoConstraints="NO" id="4Ch-fx-8NA">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="18" id="o03-CJ-BRo"/>
+                                            <constraint firstAttribute="height" constant="18" id="qtI-08-xM2"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Delete-icon" translatesAutoresizingMaskIntoConstraints="NO" id="MB7-do-2Tt">
+                                        <rect key="frame" x="0.0" y="43" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="6s0-PU-4ER"/>
+                                            <constraint firstAttribute="width" constant="18" id="ahV-Si-AEz"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-k2-RQn">
-                                <rect key="frame" x="91" y="20" width="255" height="48.5"/>
+                                <rect key="frame" x="91" y="20" width="120.5" height="48.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrH-C1-XvP">
                                         <rect key="frame" x="0.0" y="0.0" width="120.5" height="21.5"/>
@@ -53,12 +65,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aIb-wf-axA" secondAttribute="trailing" constant="20" id="3zr-xd-rFL"/>
                             <constraint firstItem="yMz-k2-RQn" firstAttribute="leading" secondItem="RjC-hy-WAs" secondAttribute="trailing" constant="13" id="7eu-Xg-AMk"/>
                             <constraint firstItem="RjC-hy-WAs" firstAttribute="centerY" secondItem="1Gt-2Q-6RD" secondAttribute="centerY" id="8QI-Vy-jZE"/>
                             <constraint firstItem="yMz-k2-RQn" firstAttribute="top" secondItem="1Gt-2Q-6RD" secondAttribute="top" constant="20" id="GQs-zx-g3S"/>
-                            <constraint firstAttribute="trailing" secondItem="4Ch-fx-8NA" secondAttribute="trailing" constant="29" id="KVu-K3-Pob"/>
-                            <constraint firstItem="4Ch-fx-8NA" firstAttribute="centerY" secondItem="1Gt-2Q-6RD" secondAttribute="centerY" id="cXk-yv-eZx"/>
-                            <constraint firstItem="4Ch-fx-8NA" firstAttribute="leading" secondItem="yMz-k2-RQn" secondAttribute="trailing" constant="13" id="lD7-jS-Uqn"/>
+                            <constraint firstItem="aIb-wf-axA" firstAttribute="centerY" secondItem="1Gt-2Q-6RD" secondAttribute="centerY" id="RgF-AP-muK"/>
                             <constraint firstItem="RjC-hy-WAs" firstAttribute="leading" secondItem="1Gt-2Q-6RD" secondAttribute="leading" constant="14" id="v6Y-sP-Exx"/>
                         </constraints>
                     </view>
@@ -73,10 +84,11 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="addIcon" destination="4Ch-fx-8NA" id="saZ-i4-A5C"/>
                 <outlet property="addedDateLbl" destination="c23-SF-zHa" id="Ll1-Zv-47p"/>
                 <outlet property="contactImage" destination="RjC-hy-WAs" id="C8R-Jd-9Vi"/>
                 <outlet property="contactNameLbl" destination="PrH-C1-XvP" id="Uah-5B-j5G"/>
-                <outlet property="deleteIcon" destination="4Ch-fx-8NA" id="a68-cD-Fs3"/>
+                <outlet property="deleteIcon" destination="MB7-do-2Tt" id="A7m-CL-Oo3"/>
                 <outlet property="viewContainer" destination="1Gt-2Q-6RD" id="gsb-s5-sU3"/>
             </connections>
             <point key="canvasLocation" x="36" y="76"/>
@@ -84,6 +96,7 @@
     </objects>
     <resources>
         <image name="Delete-icon" width="19" height="20.5"/>
+        <image name="add-Icon" width="23.5" height="23.5"/>
         <image name="photo2" width="226" height="223"/>
     </resources>
 </document>

@@ -75,15 +75,21 @@ extension UIViewController {
                     self.showOrHideLoader(done: true)
                     if let done = data.success, done == true {
                         AccountManager.shared.token = nil
-                        Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
-                    } else if let message = data.message, message != "Success request" {
-                        self.showAlert(withTitle: "Error", withMessage: message)
+                        Contstant.updateRootVC()
+                    } else {
+                        AccountManager.shared.token = nil
+                        Contstant.updateRootVC()
                     }
                 }
+            } else {
+                self.showOrHideLoader(done: true)
+                AccountManager.shared.token = nil
+                Contstant.updateRootVC()
             }
         } else {
+            self.showOrHideLoader(done: true)
             AccountManager.shared.token = nil
-            Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
+            Contstant.updateRootVC()
         }
         
     }

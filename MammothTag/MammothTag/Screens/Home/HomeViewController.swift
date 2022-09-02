@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
     let moreVC = MoreVC(nibName: "MoreVC", bundle: nil)
     let addNewCardVC = AddNewCardVc(nibName: "AddNewCardVc", bundle: nil)
     let socialMediaVC =  SocialMediaVC(nibName: "SocialMediaVC", bundle: nil)
+    let addSocialMediaVc = AddSocialMediaVc(nibName: "AddSocialMediaVc", bundle: nil)
     
     var scanNFCGesture: UITapGestureRecognizer {
         return UITapGestureRecognizer(target: self, action: #selector(showScanNFCPopup(_:)))
@@ -54,7 +55,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionHeight.constant = 0
+//        collectionHeight.constant = 0
         self.navigationController?.isNavigationBarHidden = true
         networkCollection.delegate = self
         networkCollection.dataSource = self
@@ -67,6 +68,21 @@ class HomeViewController: UIViewController {
         let AddshowSocialTap = UITapGestureRecognizer(target: self, action: #selector(showSocialMediaList(_:)))
         addSocialeMediaImage.addTagGesture(AddshowSocialTap)
         initView()
+        configMoreVC()
+        configSocialMediaVC()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let screenWidth = UIScreen.main.bounds.width - 20
+        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
+        let view = CustomSegmentControlView(frame: frame)
+        self.customSegmentControlView.addSubview(view)
+        
+        getData()
+    }
+    
+    func configMoreVC() {
         moreVC.handleDeleteTap = {
             self.handleDeleteTap()
         }
@@ -81,14 +97,29 @@ class HomeViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let screenWidth = UIScreen.main.bounds.width - 20
-        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
-        let view = CustomSegmentControlView(frame: frame)
-        self.customSegmentControlView.addSubview(view)
-        
-        getData()
+    func configSocialMediaVC() {
+        socialMediaVC.handleSelectsocialMediaAction = { selectedNetwork in
+            self.viewContainer.addBlurEffect()
+            self.tabBarController?.tabBar.isHidden = true
+            self.addSocialMediaVc.selectedCard = self.selectedCard
+            self.addSocialMediaVc.socialMediaID = selectedNetwork
+            self.addSocialMediaVc.handleAddSocialMediaAction = { resp in
+                if let done = resp?.result, let message = resp?.message {
+                    if done {
+                        self.getData()
+                    } else {
+                        self.showAlertWithOk(withTitle: "Error", withMessage: message)
+                    }
+                } else {
+                    self.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
+                }
+            }
+            self.addChildVc(self.addSocialMediaVc) {
+                [weak self] in
+                guard let this = self else {return}
+                this.updateUIWhenRemovePopup()
+            }
+        }
     }
     
     func updateUIWhenAddCard(done: Bool, message: String) {

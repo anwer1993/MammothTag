@@ -30,6 +30,8 @@ enum AppScreen: INaviagtion{
     case UpdatePassword
     case ChangeForgotPassword(code: String, phone: String, delegate: Navigatable)
     case UpdateProfile(profile: ProfileModel)
+    case ContactDetails(cardNetwork: [CardNetwork], userData: DataClassUser?)
+    case ContactDetailsCardList(user_id: String)
 }
 
 /// Class responsible for the routing functionality
@@ -105,6 +107,17 @@ struct Router: IRouter {
             case .UpdateProfile(profile: let profile):
                 guard let vc = UpdateProfileViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
                 vc.profile = profile
+                viewController = vc
+                break
+            case .ContactDetails(cardNetwork: let cardNetwork, userData: let userData):
+                guard let vc = ContactDetailsViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
+                vc.cardNetworkList = cardNetwork
+                vc.userData = userData
+                viewController = vc
+                break
+            case .ContactDetailsCardList(user_id: let user_id):
+                guard let vc = ContactDetailsCardListViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
+                vc.user_id = user_id
                 viewController = vc
                 break
             }

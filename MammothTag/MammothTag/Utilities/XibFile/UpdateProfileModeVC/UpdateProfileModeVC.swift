@@ -118,6 +118,7 @@ class UpdateProfileModeVC : UIViewController, SubViewConroller {
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()
         self.removeFromParent()
+        isDeleteAction = false
         selectedMode = AccountManager.shared.profileMode?.rawValue ?? 0
         handleTapWhenDismiss()
     }

@@ -23,6 +23,13 @@ extension String {
         return dateFormatter.date(from: self)
     }
     
+    var stringFromDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: self) ?? Date()
+        return dateFormatter.string(from: date)
+    }
+    
 }
 
 

@@ -29,6 +29,15 @@ enum URLRequest: String {
     case DELETE_CARD_NETWORK
     case LIST_CARD_NETWORK
     
+    // Request
+    case LIST_REQUESTS
+    case ADD_REQUEST
+    case ACCEPT_REQUEST
+    case DELETE_REQUEST
+    case LIST_CONTACT_URL
+    case DELETE_CONTACT
+    case GET_USER_BY_ID_URL
+    
     var url: String {
         switch self {
         case .REGISTER_URL:
@@ -65,6 +74,20 @@ enum URLRequest: String {
             return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/delete/en"
         case .LIST_CARD_NETWORK:
             return "http://mubadiroun.com/Mammouth/public/api/v1/card/"
+        case .LIST_REQUESTS:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/requests/en?token="
+        case .ADD_REQUEST:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/request/add/en"
+        case .ACCEPT_REQUEST:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/request/accept/en"
+        case .DELETE_REQUEST:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/request/delete/en"
+        case .LIST_CONTACT_URL:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/en?token="
+        case .DELETE_CONTACT:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/delete/en"
+        case .GET_USER_BY_ID_URL:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/user/profile/en?token="
         }
     }
 }

@@ -57,7 +57,10 @@ extension HomeViewController {
                     }
                     
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
+                    this.showOrHideLoader(done: true)
+                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again") {
+                        this.expireSession(isExppired: true)
+                    }
                     this.privilageView.isHidden = true
                     completion(false)
                 }
@@ -76,8 +79,10 @@ extension HomeViewController {
                         if done {
                             DispatchQueue.main.async {
                                 this.listCardNetwork = data
+//                                this.collectionHeight.constant = this.listCardNetwork.isEmpty ? 0 : 120
+                                this.networkCollection.isHidden = this.listCardNetwork.isEmpty
+//                                this.networkCollection.backgroundColor = UIColor.blue
                                 this.networkCollection.reloadData()
-                                this.collectionHeight.constant = data.isEmpty ? 0 : 120
                             }
                         } else {
                             this.updateUIWhenAddCard(done: false, message: message)

@@ -13,7 +13,9 @@ class SocialMediaVC: UIViewController, SubViewConroller{
     var handleTapWhenDismiss: () -> Void = {}
     
     
-    
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var viewControl: UIControl!
+    @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var screenTitle: UILabel!
     
     
@@ -57,20 +59,24 @@ class SocialMediaVC: UIViewController, SubViewConroller{
     @IBOutlet weak var twitterStack: UIStackView!
     
     
-    var data: [SocialMediaModel] = [
-        SocialMediaModel(imageName: "facebook", socialMediaName: "Facebook", socialMediaId: 1),
-        SocialMediaModel(imageName: "ic_platform_instagram", socialMediaName: "Instagram", socialMediaId: 2),
-        SocialMediaModel(imageName: "ic_platform_linkin", socialMediaName: "Linkedin", socialMediaId: 3),
-        SocialMediaModel(imageName: "ic_platform_paypal", socialMediaName: "Paypal", socialMediaId: 4),
-        SocialMediaModel(imageName: "skype", socialMediaName: "Skype", socialMediaId: 5),
-        SocialMediaModel(imageName: "ic_platform_snapchat", socialMediaName: "Snapchat", socialMediaId: 6),
-        SocialMediaModel(imageName: "ic_platform_tiktok", socialMediaName: "Tiktok", socialMediaId: 7),
-        SocialMediaModel(imageName: "pinterest", socialMediaName: "Twitch", socialMediaId: 8),
-        SocialMediaModel(imageName: "ic_platform_twitter", socialMediaName: "Twitter", socialMediaId: 9)]
+    var tapGesture: UITapGestureRecognizer {
+        return UITapGestureRecognizer(target: self, action: #selector(selectSocialMedia(_:)))
+    }
+    
+    var handleSelectsocialMediaAction: (Int) -> () = {_ in}
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        facebookStackView.addTagGesture(tapGesture)
+        instagramStackView.addTagGesture(tapGesture)
+        linkedinStack.addTagGesture(tapGesture)
+        paypallStack.addTagGesture(tapGesture)
+        skypeStack.addTagGesture(tapGesture)
+        snapchatStack.addTagGesture(tapGesture)
+        tiktokStack.addTagGesture(tapGesture)
+        twitchStack.addTagGesture(tapGesture)
+        twitchStack.addTagGesture(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +84,11 @@ class SocialMediaVC: UIViewController, SubViewConroller{
     }
     
     func initView() {
+        viewControl.addTarget(self, action: #selector(removeView(_:)), for: .touchUpInside)
+        viewControl.alpha = 0.5
+        viewContainer.layer.cornerRadius = 20
+        viewContainer.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        closeButton.layer.cornerRadius = closeButton.frame.width * 0.5
         linkedinIcon.layer.cornerRadius = linkedinIcon.frame.width * 0.5
         instagramIcon.layer.cornerRadius = linkedinIcon.frame.width * 0.5
         facebookIcon.layer.cornerRadius = linkedinIcon.frame.width * 0.5
@@ -89,21 +100,43 @@ class SocialMediaVC: UIViewController, SubViewConroller{
         twitterIcon.layer.cornerRadius = twitterIcon.frame.width * 0.5
     }
     
+    func removeView() {
+        self.willMove(toParent: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParent()
+        handleTapWhenDismiss()
+    }
+    
+    
+    @objc func removeView(_ gesture: UIGestureRecognizer) {
+        removeView()
+    }
+    
+    @IBAction func closeButtonDidTapped(_ sender: Any) {
+        removeView()
+    }
+    
+    @objc func selectSocialMedia(_ gesture: UITapGestureRecognizer? = nil) {
+        guard let view = gesture?.view else {return}
+        let tag = view.tag
+        removeView()
+        handleSelectsocialMediaAction(tag)
+    }
     
 }
 
 extension SocialMediaVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return Contstant.data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SocialMediaCollectionCell", for: indexPath) as? SocialMediaCollectionCell else {
             return UICollectionViewCell()
         }
-        cell.image.image = UIImage(named: data[indexPath.row].imageName ?? "")
-        cell.title.text = data[indexPath.row].imageName ?? ""
+        cell.image.image = UIImage(named: Contstant.data[indexPath.row].imageName ?? "")
+        cell.title.text = Contstant.data[indexPath.row].socialMediaName ?? ""
         return cell
     }
     

@@ -16,6 +16,12 @@ class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var contactNameLbl: UILabel!
     @IBOutlet weak var addedDateLbl: UILabel!
     
+    @IBOutlet weak var addIcon: UIImageView!
+    
+    var delegate: contactProtocol?
+    var selectedItem = 0
+    var request: DatumListRequest?
+    var contact: DatumListContact?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,12 +30,49 @@ class ContactTableViewCell: UITableViewCell {
         contactImage.layer.cornerRadius = contactImage.frame.width * 0.5
         contactNameLbl.textColor = .greyishBrown
         addedDateLbl.textColor = .greyishBrown
+        let deleteAction = UITapGestureRecognizer(target: self, action: #selector(deleteContactOrRequest(_gesture:)))
+        let acceptAction = UITapGestureRecognizer(target: self, action: #selector(acceptRequest(_gesture:)))
+        deleteIcon.addTagGesture(deleteAction)
+        addIcon.addTagGesture(acceptAction)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func configCell(request: DatumListRequest) {
+        selectedItem = 1
+        self.request = request
+        contactNameLbl.text = request.name
+        addedDateLbl.text = request.createdAt?.stringFromDate
+        addIcon.isHidden = false
+    }
+    
+    func ConfigCellForListContact(contact: DatumListContact) {
+        selectedItem = 0
+        self.contact = contact
+        contactNameLbl.text = contact.name
+        addedDateLbl.text = contact.createdAt?.stringFromDate
+        addIcon.isHidden = true
     }
 
+    @objc func deleteContactOrRequest(_gesture: UITapGestureRecognizer? = nil) {
+        if selectedItem == 0 {
+            if let contact = contact {
+                delegate?.deleteContact(contact: contact)
+            }
+        } else {
+            if let request = request {
+                delegate?.deleteRequest(request: request)
+            }
+            
+        }
+    }
+    
+    @objc func acceptRequest(_gesture: UITapGestureRecognizer? = nil) {
+        if let request = request {
+            delegate?.acceptRequest(request: request)
+        }
+    }
+    
 }

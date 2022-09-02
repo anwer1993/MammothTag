@@ -15,9 +15,6 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackViwContainer: UIStackView!
     @IBOutlet weak var firstLabel: UILabel!
-    @IBOutlet weak var whyDoUseLabel: UILabel!
-    @IBOutlet weak var whyDoesDescLbl: UILabel!
-    @IBOutlet weak var whereDoesTitleLbl: UILabel!
     
     var termsAndConditionsViewModel = TermsAndConditionsViewModel()
     var source: SourceController?
@@ -30,25 +27,19 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
             this.isDone = true
             this.showOrHideLoader(done: true)
             this.initView()
-            this.updateUIWhenGetTermsAndConditionn(done: done, settingsModel: settingsModel, message: message)
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        termsAndConditionsViewModel.getTerms()
     }
     
     func setupLocalizedText() {
         if source == .FromSettings {
             termsLabel.text = "About Us"
-            firstLabel.isHidden = true
-            whereDoesTitleLbl.isHidden = true
-            whyDoesDescLbl.isHidden = true
         } else {
             termsLabel.text = "PRIVACY".localized
-            firstLabel.text = "WHY_DO_USE_IT".localized
-            whereDoesTitleLbl.text = "WHERE_DOES_IT_COME".localized
+            firstLabel.text = ""
         }
         
         backButton.flipWhenRTL(image: UIImage(named: "Groupe 469")!)
@@ -58,28 +49,10 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
         self.navigationController?.isNavigationBarHidden = true
         setupLocalizedText()
         termsLabel.textColor = UIColor.chestnut
-        firstLabel.textColor = UIColor.tangerine
-        whereDoesTitleLbl.textColor = .tangerine
+        firstLabel.textColor = UIColor.black
     }
     
-    func updateUIWhenGetTermsAndConditionn(done: Bool, settingsModel: SettingsModel?, message: String) {
-        if done {
-            if let settingsModel = settingsModel {
-                if source == .FromSettings {
-                    whyDoUseLabel.text = settingsModel.about
-                } else {
-                    whyDoUseLabel.text = settingsModel.terms
-                    whyDoesDescLbl.text = settingsModel.terms
-                }
-                
-            }
-        } else {
-            showAlertWithOk(withTitle: "Error", withMessage: message) {
-                self.navigationController?.popViewController(animated: true)
-            }
-        }
-    }
-    
+
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
