@@ -98,6 +98,7 @@ class AddSocialMediaVc: UIViewController, SubViewConroller {
         socialMediaName.textColor = .redBrown
         textField.font = UIFont(name: "Lato-Regular", size: 16)
         saveButtonn.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        saveButtonn.setTitle("SAVE".localized, for: .normal)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

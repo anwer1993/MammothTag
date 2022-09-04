@@ -72,7 +72,14 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
         socielMediaCollectionView.delegate = self
         socielMediaCollectionView.dataSource = self
         let image = UIImage(named: "Groupe 469")?.withRenderingMode(.alwaysTemplate)
-        backBtn.setImage(image, for: .normal)
+        switch AppSettings().appLanguage {
+        case .EN:
+            backBtn.setImage(image, for: .normal)
+            break
+        default:
+            backBtn.setImage(image?.imageFlippedForRightToLeftLayoutDirection(), for: .normal)
+            break
+        }
         backBtn.tintColor = UIColor.white
         selectedCardView.layer.cornerRadius = 15.0
         selectedCardView.layer.borderColor = UIColor.white.cgColor
@@ -96,6 +103,7 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
         emailLbl.textColor = .white
         emptyListLbl.font = UIFont(name: "Lato-Black", size: 18)
         selectedCardName.font = UIFont(name: "Lato-Black", size: 18)
+        titleLbl.text = "SELECT_CARD".localized
     }
     
     /// remove view from this view controller

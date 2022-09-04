@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController, Storyboarded {
     var viewModel = SettingsViewModel()
     var profile: ProfileModel?
     
-    var settingsArray = ["My information", "Change passoword", "Abous Us", "Terms & conditions", "Logout"]
+    var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "LOGOUT".localized]
     
     override func viewDidLoad() {
         super.viewDidLoad()

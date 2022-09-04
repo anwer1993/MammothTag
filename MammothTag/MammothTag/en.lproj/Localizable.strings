@@ -26,7 +26,8 @@
 "SIGN_IN_NOW" = "Sign in now";
 "CHECK_TERMS" = "I read and accept Terms & conditions.";
 "TERMS_AND_CONDITION" = "Terms & conditions.";
-"PRIVACY" = "Privacy";
+"PRIVACY" = "Privacy & policy";
+"ABOUT_US" = "About Us";
 "WHY_DO_USE_IT" = "Why do we use it?";
 "WHERE_DOES_IT_COME" = "Where does it come from";
 "RESET_FIELDS" = "Reset fields";
@@ -48,3 +49,49 @@
 // Update Profile
 
 "UPDATE_PROFILE"  = "Update profile";
+
+
+// Settings
+"LOGOUT" = "Logout";
+"MY_INFO" = "My information";
+"CHANGE_PASSWORD" = "Change passoword";
+
+
+// Contact
+
+"CONTACTS" = "My contacts";
+"REQUESTS" = "List requests";
+"EMPTY_LIST" = "The list is empty";
+
+
+// Contact details
+
+"EMPTY_DETAILS" = "The current user does not added any card yet";
+"SELECT_CARD" = "Select your card";
+
+
+// Home
+
+"OPEN_FIRST" = "Open First";
+"SHARE_ALL" = "Share All";
+"SOCIAL_MEDIA_ACCOUNT" = "Social media accounts";
+"ADD_SOCIAL_MEDIA" = "Add your social media";
+"ACTIVATE_NFC" = "Activate NFC";
+"DEACTIVATE_NFC" = "Deactivate NFC";
+"ADD_CARD" = "Add new card";
+"UPDATE_CARD" = "Update card";
+"DELETE_CARD" = "Delete card";
+"SHOW_LIST" = "Show card list";
+"RENAME_CARD" = "Rename card";
+"SCAN_NFC" = "Scan NFC";
+"SCAN_NFC_DESC" = "Hold your Mammoth to the vey top the back of your phone to activate it";
+"SAVE" = "Save";
+"SELECT_PROFILE" = "Select you profile mode";
+"PUBLIC" = "Public";
+"PRIVATE" = "Private";
+"OPEN" = "Open";
+"SOCIAL_EDIT_LINK" = "Profile link / Username *";
+
+"HOME" = "Home";
+"CONTACT_TABBAR" = "Contact";
+"ACCOUNT_TABBER" = "Account";

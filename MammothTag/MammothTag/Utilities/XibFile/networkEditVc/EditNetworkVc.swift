@@ -102,6 +102,9 @@ class EditNetworkVc: UIViewController, SubViewConroller {
         linkTextField.font = UIFont(name: "Lato-Regular", size: 16)
         saveBtnn.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
         openTn.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        openTn.setTitle("OPEN".localized, for: .normal)
+        saveBtnn.setTitle("SAVE".localized, for: .normal)
+        titleLbl.text = "SOCIAL_EDIT_LINK".localized
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {

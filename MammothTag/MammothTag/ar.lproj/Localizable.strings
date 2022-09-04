@@ -26,7 +26,8 @@
 "SIGN_IN_NOW" = "تسجيل الدخول الآن";
 "CHECK_TERMS" = "قرأت وأوافق على الشروط والأحكام";
 "TERMS_AND_CONDITION" = "الشروط والأحكام";
-"PRIVACY" = "الخصوصية";
+"PRIVACY" = "سياسة الخصوصية";
+"ABOUT_US" = "نبذة عنا";
 "WHY_DO_USE_IT" = "لماذا نستخدمه؟";
 "WHERE_DOES_IT_COME" = "من أين أتت؟";
 "RESET_FIELDS" = "إعادة ضبط الحقول";
@@ -36,3 +37,60 @@
 "PHOTOS_PRMISSION_DENIED" = "لا يمتلك التطبيق حق الوصول إلى مكتبة الصور الخاصة بك";
 "ACCESS_DENIED" = "الوصول مرفوض";
 "CONTACT_LIST" = "قائمة جهات الاتصال";
+
+
+// Change password
+
+"OLD_PASSWORD" = "كلمة المرور القديمة";
+"NEW_PASSWORD" = "كلمة المرور الجديدة";
+"CONFIRM_PASSWORD" = "تأكيد كلمة المرور";
+"CODE" = "Code";
+
+
+
+// Update Profile
+
+"UPDATE_PROFILE"  = "تحديث الملف";
+
+// Settings
+"LOGOUT" = "تسجيل الخروج";
+"MY_INFO" = "معلوماتي";
+"CHANGE_PASSWORD" = "تغيير كلمة المرور" ;
+
+
+// Contact
+
+"CONTACTS" = "أصدقائي";
+"REQUESTS" = "طلبات القائمة";
+"EMPTY_LIST" = "القائمة فارغة";
+
+// Contact Details
+
+"EMPTY_DETAILS" = "لم يقم المستخدم الحالي بإضافة أي بطاقة بعد" ;
+"SELECT_CARD" = "حدد بطاقتك";
+
+// Home
+
+"OPEN_FIRST" = "فتح الاولى فقط";
+"SHARE_ALL" = "مشاركة الكل";
+"SOCIAL_MEDIA_ACCOUNT" = "حسابات وسائل التواصل الاجتماعي";
+"ADD_SOCIAL_MEDIA" = "أضف الوسائط الاجتماعية الخاصة بك";
+"ACTIVATE_NFC" = "تنشيط NFC";
+"DEACTIVATE_NFC" = "إلغاء تنشيط NFC";
+"ADD_CARD" = "إضافة بطاقة جديدة";
+"UPDATE_CARD" = "تحديث البطاقة";
+"DELETE_CARD" = "حذف البطاقة";
+"SHOW_LIST" = "إظهار قائمة البطاقات";
+"RENAME_CARD" = "إعادة تسمية البطاقة";
+"SCAN_NFC" = "مسح NFC";
+"SCAN_NFC_DESC" = "ضع Mammoth NFC في أعلى الجزء الخلفي من هاتفك لتنشيطه";
+"SELECT_PROFILE" = "حدد وضع ملف التعريف الخاص بك";
+"SAVE" = "حفظ";
+"PUBLIC" = "عام";
+"PRIVATE" = "خاص";
+"OPEN" = "فتح";
+"SOCIAL_EDIT_LINK" = "رابط الملف الشخصي / اسم المستخدم *";
+
+"HOME" = "الرئيسية";
+"CONTACT_TABBAR" = "الأصدقاء";
+"ACCOUNT_TABBER" = "الحساب";

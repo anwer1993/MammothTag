@@ -41,7 +41,7 @@ extension ContactDetailsViewController {
                             }
                             if this.selectedCard == nil {
                                 this.selectedCardView.isHidden = true
-                                this.emptyListLbl.text = "The current user does not added any card yet"
+                                this.emptyListLbl.text = "EMPTY_DETAILS".localized
                             } else {
                                 this.selectedCardView.isHidden = false
                                 this.selectedCardName.text = this.selectedCard?.name ?? "Unknown card"

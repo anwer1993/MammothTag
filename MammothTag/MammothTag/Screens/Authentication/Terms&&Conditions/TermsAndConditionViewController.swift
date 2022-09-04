@@ -10,11 +10,17 @@ import UIKit
 
 class TermsAndConditionViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var aboutUsTitleLbl: UILabel!
+    @IBOutlet weak var privacyTitleLbl: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var termsLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackViwContainer: UIStackView!
     @IBOutlet weak var firstLabel: UILabel!
+    
+    @IBOutlet weak var aboutUsStack: UIStackView!
+    
+    @IBOutlet weak var aboutUsLbl: UILabel!
     
     var termsAndConditionsViewModel = TermsAndConditionsViewModel()
     var source: SourceController?
@@ -22,12 +28,7 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        termsAndConditionsViewModel.bindViewModelDataToController = {[weak self] done, settingsModel, message in
-            guard let this = self else {return}
-            this.isDone = true
-            this.showOrHideLoader(done: true)
-            this.initView()
-        }
+        initView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,12 +37,20 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     
     func setupLocalizedText() {
         if source == .FromSettings {
-            termsLabel.text = "About Us"
+            termsLabel.text = "ABOUT_US".localized
+            scrollView.isHidden = true
+            aboutUsStack.isHidden = false
         } else {
             termsLabel.text = "PRIVACY".localized
-            firstLabel.text = ""
+            scrollView.isHidden = false
+            aboutUsStack.isHidden = true
         }
-        
+        privacyTitleLbl.font = UIFont(name: "Lato-Black", size: 22)
+        privacyTitleLbl.textColor = .redBrown
+        termsLabel.font = UIFont(name: "Lato-Black", size: 22)
+        aboutUsTitleLbl.font = UIFont(name: "Lato-Black", size: 22)
+        firstLabel.font = UIFont(name: "Lato-Regular", size: 16)
+        aboutUsLbl.font = UIFont(name: "Lato-Regular", size: 16)
         backButton.flipWhenRTL(image: UIImage(named: "Groupe 469")!)
     }
     

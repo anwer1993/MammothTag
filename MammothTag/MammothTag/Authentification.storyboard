@@ -937,31 +937,84 @@ Please enter your email address</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PvG-dD-gwT">
+                                        <rect key="frame" x="24" y="81" width="366" height="300"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نبذة عن شركة MAMMOTH:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnT-lZ-gsx">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Jwh-By-FQE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="300" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fo-DZ-iHj">
+                                                <rect key="frame" x="0.0" y="60" width="366" height="240"/>
+                                                <mutableString key="text">شركة MAMMOTH Protection بالمملكة العربية السعودية هي إحدى شركات MAMMOTH Technology and Protection الرائد في مجال التقنية، ومتخصصة في مجال تقنية الهاتف المحمول وملحقاته، وتتمتع بخبرة تزيد عن 10 سنوات بالسوق السعودي، و تعبر MAMMOTH  من الشركات السباقة بإجاد افضل التقنيات الالكترونية والحمايات الكاملة للهواتف المحمولة وعلي اعلي مستويات الحماية و الجودة، وبفضل الله عز وجل ثم بثقت عملاءنا اكتسبت شركة MAMMOTH  الأفضلية والتميز من بين الشركات وذلك بتقديم افضل الحمايات للهاتف المحمول مع دمج تقنية ال NFC الحديثة لمنتجاتها.</mutableString>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="Vg4-Gt-DZk"/>
+                                        </constraints>
+                                    </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jW-bm-6Wo">
                                         <rect key="frame" x="24" y="81" width="366" height="737"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PvG-dD-gwT">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="24"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="1vv-md-vsI">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="1851.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fo-DZ-iHj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نبذة عن شركة MAMMOTH:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHL-9j-Rcf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="30"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="adf-BU-atI"/>
+                                                            <constraint firstAttribute="height" constant="30" id="nRj-20-HXs"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyV-rU-Apt">
+                                                        <rect key="frame" x="0.0" y="60" width="366" height="1791.5"/>
+                                                        <string key="text">يرحّب بكم فريق عمل (شركة MAMMOTH)، ويتقدّم إليكم بالشكر على ثقتكم به، ويفيدكم بأنه حرصاً منه ولإدراكه التام بأن المستخدم له حقوق، فإن (شركة MAMMOTH) تسعى للحفاظ على المعلومات الخاصة بالمستخدمين وفقاً لآلية سياسة الخصوصية وسرية المعلومات المعمول بها في (شركة MAMMOTH). وعليه فإن (شركة MAMMOTH) توضّح لكم بأن سياسة الخصوصية وسرية المعلومات التي سيتم التعامل مع معلوماتكم الخاصة بكم بموجبها كما يلي:
+ 
+أولاً: المعلومات التي تحصل عليها (شركة MAMMOTH) وتحتفظ بها في قواعد بياناتها:
+1.    المعلومات الشخصية الخاصة بالمستخدم، كالاسم والعمر والبريد الالكتروني، ورقم الهوية الوطنية أو رقم الإقامة، وحسابات التواصل الاجتماعي، والبيانات الشخصية الأخرى.
+2.    معلومات الدخول الشخصية الخاصة بالمستخدم، مثل اسم المستخدم وكلمة السر والبريد الالكتروني، والسؤال الخاص باسترجاع كلمة السر وإجابته.
+3.    قد تفرض طبيعة المنصة الالكترونية بعض المعلومات المتعلّقة بالكوكيز وذلك لأغراض الكترونية تسهّل التعامل بين (شركة MAMMOTH) والمستخدم.
+
+ثانياً: هل (شركة MAMMOTH) تشارك هذه المعلومات؟
+1.    بطبيعة الحال فإن (شركة MAMMOTH) تسعى بالاحتفاظ بهذه المعلومات بما يحفظ خصوصية المستخدم، و(شركة MAMMOTH) لا تحتفظ بهذه المعلومات إلا بهدف تحسين الجودة وتيسير التعامل فيما بين (شركة MAMMOTH) والمستخدم.
+2.    كقاعدة عامة فإن جميع هذه المعلومات لا يطلع عليها إلا القائمين على (شركة MAMMOTH)، ولن يقوموا بنشرها أو بثها للغير.
+3.   حيث أن (شركة MAMMOTH) تسعى للحفاظ على سلامة المستخدمين، فإنه – في حالة ملاحظة (شركة MAMMOTH) لأي نشاط غير نظامي أو غير شرعي يقوم به المستخدم – فإن (شركة MAMMOTH) قد يقوم بإبلاغ الجهات المختصة بعد التشاور مع المحامي الخاص بـ (شركة MAMMOTH).
+
+ثالثاً: ما هو مدى أمان سرية المعلومات الخاصة؟
+1.    تسعى (شركة MAMMOTH) إلى سرية المعلومات وسياسة الخصوصية الخاصة بالمستخدمين ولن تخالف أحكام هذه القواعد والسياسة. ولكن نظراً لعدم إمكانية ضمان ذلك 100% عبر وسائل الإنترنت فإن فريق عمل (شركة MAMMOTH) ينوّه بما يلي:
+
+•	تسعى (شركة MAMMOTH) بالحفاظ على جميع المعلومات الخاصة بالمستخدم وألا يطلع عليها أحد بما يخالف هذه السياسة المعمول بها في ((شركة MAMMOTH).
+•	تعمل (شركة MAMMOTH) على حماية هذه المعلومات عن طريق "سيرفرات معيّنة" محمية بموجب أنظمة الحماية الإلكترونية "نظامي برمجي أو Software معيّن".
+•	غير أنه نظراً لأن شبكة الانترنت لا يمكن ضمانها 100% لما قد يطرأ من اختراق أو فيروسات على أنظمة الحماية الالكترونية وعلى جدران الحماية المعمول به في (شركة MAMMOTH) فإن (شركة MAMMOTH) تنصح المستخدمين بالحفاظ على معلوماتهم بسرية تامة، وعدم إفشاء أي معلومات يراها المستخدم هامة جداً له، وهذا حرصاً على (شركة MAMMOTH) في توجيه وإرشاد المستخدمين.
+
+رابعاً: هل هناك طرف ثالث في العلاقة بين (شركة MAMMOTH) والتاجر؟
+"تحدد هنا سياسة الخصوصية فيما يتعلّق بالحالات التي يكون هناك طرفاً ثالث، كالمسوّقين، والتقنيين، والمستهلك، وأي شخص آخر مرتبط بالعلاقة</string>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="PvG-dD-gwT" firstAttribute="top" secondItem="4jW-bm-6Wo" secondAttribute="top" id="FeQ-JH-Cnl"/>
-                                            <constraint firstAttribute="trailing" secondItem="PvG-dD-gwT" secondAttribute="trailing" id="aVq-Mv-mXf"/>
-                                            <constraint firstItem="PvG-dD-gwT" firstAttribute="leading" secondItem="4jW-bm-6Wo" secondAttribute="leading" id="bCO-g5-VDL"/>
-                                            <constraint firstAttribute="bottom" secondItem="PvG-dD-gwT" secondAttribute="bottom" id="c2d-NI-fuB"/>
+                                            <constraint firstAttribute="bottom" secondItem="1vv-md-vsI" secondAttribute="bottom" id="22O-5m-G8b"/>
+                                            <constraint firstItem="1vv-md-vsI" firstAttribute="width" secondItem="4jW-bm-6Wo" secondAttribute="width" id="2rn-I4-Ouc"/>
+                                            <constraint firstItem="1vv-md-vsI" firstAttribute="top" secondItem="4jW-bm-6Wo" secondAttribute="top" id="KH1-4y-6u6"/>
+                                            <constraint firstItem="1vv-md-vsI" firstAttribute="leading" secondItem="4jW-bm-6Wo" secondAttribute="leading" id="WHP-1W-3ej"/>
+                                            <constraint firstAttribute="trailing" secondItem="1vv-md-vsI" secondAttribute="trailing" id="YPq-nD-sOO"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
@@ -973,8 +1026,11 @@ Please enter your email address</string>
                                     <constraint firstItem="4jW-bm-6Wo" firstAttribute="top" secondItem="zFW-kM-iI5" secondAttribute="bottom" constant="24" id="Bd5-nO-9V0"/>
                                     <constraint firstItem="zFW-kM-iI5" firstAttribute="top" secondItem="MgU-sx-DuG" secondAttribute="top" constant="24" id="Iot-RY-rSA"/>
                                     <constraint firstItem="4jW-bm-6Wo" firstAttribute="leading" secondItem="MgU-sx-DuG" secondAttribute="leading" constant="24" id="ZLm-EG-9wr"/>
+                                    <constraint firstItem="PvG-dD-gwT" firstAttribute="leading" secondItem="MgU-sx-DuG" secondAttribute="leading" constant="24" id="biT-kD-Clu"/>
                                     <constraint firstItem="zFW-kM-iI5" firstAttribute="leading" secondItem="MgU-sx-DuG" secondAttribute="leading" constant="24" id="lE4-Qa-C3W"/>
                                     <constraint firstAttribute="trailing" secondItem="4jW-bm-6Wo" secondAttribute="trailing" constant="24" id="qJD-4C-zca"/>
+                                    <constraint firstAttribute="trailing" secondItem="PvG-dD-gwT" secondAttribute="trailing" constant="24" id="sYU-U3-key"/>
+                                    <constraint firstItem="PvG-dD-gwT" firstAttribute="top" secondItem="zFW-kM-iI5" secondAttribute="bottom" constant="24" id="tc6-UV-Njc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -983,16 +1039,19 @@ Please enter your email address</string>
                         <constraints>
                             <constraint firstItem="Igo-zQ-2UK" firstAttribute="bottom" secondItem="MgU-sx-DuG" secondAttribute="bottom" id="BDl-DB-ZbY"/>
                             <constraint firstItem="MgU-sx-DuG" firstAttribute="top" secondItem="Igo-zQ-2UK" secondAttribute="top" id="JXy-No-un2"/>
-                            <constraint firstItem="PvG-dD-gwT" firstAttribute="width" secondItem="SS2-Zd-cMX" secondAttribute="width" multiplier="0.884058" id="MMj-a1-jv4"/>
                             <constraint firstItem="Igo-zQ-2UK" firstAttribute="trailing" secondItem="MgU-sx-DuG" secondAttribute="trailing" id="aP9-SF-AAT"/>
                             <constraint firstItem="MgU-sx-DuG" firstAttribute="leading" secondItem="Igo-zQ-2UK" secondAttribute="leading" id="ewK-16-UKK"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutUsLbl" destination="1fo-DZ-iHj" id="8q4-EG-d8W"/>
+                        <outlet property="aboutUsStack" destination="PvG-dD-gwT" id="nup-gJ-5Jq"/>
+                        <outlet property="aboutUsTitleLbl" destination="bnT-lZ-gsx" id="p2P-0Z-SQ9"/>
                         <outlet property="backButton" destination="zFW-kM-iI5" id="cPc-FI-8n8"/>
-                        <outlet property="firstLabel" destination="1fo-DZ-iHj" id="RMv-16-hPX"/>
+                        <outlet property="firstLabel" destination="MyV-rU-Apt" id="xLL-M5-t59"/>
+                        <outlet property="privacyTitleLbl" destination="eHL-9j-Rcf" id="Np2-ea-u1p"/>
                         <outlet property="scrollView" destination="4jW-bm-6Wo" id="Qjj-QO-Eac"/>
-                        <outlet property="stackViwContainer" destination="PvG-dD-gwT" id="HZw-fF-hLe"/>
+                        <outlet property="stackViwContainer" destination="1vv-md-vsI" id="kYF-P5-8gs"/>
                         <outlet property="termsLabel" destination="6YQ-SL-kWb" id="UxL-Gc-Igs"/>
                     </connections>
                 </viewController>

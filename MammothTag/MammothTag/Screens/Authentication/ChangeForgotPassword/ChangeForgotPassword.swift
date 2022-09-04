@@ -100,6 +100,8 @@ class ChangeForgotPassword: UIViewController, Storyboarded {
         passwordStaticLabel.font = UIFont(name: "Lato-Regular", size: 14)
         confirmPasswordTextField.font = UIFont(name: "Lato-Regular", size: 15)
         confirmPassword.font = UIFont(name: "Lato-Regular", size: 14)
+        passwordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        confirmPassword.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
     }
     
     @IBAction func backButtonDidTapped(_ sender: Any) {

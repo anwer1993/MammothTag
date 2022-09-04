@@ -162,6 +162,7 @@ class SocialMediaVC: UIViewController, SubViewConroller{
         phoneLbl.font = UIFont(name: "Lato-Regular", size: 16)
         screenTitle.font = UIFont(name: "Lato-Bold", size: 18)
         screenTitle.textColor = .redBrown
+        screenTitle.text = "SELECT_CARD".localized
     }
     
     func removeView() {

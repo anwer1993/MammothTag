@@ -142,6 +142,9 @@ class UpdatePasswordController: UIViewController, Storyboarded {
         newPasswordStaticLabel.font = UIFont(name: "Lato-Regular", size: 12)
         confirmPasswordTextField.font = UIFont(name: "Lato-Regular", size: 15)
         confirmPasswordStaticLabel.font = UIFont(name: "Lato-Regular", size: 12)
+        oldPasswordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        newPasswordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        confirmPasswordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
     }
     
     func updateUIWhenUpdatePassword(done: Bool, message: String) {

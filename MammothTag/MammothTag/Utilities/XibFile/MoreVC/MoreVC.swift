@@ -77,6 +77,10 @@ class MoreVC: UIViewController, SubViewConroller {
         deleteCardLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
         showCardListLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
         addNewCardLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        addNewCardLbl.text = "ADD_CARD".localized
+        showCardListLbl.text = "SHOW_LIST".localized
+        renameCardLbl.text = "RENAME_CARD".localized
+        deleteCardLbl.text = "DELETE_CARD".localized
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {

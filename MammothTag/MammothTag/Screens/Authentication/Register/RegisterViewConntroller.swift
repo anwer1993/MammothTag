@@ -161,6 +161,13 @@ class RegisterViewController: UIViewController, Storyboarded {
         sendButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
         uHaveAccountLbl.attributedText = uHaveAccountLbl.customizeTextLabel(stringToColor: "SIGN_IN_NOW".localized, color: UIColor.tangerine, isUnderline: true)
         readTermsLabel.attributedText = readTermsLabel.customizeTextLabel(stringToColor: "TERMS_AND_CONDITION".localized, color: UIColor.black, isUnderline: true)
+        firstNameTestField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        lastNameTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        emailTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        dateOfBirthTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        phoneTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        passwordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        confirmPasswordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
     }
     
     func setupViewsContainTextField() {

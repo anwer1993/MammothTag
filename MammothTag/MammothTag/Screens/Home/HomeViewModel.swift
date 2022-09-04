@@ -89,8 +89,8 @@ extension HomeViewController {
                                     this.addSocialMediaTopConstrainte.constant = -(this.socialMediaTable.frame.height * 0.75)
                                     this.addLblBottomConstrainte.constant = (this.socialMediaTable.frame.height * 0.75)
                                 } else {
-                                    this.addSocialMediaTopConstrainte.constant = this.addSocialMediaTopConstrainteOriginal
-                                    this.addLblBottomConstrainte.constant = this.addLblBottomConstrainteOriginal
+                                    this.addSocialMediaTopConstrainte.constant = 10.0
+                                    this.addLblBottomConstrainte.constant = 20.0
                                 }
                                 this.socialMediaTable.reloadData()
                             }

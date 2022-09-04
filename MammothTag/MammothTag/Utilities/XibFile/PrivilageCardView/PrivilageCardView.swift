@@ -68,6 +68,10 @@ class PrivilageCardView: UIViewController, SubViewConroller {
         titleLbl.font = UIFont(name: "Lato-Bold", size: 18)
         titleLbl.textColor = .redBrown
         saveBtn.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        privateLbl.text = "PRIVATE".localized
+        profileLbl.text = "PUBLIC".localized
+        saveBtn.setTitle("SAVE".localized, for: .normal)
+        titleLbl.text = "SELECT_PROFILE".localized
     }
     
     func customizeView(_ view: UIView, insideView: UIView) {

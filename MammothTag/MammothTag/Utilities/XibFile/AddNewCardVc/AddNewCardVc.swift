@@ -65,14 +65,16 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let card = card {
-            addNewCardLbl.text = "Update card"
+            addNewCardLbl.text = "UPDATE_CARD".localized
             selectedMode = Int(card.type ?? "1") ?? 1
             cardNameTextField.text = card.name ?? ""
         } else {
-            addNewCardLbl.text = "Add new card"
+            addNewCardLbl.text = "ADD_CARD".localized
             cardNameTextField.text = ""
             selectedMode = 1
         }
+        saveBtn.setTitle("SAVE".localized, for: .normal)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -115,6 +117,7 @@ class AddNewCardVc: UIViewController, SubViewConroller {
         addNewCardLbl.textColor = .redBrown
         cardNameTextField.font = UIFont(name: "Lato-Regular", size: 16)
         saveBtn.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        
     }
     
     func customizeView(_ view: UIView, insideView: UIView) {

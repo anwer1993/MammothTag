@@ -42,6 +42,8 @@ class ScanNFCVC: UIViewController, SubViewConroller {
         scanNFCLbl.font = UIFont(name: "Lato-Black", size: 16)
         scanNFCLbl.textColor = .redBrown
         scanNFCDescriptionLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        scanNFCLbl.text = "SCAN_NFC".localized
+        scanNFCDescriptionLbl.text = "SCAN_NFC_DESC".localized
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {

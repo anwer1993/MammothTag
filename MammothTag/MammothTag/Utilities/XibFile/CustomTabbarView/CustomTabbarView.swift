@@ -118,6 +118,9 @@ class CustomTabbarView: UIView {
         accountStackView.tag = 2
         accountStackView.addTagGesture(recognizer)
         contractStackView.addTagGesture(recognizer)
+        homeLabel.text = "HOME".localized
+        contactLabel.text = "CONTACT_TABBAR".localized
+        accountLabel.text = "ACCOUNT_TABBER".localized
     }
     
     

@@ -18,7 +18,11 @@ struct AppSettings {
     var appLanguage : AppLanguage? {
         get {
             let appLang = Locale.preferredLanguages[0]
-            return AppLanguage(rawValue: appLang)
+            if appLang.lowercased().starts(with: "en") {
+                return .EN
+            } else {
+                return .AR
+            }
         }
     }
     

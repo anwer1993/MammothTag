@@ -47,9 +47,9 @@ class UpdateProfileModeVC : UIViewController, SubViewConroller {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if isDeleteAction {
-            selectProfileLbl.text = "Delete card"
+            selectProfileLbl.text = "DELETE_CARD".localized
         } else {
-            selectProfileLbl.text = "Select your card"
+            selectProfileLbl.text = "SELECT_CARD".localized
         }
         self.tableView.reloadData()
     }

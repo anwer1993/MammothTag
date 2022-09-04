@@ -63,13 +63,25 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
         if sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled {
             let location = swipeTap.location(in: segmentView)
             print("location", location.x)
-            if location.x > segmentView.frame.width * 0.5 {
-                if selectedItem != 1 {
-                    selectedItem = 1
+            if AppSettings().appLanguage == .EN {
+                if location.x > segmentView.frame.width * 0.5 {
+                    if selectedItem != 1 {
+                        selectedItem = 1
+                    }
+                } else {
+                    if selectedItem != 0 {
+                        selectedItem = 0
+                    }
                 }
             } else {
-                if selectedItem != 0 {
-                    selectedItem = 0
+                if location.x < segmentView.frame.width * 0.5 {
+                    if selectedItem != 1 {
+                        selectedItem = 1
+                    }
+                } else {
+                    if selectedItem != 0 {
+                        selectedItem = 0
+                    }
                 }
             }
         }
@@ -98,6 +110,9 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
     func setupLocalizedText() {
         contactListLbl.textColor = .chestnut
         contactListLbl.text = "CONTACT_LIST".localized
+        contactLabl.text = "CONTACTS".localized
+        requestLabel.text = "REQUESTS".localized
+        emptyLabel.text = "EMPTY_LIST".localized
     }
     
     func initView() {

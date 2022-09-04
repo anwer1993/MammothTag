@@ -133,6 +133,9 @@ class SignInController: UIViewController, Storyboarded {
         createNewAccountLbl.font = UIFont(name: "Lato-Regular", size: 16)
         forgotPasswordLbl.attributedText = forgotPasswordLbl.customizeTextLabel(stringToColor: "FORGOT_PASSWORD".localized, color: UIColor.black, isUnderline: true)
         createNewAccountLbl.attributedText = createNewAccountLbl.customizeTextLabel(stringToColor: "CREATE_NEW_ACCOUNT".localized, color: UIColor.tangerine, isUnderline: true)
+        print(AppSettings().appLanguage == .AR)
+        emailTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        passwordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
     }
     
     override func viewWillLayoutSubviews() {
@@ -224,7 +227,7 @@ class SignInController: UIViewController, Storyboarded {
     
     func initializeSignInBtn() {
         signInButton.customizeButton()
-        signInButton.setTitle("Sign IN", for: .normal)
+        signInButton.setTitle("SIGN_IN".localized, for: .normal)
     }
     
     func updateViewAppearenceWhenValid(_ view: UIView, _ label: UILabel) {

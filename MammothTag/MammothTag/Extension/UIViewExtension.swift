@@ -133,7 +133,7 @@ extension UITextField {
     
     fileprivate func setPasswordToggleImage(_ button: UIButton) {
         if(isSecureTextEntry){
-            button.setImage(UIImage(named: ""), for: .normal)
+            button.setImage(UIImage(named: "Icon feather-eye"), for: .normal)
         }else{
             button.setImage(UIImage(named: "Icon feather-eye"), for: .normal)
             

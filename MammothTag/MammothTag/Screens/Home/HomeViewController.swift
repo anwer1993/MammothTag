@@ -119,19 +119,36 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         if sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled {
             let location = swipeTap.location(in: customSegmentControlView)
             print("location", location.x)
-            if location.x > customSegmentControlView.frame.width * 0.5 {
-                if selectedItem != 1 {
-                    selectedItem = 1
-                    if let network = listCardNetwork.first {
-                        openFirstCard(card_id: network.cardID ?? "", card_network_id: "\(network.id ?? 0)")
+            if AppSettings().appLanguage == .EN {
+                if location.x > customSegmentControlView.frame.width * 0.5 {
+                    if selectedItem != 1 {
+                        selectedItem = 1
+                        if let network = listCardNetwork.first {
+                            openFirstCard(card_id: network.cardID ?? "", card_network_id: "\(network.id ?? 0)")
+                        }
+                    }
+                } else {
+                    if selectedItem != 0 {
+                        selectedItem = 0
+                        publicAllCard(card_id: "\(selectedCard?.id ?? 0)")
                     }
                 }
             } else {
-                if selectedItem != 0 {
-                    selectedItem = 0
-                    publicAllCard(card_id: "\(selectedCard?.id ?? 0)")
+                if location.x < customSegmentControlView.frame.width * 0.5 {
+                    if selectedItem != 1 {
+                        selectedItem = 1
+                        if let network = listCardNetwork.first {
+                            openFirstCard(card_id: network.cardID ?? "", card_network_id: "\(network.id ?? 0)")
+                        }
+                    }
+                } else {
+                    if selectedItem != 0 {
+                        selectedItem = 0
+                        publicAllCard(card_id: "\(selectedCard?.id ?? 0)")
+                    }
                 }
             }
+            
         }
         
     }
@@ -347,6 +364,10 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         openFirstLbl.font = UIFont(name: "Lato-Bold", size: 16)
         socialMediaLabel.font = UIFont(name: "Lato-Black", size: 16)
         addSocialeMediaLabel.font = UIFont(name: "Lato-Regular", size: 16)
+        shareAllLbl.text = "SHARE_ALL".localized
+        openFirstLbl.text = "OPEN_FIRST".localized
+        socialMediaLabel.text = "SOCIAL_MEDIA_ACCOUNT".localized
+        addSocialeMediaLabel.text = "ADD_SOCIAL_MEDIA".localized
     }
     
     func updateSelectedCard(selectedCard: DatumCard) {
