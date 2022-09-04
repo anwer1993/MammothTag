@@ -14,13 +14,24 @@ class AuthenticationService {
     static var sharedInstance = AuthenticationService()
     
     func register(userModel: RegisterModel, completion: @escaping(ServerResponseModel<ProfileModel>) -> Void) {
-        let parameters = ["name": userModel.firstName,
-                                            "username": userModel.LastName,
-                                            "birthday": userModel.dateOfBirth,
-                                            "phone": userModel.phone,
-                                            "email": userModel.email,
-                                            "password": userModel.password,
-                                           "picture": userModel.picture as Any] as Parameters
+        let parameters: Parameters?
+        if userModel.picture == nil {
+            parameters = ["name": userModel.firstName,
+                                                "username": userModel.LastName,
+                                                "birthday": userModel.dateOfBirth,
+                                                "phone": userModel.phone,
+                                                "email": userModel.email,
+                                                "password": userModel.password] as Parameters
+        } else {
+            parameters = ["name": userModel.firstName,
+                                                "username": userModel.LastName,
+                                                "birthday": userModel.dateOfBirth,
+                                                "phone": userModel.phone,
+                                                "email": userModel.email,
+                                                "password": userModel.password,
+                                               "picture": userModel.picture!] as Parameters
+        }
+        
         AF.request(URLRequest.REGISTER_URL.url, method: .post, parameters: parameters).validate().responseDecodable(of: ServerResponseModel<ProfileModel>.self) { data in
             if let data = data.value {
                 completion(data)

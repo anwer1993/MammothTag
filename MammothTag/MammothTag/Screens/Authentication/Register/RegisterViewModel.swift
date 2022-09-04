@@ -111,11 +111,11 @@ extension RegisterViewModel {
             return
         }
         
-        if picturee == nil {
-            let brokenRule = BrokenRule(propertyName: .picture)
-            self.brokenRules.append(brokenRule)
-            return
-        }
+//        if picturee == nil {
+//            let brokenRule = BrokenRule(propertyName: .picture)
+//            self.brokenRules.append(brokenRule)
+//            return
+//        }
         
         registerModel = RegisterModel(firstName: firstName, LastName: lastName, email: email, dateOfBirth: dateOfBirth, countryCode: "", phone: phone, password: password, picture: picturee)
         
