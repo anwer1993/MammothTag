@@ -24,6 +24,8 @@ class CustomSegmentControlView : UIView {
         }
     }
     
+    var handleTapWhenChanged: (Int) -> () = {_ in}
+    
     var recognizer: UITapGestureRecognizer {
         get {
             return UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
@@ -91,6 +93,7 @@ class CustomSegmentControlView : UIView {
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         guard let tag  = sender?.view?.tag else {return}
         selectedItem = tag
+        handleTapWhenChanged(tag)
     }
     
 }

@@ -10,25 +10,9 @@ import UIKit
 class ContactDetailsCardListViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var profileImageShadowView: UIView!
-    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var TopView: UIView!
-    @IBOutlet weak var topViewBackgroundImage: UIImageView!
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var viewProfileImage: UIView!
-    @IBOutlet weak var countryLbl: UILabel!
-    @IBOutlet weak var ageLbl: UILabel!
-    @IBOutlet weak var emailLbl: UILabel!
-    @IBOutlet weak var profileNameLbl: UILabel!
-    
-    @IBOutlet weak var infoViewWidthConstarinte: NSLayoutConstraint!
-    
-    @IBOutlet weak var shadowInffoViewWidthConstarinte: NSLayoutConstraint!
-
     @IBOutlet weak var cardsTableView: UITableView!
-    
     @IBOutlet weak var emptyDisLbl: UILabel!
     
     var user_id = ""
@@ -38,6 +22,7 @@ class ContactDetailsCardListViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         emptyDisLbl.isHidden = true
+        
         setupUI()
         getUser()
     }
@@ -48,12 +33,12 @@ class ContactDetailsCardListViewController: UIViewController, Storyboarded {
 
     func setupUI() {
         setupTopViewConstarinte()
-        shadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
-        shadowView.layer.cornerRadius = 60
-        TopView.applyRadiusMaskFor(topLeft: 30.0, bottomLeft: 30.0, bottomRight: 30.0, topRight: 70.0)
-        profileImageShadowView.layer.cornerRadius = 60
-        profileImageShadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
-        viewProfileImage.applyRadiusMaskFor(topLeft: 60.0, bottomLeft: 20.0, bottomRight: 20.0, topRight: 60.0)
+//        shadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
+//        shadowView.layer.cornerRadius = 60
+//        TopView.applyRadiusMaskFor(topLeft: 30.0, bottomLeft: 30.0, bottomRight: 30.0, topRight: 70.0)
+//        profileImageShadowView.layer.cornerRadius = 60
+//        profileImageShadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
+//        viewProfileImage.applyRadiusMaskFor(topLeft: 60.0, bottomLeft: 20.0, bottomRight: 20.0, topRight: 60.0)
         cardsTableView.delegate = self
         cardsTableView.dataSource = self
         cardsTableView.tableFooterView = UIView()
@@ -61,9 +46,9 @@ class ContactDetailsCardListViewController: UIViewController, Storyboarded {
     
     func setupTopViewConstarinte() {
         let screenWidth = UIScreen.main.bounds.width
-        shadowInffoViewWidthConstarinte.constant = screenWidth > 390 ? 374 : 339
-        infoViewWidthConstarinte.constant = screenWidth > 390 ? 375 : 340
-        view.layoutIfNeeded()
+//        shadowInffoViewWidthConstarinte.constant = screenWidth > 390 ? 374 : 339
+//        infoViewWidthConstarinte.constant = screenWidth > 390 ? 375 : 340
+//        view.layoutIfNeeded()
     }
 
     @IBAction func backBtnDidTapped(_ sender: Any) {
@@ -88,7 +73,7 @@ extension ContactDetailsCardListViewController: UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cardNetworkList = cards[indexPath.row].cardNetworks ?? []
-        Router.shared.push(with: self.navigationController, screen: .ContactDetails(cardNetwork: cardNetworkList, userData: userData), animated: true)
+//        Router.shared.push(with: self.navigationController, screen: .ContactDetails(cardNetwork: cardNetworkList, userData: userData), animated: true)
     }
     
     

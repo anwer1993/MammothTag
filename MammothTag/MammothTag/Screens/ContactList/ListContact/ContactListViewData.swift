@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension ContactListViewController {
     
@@ -169,7 +170,14 @@ extension ContactListViewController {
 extension ContactListViewController: contactProtocol {
     
     func deleteRequest(request: DatumListRequest) {
-        deleteRequest(user_id: "\(request.id ?? 0)")
+        let alert = UIAlertController(title: "Please confirm", message: "You want to delete this request ?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            self.deleteRequest(user_id: "\(request.id ?? 0)")
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true)
     }
     
     func acceptRequest(request: DatumListRequest) {
@@ -177,7 +185,15 @@ extension ContactListViewController: contactProtocol {
     }
     
     func deleteContact(contact: DatumListContact) {
-        deleteContact(user_id: "\(contact.id ?? 0)")
+        let alert = UIAlertController(title: "Please confirm", message: "You want to delete this contact ?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            self.deleteContact(user_id: "\(contact.id ?? 0)")
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true)
+        
     }
     
     

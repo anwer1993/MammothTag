@@ -23,6 +23,8 @@ enum URLRequest: String {
     case SETTINGS
     case FORGOT_PASSWORD
     case CHANGE_FORGOT_PASSWORD
+    case PUPBLIC_ALL_CARD
+    case OPEN_FIRST
     //Car
     case ADD_CARD_NETWORK
     case EDIT_CARD_NETWORK
@@ -88,6 +90,10 @@ enum URLRequest: String {
             return "http://mubadiroun.com/Mammouth/public/api/v1/contact/delete/en"
         case .GET_USER_BY_ID_URL:
             return "http://mubadiroun.com/Mammouth/public/api/v1/user/profile/en?token="
+        case .PUPBLIC_ALL_CARD:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/all/en"
+        case .OPEN_FIRST:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/first/en"
         }
     }
 }

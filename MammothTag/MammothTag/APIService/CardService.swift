@@ -100,4 +100,25 @@ class CardService {
         }
     }
     
+    func shareAllCard(card_id: String, token: String, completion: @escaping(DeleteNetworkServerResponseModel?) -> Void) {
+        let parameters = ["card_id": card_id] as Parameters
+        let headers: HTTPHeaders = [.authorization(bearerToken: token)]
+        AF.request(URLRequest.PUPBLIC_ALL_CARD.url, method: .post, parameters: parameters, headers: headers)
+            .validate()
+            .responseDecodable(of: DeleteNetworkServerResponseModel.self) { data in
+                completion(data.value)
+        }
+    }
+    
+    func openFirstCard(card_id: String, card_network_id: String, token: String, completion: @escaping(OpenFirstCardServerResponseModel?) -> Void) {
+        let parameters = ["card_id": card_id,
+                          "card_network_id": card_network_id] as Parameters
+        let headers: HTTPHeaders = [.authorization(bearerToken: token)]
+        AF.request(URLRequest.OPEN_FIRST.url, method: .post, parameters: parameters, headers: headers)
+            .validate()
+            .responseDecodable(of: OpenFirstCardServerResponseModel.self) { data in
+                completion(data.value)
+        }
+    }
+    
 }

@@ -15,5 +15,11 @@
 		<string>Lato-Regular.ttf</string>
 		<string>Lato-Semibold.ttf</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fb</string>
+		<string>googlegmail</string>
+		<string>instagram</string>
+	</array>
 </dict>
 </plist>

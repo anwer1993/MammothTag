@@ -11,6 +11,7 @@
 		7FD28A811FD79095284AFF70 /* Pods_MammothTagTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6958C0EE95AA9A0DFDAF23D0 /* Pods_MammothTagTests.framework */; };
 		A60305F228A31F000028F085 /* TermsAndConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60305F128A31F000028F085 /* TermsAndConditionViewController.swift */; };
 		A60305F428A327190028F085 /* TermsAndConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60305F328A327190028F085 /* TermsAndConditionViewModel.swift */; };
+		A603242C28C424D300BD3CAD /* ContactDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A603242B28C424D300BD3CAD /* ContactDetailsData.swift */; };
 		A60A8BB728C16E8F00B26621 /* ContactDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A8BB628C16E8F00B26621 /* ContactDetailsCollectionViewCell.swift */; };
 		A60A8BB928C172A000B26621 /* UserServerResonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A8BB828C172A000B26621 /* UserServerResonse.swift */; };
 		A60A8BBC28C173BD00B26621 /* ContactDetailsCardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A8BBB28C173BD00B26621 /* ContactDetailsCardListViewController.swift */; };
@@ -27,6 +28,8 @@
 		A62B1BE028AA903800948860 /* MoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BDF28AA903800948860 /* MoreVC.xib */; };
 		A62B1BE328AA9E2B00948860 /* AddNewCardVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */; };
 		A62B1BE528AA9E3300948860 /* AddNewCardVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */; };
+		A62E776D28C39B0D00DC2DD2 /* PrivilageCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62E776C28C39B0D00DC2DD2 /* PrivilageCardView.xib */; };
+		A62E776F28C39B1400DC2DD2 /* PrivilageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62E776E28C39B1400DC2DD2 /* PrivilageCardView.swift */; };
 		A640DE4128B6B105004EDB9B /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640DE4028B6B105004EDB9B /* UpdateProfileViewController.swift */; };
 		A645798228C0154B00D56196 /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645798128C0154B00D56196 /* ContactService.swift */; };
 		A645798428C0162200D56196 /* ContactModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645798328C0162200D56196 /* ContactModels.swift */; };
@@ -74,6 +77,9 @@
 		A6C79C1B28A5584500229739 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C79C1A28A5584500229739 /* UIDeviceExtension.swift */; };
 		A6C79C1E28A55B0000229739 /* CustomSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C79C1D28A55B0000229739 /* CustomSegmentControlView.swift */; };
 		A6C79C2028A55B1F00229739 /* CustomSegmentControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C79C1F28A55B1F00229739 /* CustomSegmentControlView.xib */; };
+		A6C833B628C3A97A007418A7 /* OpenFirstServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C833B528C3A97A007418A7 /* OpenFirstServerResponseModel.swift */; };
+		A6C833B928C40185007418A7 /* EditNetworkVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C833B828C40185007418A7 /* EditNetworkVc.xib */; };
+		A6C833BB28C4018D007418A7 /* EditNetworkVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C833BA28C4018D007418A7 /* EditNetworkVc.swift */; };
 		A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */; };
 		A6C8494C28A48F3300CF7E61 /* ContactListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8494B28A48F3300CF7E61 /* ContactListViewData.swift */; };
 		A6C8494F28A4903D00CF7E61 /* SeettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */; };
@@ -139,6 +145,7 @@
 		8BD3ABCF54B63C149BF278F0 /* Pods_MammothTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MammothTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60305F128A31F000028F085 /* TermsAndConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewController.swift; sourceTree = "<group>"; };
 		A60305F328A327190028F085 /* TermsAndConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewModel.swift; sourceTree = "<group>"; };
+		A603242B28C424D300BD3CAD /* ContactDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsData.swift; sourceTree = "<group>"; };
 		A60A8BB628C16E8F00B26621 /* ContactDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A60A8BB828C172A000B26621 /* UserServerResonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServerResonse.swift; sourceTree = "<group>"; };
 		A60A8BBB28C173BD00B26621 /* ContactDetailsCardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsCardListViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +162,8 @@
 		A62B1BDF28AA903800948860 /* MoreVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreVC.xib; sourceTree = "<group>"; };
 		A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardVc.xib; sourceTree = "<group>"; };
 		A62B1BE428AA9E3300948860 /* AddNewCardVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVc.swift; sourceTree = "<group>"; };
+		A62E776C28C39B0D00DC2DD2 /* PrivilageCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivilageCardView.xib; sourceTree = "<group>"; };
+		A62E776E28C39B1400DC2DD2 /* PrivilageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilageCardView.swift; sourceTree = "<group>"; };
 		A640DE4028B6B105004EDB9B /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		A645798128C0154B00D56196 /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
 		A645798328C0162200D56196 /* ContactModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModels.swift; sourceTree = "<group>"; };
@@ -208,6 +217,9 @@
 		A6C79C1A28A5584500229739 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		A6C79C1D28A55B0000229739 /* CustomSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControlView.swift; sourceTree = "<group>"; };
 		A6C79C1F28A55B1F00229739 /* CustomSegmentControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSegmentControlView.xib; sourceTree = "<group>"; };
+		A6C833B528C3A97A007418A7 /* OpenFirstServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFirstServerResponseModel.swift; sourceTree = "<group>"; };
+		A6C833B828C40185007418A7 /* EditNetworkVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditNetworkVc.xib; sourceTree = "<group>"; };
+		A6C833BA28C4018D007418A7 /* EditNetworkVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNetworkVc.swift; sourceTree = "<group>"; };
 		A6C8494828A4897C00CF7E61 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		A6C8494B28A48F3300CF7E61 /* ContactListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewData.swift; sourceTree = "<group>"; };
 		A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeettingsTableViewCell.xib; sourceTree = "<group>"; };
@@ -373,6 +385,15 @@
 			path = AddNewCardVc;
 			sourceTree = "<group>";
 		};
+		A62E776B28C39AFF00DC2DD2 /* PrivilageCardView */ = {
+			isa = PBXGroup;
+			children = (
+				A62E776C28C39B0D00DC2DD2 /* PrivilageCardView.xib */,
+				A62E776E28C39B1400DC2DD2 /* PrivilageCardView.swift */,
+			);
+			path = PrivilageCardView;
+			sourceTree = "<group>";
+		};
 		A640DE3F28B6B0EE004EDB9B /* updateProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				A68F436728C1676000E42284 /* ContactDetailsViewController.swift */,
+				A603242B28C424D300BD3CAD /* ContactDetailsData.swift */,
 				A60A8BB628C16E8F00B26621 /* ContactDetailsCollectionViewCell.swift */,
 			);
 			path = ContactDetailsSocialMediaList;
@@ -462,6 +484,8 @@
 		A6979EB428A474B3008C2B60 /* XibFile */ = {
 			isa = PBXGroup;
 			children = (
+				A6C833B728C40167007418A7 /* networkEditVc */,
+				A62E776B28C39AFF00DC2DD2 /* PrivilageCardView */,
 				A628D52628BFDFBF002099B7 /* AddSocialMediaVC */,
 				A6511F2028BBEC2E003DF731 /* SocialMediaVC */,
 				A62B1BE128AA9E1E00948860 /* AddNewCardVc */,
@@ -552,6 +576,15 @@
 			path = CustomSegmentControlView;
 			sourceTree = "<group>";
 		};
+		A6C833B728C40167007418A7 /* networkEditVc */ = {
+			isa = PBXGroup;
+			children = (
+				A6C833B828C40185007418A7 /* EditNetworkVc.xib */,
+				A6C833BA28C4018D007418A7 /* EditNetworkVc.swift */,
+			);
+			path = networkEditVc;
+			sourceTree = "<group>";
+		};
 		A6C8494728A4895B00CF7E61 /* ContactList */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +645,7 @@
 			children = (
 				A6D6F28328A1CCBF00AD3C9C /* SignInModels.swift */,
 				A645798328C0162200D56196 /* ContactModels.swift */,
+				A6C833B528C3A97A007418A7 /* OpenFirstServerResponseModel.swift */,
 				A60A8BB828C172A000B26621 /* UserServerResonse.swift */,
 				A6138D5228BAB26900DA71F9 /* CardServerResponseModel.swift */,
 				A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */,
@@ -864,12 +898,14 @@
 				A6C0CE5228A4804A00084D86 /* Lato-Regular.ttf in Resources */,
 				A6C0CE5428A4804A00084D86 /* Lato-Semibold.ttf in Resources */,
 				A6C0CE5628A4828100084D86 /* Lato-Black.ttf in Resources */,
+				A6C833B928C40185007418A7 /* EditNetworkVc.xib in Resources */,
 				A6FC614D28A02A0300756C74 /* Assets.xcassets in Resources */,
 				A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */,
 				A69B19A128A53A8D00BE92F1 /* CustomTabbarView.xib in Resources */,
 				A62B1BE028AA903800948860 /* MoreVC.xib in Resources */,
 				A6C79C2028A55B1F00229739 /* CustomSegmentControlView.xib in Resources */,
 				A6511F2228BBEC41003DF731 /* SocialMediaVC.xib in Resources */,
+				A62E776D28C39B0D00DC2DD2 /* PrivilageCardView.xib in Resources */,
 				A62B1BE328AA9E2B00948860 /* AddNewCardVc.xib in Resources */,
 				A6C0CE5128A4804A00084D86 /* Lato-Medium.ttf in Resources */,
 				A6FC614B28A02A0100756C74 /* Main.storyboard in Resources */,
@@ -1007,11 +1043,13 @@
 				A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */,
 				A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */,
 				A640DE4128B6B105004EDB9B /* UpdateProfileViewController.swift in Sources */,
+				A6C833BB28C4018D007418A7 /* EditNetworkVc.swift in Sources */,
 				A6DD487A28A275C600747B01 /* ForgotPasswordController.swift in Sources */,
 				A645798428C0162200D56196 /* ContactModels.swift in Sources */,
 				A688ED0F28AFF2310010AE54 /* ProfileModel.swift in Sources */,
 				A6D2D7F428B286F600DDF2A1 /* ForgotPasswordModel.swift in Sources */,
 				A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */,
+				A6C833B628C3A97A007418A7 /* OpenFirstServerResponseModel.swift in Sources */,
 				A6FC614828A02A0100756C74 /* SpalchScreen.swift in Sources */,
 				A688ED0D28AFF1810010AE54 /* ServerResponseModel.swift in Sources */,
 				A6D2D7F028B274EC00DDF2A1 /* UpdatePasswordViewModel.swift in Sources */,
@@ -1067,6 +1105,7 @@
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,
 				A6E94DD628AEEE4B00A1D14B /* SettingsViewModel.swift in Sources */,
 				A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */,
+				A62E776F28C39B1400DC2DD2 /* PrivilageCardView.swift in Sources */,
 				A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */,
 				A6D6F27D28A1C6C600AD3C9C /* DynamicType.swift in Sources */,
 				A6C8495428A491A700CF7E61 /* SettingsViewController.swift in Sources */,
@@ -1076,6 +1115,7 @@
 				A60305F228A31F000028F085 /* TermsAndConditionViewController.swift in Sources */,
 				A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */,
 				A6C79C1B28A5584500229739 /* UIDeviceExtension.swift in Sources */,
+				A603242C28C424D300BD3CAD /* ContactDetailsData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

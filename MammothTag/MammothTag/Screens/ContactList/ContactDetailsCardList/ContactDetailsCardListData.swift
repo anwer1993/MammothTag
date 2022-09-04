@@ -23,12 +23,12 @@ extension ContactDetailsCardListViewController {
                     if let done = resp.result, let message = resp.message, let data = resp.data {
                         if done {
                             this.userData = data
-                            this.profileNameLbl.text = "\(data.name ?? "") \(data.username ?? "")"
-                            this.emailLbl.text = data.email
-                            if let dob = data.birthday?.dateFromString, let age = dob.age {
-                                this.ageLbl.text = "\(age)"
-                            }
-                            this.countryLbl.text = "Tunisia"
+//                            this.profileNameLbl.text = "\(data.name ?? "") \(data.username ?? "")"
+//                            this.emailLbl.text = data.email
+//                            if let dob = data.birthday?.dateFromString, let age = dob.age {
+//                                this.ageLbl.text = "\(age)"
+//                            }
+//                            this.countryLbl.text = "Tunisia"
                             this.cards = data.cards?.filter({$0.privacy == "1"}) ?? []
                             this.cardsTableView.isHidden = this.cards.isEmpty
                             this.emptyDisLbl.isHidden = !this.cards.isEmpty

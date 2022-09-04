@@ -11,6 +11,12 @@ import CoreNFC
 class HomeViewController: UIViewController {
     
     
+    
+    @IBOutlet weak var openFirstLbl: UILabel!
+    @IBOutlet weak var shareAllLbl: UILabel!
+    @IBOutlet weak var openFirstVieew: UIView!
+    @IBOutlet weak var shareAllView: UIView!
+    @IBOutlet weak var customSegmentStack: UIStackView!
     @IBOutlet var viewContainer: UIView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var moreView: UIView!
@@ -24,7 +30,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var accountView: UIView!
     @IBOutlet weak var contactView: UIView!
     @IBOutlet weak var homeView: UIView!
-    @IBOutlet weak var customSegmentControlView: CustomSegmentControlView!
+    @IBOutlet weak var customSegmentControlView: UIView!
     @IBOutlet weak var socialMediaLabel: UILabel!
     @IBOutlet weak var addSocialeMediaImage: UIImageView!
     @IBOutlet weak var addSocialeMediaLabel: UILabel!
@@ -33,7 +39,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var topBgImage: UIImageView!
     @IBOutlet weak var socialMediaTable: UITableView!
     
+    @IBOutlet weak var privilageCard: UIView!
     
+    @IBOutlet weak var cardPricilageIcon: UIImageView!
+    @IBOutlet weak var privilageLbl: UILabel!
     
     let profileModeVC = UpdateProfileModeVC(nibName: "UpdateProfileModeVC", bundle: nil)
     let scanNFCVC = ScanNFCVC(nibName: "ScanNFCVC", bundle: nil)
@@ -41,6 +50,8 @@ class HomeViewController: UIViewController {
     let addNewCardVC = AddNewCardVc(nibName: "AddNewCardVc", bundle: nil)
     let socialMediaVC =  SocialMediaVC(nibName: "SocialMediaVC", bundle: nil)
     let addSocialMediaVc = AddSocialMediaVc(nibName: "AddSocialMediaVc", bundle: nil)
+    let privilageCardVc = PrivilageCardView(nibName: "PrivilageCardView", bundle: nil)
+    let editNetworkVc = EditNetworkVc(nibName: "EditNetworkVc", bundle: nil)
     
     var scanNFCGesture: UITapGestureRecognizer {
         return UITapGestureRecognizer(target: self, action: #selector(showScanNFCPopup(_:)))
@@ -53,9 +64,20 @@ class HomeViewController: UIViewController {
     var listCardNetwork = [DatumListCardNetwork]()
     var selectedCard: DatumCard?
     
+    var selectedItem: Int = 0 {
+        didSet {
+            updateMenu()
+        }
+    }
+    
+    var recognizer: UITapGestureRecognizer {
+        get {
+            return UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        collectionHeight.constant = 0
         self.navigationController?.isNavigationBarHidden = true
         socialMediaTable.delegate = self
         socialMediaTable.dataSource = self
@@ -63,6 +85,8 @@ class HomeViewController: UIViewController {
         socialMediaTable.tableFooterView = UIView()
         let profileModeTap = UITapGestureRecognizer(target: self, action: #selector(updateProfileMode(_:)))
         privilageView.addTagGesture(profileModeTap)
+        let privilageCardTap = UITapGestureRecognizer(target: self, action: #selector(showPrivilageCardPopup(_:)))
+        privilageCard.addTagGesture(privilageCardTap)
         let AddCardTap = UITapGestureRecognizer(target: self, action: #selector(showAddCardPopup(_:)))
         addView.addTagGesture(AddCardTap)
         activateNFCImage.addTagGesture(scanNFCGesture)
@@ -72,17 +96,85 @@ class HomeViewController: UIViewController {
         initView()
         configMoreVC()
         configSocialMediaVC()
+        styleViews()
+        shareAllView.tag = 0
+        openFirstVieew.tag = 1
+        shareAllView.addTagGesture(recognizer)
+        openFirstVieew.addTagGesture(recognizer)
+        customSegmentControlView.isHidden = true
+    }
+    
+    private func styleViews() {
+        styleView(shareAllView)
+        styleView(openFirstVieew)
+    }
+    
+    private func styleView(_ view: UIView) {
+        view.layer.cornerRadius = 25.0
+        view.layer.backgroundColor = UIColor.tangerine.cgColor
+    }
+    
+    private func updateMenu() {
+        if selectedItem == 0 {
+            activateItem(view: shareAllView, label: shareAllLbl)
+            deactivateItem(view: openFirstVieew, label: openFirstLbl)
+        } else {
+            deactivateItem(view: shareAllView, label: shareAllLbl)
+            activateItem(view: openFirstVieew, label: openFirstLbl)
+        }
+       
+    }
+    
+    private func activateItem(view: UIView, label: UILabel) {
+        view.layer.cornerRadius = 25.0
+        view.layer.backgroundColor = UIColor.tangerine.cgColor
+        label.textColor = .white
+    }
+    
+    private func deactivateItem(view: UIView, label: UILabel) {
+        view.layer.backgroundColor = UIColor.white.cgColor
+        label.textColor = .brownishGrey
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        guard let tag  = sender?.view?.tag else {return}
+        selectedItem = tag
+        if tag == 0 {
+            publicAllCard(card_id: "\(selectedCard?.id ?? 0)")
+        } else {
+            if let network = listCardNetwork.first {
+                openFirstCard(card_id: network.cardID ?? "", card_network_id: "\(network.id ?? 0)")
+            }
+            
+        }
+    }
+    
+    @objc func showPrivilageCardPopup(_ gesture: UITapGestureRecognizer? = nil) {
+        self.viewContainer.addBlurEffect()
+        self.tabBarController?.tabBar.isHidden = true
+        privilageCardVc.selectedMode = Int(selectedCard?.privacy ?? "1") ?? 1
+        privilageCardVc.handleTapWhenSave = { selectedMode in
+            let card = DatumCard(id: self.selectedCard?.id, userID: self.selectedCard?.userID, name: self.selectedCard?.name, type: self.selectedCard?.type, privacy: selectedMode, createdAt: self.selectedCard?.createdAt, updatedAt: self.selectedCard?.updatedAt)
+            self.privilageCardVc.removeView()
+            self.editCard(card: card)
+        }
+        addChildVc(privilageCardVc) {
+            [weak self] in
+            guard let this = self else {return}
+            this.updateUIWhenRemovePopup()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let screenWidth = UIScreen.main.bounds.width - 20
-        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
-        let view = CustomSegmentControlView(frame: frame)
-        self.customSegmentControlView.addSubview(view)
-        
+//        let screenWidth = UIScreen.main.bounds.width - 20
+//        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
+//        let view = CustomSegmentControlView(frame: frame)
+//        self.customSegmentControlView.addSubview(view)
         getData()
+//        publicAllCard(card_id: "\(selectedCard?.id ?? 0)")
     }
+    
     
     func configMoreVC() {
         moreVC.handleDeleteTap = {
@@ -141,9 +233,11 @@ class HomeViewController: UIViewController {
             if selectedCard == nil {
                 selectedCard = cards!.first
                 privilageLabl.text = cards!.first?.name ?? "Unknown card"
+                privilageLbl.text = CardPrivacy(rawValue: cards!.first?.privacy ?? "")?.rowValue ?? ""
             } else {
                 selectedCard = cards!.first(where: {$0.id == selectedCard?.id})
                 privilageLabl.text = selectedCard?.name ?? "Unknown card"
+                privilageLbl.text = CardPrivacy(rawValue: selectedCard?.privacy ?? "")?.rowValue ?? ""
             }
             profileModeVC.cards = cards!
             profileModeVC.updateUIWhenSelectCard = { card in
@@ -156,12 +250,15 @@ class HomeViewController: UIViewController {
                 self.deleteCard(card: card)
             }
             privilageView.isHidden = cards!.count == 0
+            privilageCard.isHidden = cards!.count == 0
         } else if done == false && message == "Fail" {
             showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
             privilageView.isHidden = true
+            privilageCard.isHidden = true
         } else {
             showAlertWithOk(withTitle: "Error", withMessage: message)
             privilageView.isHidden = true
+            privilageCard.isHidden = true
         }
     }
     
@@ -172,6 +269,12 @@ class HomeViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -181,12 +284,16 @@ class HomeViewController: UIViewController {
     
     func initView() {
         privilageView.isHidden = true
+        privilageCard.isHidden = true
         customSegmentControlView.layer.cornerRadius = 25.0
         customSegmentControlView.applySketchShadow(color: .black9, alpha: 0.9, x: 0, y: 2, blur: 20, spread: 0)
         moreView.layer.cornerRadius = moreView.bounds.width * 0.5
         privilageView.layer.cornerRadius = 15.0
         privilageView.layer.borderColor = UIColor.white.cgColor
         privilageView.layer.borderWidth = 1
+        privilageCard.layer.cornerRadius = 15.0
+        privilageCard.layer.borderColor = UIColor.white.cgColor
+        privilageCard.layer.borderWidth = 1
         homeView.layer.cornerRadius = homeView.bounds.width * 0.5
         accountView.layer.cornerRadius = accountView.bounds.width * 0.5
         contactView.layer.cornerRadius = contactView.bounds.width * 0.5

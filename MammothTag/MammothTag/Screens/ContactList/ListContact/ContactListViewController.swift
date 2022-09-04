@@ -151,7 +151,7 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource 
         tableView.deselectRow(at: indexPath, animated: true)
         if selectedItem == 0 {
             let id = "\(contactList[indexPath.row].id ?? 0)"
-            Router.shared.push(with: self.navigationController, screen: .ContactDetailsCardList(user_id: id), animated: true)
+            Router.shared.push(with: self.navigationController, screen: .ContactDetails(user_id: id), animated: true)
         }
         
     }

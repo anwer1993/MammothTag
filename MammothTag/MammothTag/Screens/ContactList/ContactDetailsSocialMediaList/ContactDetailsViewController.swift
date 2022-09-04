@@ -10,74 +10,85 @@ import UIKit
 class ContactDetailsViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var profileImageShadowView: UIView!
-    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var TopView: UIView!
-    @IBOutlet weak var topViewBackgroundImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var viewProfileImage: UIView!
-    @IBOutlet weak var countryLbl: UILabel!
-    @IBOutlet weak var ageLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var profileNameLbl: UILabel!
-    
-    @IBOutlet weak var infoViewWidthConstarinte: NSLayoutConstraint!
-    
-    @IBOutlet weak var shadowInffoViewWidthConstarinte: NSLayoutConstraint!
-
     @IBOutlet weak var socielMediaCollectionView: UICollectionView!
-    @IBOutlet weak var emptyDicLbl: UILabel!
+    @IBOutlet weak var selectedCardView: UIView!
+    @IBOutlet weak var selectedCardName: UILabel!
+    @IBOutlet weak var showCardsIcon: UIImageView!
     
+    @IBOutlet weak var emptyListLbl: UILabel!
+    
+    
+    @IBOutlet weak var selectCardView: UIView!
+    
+    @IBOutlet weak var viewControl: UIControl!
+    
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var closseBtn: UIButton!
+    
+    
+    
+    @IBOutlet weak var cardsTableView: UITableView!
     var cardNetworkList: [CardNetwork] = []
     var userData: DataClassUser?
+    var user_id = ""
+    var cards: [Card] = []
+    var selectedCard: Card?
+    let profileModeVC = UpdateProfileModeVC(nibName: "UpdateProfileModeVC", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        socielMediaCollectionView.isHidden = cardNetworkList.isEmpty
-        emptyDicLbl.isHidden = !cardNetworkList.isEmpty
         profileNameLbl.text = "\(userData?.name ?? "") \(userData?.username ?? "")"
         emailLbl.text = userData?.email
-        if let dob = userData?.birthday?.dateFromString, let age = dob.age {
-            ageLbl.text = "\(age)"
-        }
-        countryLbl.text = "Tunisia"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getUser()
     }
     
     func setupUI() {
-        setupTopViewConstarinte()
-        shadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
-        shadowView.layer.cornerRadius = 60
-        TopView.applyRadiusMaskFor(topLeft: 30.0, bottomLeft: 30.0, bottomRight: 30.0, topRight: 70.0)
-        profileImageShadowView.layer.cornerRadius = 60
-        profileImageShadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
-        viewProfileImage.applyRadiusMaskFor(topLeft: 60.0, bottomLeft: 20.0, bottomRight: 20.0, topRight: 60.0)
+        viewProfileImage.layer.cornerRadius = 40
+        profileImage.layer.cornerRadius = 40
         socielMediaCollectionView.delegate = self
         socielMediaCollectionView.dataSource = self
+        let image = UIImage(named: "Groupe 469")?.withRenderingMode(.alwaysTemplate)
+        backBtn.setImage(image, for: .normal)
+        backBtn.tintColor = UIColor.white
+        selectedCardView.layer.cornerRadius = 15.0
+        selectedCardView.layer.borderColor = UIColor.white.cgColor
+        selectedCardView.layer.borderWidth = 1
+        titleLbl.textColor = .redBrown
+        viewControl.addTarget(self, action: #selector(removeView(_:)), for: .touchUpInside)
+        viewControl.alpha = 0.5
+        closseBtn.layer.cornerRadius = closseBtn.frame.width * 0.5
+        menuView.layer.cornerRadius = 30.0
+        menuView.layer.maskedCorners = [.layerMaxXMinYCorner]
+        let cell = UINib(nibName: "SeettingsTableViewCell", bundle: nil)
+        cardsTableView.register(cell, forCellReuseIdentifier: "SeettingsTableViewCell")
+        cardsTableView.delegate = self
+        cardsTableView.dataSource = self
+        cardsTableView.tableFooterView = UIView()
     }
     
-    func setupTopViewConstarinte() {
-        let screenWidth = UIScreen.main.bounds.width
-        shadowInffoViewWidthConstarinte.constant = screenWidth > 390 ? 374 : 339
-        infoViewWidthConstarinte.constant = screenWidth > 390 ? 375 : 340
-        view.layoutIfNeeded()
+    /// remove view from this view controller
+    @objc func removeView(_ gesture: UIGestureRecognizer) {
+        selectCardView.isHidden = true
+        self.viewContainer.removeBlur()
     }
+    
+    
     
     @IBAction func backBtnDidTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -93,7 +104,12 @@ extension ContactDetailsViewController: UICollectionViewDelegate, UICollectionVi
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContactDetailsCollectionViewCell", for: indexPath) as? ContactDetailsCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.configCell(CardNetwork: cardNetworkList[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize

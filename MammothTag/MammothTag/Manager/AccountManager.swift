@@ -46,6 +46,8 @@ class AccountManager {
         }
     }
     
+    var selectedOption: Int = 0
+    
 }
 
 enum ProfileMode: Int {

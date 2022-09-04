@@ -25,7 +25,12 @@ class Contstant {
     static var snapshatId = "6"
     static var tiktokId = "7"
     static var twitchId = "8"
-    static var twitterId = "9"
+    static var gmailId = "10"
+    static var websiteId = "11"
+    static var telegramId = "12"
+    static var FiceTimeId = "13"
+    static var youtubeId = "14"
+    static var phoneId = "15"
     
     static var data: [SocialMediaModel] = [
         SocialMediaModel(imageName: "facebook", socialMediaName: "Facebook", socialMediaId: 1),
@@ -36,7 +41,13 @@ class Contstant {
         SocialMediaModel(imageName: "ic_platform_snapchat", socialMediaName: "Snapchat", socialMediaId: 6),
         SocialMediaModel(imageName: "ic_platform_tiktok", socialMediaName: "Tiktok", socialMediaId: 7),
         SocialMediaModel(imageName: "pinterest", socialMediaName: "Twitch", socialMediaId: 8),
-        SocialMediaModel(imageName: "ic_platform_twitter", socialMediaName: "Twitter", socialMediaId: 9)]
+        SocialMediaModel(imageName: "ic_platform_twitter", socialMediaName: "Twitter", socialMediaId: 9),
+        SocialMediaModel(imageName: "email", socialMediaName: "Gmail", socialMediaId: 10),
+        SocialMediaModel(imageName: "website", socialMediaName: "Website", socialMediaId: 11),
+        SocialMediaModel(imageName: "telegram", socialMediaName: "Telegram", socialMediaId: 12),
+        SocialMediaModel(imageName: "facetime", socialMediaName: "Facetime", socialMediaId: 13),
+        SocialMediaModel(imageName: "youtube", socialMediaName: "Youtube", socialMediaId: 14),
+        SocialMediaModel(imageName: "contact_card", socialMediaName: "Phone", socialMediaId: 15)]
     
     static func updateRootVC() {
         let status: Bool?

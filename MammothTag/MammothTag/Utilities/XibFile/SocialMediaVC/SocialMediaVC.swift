@@ -12,7 +12,6 @@ class SocialMediaVC: UIViewController, SubViewConroller{
     
     var handleTapWhenDismiss: () -> Void = {}
     
-    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var viewControl: UIControl!
     @IBOutlet weak var viewContainer: UIView!
@@ -59,6 +58,33 @@ class SocialMediaVC: UIViewController, SubViewConroller{
     @IBOutlet weak var twitterStack: UIStackView!
     
     
+    @IBOutlet weak var gmailStack: UIStackView!
+    
+    @IBOutlet weak var emailIcon: UIImageView!
+    
+    @IBOutlet weak var webSiteStack: UIStackView!
+    
+    @IBOutlet weak var websiteIcon: UIImageView!
+    
+    
+    @IBOutlet weak var telegramStack: UIStackView!
+    
+    @IBOutlet weak var telegramIcon: UIImageView!
+    
+    @IBOutlet weak var faceTimeStack: UIStackView!
+    
+    @IBOutlet weak var faceTimeIcon: UIImageView!
+    
+    
+    @IBOutlet weak var youtubeIcon: UIImageView!
+    @IBOutlet weak var youtubeStack: UIStackView!
+    
+    
+    @IBOutlet weak var phoneIcon: UIImageView!
+    @IBOutlet weak var phoneStack: UIStackView!
+    
+    
+    
     var tapGesture: UITapGestureRecognizer {
         return UITapGestureRecognizer(target: self, action: #selector(selectSocialMedia(_:)))
     }
@@ -76,7 +102,13 @@ class SocialMediaVC: UIViewController, SubViewConroller{
         snapchatStack.addTagGesture(tapGesture)
         tiktokStack.addTagGesture(tapGesture)
         twitchStack.addTagGesture(tapGesture)
-        twitchStack.addTagGesture(tapGesture)
+        twitterStack.addTagGesture(tapGesture)
+        gmailStack.addTagGesture(tapGesture)
+        webSiteStack.addTagGesture(tapGesture)
+        telegramStack.addTagGesture(tapGesture)
+        faceTimeStack.addTagGesture(tapGesture)
+        youtubeStack.addTagGesture(tapGesture)
+        phoneStack.addTagGesture(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {

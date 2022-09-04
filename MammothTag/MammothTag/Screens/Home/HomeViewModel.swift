@@ -78,7 +78,13 @@ extension HomeViewController {
                     if let done = response.result, let message = response.message, let data = resp?.data {
                         if done {
                             DispatchQueue.main.async {
-                                this.listCardNetwork = data
+                                this.listCardNetwork = data.sorted(by: {Int($0.isOpenFirst ?? "1") ?? 1 > Int($1.isOpenFirst ?? "1") ?? 1})
+                                if this.listCardNetwork.contains(where: {$0.isOpenFirst ==  "1"}) {
+                                    this.selectedItem = 1
+                                } else {
+                                    this.selectedItem = 0
+                                }
+                                this.customSegmentControlView.isHidden = false
                                 this.socialMediaTable.reloadData()
                             }
                         } else {
@@ -153,8 +159,98 @@ extension HomeViewController {
         }
     }
     
+    func openFirstCard(card_id: String, card_network_id: String) {
+        if let token = AccountManager.shared.token {
+            self.showOrHideLoader(done: false)
+            CardService.shared.openFirstCard(card_id: card_id, card_network_id: card_network_id, token: token) { [weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let response = resp {
+                    if let done = response.result, let message = response.message {
+                        if done {
+                            this.getData()
+                        } else {
+                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                        }
+                    } else {
+                        this.updateUIWhenAddCard(done: false, message: "Fail")
+                    }
+                } else {
+                    this.updateUIWhenAddCard(done: false, message: "Fail")
+                }
+            }
+        }
+    }
+    
+    func publicAllCard(card_id: String) {
+        if let token = AccountManager.shared.token {
+            self.showOrHideLoader(done: false)
+            CardService.shared.shareAllCard(card_id: card_id, token: token) { [weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let response = resp {
+                    if let done = response.result, let message = response.message {
+                        if done {
+                            this.getData()
+                        } else {
+                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                        }
+                    } else {
+                        this.updateUIWhenAddCard(done: false, message: "Fail")
+                    }
+                } else {
+                    this.updateUIWhenAddCard(done: false, message: "Fail")
+                }
+            }
+        }
+    }
     
     
+    func deleteNetwork(network: DatumListCardNetwork) {
+        if let token = AccountManager.shared.token {
+            self.showOrHideLoader(done: false)
+            CardService.shared.deleteCardNetwork(card_network_id: "\(network.id ?? 0)", token: token) { [weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let response = resp {
+                    if let done = response.result, let message = response.message {
+                        if done {
+                            this.getData()
+                        } else {
+                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                        }
+                    } else {
+                        this.updateUIWhenAddCard(done: false, message: "Fail")
+                    }
+                } else {
+                    this.updateUIWhenAddCard(done: false, message: "Fail")
+                }
+            }
+        }
+    }
+    
+    func editNetwork(network: DatumListCardNetwork) {
+        if let token = AccountManager.shared.token {
+            self.showOrHideLoader(done: false)
+            CardService.shared.editCardNetwork(card_id: network.cardID ??  "", social_network_id: network.socialNetworkID ?? "", link: network.link ??  "", status: network.status ?? "", card_network_id: "\(network.id ?? 0)", token: token) { [weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let response = resp {
+                    if let done = response.result, let message = response.message {
+                        if done {
+                            this.getData()
+                        } else {
+                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                        }
+                    } else {
+                        this.updateUIWhenAddCard(done: false, message: "Fail")
+                    }
+                } else {
+                    this.updateUIWhenAddCard(done: false, message: "Fail")
+                }
+            }
+        }
+    }
     
     
 }

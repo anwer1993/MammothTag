@@ -113,6 +113,7 @@ struct DatumListCardNetwork: Codable {
     let status: String?
     let createdAt: String?
     let updatedAt: String?
+    let isOpenFirst: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -122,6 +123,7 @@ struct DatumListCardNetwork: Codable {
         case status = "status"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
+        case isOpenFirst = "is_open_first"
     }
 }
 
