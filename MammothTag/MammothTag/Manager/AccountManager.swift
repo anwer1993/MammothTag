@@ -46,6 +46,26 @@ class AccountManager {
         }
     }
     
+    var email: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "email")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "email")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    var password: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "password")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "password")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
     var selectedOption: Int = 0
     
 }

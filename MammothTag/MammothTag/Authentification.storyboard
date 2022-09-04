@@ -297,11 +297,14 @@
                     <connections>
                         <outlet property="bgImage" destination="dty-Ut-V0g" id="Y5C-jP-nzX"/>
                         <outlet property="createNewAccountLbl" destination="DY5-ua-etB" id="kY9-sz-Dkr"/>
+                        <outlet property="descStackTopConstrainte" destination="NlR-fq-8IT" id="UN8-Al-CFV"/>
                         <outlet property="discLbl" destination="fay-2U-hBf" id="aZF-bG-oaQ"/>
                         <outlet property="emailStaticLbl" destination="hPL-RL-UUQ" id="5i9-Yx-5Lw"/>
                         <outlet property="emailTextField" destination="N2X-y7-xdy" id="8Bi-us-vn7"/>
                         <outlet property="forgotPasswordLbl" destination="yvr-jp-Xd4" id="v5C-Vf-SXh"/>
                         <outlet property="groupedImage" destination="OaC-4b-Xyb" id="Q54-FR-zyM"/>
+                        <outlet property="identityStack" destination="dv3-3x-kGE" id="iw0-oK-Pks"/>
+                        <outlet property="identityStackTopContrainte" destination="rdK-Wc-bog" id="XNW-FD-Z1a"/>
                         <outlet property="passwordStaticLabl" destination="Zwv-TE-J29" id="qP0-8y-hSJ"/>
                         <outlet property="passwordTextField" destination="VXz-nn-UGZ" id="cc8-Db-cNc"/>
                         <outlet property="signInButton" destination="bqt-Ge-ohX" id="B63-WZ-Rkw"/>

@@ -41,7 +41,7 @@ struct UpdateProfileViewModel {
         self.registerModel.countryCode = _countryCode
     }
     
-    func register() {
+    func updateUser() {
         if let token = AccountManager.shared.token {
             AuthenticationService.sharedInstance.updateUser(userModel: registerModel, token: token) { response in
                 if let message = response.message, let isDone = response.result {
@@ -99,7 +99,7 @@ extension UpdateProfileViewModel {
             return
         }
         
-        registerModel = RegisterModel(firstName: firstName, LastName: lastName, email: email, dateOfBirth: dateOfBirth, countryCode: "", phone: phone, password: "", picture: nil)
+        registerModel = RegisterModel(firstName: firstName, LastName: lastName, email: email, dateOfBirth: dateOfBirth, countryCode: "", phone: phone, password: password, picture: nil)
         
     }
     

@@ -12,6 +12,9 @@ import AVFoundation
 class SignInController: UIViewController, Storyboarded {
     
     
+    @IBOutlet weak var descStackTopConstrainte: NSLayoutConstraint!
+    @IBOutlet weak var identityStackTopContrainte: NSLayoutConstraint!
+    @IBOutlet weak var identityStack: UIStackView!
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var groupedImage: UIImageView!
     @IBOutlet weak var welcomeLbl: UILabel!
@@ -34,6 +37,9 @@ class SignInController: UIViewController, Storyboarded {
     @IBOutlet weak var viewPassword: UIView!
     @IBOutlet weak var passwordStaticLabl: UILabel!
     
+    var descStackTopConstrainteOriginal: CGFloat = 0.0
+    var identityStackTopContrainteOriginal: CGFloat = 0.0
+    
     var signInViewModel = SignInViewModel()
     
     override func viewDidLoad() {
@@ -42,6 +48,8 @@ class SignInController: UIViewController, Storyboarded {
         let registerTap = UITapGestureRecognizer(target: self, action: #selector(showRegistrationScreen(_:)))
         forgotPasswordLbl.addTagGesture(forgotPasswordTap)
         createNewAccountLbl.addTagGesture(registerTap)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +57,38 @@ class SignInController: UIViewController, Storyboarded {
         navigationController?.setNavigationBarHidden(true, animated: animated)
         initializeView()
         linkViewModelToController()
+        emailTextField.text = AccountManager.shared.email
+        passwordTextField.text = AccountManager.shared.password
+        signInViewModel.email.value = AccountManager.shared.email
+        signInViewModel.password.value = AccountManager.shared.password
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        descStackTopConstrainteOriginal = descStackTopConstrainte.constant
+        identityStackTopContrainteOriginal = identityStackTopContrainte.constant
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            print(self.identityStack.frame.origin.y)
+            print(self.identityStack.frame.height)
+            print(keyboardSize.origin.y)
+            if self.identityStack.frame.origin.y + self.identityStack.frame.height > keyboardSize.origin.y {
+                print("passwordTextField hidden")
+                descStackTopConstrainte.constant = 15
+                identityStackTopContrainte.constant = 15
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        descStackTopConstrainte.constant = descStackTopConstrainteOriginal
+        identityStackTopContrainte.constant = identityStackTopContrainteOriginal
     }
     
     func linkViewModelToController() {
@@ -69,6 +109,7 @@ class SignInController: UIViewController, Storyboarded {
         forgotPasswordLbl.attributedText = forgotPasswordLbl.customizeTextLabel(stringToColor: "FORGOT_PASSWORD".localized, color: UIColor.black, isUnderline: true)
         createNewAccountLbl.attributedText = createNewAccountLbl.customizeTextLabel(stringToColor: "CREATE_NEW_ACCOUNT".localized, color: UIColor.tangerine, isUnderline: true)
         emailTextField.delegate = self
+        emailTextField.keyboardType = .emailAddress
         passwordTextField.delegate = self
         viewEmail.customizeViewForContainTextField()
         emailTextField.setLeftPaddingPoints(0)
@@ -222,6 +263,8 @@ class SignInController: UIViewController, Storyboarded {
     
     func updateUIWhenLogin(isLoggedIn: Bool, message: String) {
         if isLoggedIn {
+            AccountManager.shared.email = emailTextField.text
+            AccountManager.shared.password = passwordTextField.text
             Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
         } else {
             self.showAlert(withTitle: "Error", withMessage: message)

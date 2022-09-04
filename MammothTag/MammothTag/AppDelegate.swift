@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    break
 //            }
 //        }
-        
+        AccountManager.shared.token = nil
         UIView.appearance().semanticContentAttribute = .forceLeftToRight
         
         let navBarAppearance = UINavigationBarAppearance()

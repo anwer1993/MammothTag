@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class SettingsViewController: UIViewController, Storyboarded {
     
@@ -18,7 +19,6 @@ class SettingsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var topViewBackgroundImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var viewProfileImage: UIView!
-    @IBOutlet weak var countryLbl: UILabel!
     @IBOutlet weak var ageLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var profileNameLbl: UILabel!
@@ -66,9 +66,10 @@ class SettingsViewController: UIViewController, Storyboarded {
         shadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
         shadowView.layer.cornerRadius = 60
         TopView.applyRadiusMaskFor(topLeft: 30.0, bottomLeft: 30.0, bottomRight: 30.0, topRight: 70.0)
-        profileImageShadowView.layer.cornerRadius = 60
+        profileImageShadowView.layer.cornerRadius = 55
         profileImageShadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
-        viewProfileImage.applyRadiusMaskFor(topLeft: 60.0, bottomLeft: 20.0, bottomRight: 20.0, topRight: 60.0)
+        viewProfileImage.layer.cornerRadius = 55
+        profileImage.layer.cornerRadius = 55
     }
     
     func setupTopViewConstarinte() {
@@ -87,7 +88,12 @@ class SettingsViewController: UIViewController, Storyboarded {
                 if let dob = profile.birthday?.dateFromString, let age = dob.age {
                     ageLbl.text = "\(age)"
                 }
-                countryLbl.text = "Tunisia"
+                if let picture = profile.picture, picture.isEmptyString == false {
+                    let url = URL(string: picture)
+                    profileImage.kf.setImage(with: url)
+                } else {
+                    profileImage.image = UIImage(named: "avatar")
+                }
             } else {
                 showAlert(withTitle: "Error", withMessage: message)
             }

@@ -10,6 +10,12 @@ import UIKit
 
 class UpdatePasswordController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var mamouthIcon: UIImageView!
+    @IBOutlet weak var mamouthIconWidth: NSLayoutConstraint!
+    @IBOutlet weak var mamouthIconHeight: NSLayoutConstraint!
+    @IBOutlet weak var titleLblTopConstrainte: NSLayoutConstraint!
+    @IBOutlet weak var passwordStackTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passStack: UIStackView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var updatePasswordLabel: UILabel!
     @IBOutlet weak var viewOfOldPassword: UIView!
@@ -38,6 +44,12 @@ class UpdatePasswordController: UIViewController, Storyboarded {
     
     var viewModel = UpdatePasswordViewModel()
     
+    var mamouthIconWidthOriginal: CGFloat = 0.0
+    var mamouthIconHeightOriginal: CGFloat = 0.0
+    var titleLblTopConstrainteOriginal: CGFloat = 0.0
+    var passwordStackTopConstraintOriginal: CGFloat = 0.0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -51,6 +63,42 @@ class UpdatePasswordController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        mamouthIconWidthOriginal = mamouthIconWidth.constant
+        mamouthIconHeightOriginal = mamouthIconHeight.constant
+        titleLblTopConstrainteOriginal  = titleLblTopConstrainte.constant
+        passwordStackTopConstraintOriginal = passwordStackTopConstraint.constant
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            print(keyboardSize.origin.y)
+            if self.passStack.frame.origin.y + self.passStack.frame.height > keyboardSize.origin.y {
+                print("passwordTextField hidden")
+                mamouthIconWidth.constant = 80
+                mamouthIconHeight.constant = 80
+//                mamouthIcon.layer.cornerRadius = 40
+                titleLblTopConstrainte.constant = 15
+                passwordStackTopConstraint.constant = 15
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        mamouthIconWidth.constant = mamouthIconWidthOriginal
+        mamouthIconHeight.constant = mamouthIconHeightOriginal
+//        mamouthIcon.layer.cornerRadius = mamouthIconWidthOriginal * 0.5
+        titleLblTopConstrainte.constant = titleLblTopConstrainteOriginal
+        passwordStackTopConstraint.constant =  passwordStackTopConstraintOriginal
     }
     
     func setLocalizationText(){

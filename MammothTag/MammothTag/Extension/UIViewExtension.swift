@@ -123,8 +123,8 @@ extension UITextField {
     
     func SecureTextField(delegate: UITextFieldDelegate) {
         self.delegate = delegate
-        self.enablePasswordToggle()
         self.isSecureTextEntry = true
+        self.enablePasswordToggle()
     }
     
     func isEmpty() -> Bool {

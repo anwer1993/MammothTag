@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 
 extension ContactDetailsViewController {
@@ -25,6 +26,12 @@ extension ContactDetailsViewController {
                             this.userData = data
                             this.profileNameLbl.text = "\(data.name ?? "") \(data.username ?? "")"
                             this.emailLbl.text = data.email
+                            if let picture = data.picture, picture.isEmptyString == false {
+                                let url = URL(string: picture)
+                                this.profileImage.kf.setImage(with: url)
+                            } else {
+                                this.profileImage.image = UIImage(named: "avatar")
+                            }
                             this.cards = data.cards?.filter({$0.privacy == "0"}) ?? []
                             if this.selectedCard == nil {
                                 this.selectedCard = this.cards.first

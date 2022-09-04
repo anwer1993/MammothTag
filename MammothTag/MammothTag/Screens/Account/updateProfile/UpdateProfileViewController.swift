@@ -7,11 +7,14 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 
 class UpdateProfileViewController : UIViewController, Storyboarded {
     
     
+    @IBOutlet weak var viewProfilePic: UIView!
+    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var newAccountLbl: UILabel!
     @IBOutlet weak var viewFirstName: UIView!
@@ -74,6 +77,11 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         initializeView()
         dateOfBirthTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
+        passwordTextField.isUserInteractionEnabled = false
+        passwordTextField.text = AccountManager.shared.password
+        updateProfileViewModel.password.value = AccountManager.shared.password
+        passwordTextField.isSecureTextEntry  = true
+        passwordStaticLabel.isHidden = false
     }
     
     @objc func handleDatePicker(sender: UIDatePicker) {
@@ -105,13 +113,16 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         dateOfBirthStaticLbl.text = "DATE_OF_BIRTH".localized
         phoneStaticLabel.text = "PHONE".localized
         emailStaticLbl.text = "EMAIL".localized
-        passwordStaticLabel.text = "NEW_PASSWORD".localized
+        passwordStaticLabel.text = "PASSWORD".localized
         passwordStaticLabel.textColor = .tangerine
-        passwordStaticLabel.isHidden = true
+//        passwordStaticLabel.isHidden = true
         sendButton.setTitle("SEND".localized, for: .normal)
     }
     
     func initializeView() {
+        profilePicture.layer.cornerRadius = 50
+        viewProfilePic.layer.cornerRadius = 50
+        viewProfilePic.applySketchShadow(color: UIColor.black37, alpha: 1, x: 0, y: 5, blur: 20, spread: 0)
         setupLocalizedText()
         backButton.flipWhenRTL(image: UIImage(named: "Groupe 469")!)
         sendButton.customizeButton()
@@ -120,7 +131,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         sendButton.layer.cornerRadius = 15
         sendButton.customizeButton()
         viewPassword.customizeViewForContainTextField()
-        passwordTextField.enablePasswordToggle()
+//        passwordTextField.enablePasswordToggle()
         if let profile = profile {
             firstNameTestField.text = profile.name
             lastNameTextField.text = profile.username
@@ -132,6 +143,12 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
             updateProfileViewModel.email.value = profile.email
             updateProfileViewModel.dateOfBirth.value = profile.birthday
             updateProfileViewModel.phone.value = profile.phone
+            if let picture = profile.picture, picture.isEmptyString == false {
+                let url = URL(string: picture)
+                profilePicture.kf.setImage(with: url)
+            } else {
+                profilePicture.image = UIImage(named: "avatar")
+            }
         }
         
         
@@ -172,7 +189,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     @IBAction func sendButtonTapped(_ sender: Any) {
         if updateProfileViewModel.isValid {
             showOrHideLoader(done: false)
-            updateProfileViewModel.register()
+            updateProfileViewModel.updateUser()
         } else {
             updateProfileViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
                 switch Brokenrule {
