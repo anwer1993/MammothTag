@@ -16,7 +16,7 @@
                 <outlet property="limitedAccessView" destination="x0Z-MQ-DWB" id="HhX-hD-MTc"/>
                 <outlet property="publicProfileLbl" destination="aRa-bX-Oks" id="vbO-2x-bWR"/>
                 <outlet property="publicProfileView" destination="7d4-XZ-oba" id="PDi-Je-IFy"/>
-                <outlet property="roundedView" destination="GBR-hQ-AoN" id="CiL-fZ-9gA"/>
+                <outlet property="roundedView" destination="TWw-Gt-0OU" id="Rlq-Uk-Xtf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -65,39 +65,23 @@
                         </view>
                     </subviews>
                 </stackView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-hQ-AoN">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                    <color key="backgroundColor" systemColor="systemRedColor"/>
-                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="jKi-if-o5I"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="TWw-Gt-0OU" firstAttribute="width" secondItem="xtD-bw-Bux" secondAttribute="width" id="0Jg-zT-cgd"/>
-                <constraint firstItem="GBR-hQ-AoN" firstAttribute="top" secondItem="xtD-bw-Bux" secondAttribute="top" id="3kb-FR-36P"/>
                 <constraint firstItem="TWw-Gt-0OU" firstAttribute="trailing" secondItem="jKi-if-o5I" secondAttribute="trailing" id="G1E-1y-0UT"/>
                 <constraint firstItem="TWw-Gt-0OU" firstAttribute="leading" secondItem="jKi-if-o5I" secondAttribute="leading" id="STC-Ig-XgF"/>
-                <constraint firstItem="jKi-if-o5I" firstAttribute="trailing" secondItem="GBR-hQ-AoN" secondAttribute="trailing" id="UDk-Bz-9YO"/>
                 <constraint firstItem="TWw-Gt-0OU" firstAttribute="top" secondItem="xtD-bw-Bux" secondAttribute="top" id="oEx-Bv-xBg"/>
                 <constraint firstItem="TWw-Gt-0OU" firstAttribute="bottom" secondItem="jKi-if-o5I" secondAttribute="bottom" id="pAI-jC-Jvd"/>
-                <constraint firstAttribute="bottom" secondItem="GBR-hQ-AoN" secondAttribute="bottom" id="rN0-dy-E2g"/>
-                <constraint firstItem="GBR-hQ-AoN" firstAttribute="leading" secondItem="jKi-if-o5I" secondAttribute="leading" id="ygg-hA-Njr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="GBR-hQ-AoN"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="-106" y="102"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

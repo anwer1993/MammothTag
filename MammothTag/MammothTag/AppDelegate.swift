@@ -15,16 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch
-        if let applanguage = AppSettings().appLanguage {
-            switch applanguage {
-                case .AR :
-                    UIView.appearance().semanticContentAttribute = .forceRightToLeft
-                    break
-                case .EN:
-                    UIView.appearance().semanticContentAttribute = .forceLeftToRight
-                    break
-            }
-        }
+//        if let applanguage = AppSettings().appLanguage {
+//            switch applanguage {
+//                case .AR :
+//                    UIView.appearance().semanticContentAttribute = .forceRightToLeft
+//                    break
+//                case .EN:
+//                    UIView.appearance().semanticContentAttribute = .forceLeftToRight
+//                    break
+//            }
+//        }
+        
+        UIView.appearance().semanticContentAttribute = .forceLeftToRight
         
         let navBarAppearance = UINavigationBarAppearance()
            navBarAppearance.configureWithOpaqueBackground()

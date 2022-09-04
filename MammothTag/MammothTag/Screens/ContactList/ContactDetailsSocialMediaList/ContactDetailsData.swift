@@ -41,9 +41,11 @@ extension ContactDetailsViewController {
                             } else {
                                 this.cardNetworkList = networks
                             }
+                            
                             this.socielMediaCollectionView.isHidden = this.cardNetworkList.isEmpty
                             this.emptyListLbl.isHidden = !this.cardNetworkList.isEmpty
                             this.socielMediaCollectionView.reloadData()
+                            this.cardsTableView.reloadData()
                         }else {
                             this.showAlertWithOk(withTitle: "Error", withMessage: message)
                         }

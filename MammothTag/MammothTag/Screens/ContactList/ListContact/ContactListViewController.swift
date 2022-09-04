@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactListViewController: UIViewController, Storyboarded {
+class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,Storyboarded {
 
     
     
@@ -46,11 +46,34 @@ class ContactListViewController: UIViewController, Storyboarded {
     var requestList = [DatumListRequest]()
     var contactList = [DatumListContact]()
     
+    var swipeTap = UIPanGestureRecognizer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         setupTableView()
         setupLocalizedText()
+        swipeTap = UIPanGestureRecognizer(target: self, action:  #selector(didSwipeAlert(_:)))
+        segmentView.isUserInteractionEnabled = true
+        swipeTap.delegate = self
+        segmentView.addGestureRecognizer(swipeTap)
+    }
+    
+    @objc func didSwipeAlert(_ sender:UIPanGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled {
+            let location = swipeTap.location(in: segmentView)
+            print("location", location.x)
+            if location.x > segmentView.frame.width * 0.5 {
+                if selectedItem != 1 {
+                    selectedItem = 1
+                }
+            } else {
+                if selectedItem != 0 {
+                    selectedItem = 0
+                }
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,8 +103,6 @@ class ContactListViewController: UIViewController, Storyboarded {
         segmentView.layer.cornerRadius = 25
         segmentStack.layer.cornerRadius = 25
         segmentView.applySketchShadow(color: .black9, alpha: 0.9, x: 0, y: 2, blur: 20, spread: 0)
-        styleView(contactView)
-        styleView(requestView)
         selectedItem = 0
         contactView.tag = 0
         requestView.tag = 1
@@ -104,9 +125,13 @@ class ContactListViewController: UIViewController, Storyboarded {
         if selectedItem == 0 {
             activateItem(view: contactView, label: contactLabl)
             deactivateItem(view: requestView, label: requestLabel)
+            requestView.layer.shadowOpacity  = 0
+            contactView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 1, blur: 20, spread: 0)
         } else {
             activateItem(view: requestView, label: requestLabel)
             deactivateItem(view: contactView, label: contactLabl)
+            contactView.layer.shadowOpacity  = 0
+            requestView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
         }
     }
     
@@ -117,7 +142,7 @@ class ContactListViewController: UIViewController, Storyboarded {
     }
     
     private func deactivateItem(view: UIView, label: UILabel) {
-        view.layer.backgroundColor = UIColor.white.cgColor
+        view.layer.backgroundColor = UIColor.clear.cgColor
         label.textColor = .brownishGrey
     }
 

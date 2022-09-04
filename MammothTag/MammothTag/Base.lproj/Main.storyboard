@@ -1372,6 +1372,10 @@
                                         <color key="textColor" red="1" green="0.59999999999999998" blue="0.015686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cux-PT-j9E">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6K-xM-bwl">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
@@ -1388,6 +1392,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="Icon-circle-arrow-down"/>
+                                                <connections>
+                                                    <action selector="closeBtnDidTapped:" destination="ZTu-Wx-OXY" eventType="touchUpInside" id="kx6-aI-Ldh"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3AW-WT-hiK">
                                                 <rect key="frame" x="0.0" y="418" width="414" height="400"/>
@@ -1416,7 +1423,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="tintColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="3AW-WT-hiK" firstAttribute="leading" secondItem="k6K-xM-bwl" secondAttribute="leading" id="BTz-iC-rhY"/>
                                             <constraint firstItem="vLh-wE-bms" firstAttribute="leading" secondItem="k6K-xM-bwl" secondAttribute="leading" id="IeA-zn-bBf"/>
@@ -1447,18 +1454,22 @@
                                     <constraint firstAttribute="bottom" secondItem="k6K-xM-bwl" secondAttribute="bottom" id="QYN-AE-MFN"/>
                                     <constraint firstAttribute="trailing" secondItem="A2W-kZ-Jgv" secondAttribute="trailing" constant="10" id="RAw-fO-FWh"/>
                                     <constraint firstItem="xXp-d7-n2w" firstAttribute="top" secondItem="uOJ-PH-y6c" secondAttribute="top" id="Rjj-gO-o0b"/>
+                                    <constraint firstItem="Cux-PT-j9E" firstAttribute="leading" secondItem="uOJ-PH-y6c" secondAttribute="leading" id="Se3-xt-tYR"/>
                                     <constraint firstItem="k6K-xM-bwl" firstAttribute="top" secondItem="uOJ-PH-y6c" secondAttribute="top" id="SnF-jU-0sn"/>
                                     <constraint firstAttribute="trailing" secondItem="k6K-xM-bwl" secondAttribute="trailing" id="XUF-56-Sb6"/>
                                     <constraint firstItem="Z1t-FE-BJJ" firstAttribute="leading" secondItem="uOJ-PH-y6c" secondAttribute="leading" constant="20" id="Zbc-yi-DX6"/>
                                     <constraint firstItem="9A1-a9-5ik" firstAttribute="top" secondItem="uOJ-PH-y6c" secondAttribute="top" id="aOD-y9-4Mo"/>
                                     <constraint firstItem="N9i-ax-vJF" firstAttribute="top" secondItem="A2W-kZ-Jgv" secondAttribute="bottom" constant="15" id="bcd-eg-J4j"/>
                                     <constraint firstItem="xXp-d7-n2w" firstAttribute="leading" secondItem="uOJ-PH-y6c" secondAttribute="leading" id="c3b-X7-1KE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cux-PT-j9E" secondAttribute="trailing" id="dUH-cq-mTO"/>
                                     <constraint firstItem="1fB-r0-GA3" firstAttribute="leading" secondItem="uOJ-PH-y6c" secondAttribute="leading" constant="24" id="ez7-Su-VEs"/>
                                     <constraint firstAttribute="trailing" secondItem="1fB-r0-GA3" secondAttribute="trailing" constant="24" id="gqa-bP-czk"/>
+                                    <constraint firstItem="Cux-PT-j9E" firstAttribute="top" secondItem="uOJ-PH-y6c" secondAttribute="top" id="lsu-mo-oic"/>
                                     <constraint firstItem="A2W-kZ-Jgv" firstAttribute="top" secondItem="uOJ-PH-y6c" secondAttribute="top" constant="38" id="qfv-yT-t6a"/>
                                     <constraint firstItem="9A1-a9-5ik" firstAttribute="leading" secondItem="uOJ-PH-y6c" secondAttribute="leading" id="rtP-Dy-oox"/>
                                     <constraint firstItem="Z1t-FE-BJJ" firstAttribute="top" secondItem="xXp-d7-n2w" secondAttribute="bottom" constant="20" id="uav-Tj-EUa"/>
                                     <constraint firstItem="otd-Uf-ZyC" firstAttribute="top" secondItem="uOJ-PH-y6c" secondAttribute="top" constant="10" id="vZs-Jx-igx"/>
+                                    <constraint firstAttribute="bottom" secondItem="Cux-PT-j9E" secondAttribute="bottom" id="xGE-qR-tgN"/>
                                     <constraint firstAttribute="trailing" secondItem="Z1t-FE-BJJ" secondAttribute="trailing" constant="20" id="ypd-GX-GZu"/>
                                     <constraint firstItem="9T9-nG-HFc" firstAttribute="top" secondItem="otd-Uf-ZyC" secondAttribute="bottom" constant="10" id="yuU-Ly-IRj"/>
                                     <constraint firstItem="A2W-kZ-Jgv" firstAttribute="leading" secondItem="9T9-nG-HFc" secondAttribute="trailing" constant="20" id="zuq-np-rEl"/>
@@ -1478,6 +1489,7 @@
                     <connections>
                         <outlet property="backBtn" destination="otd-Uf-ZyC" id="rPi-hk-J4x"/>
                         <outlet property="backgroundImage" destination="9A1-a9-5ik" id="opJ-mA-7Il"/>
+                        <outlet property="blurView" destination="Cux-PT-j9E" id="Cou-1P-5lm"/>
                         <outlet property="cardsTableView" destination="AMu-gK-bt5" id="ZDp-nP-CBV"/>
                         <outlet property="closseBtn" destination="GWe-MU-fQS" id="gLq-pO-sng"/>
                         <outlet property="emailLbl" destination="N9i-ax-vJF" id="DoY-Wm-KUT"/>
@@ -1485,7 +1497,7 @@
                         <outlet property="menuView" destination="3AW-WT-hiK" id="TFz-2K-8xs"/>
                         <outlet property="profileImage" destination="the-1k-bXT" id="GpF-ve-sDw"/>
                         <outlet property="profileNameLbl" destination="A2W-kZ-Jgv" id="DD6-Jd-DeI"/>
-                        <outlet property="selectCardView" destination="k6K-xM-bwl" id="qkd-V6-ZcH"/>
+                        <outlet property="selectCardPopup" destination="k6K-xM-bwl" id="sEm-C9-MAc"/>
                         <outlet property="selectedCardName" destination="yiX-EH-N29" id="913-bK-Y9h"/>
                         <outlet property="selectedCardView" destination="Pj4-77-7SX" id="1db-4Z-OeE"/>
                         <outlet property="showCardsIcon" destination="79L-3Q-25m" id="3JZ-Dh-AAJ"/>
@@ -1742,9 +1754,6 @@
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

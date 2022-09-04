@@ -8,7 +8,7 @@
 import UIKit
 import CoreNFC
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     
@@ -76,6 +76,8 @@ class HomeViewController: UIViewController {
         }
     }
     
+    var swipeTap = UIPanGestureRecognizer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -102,6 +104,31 @@ class HomeViewController: UIViewController {
         shareAllView.addTagGesture(recognizer)
         openFirstVieew.addTagGesture(recognizer)
         customSegmentControlView.isHidden = true
+        swipeTap = UIPanGestureRecognizer(target: self, action:  #selector(didSwipeAlert(_:)))
+        customSegmentControlView.isUserInteractionEnabled = true
+        swipeTap.delegate = self
+        customSegmentControlView.addGestureRecognizer(swipeTap)
+    }
+    
+    @objc func didSwipeAlert(_ sender:UIPanGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled {
+            let location = swipeTap.location(in: customSegmentControlView)
+            print("location", location.x)
+            if location.x > customSegmentControlView.frame.width * 0.5 {
+                if selectedItem != 1 {
+                    selectedItem = 1
+                    if let network = listCardNetwork.first {
+                        openFirstCard(card_id: network.cardID ?? "", card_network_id: "\(network.id ?? 0)")
+                    }
+                }
+            } else {
+                if selectedItem != 0 {
+                    selectedItem = 0
+                    publicAllCard(card_id: "\(selectedCard?.id ?? 0)")
+                }
+            }
+        }
+        
     }
     
     private func styleViews() {
@@ -118,9 +145,13 @@ class HomeViewController: UIViewController {
         if selectedItem == 0 {
             activateItem(view: shareAllView, label: shareAllLbl)
             deactivateItem(view: openFirstVieew, label: openFirstLbl)
+            openFirstVieew.layer.shadowOpacity  = 0
+            shareAllView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 1, blur: 20, spread: 0)
         } else {
             deactivateItem(view: shareAllView, label: shareAllLbl)
             activateItem(view: openFirstVieew, label: openFirstLbl)
+            shareAllView.layer.shadowOpacity  = 0
+            openFirstVieew.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 1, blur: 20, spread: 0)
         }
        
     }
@@ -132,7 +163,7 @@ class HomeViewController: UIViewController {
     }
     
     private func deactivateItem(view: UIView, label: UILabel) {
-        view.layer.backgroundColor = UIColor.white.cgColor
+        view.layer.backgroundColor = UIColor.clear.cgColor
         label.textColor = .brownishGrey
     }
     

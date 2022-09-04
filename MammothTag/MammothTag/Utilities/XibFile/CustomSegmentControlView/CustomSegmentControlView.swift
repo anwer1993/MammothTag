@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 //@IBDesignable
-class CustomSegmentControlView : UIView {
+class CustomSegmentControlView : UIView, UIGestureRecognizerDelegate {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var roundedView: UIView!
+    @IBOutlet weak var roundedView: UIStackView!
     @IBOutlet weak var publicProfileLbl: UILabel!
     @IBOutlet weak var publicProfileView: UIView!
     @IBOutlet weak var limitedAccessLbl: UILabel!
@@ -31,6 +31,8 @@ class CustomSegmentControlView : UIView {
             return UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         }
     }
+    
+    var swipeTap = UIPanGestureRecognizer()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,11 +59,15 @@ class CustomSegmentControlView : UIView {
         limitedAccessView.tag = 1
         publicProfileView.addTagGesture(recognizer)
         limitedAccessView.addTagGesture(recognizer)
+        swipeTap = UIPanGestureRecognizer(target: self, action:  #selector(didSwipeAlert(_:)))
+        roundedView.isUserInteractionEnabled = true
+        swipeTap.delegate = self
+        roundedView.addGestureRecognizer(swipeTap)
     }
     
     private func styleViews() {
-        styleView(publicProfileView)
-        styleView(limitedAccessView)
+//        styleView(publicProfileView)
+//        styleView(limitedAccessView)
     }
     
     private func styleView(_ view: UIView) {
@@ -73,9 +79,13 @@ class CustomSegmentControlView : UIView {
         if selectedItem == 0 {
             activateItem(view: publicProfileView, label: publicProfileLbl)
             deactivateItem(view: limitedAccessView, label: limitedAccessLbl)
+            limitedAccessView.layer.shadowOpacity  = 0
+            publicProfileView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 1, blur: 20, spread: 0)
         } else {
             activateItem(view: limitedAccessView, label: limitedAccessLbl)
             deactivateItem(view: publicProfileView, label: publicProfileLbl)
+            publicProfileView.layer.shadowOpacity  = 0
+            limitedAccessView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 1, blur: 20, spread: 0)
         }
     }
     
@@ -86,7 +96,7 @@ class CustomSegmentControlView : UIView {
     }
     
     private func deactivateItem(view: UIView, label: UILabel) {
-        view.layer.backgroundColor = UIColor.white.cgColor
+        view.layer.backgroundColor = UIColor.clear.cgColor
         label.textColor = .brownishGrey
     }
     
@@ -94,6 +104,23 @@ class CustomSegmentControlView : UIView {
         guard let tag  = sender?.view?.tag else {return}
         selectedItem = tag
         handleTapWhenChanged(tag)
+    }
+    
+    @objc func didSwipeAlert(_ sender:UIPanGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled {
+            let location = swipeTap.location(in: roundedView)
+            print("location", location.x)
+            if location.x > roundedView.frame.width * 0.5 {
+                if selectedItem != 1 {
+                    selectedItem = 1
+                }
+            } else {
+                if selectedItem != 0 {
+                    selectedItem = 0
+                }
+            }
+        }
+        
     }
     
 }

@@ -24,7 +24,7 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var emptyListLbl: UILabel!
     
     
-    @IBOutlet weak var selectCardView: UIView!
+    @IBOutlet weak var selectCardPopup: UIView!
     
     @IBOutlet weak var viewControl: UIControl!
     
@@ -32,6 +32,7 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var closseBtn: UIButton!
     
+    @IBOutlet weak var blurView: UIView!
     
     
     @IBOutlet weak var cardsTableView: UITableView!
@@ -47,11 +48,22 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
         setupUI()
         profileNameLbl.text = "\(userData?.name ?? "") \(userData?.username ?? "")"
         emailLbl.text = userData?.email
+        selectCardPopup.isHidden  = true
+        self.blurView.isHidden = true
+        self.blurView.addBlurEffect()
+        emptyListLbl.isHidden = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showCardsList(_:)))
+        selectedCardView.addTagGesture(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getUser()
+    }
+    
+    @objc func showCardsList(_ gesture: UITapGestureRecognizer? = nil) {
+        selectCardPopup.isHidden = false
+        self.blurView.isHidden = false
     }
     
     func setupUI() {
@@ -80,13 +92,18 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
     
     /// remove view from this view controller
     @objc func removeView(_ gesture: UIGestureRecognizer) {
-        selectCardView.isHidden = true
-        self.viewContainer.removeBlur()
+        selectCardPopup.isHidden = true
+        self.blurView.isHidden = true
     }
     
-    
+    @IBAction func closeBtnDidTapped(_ sender: Any) {
+        selectCardPopup.isHidden = true
+        self.blurView.isHidden = true
+    }
     
     @IBAction func backBtnDidTapped(_ sender: Any) {
+        selectCardPopup.isHidden = true
+        self.blurView.isHidden = true
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -122,5 +139,43 @@ extension ContactDetailsViewController: UICollectionViewDelegate, UICollectionVi
         return CGSize(width: size, height: size)
     }
 
+    
+}
+
+
+extension ContactDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.cards.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SeettingsTableViewCell", for: indexPath) as? SeettingsTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.selectionStyle = .none
+        cell.descriptionLabel.text = cards[indexPath.row].name ?? "Unknown"
+        cell.dropRightArrowIcon.image = UIImage(named: "arrow-dropright")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectedCard = cards[indexPath.row]
+        let networks = self.selectedCard?.cardNetworks ?? []
+        if networks.contains(where: {$0.isOpenFirst == "1"}) {
+            if let item = networks.first(where: {$0.isOpenFirst == "1"}) {
+                self.cardNetworkList = [item]
+            }
+        } else {
+            self.cardNetworkList = networks
+        }
+        self.socielMediaCollectionView.reloadData()
+        self.selectedCardName.text = selectedCard?.name ?? ""
+        selectCardPopup.isHidden = true
+        self.blurView.isHidden = true
+    }
+    
+    
     
 }

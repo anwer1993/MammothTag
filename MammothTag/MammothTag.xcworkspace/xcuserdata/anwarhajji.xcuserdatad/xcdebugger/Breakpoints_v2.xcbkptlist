@@ -144,7 +144,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
                   endingLineNumber = "22"
-                  offsetFromSymbolStart = "292">
+                  offsetFromSymbolStart = "328">
                </Location>
                <Location
                   uuid = "416299D7-BC05-4966-8FE5-20ED09304159 - 3f9dd9cf8696ea5d"
@@ -159,7 +159,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
                   endingLineNumber = "22"
-                  offsetFromSymbolStart = "571">
+                  offsetFromSymbolStart = "564">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -272,7 +272,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
                   endingLineNumber = "168"
-                  offsetFromSymbolStart = "266">
+                  offsetFromSymbolStart = "168">
                </Location>
                <Location
                   uuid = "3F751B71-DC6F-40DE-9BD9-08C9B8B9FE44 - 4bd3ca1581b93724"
@@ -287,7 +287,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
                   endingLineNumber = "168"
-                  offsetFromSymbolStart = "378">
+                  offsetFromSymbolStart = "316">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -320,7 +320,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "169"
                   endingLineNumber = "169"
-                  offsetFromSymbolStart = "402">
+                  offsetFromSymbolStart = "332">
                </Location>
                <Location
                   uuid = "91435955-B613-42AC-8B89-00AE186ED421 - 4bd3ca1581b93743"
@@ -335,7 +335,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "169"
                   endingLineNumber = "169"
-                  offsetFromSymbolStart = "437">
+                  offsetFromSymbolStart = "364">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -455,16 +455,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D16CD934-D022-4678-93F2-807C6772F07D"
+            uuid = "02C8A1CC-4FA3-4470-935D-E26687846136"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MammothTag/Screens/ContactList/ContactDetailsSocialMediaList/ContactDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "showCardsList(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "949AEB75-C291-4546-8979-B5CE9166BE6E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MammothTag/Utilities/XibFile/CustomSegmentControlView/CustomSegmentControlView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "didSwipeAlert(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
