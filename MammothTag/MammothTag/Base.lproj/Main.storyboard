@@ -441,6 +441,7 @@
                                             <constraint firstItem="CVS-MJ-GE1" firstAttribute="leading" secondItem="704-s6-CGF" secondAttribute="trailing" constant="9" id="aOW-qv-c8S"/>
                                             <constraint firstItem="CVS-MJ-GE1" firstAttribute="leading" secondItem="704-s6-CGF" secondAttribute="trailing" constant="9" id="qbx-A0-EN0"/>
                                             <constraint firstItem="CVS-MJ-GE1" firstAttribute="centerY" secondItem="5oq-ML-RKL" secondAttribute="centerY" id="ugg-2P-CMA"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="wW4-qQ-6Nw"/>
                                             <constraint firstAttribute="trailing" secondItem="CVS-MJ-GE1" secondAttribute="trailing" constant="10" id="yA3-EV-iFa"/>
                                         </constraints>
                                     </view>
