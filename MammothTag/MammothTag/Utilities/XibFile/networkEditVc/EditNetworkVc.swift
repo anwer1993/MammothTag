@@ -10,6 +10,8 @@ import UIKit
 
 class EditNetworkVc: UIViewController, SubViewConroller {
     
+    
+    @IBOutlet weak var menuViewBottomConstrainte: NSLayoutConstraint!
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var viewControl: UIControl!
     @IBOutlet weak var closeBtn: UIButton!
@@ -29,6 +31,8 @@ class EditNetworkVc: UIViewController, SubViewConroller {
     var link: String = ""
     var network: DatumListCardNetwork?
     
+    var menuViewBottomConstrainnteOriginal: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -36,6 +40,32 @@ class EditNetworkVc: UIViewController, SubViewConroller {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initView()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        menuViewBottomConstrainnteOriginal = menuViewBottomConstrainte.constant
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            print(keyboardSize.origin.y)
+            if self.menuView.frame.origin.y + self.menuView.frame.height > keyboardSize.origin.y {
+                print("passwordTextField hidden")
+                menuViewBottomConstrainte.constant = keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        menuViewBottomConstrainte.constant = menuViewBottomConstrainnteOriginal
     }
     
     func initView() {

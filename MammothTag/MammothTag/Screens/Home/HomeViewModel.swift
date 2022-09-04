@@ -85,6 +85,13 @@ extension HomeViewController {
                                     this.selectedItem = 0
                                 }
                                 this.customSegmentControlView.isHidden = false
+                                if this.listCardNetwork.isEmpty {
+                                    this.addSocialMediaTopConstrainte.constant = -(this.socialMediaTable.frame.height * 0.75)
+                                    this.addLblBottomConstrainte.constant = (this.socialMediaTable.frame.height * 0.75)
+                                } else {
+                                    this.addSocialMediaTopConstrainte.constant = this.addSocialMediaTopConstrainteOriginal
+                                    this.addLblBottomConstrainte.constant = this.addLblBottomConstrainteOriginal
+                                }
                                 this.socialMediaTable.reloadData()
                             }
                         } else {

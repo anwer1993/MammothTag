@@ -12,6 +12,8 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     
+    @IBOutlet weak var addLblBottomConstrainte: NSLayoutConstraint!
+    @IBOutlet weak var addSocialMediaTopConstrainte: NSLayoutConstraint!
     @IBOutlet weak var openFirstLbl: UILabel!
     @IBOutlet weak var shareAllLbl: UILabel!
     @IBOutlet weak var openFirstVieew: UIView!
@@ -77,6 +79,9 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     var swipeTap = UIPanGestureRecognizer()
+    
+    var addSocialMediaTopConstrainteOriginal: CGFloat = 0.0
+    var addLblBottomConstrainteOriginal: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -295,6 +300,8 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        addSocialMediaTopConstrainteOriginal = addSocialMediaTopConstrainte.constant
+        addLblBottomConstrainteOriginal = addLblBottomConstrainte.constant
     }
     
     override func viewWillLayoutSubviews() {

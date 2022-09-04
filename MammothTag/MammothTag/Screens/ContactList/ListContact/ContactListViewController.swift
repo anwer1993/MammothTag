@@ -79,6 +79,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initView()
+        emptyView.isHidden = true
         if selectedItem == 0 {
             getContactList()
         } else {

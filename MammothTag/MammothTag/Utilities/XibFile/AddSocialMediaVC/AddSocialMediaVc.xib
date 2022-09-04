@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="closeButton" destination="hgg-ju-b2M" id="FlE-Az-xz6"/>
                 <outlet property="menuView" destination="m2q-gu-POE" id="4ts-6s-VND"/>
+                <outlet property="menuViewBottomConstrainte" destination="n0x-Sz-vqk" id="b95-pI-fIM"/>
                 <outlet property="saveButtonn" destination="03Z-1T-PPC" id="xdz-iP-aju"/>
                 <outlet property="socialMediaIcon" destination="i4u-5f-Eln" id="8HH-Oh-d2R"/>
                 <outlet property="socialMediaName" destination="T9T-rU-1zi" id="sdK-K0-b2D"/>

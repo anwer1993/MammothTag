@@ -17,6 +17,7 @@
                 <outlet property="deleteView" destination="Jzg-e9-adA" id="whP-Ro-yuU"/>
                 <outlet property="linkTextField" destination="yg0-Mk-UaX" id="dbT-pp-Gzy"/>
                 <outlet property="menuView" destination="rMW-KV-WS4" id="zZH-Zo-4Vj"/>
+                <outlet property="menuViewBottomConstrainte" destination="H2v-VJ-V5O" id="O3w-Qw-cfD"/>
                 <outlet property="openTn" destination="TFw-Uu-i6r" id="xl0-29-x1g"/>
                 <outlet property="saveBtnn" destination="ymV-Fm-TSc" id="369-qw-wSe"/>
                 <outlet property="titleLbl" destination="PPN-X8-SIq" id="IrA-2F-wPS"/>

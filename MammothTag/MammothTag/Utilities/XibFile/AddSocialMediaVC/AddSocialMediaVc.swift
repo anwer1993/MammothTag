@@ -11,6 +11,7 @@ import UIKit
 class AddSocialMediaVc: UIViewController, SubViewConroller {
     
     
+    @IBOutlet weak var menuViewBottomConstrainte: NSLayoutConstraint!
     @IBOutlet var viewContainer: UIView!
     @IBOutlet weak var viewControl: UIControl!
     @IBOutlet weak var closeButton: UIButton!
@@ -34,6 +35,7 @@ class AddSocialMediaVc: UIViewController, SubViewConroller {
     var status: Int = 1
     var statusOff: Bool = true
     
+    var menuViewBottomConstrainnteOriginal: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,32 @@ class AddSocialMediaVc: UIViewController, SubViewConroller {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        menuViewBottomConstrainnteOriginal = menuViewBottomConstrainte.constant
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            print(keyboardSize.origin.y)
+            if self.menuView.frame.origin.y + self.menuView.frame.height > keyboardSize.origin.y {
+                print("passwordTextField hidden")
+                menuViewBottomConstrainte.constant = keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        menuViewBottomConstrainte.constant = menuViewBottomConstrainnteOriginal
     }
     
     
@@ -66,6 +94,10 @@ class AddSocialMediaVc: UIViewController, SubViewConroller {
             socialMediaName.text = socialMedia.socialMediaName
         }
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.menuView.endEditing(true)
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {

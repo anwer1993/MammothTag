@@ -666,6 +666,8 @@
                         <outlet property="activateNFCImage" destination="OQP-8l-awZ" id="cP2-7X-mcO"/>
                         <outlet property="activateNFCLabel" destination="fKY-Dm-Ffn" id="fmr-5w-3mx"/>
                         <outlet property="addImage" destination="8tm-dk-95B" id="1Bl-iw-tIp"/>
+                        <outlet property="addLblBottomConstrainte" destination="yfq-Rv-xZy" id="74J-D2-p9T"/>
+                        <outlet property="addSocialMediaTopConstrainte" destination="jPz-Ge-x0z" id="HT6-8N-ei7"/>
                         <outlet property="addSocialeMediaImage" destination="xLz-hE-UOD" id="NoI-F1-vpu"/>
                         <outlet property="addSocialeMediaLabel" destination="jEt-s0-3e6" id="BMs-5p-gdU"/>
                         <outlet property="addView" destination="TF5-oa-4Av" id="mPM-JY-oTc"/>

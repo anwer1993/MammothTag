@@ -44,12 +44,14 @@ class SettingsViewController: UIViewController, Storyboarded {
             guard let this = self else {
                 return
             }
+            this.showOrHideLoader(done: true)
             this.updateUIWhenGetProfile(sucess: success ,profile: model, message: message)
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        showOrHideLoader(done: false)
         viewModel.getProfile()
     }
     
