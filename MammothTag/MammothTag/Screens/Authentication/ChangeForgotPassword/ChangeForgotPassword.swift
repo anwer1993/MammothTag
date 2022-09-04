@@ -94,6 +94,12 @@ class ChangeForgotPassword: UIViewController, Storyboarded {
         passwordStaticLabel.textColor = .tangerine
         confirmPassword.textColor = .tangerine
         confirmPassword.isHidden = true
+        changePasswordLbl.font = UIFont(name: "Lato-Black", size: 18)
+        sendButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        passwordTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        passwordStaticLabel.font = UIFont(name: "Lato-Regular", size: 14)
+        confirmPasswordTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        confirmPassword.font = UIFont(name: "Lato-Regular", size: 14)
     }
     
     @IBAction func backButtonDidTapped(_ sender: Any) {

@@ -97,6 +97,11 @@ class EditNetworkVc: UIViewController, SubViewConroller {
         }
         let tapGestsure = UITapGestureRecognizer(target: self, action: #selector(deleteNetwork(_:)))
         deleteView.addTagGesture(tapGestsure)
+        titleLbl.font = UIFont(name: "Lato-Bold", size: 18)
+        titleLbl.textColor = .redBrown
+        linkTextField.font = UIFont(name: "Lato-Regular", size: 16)
+        saveBtnn.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        openTn.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {

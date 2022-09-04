@@ -39,6 +39,9 @@ class ScanNFCVC: UIViewController, SubViewConroller {
         closeButton.layer.cornerRadius = closeButton.frame.width * 0.5
         scanNFCView.layer.cornerRadius = 30.0
         scanNFCView.layer.maskedCorners = [.layerMaxXMinYCorner]
+        scanNFCLbl.font = UIFont(name: "Lato-Black", size: 16)
+        scanNFCLbl.textColor = .redBrown
+        scanNFCDescriptionLbl.font = UIFont(name: "Lato-Regular", size: 16)
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {

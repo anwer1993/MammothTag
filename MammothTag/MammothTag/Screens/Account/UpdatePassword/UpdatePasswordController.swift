@@ -132,6 +132,16 @@ class UpdatePasswordController: UIViewController, Storyboarded {
         oldPasswordTextField.SecureTextField(delegate: self)
         newPasswordTextField.SecureTextField(delegate: self)
         confirmPasswordTextField.SecureTextField(delegate: self)
+        updatePasswordLabel.font = UIFont(name: "Lato-Black", size: 18)
+        updatePasswordLabel.textColor = .chestnut
+        sendButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        sendButton.titleLabel?.textColor = .white
+        oldPasswordTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        oldPasswordStaticLabel.font = UIFont(name: "Lato-Regular", size: 12)
+        newPasswordTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        newPasswordStaticLabel.font = UIFont(name: "Lato-Regular", size: 12)
+        confirmPasswordTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        confirmPasswordStaticLabel.font = UIFont(name: "Lato-Regular", size: 12)
     }
     
     func updateUIWhenUpdatePassword(done: Bool, message: String) {

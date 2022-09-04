@@ -72,6 +72,12 @@ class SettingsViewController: UIViewController, Storyboarded {
         profileImageShadowView.applySketchShadow(color: .black37, alpha: 1, x: 0, y: 2, blur: 20, spread: 0)
         viewProfileImage.layer.cornerRadius = 55
         profileImage.layer.cornerRadius = 55
+        profileNameLbl.font = UIFont(name: "Lato-Black", size: 18)
+        profileNameLbl.textColor = .tangerine
+        emailLbl.font = UIFont(name: "Lato-Regular", size: 14)
+        emailLbl.textColor = .white
+        ageLbl.font = UIFont(name: "Lato-Regular", size: 14)
+        ageLbl.textColor = .white
     }
     
     func setupTopViewConstarinte() {

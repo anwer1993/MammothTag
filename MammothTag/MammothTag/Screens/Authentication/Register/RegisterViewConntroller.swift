@@ -142,8 +142,6 @@ class RegisterViewController: UIViewController, Storyboarded {
         setupViewsContainTextField()
         sendButton.layer.cornerRadius = 15
         sendButton.customizeButton()
-        uHaveAccountLbl.attributedText = uHaveAccountLbl.customizeTextLabel(stringToColor: "SIGN_IN_NOW".localized, color: UIColor.tangerine, isUnderline: true)
-        readTermsLabel.attributedText = readTermsLabel.customizeTextLabel(stringToColor: "TERMS_AND_CONDITION".localized, color: UIColor.black, isUnderline: true)
         addPicImage.layer.cornerRadius = 22
         addPicImage.layer.backgroundColor = UIColor.chestnut.cgColor
         addPicImage.layer.borderColor = UIColor.white.cgColor
@@ -154,6 +152,15 @@ class RegisterViewController: UIViewController, Storyboarded {
         confirmPasswordTextField.SecureTextField(delegate: self)
         checkTermsButton.setImage(UIImage(named: "check_on"), for: .selected)
         checkTermsButton.setImage(UIImage(named: "check_off"), for: .normal)
+        newAccountLbl.font = UIFont(name: "Lato-Black", size: 18)
+        createPasswordLbl.font = UIFont(name: "Lato-Black", size: 18)
+        newAccountLbl.textColor = .redBrown
+        createPasswordLbl.textColor = .redBrown
+        uHaveAccountLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        readTermsLabel.font = UIFont(name: "Lato-Regular", size: 16)
+        sendButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        uHaveAccountLbl.attributedText = uHaveAccountLbl.customizeTextLabel(stringToColor: "SIGN_IN_NOW".localized, color: UIColor.tangerine, isUnderline: true)
+        readTermsLabel.attributedText = readTermsLabel.customizeTextLabel(stringToColor: "TERMS_AND_CONDITION".localized, color: UIColor.black, isUnderline: true)
     }
     
     func setupViewsContainTextField() {

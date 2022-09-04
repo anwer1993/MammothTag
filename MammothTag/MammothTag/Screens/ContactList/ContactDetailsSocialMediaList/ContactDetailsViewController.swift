@@ -88,6 +88,14 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
         cardsTableView.delegate = self
         cardsTableView.dataSource = self
         cardsTableView.tableFooterView = UIView()
+        profileNameLbl.font = UIFont(name: "Lato-Black", size: 18)
+        titleLbl.font = UIFont(name: "Lato-Black", size: 18)
+        titleLbl.textColor = .redBrown
+        profileNameLbl.textColor = .tangerine
+        emailLbl.font = UIFont(name: "Lato-Regular", size: 14)
+        emailLbl.textColor = .white
+        emptyListLbl.font = UIFont(name: "Lato-Black", size: 18)
+        selectedCardName.font = UIFont(name: "Lato-Black", size: 18)
     }
     
     /// remove view from this view controller

@@ -107,6 +107,14 @@ class AddNewCardVc: UIViewController, SubViewConroller {
         saveBtn.gradientbutton()
         saveBtn.applySketchShadow(color: .tangerine30, alpha: 1, x: 0, y: 10, blur: 30, spread: 0)
         cardNameTextField.delegate = self
+        digitalCardLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        digitalBusinessCardLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        forJobsLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        famillyCardLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        addNewCardLbl.font = UIFont(name: "Lato-Bold", size: 18)
+        addNewCardLbl.textColor = .redBrown
+        cardNameTextField.font = UIFont(name: "Lato-Regular", size: 16)
+        saveBtn.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
     }
     
     func customizeView(_ view: UIView, insideView: UIView) {

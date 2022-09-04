@@ -131,7 +131,23 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         sendButton.layer.cornerRadius = 15
         sendButton.customizeButton()
         viewPassword.customizeViewForContainTextField()
-//        passwordTextField.enablePasswordToggle()
+        newAccountLbl.font = UIFont(name: "Lato-Black", size: 18)
+        newAccountLbl.textColor = .chestnut
+        sendButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        sendButton.titleLabel?.textColor = .white
+        firstNameTestField.font = UIFont(name: "Lato-Regular", size: 15)
+        firstNameStaticLbl.font = UIFont(name: "Lato-Regular", size: 12)
+        lastNameTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        lastNameTextField.font = UIFont(name: "Lato-Regular", size: 12)
+        emailTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        emailStaticLbl.font = UIFont(name: "Lato-Regular", size: 12)
+        dateOfBirthTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        dateOfBirthStaticLbl.font = UIFont(name: "Lato-Regular", size: 12)
+        phoneTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        phoneStaticLabel.font = UIFont(name: "Lato-Regular", size: 12)
+        passwordTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        passwordStaticLabel.font = UIFont(name: "Lato-Regular", size: 12)
+
         if let profile = profile {
             firstNameTestField.text = profile.name
             lastNameTextField.text = profile.username

@@ -72,6 +72,11 @@ class MoreVC: UIViewController, SubViewConroller {
         deleteCardStack.addTagGesture(deleteCardTap)
         showCardListStack.addTagGesture(showCardListTap)
         renameCardStackView.addTagGesture(renammeCardTap)
+        addNewCardLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        activateNFCLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        deleteCardLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        showCardListLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        addNewCardLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {

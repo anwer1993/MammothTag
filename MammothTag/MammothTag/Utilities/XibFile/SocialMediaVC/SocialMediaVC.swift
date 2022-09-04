@@ -20,59 +20,74 @@ class SocialMediaVC: UIViewController, SubViewConroller{
     
     
     
+    @IBOutlet weak var fbLbl: UILabel!
     @IBOutlet weak var facebookIcon: UIImageView!
     @IBOutlet weak var facebookStackView: UIStackView!
     
     
+    @IBOutlet weak var instagLbl: UILabel!
     @IBOutlet weak var instagramIcon: UIImageView!
     @IBOutlet weak var instagramStackView: UIStackView!
     
     
+    @IBOutlet weak var linkedInLbl: UILabel!
     @IBOutlet weak var linkedinIcon: UIImageView!
     @IBOutlet weak var linkedinStack: UIStackView!
     
     
+    @IBOutlet weak var paypalLbl: UILabel!
     @IBOutlet weak var paypalIcon: UIImageView!
     @IBOutlet weak var paypallStack: UIStackView!
     
     
     
+    @IBOutlet weak var skypeLbl: UILabel!
     @IBOutlet weak var skypeIcon: UIImageView!
     @IBOutlet weak var skypeStack: UIStackView!
     
     
     
+    @IBOutlet weak var snapLbl: UILabel!
     @IBOutlet weak var snapchatIcon: UIImageView!
     @IBOutlet weak var snapchatStack: UIStackView!
     
     
+    @IBOutlet weak var tiktokLbl: UILabel!
     @IBOutlet weak var tiktokIcon: UIImageView!
     @IBOutlet weak var tiktokStack: UIStackView!
     
     
+    @IBOutlet weak var twitchLbl: UILabel!
     @IBOutlet weak var twitchIcon: UIImageView!
     @IBOutlet weak var twitchStack: UIStackView!
 
     
+    @IBOutlet weak var twitterLbl: UILabel!
     @IBOutlet weak var twitterIcon: UIImageView!
     @IBOutlet weak var twitterStack: UIStackView!
     
     
+    @IBOutlet weak var gmailLbl: UILabel!
     @IBOutlet weak var gmailStack: UIStackView!
     
     @IBOutlet weak var emailIcon: UIImageView!
     
+    @IBOutlet weak var websiteLbl: UILabel!
     @IBOutlet weak var webSiteStack: UIStackView!
     
     @IBOutlet weak var websiteIcon: UIImageView!
     
     
+    @IBOutlet weak var phoneLbl: UILabel!
+    @IBOutlet weak var youtubeLbl: UILabel!
+    @IBOutlet weak var telegramLbl: UILabel!
     @IBOutlet weak var telegramStack: UIStackView!
     
     @IBOutlet weak var telegramIcon: UIImageView!
     
     @IBOutlet weak var faceTimeStack: UIStackView!
     
+    @IBOutlet weak var faceTimeLbl: UILabel!
     @IBOutlet weak var faceTimeIcon: UIImageView!
     
     
@@ -130,6 +145,23 @@ class SocialMediaVC: UIViewController, SubViewConroller{
         tiktokIcon.layer.cornerRadius = tiktokIcon.frame.width * 0.5
         twitchIcon.layer.cornerRadius = twitchIcon.frame.width * 0.5
         twitterIcon.layer.cornerRadius = twitterIcon.frame.width * 0.5
+        fbLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        instagLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        linkedInLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        paypalLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        skypeLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        snapLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        tiktokLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        twitchLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        twitterLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        gmailLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        websiteLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        telegramLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        faceTimeLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        youtubeLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        phoneLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        screenTitle.font = UIFont(name: "Lato-Bold", size: 18)
+        screenTitle.textColor = .redBrown
     }
     
     func removeView() {

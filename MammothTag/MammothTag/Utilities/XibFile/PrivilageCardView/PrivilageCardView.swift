@@ -63,6 +63,11 @@ class PrivilageCardView: UIViewController, SubViewConroller {
         saveBtn.gradientbutton()
         saveBtn.applySketchShadow(color: .tangerine30, alpha: 1, x: 0, y: 10, blur: 30, spread: 0)
         updateUIWhenSelectMode()
+        privateLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        profileLbl.font = UIFont(name: "Lato-SemiBold", size: 16)
+        titleLbl.font = UIFont(name: "Lato-Bold", size: 18)
+        titleLbl.textColor = .redBrown
+        saveBtn.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
     }
     
     func customizeView(_ view: UIView, insideView: UIView) {

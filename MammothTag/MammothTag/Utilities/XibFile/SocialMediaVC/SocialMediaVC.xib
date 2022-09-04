@@ -14,37 +14,52 @@
                 <outlet property="closeButton" destination="UM8-pj-Pxz" id="2cp-lt-m2q"/>
                 <outlet property="emailIcon" destination="Zmq-jq-ngM" id="rrM-uT-y1y"/>
                 <outlet property="faceTimeIcon" destination="oer-2h-TBH" id="zQx-JZ-w7r"/>
+                <outlet property="faceTimeLbl" destination="dLv-1G-1Lg" id="u58-8T-ora"/>
                 <outlet property="faceTimeStack" destination="7kr-Xc-tGF" id="uBp-bH-upT"/>
                 <outlet property="facebookIcon" destination="phR-GD-4Ih" id="utr-v9-9aE"/>
                 <outlet property="facebookStackView" destination="OkP-BP-7Sq" id="Rdv-Qi-MqN"/>
+                <outlet property="fbLbl" destination="fzY-bp-yAp" id="z7v-77-aUO"/>
+                <outlet property="gmailLbl" destination="ecT-tf-Ciq" id="1Ag-eY-2dd"/>
                 <outlet property="gmailStack" destination="37h-1W-Vgv" id="qVW-jK-oa1"/>
+                <outlet property="instagLbl" destination="TFx-Fr-zu4" id="eqr-VW-wzR"/>
                 <outlet property="instagramIcon" destination="2K0-wt-LSM" id="pbo-Lo-uMR"/>
                 <outlet property="instagramStackView" destination="n4N-el-dal" id="0qC-GP-9b7"/>
+                <outlet property="linkedInLbl" destination="Xnx-Zi-fqk" id="eF7-sO-zUX"/>
                 <outlet property="linkedinIcon" destination="Gzl-2F-9Q1" id="46P-cq-vu6"/>
                 <outlet property="linkedinStack" destination="c48-dK-fNc" id="51D-AS-Anu"/>
                 <outlet property="paypalIcon" destination="0gu-Ti-GCZ" id="7ZI-zl-MCw"/>
+                <outlet property="paypalLbl" destination="dlz-BP-Qjg" id="d7X-pj-Bcx"/>
                 <outlet property="paypallStack" destination="0XI-8x-gIU" id="BFJ-tq-uFt"/>
                 <outlet property="phoneIcon" destination="Bzi-ue-8pV" id="q8D-Z5-ye1"/>
+                <outlet property="phoneLbl" destination="oJu-Bx-Bq4" id="YA4-d8-wB7"/>
                 <outlet property="phoneStack" destination="B22-7d-pIG" id="c84-D0-agV"/>
                 <outlet property="screenTitle" destination="XJW-ZS-Yzv" id="rfX-G9-i0i"/>
                 <outlet property="skypeIcon" destination="4Ss-t2-nEK" id="LTx-L3-qV9"/>
+                <outlet property="skypeLbl" destination="KW0-pp-mLK" id="meJ-DN-pV8"/>
                 <outlet property="skypeStack" destination="HGq-Zd-rKN" id="WWe-rf-jOn"/>
+                <outlet property="snapLbl" destination="OSY-13-NNc" id="Via-tB-rrH"/>
                 <outlet property="snapchatIcon" destination="MDQ-JO-u9c" id="5Q3-CV-Jr6"/>
                 <outlet property="snapchatStack" destination="m1R-QX-Fu8" id="VqZ-3u-alQ"/>
                 <outlet property="telegramIcon" destination="E0L-vj-BGL" id="d8f-z9-ulh"/>
+                <outlet property="telegramLbl" destination="DeF-CX-7Gr" id="cox-Ci-q3t"/>
                 <outlet property="telegramStack" destination="QFv-xh-3kf" id="R8a-Pu-cR8"/>
                 <outlet property="tiktokIcon" destination="5zj-fy-H43" id="6uc-wd-6JB"/>
+                <outlet property="tiktokLbl" destination="Kwr-Ph-pw1" id="2MV-Ja-kGs"/>
                 <outlet property="tiktokStack" destination="CNI-BH-ajP" id="YHD-q8-rCY"/>
                 <outlet property="twitchIcon" destination="AfL-Ug-UTp" id="7Co-qH-6dt"/>
+                <outlet property="twitchLbl" destination="Wkq-c6-9j1" id="DSi-hZ-JrZ"/>
                 <outlet property="twitchStack" destination="hS1-bJ-veG" id="4nO-i1-Z3V"/>
                 <outlet property="twitterIcon" destination="f2d-qg-10B" id="x7X-4Q-BwO"/>
+                <outlet property="twitterLbl" destination="HCt-Rc-NMw" id="h6G-rr-i1N"/>
                 <outlet property="twitterStack" destination="8es-ia-f2c" id="8jE-C7-mTO"/>
                 <outlet property="view" destination="CLO-n4-fuC" id="Rsa-tX-tpL"/>
                 <outlet property="viewContainer" destination="5cg-Oo-pmA" id="uf8-5L-Ddd"/>
                 <outlet property="viewControl" destination="lcn-fY-vB7" id="w55-3F-Lfc"/>
                 <outlet property="webSiteStack" destination="a03-Hh-W33" id="uVt-TY-3mt"/>
                 <outlet property="websiteIcon" destination="uPe-Yn-b58" id="ksd-Hj-hKE"/>
+                <outlet property="websiteLbl" destination="SjB-LY-tTC" id="M5d-Zc-ovp"/>
                 <outlet property="youtubeIcon" destination="aJA-qj-RWJ" id="IJw-wN-9qg"/>
+                <outlet property="youtubeLbl" destination="9Zp-od-XuJ" id="Efn-Nf-saj"/>
                 <outlet property="youtubeStack" destination="Lqm-In-XoH" id="8t5-ir-MHd"/>
             </connections>
         </placeholder>
@@ -83,7 +98,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJw-Zb-c9Q">
-                            <rect key="frame" x="0.0" y="50" width="414" height="380"/>
+                            <rect key="frame" x="0.0" y="70" width="414" height="360"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2A-wL-rlH">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="580"/>
@@ -501,8 +516,7 @@
                         <constraint firstAttribute="bottom" secondItem="bJw-Zb-c9Q" secondAttribute="bottom" id="2da-zY-rgC"/>
                         <constraint firstItem="XJW-ZS-Yzv" firstAttribute="leading" secondItem="5cg-Oo-pmA" secondAttribute="leading" constant="22" id="6h2-oi-JGH"/>
                         <constraint firstAttribute="height" constant="430" id="Ck4-b6-QL6"/>
-                        <constraint firstItem="bJw-Zb-c9Q" firstAttribute="top" secondItem="XJW-ZS-Yzv" secondAttribute="bottom" id="Efs-Fd-mtj"/>
-                        <constraint firstItem="bJw-Zb-c9Q" firstAttribute="height" secondItem="5cg-Oo-pmA" secondAttribute="height" multiplier="0.883721" id="HtI-uT-4bt"/>
+                        <constraint firstItem="bJw-Zb-c9Q" firstAttribute="top" secondItem="XJW-ZS-Yzv" secondAttribute="bottom" constant="20" id="Efs-Fd-mtj"/>
                         <constraint firstAttribute="trailing" secondItem="bJw-Zb-c9Q" secondAttribute="trailing" id="mMX-mn-HNu"/>
                         <constraint firstItem="bJw-Zb-c9Q" firstAttribute="leading" secondItem="5cg-Oo-pmA" secondAttribute="leading" id="tHX-17-VrO"/>
                         <constraint firstItem="XJW-ZS-Yzv" firstAttribute="top" secondItem="5cg-Oo-pmA" secondAttribute="top" constant="20" id="z8A-HF-zA0"/>

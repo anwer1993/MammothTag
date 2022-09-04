@@ -109,7 +109,10 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
         requestView.tag = 1
         contactView.addTagGesture(recognizer)
         requestView.addTagGesture(recognizer)
-        
+        contactLabl.font = UIFont(name: "Lato-Bold", size: 16)
+        requestLabel.font = UIFont(name: "Lato-Bold", size: 16)
+        emptyLabel.font = UIFont(name: "Lato-Black", size: 18)
+        contactListLbl.font = UIFont(name: "Lato-Black", size: 18)
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {

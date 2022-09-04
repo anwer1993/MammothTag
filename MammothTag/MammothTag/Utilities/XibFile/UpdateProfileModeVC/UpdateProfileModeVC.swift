@@ -86,6 +86,7 @@ class UpdateProfileModeVC : UIViewController, SubViewConroller {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        selectProfileLbl.font = UIFont(name: "Lato-Bold", size: 18)
     }
     
     func updateUIWhenSelectMode() {

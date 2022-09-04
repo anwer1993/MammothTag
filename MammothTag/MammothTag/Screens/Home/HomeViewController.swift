@@ -340,6 +340,13 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         socialMediaLabel.textColor = .tangerine
         addSocialeMediaLabel.textColor = .brownishGrey
         activateNFCLabel.textColor = .white80
+        activateNFCLabel.font = UIFont(name: "Lato-Regular", size: 14)
+        privilageLbl.font = UIFont(name: "Lato-Medium", size: 13)
+        privilageLabl.font = UIFont(name: "Lato-Bold", size: 20)
+        shareAllLbl.font = UIFont(name: "Lato-Bold", size: 16)
+        openFirstLbl.font = UIFont(name: "Lato-Bold", size: 16)
+        socialMediaLabel.font = UIFont(name: "Lato-Black", size: 16)
+        addSocialeMediaLabel.font = UIFont(name: "Lato-Regular", size: 16)
     }
     
     func updateSelectedCard(selectedCard: DatumCard) {

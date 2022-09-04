@@ -17,6 +17,7 @@ class SeettingsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         dropRightArrowIcon.flipWhenRTL(image: UIImage(named: "arrow-dropright")!)
+        descriptionLabel.font = UIFont(name: "Lato-Bold", size: 18)
     } 
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -55,6 +55,11 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
         emailTextField.delegate = self
         viewEmail.customizeViewForContainTextField()
         emailStaticLbl.isHidden = true
+        forgotPassswordLbl.font = UIFont(name: "Lato-Black", size: 18)
+        forgotPasswordDescLbl.font = UIFont(name: "Lato-Regular", size: 18)
+        sendButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        emailTextField.font = UIFont(name: "Lato-Regular", size: 15)
+        emailStaticLbl.font = UIFont(name: "Lato-Regular", size: 14)
     }
     
     func toggleStaticLabelAppearence(_ textField: UITextField, isHidden: Bool) {

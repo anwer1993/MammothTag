@@ -34,6 +34,8 @@ class ContactTableViewCell: UITableViewCell {
         let acceptAction = UITapGestureRecognizer(target: self, action: #selector(acceptRequest(_gesture:)))
         deleteIcon.addTagGesture(deleteAction)
         addIcon.addTagGesture(acceptAction)
+        contactNameLbl.font = UIFont(name: "Lato-Bold", size: 18)
+        addedDateLbl.font = UIFont(name: "Lato-Regular", size: 14)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

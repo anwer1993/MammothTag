@@ -39,7 +39,14 @@ extension ContactDetailsViewController {
                                 this.selectedCard = this.cards.first(where: {$0.id == this.selectedCard?.id})
 
                             }
-                            this.selectedCardName.text = this.selectedCard?.name ?? "Unknown card"
+                            if this.selectedCard == nil {
+                                this.selectedCardView.isHidden = true
+                                this.emptyListLbl.text = "The current user does not added any card yet"
+                            } else {
+                                this.selectedCardView.isHidden = false
+                                this.selectedCardName.text = this.selectedCard?.name ?? "Unknown card"
+                            }
+                            
                             let networks = this.selectedCard?.cardNetworks ?? []
                             if networks.contains(where: {$0.isOpenFirst == "1"}) {
                                 if let item = networks.first(where: {$0.isOpenFirst == "1"}) {

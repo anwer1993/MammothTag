@@ -16,6 +16,7 @@ class ContactDetailsCollectionViewCell: UICollectionViewCell {
     func configCell(CardNetwork: CardNetwork) {
         socialMediaIcon.layer.cornerRadius = 30
         socialMMediaLink.text  = CardNetwork.link ?? ""
+        socialMMediaLink.font = UIFont(name: "Lato-Regular", size: 16)
         let networkIcon = Contstant.data.first(where: {$0.socialMediaId == Int(CardNetwork.socialNetworkID ?? "1") ?? 1})?.imageName ?? ""
         socialMediaIcon.image = UIImage(named: networkIcon)
     }

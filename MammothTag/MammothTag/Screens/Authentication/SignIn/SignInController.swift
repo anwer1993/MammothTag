@@ -106,8 +106,6 @@ class SignInController: UIViewController, Storyboarded {
         welcomeLbl.textColor = UIColor.chestnut
         discLbl.textColor = UIColor.greyishBrown
         initializeSignInBtn()
-        forgotPasswordLbl.attributedText = forgotPasswordLbl.customizeTextLabel(stringToColor: "FORGOT_PASSWORD".localized, color: UIColor.black, isUnderline: true)
-        createNewAccountLbl.attributedText = createNewAccountLbl.customizeTextLabel(stringToColor: "CREATE_NEW_ACCOUNT".localized, color: UIColor.tangerine, isUnderline: true)
         emailTextField.delegate = self
         emailTextField.keyboardType = .emailAddress
         passwordTextField.delegate = self
@@ -128,6 +126,13 @@ class SignInController: UIViewController, Storyboarded {
         createNewAccountLbl.text = "DONT_HAVE_ACCOUNT".localized
         passwordStaticLabl.text = "PASSWORD".localized
         signInButton.setTitle("SIGN_IN".localized, for: .normal)
+        welcomeLbl.font = UIFont(name: "Lato-Black", size: 18)
+        discLbl.font = UIFont(name: "Lato-Regular", size: 18)
+        forgotPasswordLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        signInButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
+        createNewAccountLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        forgotPasswordLbl.attributedText = forgotPasswordLbl.customizeTextLabel(stringToColor: "FORGOT_PASSWORD".localized, color: UIColor.black, isUnderline: true)
+        createNewAccountLbl.attributedText = createNewAccountLbl.customizeTextLabel(stringToColor: "CREATE_NEW_ACCOUNT".localized, color: UIColor.tangerine, isUnderline: true)
     }
     
     override func viewWillLayoutSubviews() {
