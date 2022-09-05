@@ -57,6 +57,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
         segmentView.isUserInteractionEnabled = true
         swipeTap.delegate = self
         segmentView.addGestureRecognizer(swipeTap)
+        segmentView.isHidden = true
     }
     
     @objc func didSwipeAlert(_ sender:UIPanGestureRecognizer) {
@@ -92,11 +93,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
         super.viewWillAppear(animated)
         initView()
         emptyView.isHidden = true
-        if selectedItem == 0 {
-            getContactList()
-        } else {
-            getRequestList()
-        }
+        getContactList()
     }
     
     func setupTableView() {

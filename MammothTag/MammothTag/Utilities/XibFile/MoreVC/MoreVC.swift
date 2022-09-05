@@ -81,6 +81,7 @@ class MoreVC: UIViewController, SubViewConroller {
         showCardListLbl.text = "SHOW_LIST".localized
         renameCardLbl.text = "RENAME_CARD".localized
         deleteCardLbl.text = "DELETE_CARD".localized
+        activateNFCStack.isHidden = true
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {

@@ -59,8 +59,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         return UITapGestureRecognizer(target: self, action: #selector(showScanNFCPopup(_:)))
     }
     
-    var detectedMessages = [NFCNDEFMessage]()
-    var session: NFCNDEFReaderSession?
+    var session: NFCTagReaderSession?
     
     var cardList = [DatumCard]()
     var listCardNetwork = [DatumListCardNetwork]()
@@ -85,6 +84,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activateNFCImage.alpha = 0.6
         self.navigationController?.isNavigationBarHidden = true
         socialMediaTable.delegate = self
         socialMediaTable.dataSource = self
@@ -226,6 +226,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
 //        self.customSegmentControlView.addSubview(view)
         getData()
 //        publicAllCard(card_id: "\(selectedCard?.id ?? 0)")
+        
     }
     
     
@@ -274,7 +275,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         if done {
             getData()
         } else if done == false && message == "Fail" {
-            showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
+            showAlertWithOk(withTitle: "Error", withMessage: "Session expired")
         } else {
             showAlertWithOk(withTitle: "Error", withMessage: message)
         }
@@ -340,18 +341,17 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     func initView() {
         privilageView.isHidden = true
         privilageCard.isHidden = true
+        priviligeDropDownIcon.image = UIImage(named: "Icon-arrow-dropdown")?.withRenderingMode(.alwaysTemplate)
+        priviligeDropDownIcon.tintColor = .tangerine
         customSegmentControlView.layer.cornerRadius = 25.0
         customSegmentControlView.applySketchShadow(color: .black9, alpha: 0.9, x: 0, y: 2, blur: 20, spread: 0)
         moreView.layer.cornerRadius = moreView.bounds.width * 0.5
         privilageView.layer.cornerRadius = 15.0
-        privilageView.layer.borderColor = UIColor.white.cgColor
+        privilageView.layer.borderColor = UIColor.tangerine.cgColor
         privilageView.layer.borderWidth = 1
         privilageCard.layer.cornerRadius = 15.0
         privilageCard.layer.borderColor = UIColor.white.cgColor
         privilageCard.layer.borderWidth = 1
-        homeView.layer.cornerRadius = homeView.bounds.width * 0.5
-        accountView.layer.cornerRadius = accountView.bounds.width * 0.5
-        contactView.layer.cornerRadius = contactView.bounds.width * 0.5
         addView.layer.cornerRadius = addView.bounds.width * 0.5
         addView.layer.backgroundColor = UIColor.redBrown.cgColor
         socialMediaLabel.textColor = .tangerine
@@ -438,6 +438,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func showAddCardPopup(_ gesture: UITapGestureRecognizer? = nil) {
         addNewCardVC.isUpdateAction = false
+        addNewCardVC.isFromAddSocialMedia = false
         addNewCardVC.card = nil
         AddCardPopup()
     }
@@ -453,7 +454,9 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             self.present(alertController, animated: true, completion: nil)
             return
         }
-        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
+        session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
+        session?.alertMessage = "Hold your phone near the nfc tag"
+        session?.begin()
         viewContainer.addBlurEffect()
         showScanNFCPopup()
         session?.begin()
@@ -461,9 +464,16 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func showSocialMediaList(_ gesture: UITapGestureRecognizer? = nil) {
         viewContainer.addBlurEffect()
-        addChildVc(socialMediaVC) {[weak self] in
-            guard let this = self else {return}
-            this.updateUIWhenRemovePopup()
+        if cardList.isEmpty {
+            addNewCardVC.isUpdateAction = false
+            addNewCardVC.card = nil
+            addNewCardVC.isFromAddSocialMedia = true
+            AddCardPopup()
+        } else {
+            addChildVc(socialMediaVC) {[weak self] in
+                guard let this = self else {return}
+                this.updateUIWhenRemovePopup()
+            }
         }
         self.tabBarController?.tabBar.isHidden = true
     }
@@ -503,21 +513,30 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
 }
 
 
-extension HomeViewController: NFCNDEFReaderSessionDelegate {
+extension HomeViewController: NFCTagReaderSessionDelegate {
     
-    /// - Tag: sessionBecomeActive
-    func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
-        
+    func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
+        print("session did begin")
     }
     
-    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-        print(error.localizedDescription)
+    func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
+        print("error invalide session", error.localizedDescription)
     }
     
-    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-        let message = messages
-        print(messages.first)
+    func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
+        print("connect nfc tag")
+        let tag = tags.first!
+        session.connect(to: tag) { error in
+            if let error = error {
+                print("error connaction", error.localizedDescription)
+            }
+        }
+        if case let .miFare(stag) = tag {
+            let uiid = stag.identifier.map({String(format: "%.2hhx", $0)}).joined()
+            print("UIId", uiid)
+        }
     }
     
     
 }
+

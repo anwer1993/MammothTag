@@ -57,6 +57,8 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     
     var card: DatumCard?
     
+    var isFromAddSocialMedia = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()

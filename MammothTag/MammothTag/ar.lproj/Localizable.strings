@@ -36,7 +36,7 @@
 "CAM_PRMISSION_DENIED" = "لا يمتلك التطبيق حق الوصول إلى الكاميرا الخاصة بك";
 "PHOTOS_PRMISSION_DENIED" = "لا يمتلك التطبيق حق الوصول إلى مكتبة الصور الخاصة بك";
 "ACCESS_DENIED" = "الوصول مرفوض";
-"CONTACT_LIST" = "قائمة جهات الاتصال";
+"CONTACT_LIST" = "قائمة الأصدقاء";
 
 
 // Change password
