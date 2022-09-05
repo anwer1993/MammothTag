@@ -61,9 +61,16 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var session: NFCTagReaderSession?
     
-    var cardList = [DatumCard]()
-    var listCardNetwork = [DatumListCardNetwork]()
-    var selectedCard: DatumCard?
+    var cardList = [CardProfile]()
+    var listCardNetwork = [CardNetworkProfile]()
+    var selectedCard: CardProfile?
+    var profile: DataClassProfile? {
+        didSet {
+            DispatchQueue.main.async {
+                self.showOrHideLoader(done: true)
+            }
+        }
+    }
     
     var selectedItem: Int = 0 {
         didSet {
@@ -78,13 +85,13 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     var swipeTap = UIPanGestureRecognizer()
+    var  isActivateBtnTapped = false
     
     var addSocialMediaTopConstrainteOriginal: CGFloat = 0.0
     var addLblBottomConstrainteOriginal: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activateNFCImage.alpha = 0.6
         self.navigationController?.isNavigationBarHidden = true
         socialMediaTable.delegate = self
         socialMediaTable.dataSource = self
@@ -207,7 +214,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         self.tabBarController?.tabBar.isHidden = true
         privilageCardVc.selectedMode = Int(selectedCard?.privacy ?? "1") ?? 1
         privilageCardVc.handleTapWhenSave = { selectedMode in
-            let card = DatumCard(id: self.selectedCard?.id, userID: self.selectedCard?.userID, name: self.selectedCard?.name, type: self.selectedCard?.type, privacy: selectedMode, createdAt: self.selectedCard?.createdAt, updatedAt: self.selectedCard?.updatedAt)
+            let card = CardProfile(id: self.selectedCard?.id, userID: self.selectedCard?.userID, name: self.selectedCard?.name, type: self.selectedCard?.type, privacy: selectedMode, createdAt: self.selectedCard?.createdAt, updatedAt: self.selectedCard?.updatedAt, cardNetworks: self.selectedCard?.cardNetworks)
             self.privilageCardVc.removeView()
             self.editCard(card: card)
         }
@@ -224,7 +231,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
 //        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
 //        let view = CustomSegmentControlView(frame: frame)
 //        self.customSegmentControlView.addSubview(view)
-        getData()
+        getProfile()
 //        publicAllCard(card_id: "\(selectedCard?.id ?? 0)")
         
     }
@@ -243,6 +250,9 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         moreVC.handleAddCard = {
             self.showAddCardPopup()
         }
+        moreVC.handleTapWhenActivateNFC = {
+            self.showScanNFCPopup(nil)
+        }
     }
     
     func configSocialMediaVC() {
@@ -254,7 +264,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             self.addSocialMediaVc.handleAddSocialMediaAction = { resp in
                 if let done = resp?.result, let message = resp?.message {
                     if done {
-                        self.getData()
+                        self.getProfile()
                     } else {
                         self.showAlertWithOk(withTitle: "Error", withMessage: message)
                     }
@@ -273,7 +283,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     func updateUIWhenAddCard(done: Bool, message: String) {
         addNewCardVC.removeView()
         if done {
-            getData()
+            getProfile()
         } else if done == false && message == "Fail" {
             showAlertWithOk(withTitle: "Error", withMessage: "Session expired")
         } else {
@@ -281,40 +291,40 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func updateUIWhenGetCard(done: Bool, message: String, cards: [DatumCard]?) {
-        if done && cards != nil {
-            cardList = cards!
-            if selectedCard == nil {
-                selectedCard = cards!.first
-                privilageLabl.text = cards!.first?.name ?? "Unknown card"
-                privilageLbl.text = CardPrivacy(rawValue: cards!.first?.privacy ?? "")?.rowValue ?? ""
-            } else {
-                selectedCard = cards!.first(where: {$0.id == selectedCard?.id})
-                privilageLabl.text = selectedCard?.name ?? "Unknown card"
-                privilageLbl.text = CardPrivacy(rawValue: selectedCard?.privacy ?? "")?.rowValue ?? ""
-            }
-            profileModeVC.cards = cards!
-            profileModeVC.updateUIWhenSelectCard = { card in
-                self.updateSelectedCard(selectedCard: card)
-            }
-            profileModeVC.updateUIWhenDeleteCard = { card in
-                self.updateSelectedCard(selectedCard: card)
-            }
-            profileModeVC.updateUIWhenDeleteCard = { card in
-                self.deleteCard(card: card)
-            }
-            privilageView.isHidden = cards!.count == 0
-            privilageCard.isHidden = cards!.count == 0
-        } else if done == false && message == "Fail" {
-            showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
-            privilageView.isHidden = true
-            privilageCard.isHidden = true
-        } else {
-            showAlertWithOk(withTitle: "Error", withMessage: message)
-            privilageView.isHidden = true
-            privilageCard.isHidden = true
-        }
-    }
+//    func updateUIWhenGetCard(done: Bool, message: String, cards: [DatumCard]?) {
+//        if done && cards != nil {
+//            cardList = cards!
+//            if selectedCard == nil {
+//                selectedCard = cards!.first
+//                privilageLabl.text = cards!.first?.name ?? "Unknown card"
+//                privilageLbl.text = CardPrivacy(rawValue: cards!.first?.privacy ?? "")?.rowValue ?? ""
+//            } else {
+//                selectedCard = cards!.first(where: {$0.id == selectedCard?.id})
+//                privilageLabl.text = selectedCard?.name ?? "Unknown card"
+//                privilageLbl.text = CardPrivacy(rawValue: selectedCard?.privacy ?? "")?.rowValue ?? ""
+//            }
+//            profileModeVC.cards = cards!
+//            profileModeVC.updateUIWhenSelectCard = { card in
+//                self.updateSelectedCard(selectedCard: card)
+//            }
+//            profileModeVC.updateUIWhenDeleteCard = { card in
+//                self.updateSelectedCard(selectedCard: card)
+//            }
+//            profileModeVC.updateUIWhenDeleteCard = { card in
+//                self.deleteCard(card: card)
+//            }
+//            privilageView.isHidden = cards!.count == 0
+//            privilageCard.isHidden = cards!.count == 0
+//        } else if done == false && message == "Fail" {
+//            showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
+//            privilageView.isHidden = true
+//            privilageCard.isHidden = true
+//        } else {
+//            showAlertWithOk(withTitle: "Error", withMessage: message)
+//            privilageView.isHidden = true
+//            privilageCard.isHidden = true
+//        }
+//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -370,19 +380,19 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         addSocialeMediaLabel.text = "ADD_SOCIAL_MEDIA".localized
     }
     
-    func updateSelectedCard(selectedCard: DatumCard) {
+    func updateSelectedCard(selectedCard: CardProfile) {
         self.selectedCard = selectedCard
         privilageLabl.text = selectedCard.name
-        getData()
+        getProfile()
     }
     
-    func deleteCard(card: DatumCard) {
+    func deleteCard(card: CardProfile) {
         deleteCarde(card: card)
     }
     
     func updateUIDeleteCared(Done: Bool, message: String) {
         if Done {
-            getData()
+            getProfile()
         } else {
             showAlertWithOk(withTitle: "Error", withMessage: message)
         }
@@ -417,7 +427,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         addNewCardVC.handleTapWhenSave = { card, selectedType in
             if !card.isEmptyString {
                 if self.addNewCardVC.isUpdateAction == true {
-                    let cardd: DatumCard = DatumCard(id: self.selectedCard?.id, userID: self.selectedCard?.userID, name: card, type: selectedType, privacy: CardPrivacy.Public.rawValue, createdAt: self.selectedCard?.updatedAt, updatedAt: self.selectedCard?.createdAt)
+                    let cardd: CardProfile = CardProfile(id: self.selectedCard?.id, userID: self.selectedCard?.userID, name: card, type: selectedType, privacy: CardPrivacy.Public.rawValue, createdAt: self.selectedCard?.updatedAt, updatedAt: self.selectedCard?.createdAt, cardNetworks: self.selectedCard?.cardNetworks)
                     self.editCard(card: cardd)
                 } else {
                     self.addCard(cardName: card, cardType: selectedType, cardPrivacy: CardPrivacy.Public.rawValue)
@@ -444,22 +454,34 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func showScanNFCPopup(_ gesture: UITapGestureRecognizer? = nil) {
-        guard NFCNDEFReaderSession.readingAvailable else {
-            let alertController = UIAlertController(
-                title: "Scanning Not Supported",
-                message: "This device doesn't support tag scanning.",
-                preferredStyle: .alert
-            )
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-            return
+        isActivateBtnTapped = true
+        if profile?.isApproved == "1" && profile?.nfcTag?.isEmptyString == false {
+            let alert = UIAlertController(title: "Please confirm", message: "Are you sure,  you want to deactivate the NFC tag ?", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+                self.deactivateNFCTag()
+            }
+            alert.addAction(cancelAction)
+            alert.addAction(confirmAction)
+            self.present(alert, animated: true)
+        } else {
+            guard NFCNDEFReaderSession.readingAvailable else {
+                let alertController = UIAlertController(
+                    title: "Scanning Not Supported",
+                    message: "This device doesn't support tag scanning.",
+                    preferredStyle: .alert
+                )
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                return
+            }
+            session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
+            session?.alertMessage = ""
+//            self.viewContainer.addBlurEffect()
+//            showScanNFCPopup()
+            session?.begin()
         }
-        session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
-        session?.alertMessage = "Hold your phone near the nfc tag"
-        session?.begin()
-        viewContainer.addBlurEffect()
-        showScanNFCPopup()
-        session?.begin()
+        
     }
     
     @objc func showSocialMediaList(_ gesture: UITapGestureRecognizer? = nil) {
@@ -534,6 +556,14 @@ extension HomeViewController: NFCTagReaderSessionDelegate {
         if case let .miFare(stag) = tag {
             let uiid = stag.identifier.map({String(format: "%.2hhx", $0)}).joined()
             print("UIId", uiid)
+            session.invalidate()
+            DispatchQueue.main.async {
+                if self.isActivateBtnTapped  {
+                    self.activateNFCTag(nfc_tag: uiid)
+                } else {
+                    
+                }
+            }
         }
     }
     

@@ -20,8 +20,8 @@ class UpdateProfileModeVC : UIViewController, SubViewConroller {
     
     var handleTapWhenDismiss: () -> Void = {}
     var updateProfileeMode: () -> Void = {}
-    var updateUIWhenSelectCard: (DatumCard) -> Void = {_ in }
-    var updateUIWhenDeleteCard: (DatumCard) -> Void = {_ in }
+    var updateUIWhenSelectCard: (CardProfile) -> Void = {_ in }
+    var updateUIWhenDeleteCard: (CardProfile) -> Void = {_ in }
     
     var selectedMode: Int = 0 {
         didSet {
@@ -30,8 +30,8 @@ class UpdateProfileModeVC : UIViewController, SubViewConroller {
         }
     }
     
-    var cards = [DatumCard]()
-    var selectedCard: DatumCard?
+    var cards = [CardProfile]()
+    var selectedCard: CardProfile?
     var isDeleteAction = false
     
     var tapGesture: UITapGestureRecognizer {

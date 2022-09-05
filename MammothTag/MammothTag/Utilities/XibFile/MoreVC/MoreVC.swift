@@ -45,13 +45,22 @@ class MoreVC: UIViewController, SubViewConroller {
     
     var handleAddCard: () -> Void = {}
     
+    var handleTapWhenActivateNFC: () -> Void = {}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
     }
     
+    var profile: DataClassProfile?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if profile?.isApproved == "1" && profile?.nfcTag?.isEmptyString == false {
+            activateNFCLbl.text = "DEACTIVATE_NFC".localized
+        } else {
+            activateNFCLbl.text = "ACTIVATE_NFC".localized
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,6 +77,8 @@ class MoreVC: UIViewController, SubViewConroller {
         let showCardListTap = UITapGestureRecognizer(target: self, action: #selector(showCardList(_:)))
         let renammeCardTap = UITapGestureRecognizer(target: self, action: #selector(renameCard(_:)))
         let addCardTap = UITapGestureRecognizer(target: self, action: #selector(addCard(_:)))
+        let activateNFCTap = UITapGestureRecognizer(target: self, action: #selector(activateNFC(_:)))
+        activateNFCStack.addTagGesture(activateNFCTap)
         addNewCardStack.addTagGesture(addCardTap)
         deleteCardStack.addTagGesture(deleteCardTap)
         showCardListStack.addTagGesture(showCardListTap)
@@ -81,7 +92,8 @@ class MoreVC: UIViewController, SubViewConroller {
         showCardListLbl.text = "SHOW_LIST".localized
         renameCardLbl.text = "RENAME_CARD".localized
         deleteCardLbl.text = "DELETE_CARD".localized
-        activateNFCStack.isHidden = true
+        
+        
     }
     
     @objc func removeView(_ gesture: UIGestureRecognizer) {
@@ -91,6 +103,11 @@ class MoreVC: UIViewController, SubViewConroller {
     @objc func deleteCard(_ gesture: UIGestureRecognizer) {
         removeView()
         handleDeleteTap()
+    }
+    
+    @objc func activateNFC(_ gesture: UIGestureRecognizer) {
+        removeView()
+        handleTapWhenActivateNFC()
     }
     
     @objc func showCardList(_ gesture: UIGestureRecognizer) {

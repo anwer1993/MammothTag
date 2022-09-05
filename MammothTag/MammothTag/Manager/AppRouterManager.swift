@@ -29,7 +29,7 @@ enum AppScreen: INaviagtion{
     case Tabbar
     case UpdatePassword
     case ChangeForgotPassword(code: String, phone: String, delegate: Navigatable)
-    case UpdateProfile(profile: ProfileModel)
+    case UpdateProfile(profile: DataClassProfile?)
     case ContactDetails(user_id: String)
     case ContactDetailsCardList(user_id: String)
 }

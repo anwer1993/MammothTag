@@ -12,16 +12,6 @@ class AccountManager {
     
     static var shared = AccountManager()
     
-    var isActiveNFC: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "isActiveNFC")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "isActiveNFCs")
-            UserDefaults.standard.synchronize()
-        }
-    }
-    
     var profileMode: ProfileMode? {
         get {
             let mode = UserDefaults.standard.integer(forKey: "profileMode")
@@ -65,6 +55,8 @@ class AccountManager {
             UserDefaults.standard.synchronize()
         }
     }
+    
+    var isApproved: Bool =  false
     
     var selectedOption: Int = 0
     

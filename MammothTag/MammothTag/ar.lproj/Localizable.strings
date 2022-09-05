@@ -70,7 +70,8 @@
 "SELECT_CARD" = "حدد بطاقتك";
 
 // Home
-
+"DEACTIVATE_NFC" = "إلغاء تنشيط NFC";
+"ACTIVATE_NFC" = "تنشيط NFC";
 "OPEN_FIRST" = "فتح الاولى فقط";
 "SHARE_ALL" = "مشاركة الكل";
 "SOCIAL_MEDIA_ACCOUNT" = "حسابات وسائل التواصل الاجتماعي";

@@ -10,7 +10,7 @@ import Foundation
 struct SettingsViewModel {
     
     
-    var bindViewModelDataToController: (String?,ProfileModel?, String) -> () = {_,_,_  in}
+    var bindViewModelDataToController: (String?,DataClassProfile?, String) -> () = {_,_,_  in}
     
     func getProfile() {
         if let token = AccountManager.shared.token {

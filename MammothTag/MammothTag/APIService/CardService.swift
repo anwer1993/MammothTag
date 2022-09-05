@@ -32,7 +32,7 @@ class CardService {
         }
     }
     
-    func editCard(editcardModel: DatumCard, token: String, completion: @escaping(EditCardServerResponseModel?) -> Void) {
+    func editCard(editcardModel: CardProfile, token: String, completion: @escaping(EditCardServerResponseModel?) -> Void) {
         let parameters = ["name": editcardModel.name ?? "",
                           "type": editcardModel.type ?? "",
                           "privacy": editcardModel.privacy ?? "",

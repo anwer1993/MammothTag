@@ -55,7 +55,7 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     
     var isUpdateAction: Bool = false
     
-    var card: DatumCard?
+    var card: CardProfile?
     
     var isFromAddSocialMedia = false
     

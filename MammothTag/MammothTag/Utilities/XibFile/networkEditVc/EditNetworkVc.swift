@@ -25,11 +25,11 @@ class EditNetworkVc: UIViewController, SubViewConroller {
     @IBOutlet weak var deleteIcon: UIImageView!
     
     var handleTapWhenDismiss: () -> Void = {}
-    var handleTapWhenSave: (DatumListCardNetwork) -> () = {_ in}
-    var handleTapWhenOpen: (DatumListCardNetwork) -> () = {_ in}
-    var handleTapWhenDelete: (DatumListCardNetwork) -> () = {_ in}
+    var handleTapWhenSave: (CardNetworkProfile) -> () = {_ in}
+    var handleTapWhenOpen: (CardNetworkProfile) -> () = {_ in}
+    var handleTapWhenDelete: (CardNetworkProfile) -> () = {_ in}
     var link: String = ""
-    var network: DatumListCardNetwork?
+    var network: CardNetworkProfile?
     
     var menuViewBottomConstrainnteOriginal: CGFloat = 0.0
     
@@ -143,7 +143,7 @@ class EditNetworkVc: UIViewController, SubViewConroller {
         } else {
             editedLink = link
         }
-        let editedNetwork = DatumListCardNetwork(id: network.id, cardID: network.cardID, socialNetworkID: network.socialNetworkID, link: editedLink, status: network.status, createdAt: network.createdAt, updatedAt: network.updatedAt, isOpenFirst: network.isOpenFirst)
+        let editedNetwork = CardNetworkProfile(id: network.id, cardID: network.cardID, socialNetworkID: network.socialNetworkID, link: editedLink, status: network.status, isOpenFirst: network.isOpenFirst, createdAt: network.createdAt, updatedAt: network.updatedAt)
         handleTapWhenSave(editedNetwork)
     }
     

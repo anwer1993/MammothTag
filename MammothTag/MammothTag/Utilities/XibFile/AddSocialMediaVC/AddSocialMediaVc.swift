@@ -29,7 +29,7 @@ class AddSocialMediaVc: UIViewController, SubViewConroller {
     var handleTapWhenDismiss: () -> Void = {}
     var handleAddSocialMediaAction: (AddCardNetworkServerResponseModel?) -> () = {_ in}
     
-    var selectedCard : DatumCard?
+    var selectedCard : CardProfile?
     var socialMediaID: Int?
     var link: String = ""
     var status: Int = 1

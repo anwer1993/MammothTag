@@ -25,7 +25,7 @@ class SocialMediaTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCell(network: DatumListCardNetwork, selectedItem: Int) {
+    func configCell(network: CardNetworkProfile, selectedItem: Int) {
         let networkIcon = Contstant.data.first(where: {$0.socialMediaId == Int(network.socialNetworkID ?? "1") ?? 1})?.imageName ?? ""
         socialMediaIcon.image = UIImage(named: networkIcon)
         if selectedItem == 1 {

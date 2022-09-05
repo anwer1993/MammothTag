@@ -63,7 +63,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     }
     
     var updateProfileViewModel = UpdateProfileViewModel()
-    var profile: ProfileModel?
+    var profile: DataClassProfile?
     
     private lazy var datePicker: UIDatePicker = {
       let datePicker = UIDatePicker(frame: .zero)

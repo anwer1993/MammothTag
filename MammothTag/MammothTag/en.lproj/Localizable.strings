@@ -38,6 +38,7 @@
 "ACCESS_DENIED" = "Access denied";
 "CONTACT_LIST" = "Contact list";
 
+
 // Change password
 
 "CHANGE_PASSWORD" = "Change password";
@@ -71,7 +72,8 @@
 
 
 // Home
-
+"DEACTIVATE_NFC" =  "Deactivate NFC";
+"ACTIVATE_NFC" =  "Activate NFC";
 "OPEN_FIRST" = "Open First";
 "SHARE_ALL" = "Share All";
 "SOCIAL_MEDIA_ACCOUNT" = "Social media accounts";

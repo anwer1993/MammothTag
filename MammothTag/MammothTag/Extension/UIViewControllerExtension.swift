@@ -75,20 +75,24 @@ extension UIViewController {
                     self.showOrHideLoader(done: true)
                     if let done = data.success, done == true {
                         AccountManager.shared.token = nil
+                        AccountManager.shared.isApproved = false
                         Contstant.updateRootVC()
                     } else {
                         AccountManager.shared.token = nil
+                        AccountManager.shared.isApproved = false
                         Contstant.updateRootVC()
                     }
                 }
             } else {
                 self.showOrHideLoader(done: true)
                 AccountManager.shared.token = nil
+                AccountManager.shared.isApproved = false
                 Contstant.updateRootVC()
             }
         } else {
             self.showOrHideLoader(done: true)
             AccountManager.shared.token = nil
+            AccountManager.shared.isApproved = false
             Contstant.updateRootVC()
         }
         

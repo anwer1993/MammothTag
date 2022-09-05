@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController, Storyboarded {
     
     
     var viewModel = SettingsViewModel()
-    var profile: ProfileModel?
+    var profile: DataClassProfile?
     
     var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "LOGOUT".localized]
     
@@ -87,7 +87,7 @@ class SettingsViewController: UIViewController, Storyboarded {
         view.layoutIfNeeded()
     }
     
-    func updateUIWhenGetProfile(sucess: String?, profile: ProfileModel?, message: String) {
+    func updateUIWhenGetProfile(sucess: String?, profile: DataClassProfile?, message: String) {
         if sucess == "success" {
             if let profile = profile {
                 self.profile = profile

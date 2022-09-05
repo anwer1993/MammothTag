@@ -25,6 +25,9 @@ enum URLRequest: String {
     case CHANGE_FORGOT_PASSWORD
     case PUPBLIC_ALL_CARD
     case OPEN_FIRST
+    case DEACTIVATE_NFC_URL
+    case ACTIVATE_NFC_URL
+    case USER_BY_NFC_URL
     //Car
     case ADD_CARD_NETWORK
     case EDIT_CARD_NETWORK
@@ -94,6 +97,12 @@ enum URLRequest: String {
             return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/all/en"
         case .OPEN_FIRST:
             return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/first/en"
+        case .DEACTIVATE_NFC_URL:
+            return  "http://mubadiroun.com/Mammouth/public/api/v1/user/nfc/delete/en"
+        case .ACTIVATE_NFC_URL:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/user/nfc/update/en"
+        case .USER_BY_NFC_URL:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/user/profile/nfc/en?token="
         }
     }
 }
