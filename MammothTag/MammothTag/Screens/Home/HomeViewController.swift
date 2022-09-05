@@ -505,12 +505,18 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
 
 extension HomeViewController: NFCNDEFReaderSessionDelegate {
     
+    /// - Tag: sessionBecomeActive
+    func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
+        
+    }
+    
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
         print(error.localizedDescription)
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-        
+        let message = messages
+        print(messages.first)
     }
     
     

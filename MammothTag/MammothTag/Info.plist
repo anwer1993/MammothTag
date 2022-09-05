@@ -10,6 +10,13 @@
 		<string>paypal</string>
 		<string>googlegmail</string>
 		<string>instagram</string>
+		<string>snapchat</string>
+		<string>youtube</string>
+		<string>facetime</string>
+		<string>tg</string>
+		<string>twitch</string>
+		<string>paypal</string>
+		<string>skype</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
