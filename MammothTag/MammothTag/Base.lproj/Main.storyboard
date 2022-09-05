@@ -1366,13 +1366,15 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LinkLinkLinkL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzx-1Z-AeF">
-                                                            <rect key="frame" x="15" y="75" width="98.5" height="19.5"/>
+                                                            <rect key="frame" x="10" y="75" width="108" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Bzx-1Z-AeF" secondAttribute="trailing" constant="10" id="87B-II-FfV"/>
+                                                        <constraint firstItem="Bzx-1Z-AeF" firstAttribute="leading" secondItem="53W-t5-u6f" secondAttribute="leading" constant="10" id="BMB-Oo-POH"/>
                                                         <constraint firstItem="Bzx-1Z-AeF" firstAttribute="centerX" secondItem="53W-t5-u6f" secondAttribute="centerX" id="baW-L3-3hC"/>
                                                         <constraint firstItem="CPQ-aS-r4G" firstAttribute="top" secondItem="53W-t5-u6f" secondAttribute="top" constant="5" id="fOH-1X-DFc"/>
                                                         <constraint firstItem="Bzx-1Z-AeF" firstAttribute="top" secondItem="CPQ-aS-r4G" secondAttribute="bottom" constant="10" id="rIy-a3-Evc"/>

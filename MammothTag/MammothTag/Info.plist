@@ -5,6 +5,9 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fb</string>
+		<string>linkedin</string>
+		<string>skype</string>
+		<string>paypal</string>
 		<string>googlegmail</string>
 		<string>instagram</string>
 	</array>

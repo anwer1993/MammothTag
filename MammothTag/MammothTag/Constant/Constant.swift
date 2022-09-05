@@ -58,18 +58,243 @@ class Contstant {
         }else {
             status = false
         }
-
+        
         if(status == true){
             rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabbarViewController") as? MainTabbarViewController
         } else{
             rootVC = UIStoryboard(name: "Authentification", bundle: nil).instantiateViewController(withIdentifier: "SpalchScreen") as? SpalchScreen
         }
-
+        
         guard let root = rootVC else {return }
-
+        
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-
+        
         let nav = UINavigationController(rootViewController: root)
         window?.rootViewController = nav
     }
+    
+    static func openFb(username: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "fb://profile/\(username)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://www.facebook.com/\(username)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openInstagram(link: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "instagram://user?username=\(link)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://instagram.com/\(link)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openTwitter(link: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "twitter://user?screen_name=\(link)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://twitter.com/\(link)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openSnapshat(link: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "snapchat://add/\(link)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://www.snapchat.com/add/\(link)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openTiktok(link: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "https://www.tiktok.com/@\(link)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://www.tiktok.com/@\(link)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openYoutube(link: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "youtube://www.youtube.com/user/\(link)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://www.youtube.com/user/\(link)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openPhone(link: String, errorCompletion: () -> ()) {
+        guard let number = URL(string: "tel://\(link)"),UIApplication.shared.canOpenURL(number) else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    static func openFaceTime(link: String, errorCompletion: () -> ()) {
+        if let facetimeURL: URL = URL(string: "facetime://\(link)") {
+            let application: UIApplication = UIApplication.shared
+            if (application.canOpenURL(facetimeURL)) {
+                application.open(facetimeURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openWebsite(link: String, errorCompletion: () -> ()) {
+        if let url = URL(string: link) {
+            UIApplication.shared.open(url)
+        } else {
+            errorCompletion()
+        }
+    }
+    
+    static func openTelegram(link: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "tg://resolve?domain=\(link)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://t.me/\(link)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openTwitch(link: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "twitch://stream/\(link)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://www.twitch.tv/\(link)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openEmail(link: String, errorCompletion: () -> ()) {
+        if let url = URL(string: "mailto:\(link)") {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    
+    static func openLinkedIn(link: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "linkedin://profile/binance\(link)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://www.linkedin.com/in/\(link)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openPaypal(link: String, errorCompletion: () -> ()) {
+        guard let appURL = URL(string: "paypal://\(link)") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            if let webURL = URL(string: "https://www.paypal.com/\(link)") {
+                application.open(webURL)
+            } else {
+                errorCompletion()
+            }
+        }
+    }
+    
+    static func openSkype(link: String, errorCompletion: () -> (), installSkypeCompletion: () -> ()) {
+        guard let appURL = URL(string: "skype:\(link)?call") else {
+            errorCompletion()
+            return
+        }
+        let application = UIApplication.shared
+        if application.canOpenURL(appURL) {
+            application.open(appURL)
+        } else {
+            installSkypeCompletion()
+        }
+    }
+    
+    
+    
+
+    
+    
+    
+    
 }

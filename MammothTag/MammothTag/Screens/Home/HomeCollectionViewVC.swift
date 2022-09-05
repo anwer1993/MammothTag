@@ -87,31 +87,79 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         editNetworkVc.handleTapWhenOpen =  { network in
             // open network
             self.editNetworkVc.removeView()
-                        let urlString = "https://www.instagram.com/hajji.anouer"
-                        let appurl = "fb://profile/aroun.aroun.980"
-            let tiktok = "https://www.tiktok.com/@anwer"
-            //            let url = "instagram://user?username=johndoe"
-                        let appURL = URL(string: tiktok)!
-                        let application = UIApplication.shared
-            
-                        if application.canOpenURL(appURL) {
-                            application.open(appURL)
-                        } else {
-                            // if Instagram app is not installed, open URL inside Safari
-                            let webURL = URL(string: tiktok)!
-                            application.open(webURL)
-                        }
-//            let application = UIApplication.shared
-//            let email = "hajjianwer2013@gmail.com"
-//            if let url = URL(string: "mailto:\(email)") {
-//              if #available(iOS 10.0, *) {
-//                UIApplication.shared.open(url)
-//              } else {
-//                UIApplication.shared.openURL(url)
-//              }
-//            }
-            
             print(network.link ?? "")
+            if network.socialNetworkID == "1" {
+                Contstant.openFb(username: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "2" {
+                Contstant.openInstagram(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "3" {
+                Contstant.openLinkedIn(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "4" {
+                Contstant.openPaypal(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "5" {
+                Contstant.openSkype(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                } installSkypeCompletion: {
+                    let alert = UIAlertController(title: "Skype app not found", message: "Would you like to unstall it ?", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                    let confirmAction = UIAlertAction(title: "Proceed", style: .destructive) { _ in
+                        if let webURL = URL(string: "http://itunes.com/apps/skype/skype") {
+                            UIApplication.shared.open(webURL)
+                        }
+                    }
+                    alert.addAction(cancelAction)
+                    alert.addAction(confirmAction)
+                    self.present(alert, animated: true)
+                }
+
+            } else if network.socialNetworkID == "6" {
+                Contstant.openSnapshat(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "7" {
+                Contstant.openTiktok(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "8" {
+                Contstant.openTwitch(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "9" {
+                Contstant.openTwitter(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "10" {
+                Contstant.openEmail(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "11" {
+                Contstant.openWebsite(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The website url does not found")
+                }
+            } else if network.socialNetworkID == "12" {
+                Contstant.openTelegram(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "13" {
+                Contstant.openFaceTime(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "FaceTime does not available")
+                }
+            } else if network.socialNetworkID == "14" {
+                Contstant.openYoutube(link: network.link ?? "") {
+                    self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                }
+            } else if network.socialNetworkID == "15" {
+                Contstant.openPhone(link: network.link ?? "") {
+                }
+            }
         }
         self.tabBarController?.tabBar.isHidden = true
         self.viewContainer.addBlurEffect()
