@@ -56,7 +56,7 @@ class MoreVC: UIViewController, SubViewConroller {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if profile?.isApproved == "1" && profile?.nfcTag?.isEmptyString == false {
+        if profile?.nfcTag?.isEmptyString == false {
             activateNFCLbl.text = "DEACTIVATE_NFC".localized
         } else {
             activateNFCLbl.text = "ACTIVATE_NFC".localized

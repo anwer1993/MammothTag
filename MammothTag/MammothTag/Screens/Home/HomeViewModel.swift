@@ -46,7 +46,7 @@ extension HomeViewController {
                         if done {
                             this.profile = data
                             this.moreVC.profile = data
-                            if this.profile?.isApproved == "1" && this.profile?.nfcTag?.isEmptyString == false {
+                            if this.profile?.nfcTag?.isEmptyString == false {
                                 this.activateNFCLabel.text = "DEACTIVATE_NFC".localized
                                 AccountManager.shared.isApproved = true
                                 this.activateNFCImage.alpha = 1

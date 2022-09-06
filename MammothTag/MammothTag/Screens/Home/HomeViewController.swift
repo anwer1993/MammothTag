@@ -449,7 +449,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func showScanNFCPopup(_ gesture: UITapGestureRecognizer? = nil) {
         isActivateBtnTapped = true
-        if profile?.isApproved == "1" && profile?.nfcTag?.isEmptyString == false {
+        if profile?.nfcTag?.isEmptyString == false {
             let alert = UIAlertController(title: "Please confirm", message: "Are you sure,  you want to deactivate the NFC tag ?", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in

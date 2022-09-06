@@ -56,6 +56,7 @@ class ContactTableViewCell: UITableViewCell {
         contactNameLbl.text = contact.name
         addedDateLbl.text = contact.createdAt?.stringFromDate
         addIcon.isHidden = true
+        addedDateLbl.text = ""
     }
 
     @objc func deleteContactOrRequest(_gesture: UITapGestureRecognizer? = nil) {
