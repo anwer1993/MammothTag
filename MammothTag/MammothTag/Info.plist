@@ -18,18 +18,6 @@
 		<string>paypal</string>
 		<string>skype</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>NSCameraUsageDescription</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo Library Add Usage Description</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Photo Library Add Usage Description</string>
-	<key>NSContactsUsageDescription</key>
-	<string>Contacts Usage Description</string>
-	<key>NSDesktopFolderUsageDescription</key>
-	<string>Desktop Folder Usage Description</string>
-	<key>NFCReaderUsageDescription</key>
-	<string>NFC Scan Usage Description</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
