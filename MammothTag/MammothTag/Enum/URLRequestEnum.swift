@@ -28,6 +28,7 @@ enum URLRequest: String {
     case DEACTIVATE_NFC_URL
     case ACTIVATE_NFC_URL
     case USER_BY_NFC_URL
+    case ADD_USER_URL
     //Car
     case ADD_CARD_NETWORK
     case EDIT_CARD_NETWORK
@@ -103,6 +104,8 @@ enum URLRequest: String {
             return "http://mubadiroun.com/Mammouth/public/api/v1/user/nfc/update/en"
         case .USER_BY_NFC_URL:
             return "http://mubadiroun.com/Mammouth/public/api/v1/user/profile/nfc/en?token="
+        case .ADD_USER_URL:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/add/en"
         }
     }
 }

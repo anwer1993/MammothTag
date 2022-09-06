@@ -4,7 +4,7 @@
 //
 //  Created by Anwar Hajji on 11/08/2022.
 //
-
+import CoreNFC
 import UIKit
 
 class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,Storyboarded {
@@ -47,6 +47,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
     var contactList = [DatumListContact]()
     
     var swipeTap = UIPanGestureRecognizer()
+    var session: NFCTagReaderSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,24 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
         swipeTap.delegate = self
         segmentView.addGestureRecognizer(swipeTap)
         segmentView.isHidden = true
+        let addUserTap = UITapGestureRecognizer(target: self, action: #selector(addUser(_:)))
+        addIcon.addTagGesture(addUserTap)
+    }
+    
+    @objc func addUser(_ gesture: UITapGestureRecognizer? = nil) {
+        guard NFCNDEFReaderSession.readingAvailable else {
+            let alertController = UIAlertController(
+                title: "Scanning Not Supported",
+                message: "This device doesn't support tag scanning.",
+                preferredStyle: .alert
+            )
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
+        session?.alertMessage = ""
+        session?.begin()
     }
     
     @objc func didSwipeAlert(_ sender:UIPanGestureRecognizer) {
@@ -199,3 +218,37 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource 
     
     
 }
+
+
+extension ContactListViewController: NFCTagReaderSessionDelegate {
+    
+    func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
+        print("session did begin")
+    }
+    
+    func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
+        print("error invalide session", error.localizedDescription)
+    }
+    
+    func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
+        print("connect nfc tag")
+        let tag = tags.first!
+        session.connect(to: tag) { error in
+            if let error = error {
+                print("error connaction", error.localizedDescription)
+            }
+        }
+        if case let .miFare(stag) = tag {
+            let uiid = stag.identifier.map({String(format: "%.2hhx", $0)}).joined()
+            print("UIId", uiid)
+            session.invalidate()
+            DispatchQueue.main.async {
+                self.getUserByNFCTag(nfc_tag: uiid)
+            }
+        }
+    }
+    
+    
+}
+
+

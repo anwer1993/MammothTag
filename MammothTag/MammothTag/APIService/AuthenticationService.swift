@@ -126,6 +126,15 @@ class AuthenticationService {
         }
     }
     
+    func addUser(user_id: String, token: String, completion: @escaping(AddUserServerResponseModel?) -> Void) {
+        let parameters = ["user_id" : user_id] as Parameters
+        let headers: HTTPHeaders = [.authorization(bearerToken: token)]
+        AF.request(URLRequest.ADD_USER_URL.url, method: .post, parameters: parameters, headers: headers).validate().responseDecodable(of: AddUserServerResponseModel.self) { data in
+            completion(data.value)
+        }
+
+    }
+    
     func updateUser(userModel: RegisterModel, token: String, completion: @escaping(ServerResponseModel<ProfileModel>) -> Void) {
         let parameters = ["name": userModel.firstName,
                           "username": userModel.LastName,

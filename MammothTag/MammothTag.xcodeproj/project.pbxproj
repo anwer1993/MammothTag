@@ -24,6 +24,7 @@
 		A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A627DAAA28A02F2100F0D54E /* Authentification.storyboard */; };
 		A628D52828BFDFFB002099B7 /* AddSocialMediaVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A628D52728BFDFFB002099B7 /* AddSocialMediaVc.swift */; };
 		A628D52A28BFE008002099B7 /* AddSocialMediaVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A628D52928BFE008002099B7 /* AddSocialMediaVc.xib */; };
+		A62A07CD28C7CE15004DEC43 /* AddUserServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A07CC28C7CE15004DEC43 /* AddUserServerResponseModel.swift */; };
 		A62B1BDE28AA902300948860 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B1BDD28AA902300948860 /* MoreVC.swift */; };
 		A62B1BE028AA903800948860 /* MoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BDF28AA903800948860 /* MoreVC.xib */; };
 		A62B1BE328AA9E2B00948860 /* AddNewCardVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */; };
@@ -159,6 +160,7 @@
 		A627DAAA28A02F2100F0D54E /* Authentification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentification.storyboard; sourceTree = "<group>"; };
 		A628D52728BFDFFB002099B7 /* AddSocialMediaVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSocialMediaVc.swift; sourceTree = "<group>"; };
 		A628D52928BFE008002099B7 /* AddSocialMediaVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSocialMediaVc.xib; sourceTree = "<group>"; };
+		A62A07CC28C7CE15004DEC43 /* AddUserServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserServerResponseModel.swift; sourceTree = "<group>"; };
 		A62B1BDD28AA902300948860 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		A62B1BDF28AA903800948860 /* MoreVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreVC.xib; sourceTree = "<group>"; };
 		A62B1BE228AA9E2B00948860 /* AddNewCardVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardVc.xib; sourceTree = "<group>"; };
@@ -658,6 +660,7 @@
 				A6D2D7F328B286F600DDF2A1 /* ForgotPasswordModel.swift */,
 				A688ED0C28AFF1810010AE54 /* ServerResponseModel.swift */,
 				A67FAB3E28C6A84900BAB96B /* ProfileServerResponseModel.swift */,
+				A62A07CC28C7CE15004DEC43 /* AddUserServerResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1109,6 +1112,7 @@
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,
 				A6E94DD628AEEE4B00A1D14B /* SettingsViewModel.swift in Sources */,
 				A6C8494928A4897C00CF7E61 /* ContactListViewController.swift in Sources */,
+				A62A07CD28C7CE15004DEC43 /* AddUserServerResponseModel.swift in Sources */,
 				A62E776F28C39B1400DC2DD2 /* PrivilageCardView.swift in Sources */,
 				A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */,
 				A6D6F27D28A1C6C600AD3C9C /* DynamicType.swift in Sources */,
