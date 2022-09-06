@@ -227,13 +227,6 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        let screenWidth = UIScreen.main.bounds.width - 20
-//        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: customSegmentControlView.bounds.height)
-//        let view = CustomSegmentControlView(frame: frame)
-//        self.customSegmentControlView.addSubview(view)
-        getProfile()
-//        publicAllCard(card_id: "\(selectedCard?.id ?? 0)")
-        
     }
     
     
@@ -330,6 +323,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidAppear(animated)
         addSocialMediaTopConstrainteOriginal = addSocialMediaTopConstrainte.constant
         addLblBottomConstrainteOriginal = addLblBottomConstrainte.constant
+        self.getProfile()
     }
     
     override func viewWillLayoutSubviews() {
@@ -476,9 +470,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
                 return
             }
             session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
-            session?.alertMessage = ""
-//            self.viewContainer.addBlurEffect()
-//            showScanNFCPopup()
+            session?.alertMessage = "SCAN_NFC_DESC".localized
             session?.begin()
         }
         

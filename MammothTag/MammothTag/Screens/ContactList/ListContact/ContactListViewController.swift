@@ -75,7 +75,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
             return
         }
         session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
-        session?.alertMessage = ""
+        session?.alertMessage = "SCAN_NFC_DESC".localized
         session?.begin()
     }
     

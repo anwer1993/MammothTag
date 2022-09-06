@@ -14,8 +14,8 @@
             filePath = "MammothTag/Screens/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "558"
-            endingLineNumber = "558"
+            startingLineNumber = "550"
+            endingLineNumber = "550"
             landmarkName = "tagReaderSession(_:didDetect:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -87,16 +87,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0812C66E-54BB-4A89-B973-B9600FCA10A0"
+            uuid = "76915AF9-026B-4C36-9C7D-22955944152E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MammothTag/Extension/UIViewControllerExtension.swift"
+            filePath = "MammothTag/Utilities/XibFile/AddSocialMediaVC/AddSocialMediaVc.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "showOrHideLoader(done:)"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "initView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

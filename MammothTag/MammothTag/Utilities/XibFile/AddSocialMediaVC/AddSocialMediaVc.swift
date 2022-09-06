@@ -39,13 +39,13 @@ class AddSocialMediaVc: UIViewController, SubViewConroller {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initView()
         let tap = UITapGestureRecognizer(target: self, action: #selector(updateStatus(_:)))
         switcherIcon.addTagGesture(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        initView()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }

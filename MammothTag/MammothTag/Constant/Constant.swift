@@ -40,7 +40,7 @@ class Contstant {
         SocialMediaModel(imageName: "skype", socialMediaName: "Skype", socialMediaId: 5),
         SocialMediaModel(imageName: "ic_platform_snapchat", socialMediaName: "Snapchat", socialMediaId: 6),
         SocialMediaModel(imageName: "ic_platform_tiktok", socialMediaName: "Tiktok", socialMediaId: 7),
-        SocialMediaModel(imageName: "pinterest", socialMediaName: "Twitch", socialMediaId: 8),
+        SocialMediaModel(imageName: "twtch", socialMediaName: "Twitch", socialMediaId: 8),
         SocialMediaModel(imageName: "ic_platform_twitter", socialMediaName: "Twitter", socialMediaId: 9),
         SocialMediaModel(imageName: "email", socialMediaName: "Gmail", socialMediaId: 10),
         SocialMediaModel(imageName: "website", socialMediaName: "Website", socialMediaId: 11),
