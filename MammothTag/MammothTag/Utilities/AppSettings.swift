@@ -17,11 +17,12 @@ struct AppSettings {
     
     var appLanguage : AppLanguage? {
         get {
-            let appLang = Locale.preferredLanguages[0]
-            if appLang.lowercased().starts(with: "en") {
-                return .EN
-            } else {
+            
+            let appLang = UserDefaults.standard.string(forKey: "language") ?? ""
+            if appLang.lowercased().starts(with: "ar") {
                 return .AR
+            } else {
+                return .EN
             }
         }
     }
