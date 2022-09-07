@@ -13,7 +13,9 @@ class Dynamic<T> {
     
     var value :T? {
         didSet {
-            bind(value!)
+            if let value = value {
+                bind(value)
+            }
         }
     }
     
