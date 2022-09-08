@@ -28,9 +28,6 @@ class SettingsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var shadowInffoViewWidthConstarinte: NSLayoutConstraint!
     
     
-    
-    
-    var viewModel = SettingsViewModel()
     var profile: DataClassProfile?
     
     var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "LOGOUT".localized, "DELETE_ACCOUNT".localized]
@@ -40,19 +37,11 @@ class SettingsViewController: UIViewController, Storyboarded {
         self.navigationController?.isNavigationBarHidden = true
         setupTableView()
         setupUI()
-        viewModel.bindViewModelDataToController = {[weak self] success,model, message in
-            guard let this = self else {
-                return
-            }
-            this.showOrHideLoader(done: true)
-            this.updateUIWhenGetProfile(sucess: success ,profile: model, message: message)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showOrHideLoader(done: false)
-        viewModel.getProfile()
+        getProfile()
     }
     
     func setupTableView() {
@@ -87,30 +76,19 @@ class SettingsViewController: UIViewController, Storyboarded {
         view.layoutIfNeeded()
     }
     
-    func updateUIWhenGetProfile(sucess: String?, profile: DataClassProfile?, message: String) {
-        if sucess == "success" {
-            if let profile = profile {
-                self.profile = profile
-                emailLbl.text = profile.email
-                profileNameLbl.text = "\(profile.name ?? "") \(profile.username ?? "")"
-                if let dob = profile.birthday?.dateFromString, let age = dob.age {
-                    ageLbl.text = "\(age)"
-                }
-                if let picture = profile.picture, picture.isEmptyString == false {
-                    let url = URL(string: picture)
-                    profileImage.kf.setImage(with: url)
-                } else {
-                    profileImage.image = UIImage(named: "avatar")
-                }
-            } else {
-                showAlert(withTitle: "Error", withMessage: message)
-            }
-        } else {
-            showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
-                self.expireSession(isExppired: true)
-            }
+    func updateUIWhenGetProfile(profile: DataClassProfile?) {
+        self.profile = profile
+        emailLbl.text = profile?.email
+        profileNameLbl.text = "\(profile?.name ?? "") \(profile?.username ?? "")"
+        if let dob = profile?.birthday?.dateFromString, let age = dob.age {
+            ageLbl.text = "\(age)"
         }
-        
+        if let picture = profile?.picture, picture.isEmptyString == false {
+            let url = URL(string: picture)
+            profileImage.kf.setImage(with: url)
+        } else {
+            profileImage.image = UIImage(named: "avatar")
+        }
     }
     
 }

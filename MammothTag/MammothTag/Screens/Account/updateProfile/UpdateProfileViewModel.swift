@@ -93,8 +93,8 @@ extension UpdateProfileViewModel {
             return
         }
         
-        if password.count < 8 {
-            let brokenRule = BrokenRule(propertyName: .passwordTooShort)
+        if password != AccountManager.shared.password {
+            let brokenRule = BrokenRule(propertyName: .confirmPassword)
             self.brokenRules.append(brokenRule)
             return
         }

@@ -77,11 +77,12 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         initializeView()
         dateOfBirthTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
-        passwordTextField.isUserInteractionEnabled = false
-        passwordTextField.text = AccountManager.shared.password
-        updateProfileViewModel.password.value = AccountManager.shared.password
+//        passwordTextField.isUserInteractionEnabled = false
+//        passwordTextField.text = AccountManager.shared.password
+//        updateProfileViewModel.password.value = AccountManager.shared.password
         passwordTextField.isSecureTextEntry  = true
-        passwordStaticLabel.isHidden = false
+        passwordStaticLabel.isHidden = true
+        passwordTextField.enablePasswordToggle()
     }
     
     @objc func handleDatePicker(sender: UIDatePicker) {
@@ -99,7 +100,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
             }
             this.showOrHideLoader(done: true)
             if done {
-                this.navigationController?.popViewController(animated: true)
+                this.getProfile()
             } else {
                 this.showAlert(withTitle: "Error", withMessage: message)
             }
@@ -122,7 +123,8 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     func initializeView() {
         profilePicture.layer.cornerRadius = 50
         viewProfilePic.layer.cornerRadius = 50
-        viewProfilePic.applySketchShadow(color: UIColor.black37, alpha: 1, x: 0, y: 5, blur: 20, spread: 0)
+        viewProfilePic.layer.borderColor = UIColor.tangerine.cgColor
+        viewProfilePic.layer.borderWidth = 3
         setupLocalizedText()
         backButton.flipWhenRTL(image: UIImage(named: "Groupe 469")!)
         sendButton.customizeButton()
@@ -190,6 +192,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         emailTextField.keyboardType = .emailAddress
         dateOfBirthTextField.delegate = self
         phoneTextField.delegate = self
+        passwordTextField.delegate = self
         phoneTextField.keyboardType = .phonePad
         firstNameStaticLbl.textColor = .tangerine
         lastNameStaticLabel.textColor = .tangerine
@@ -217,7 +220,6 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
                     break
                 case .email:
                     updateUIWhenEndEditingTextField(emailTextField)
-                    print("invalid email")
                     break
                 case .dateOfBirth:
                     updateUIWhenEndEditingTextField(dateOfBirthTextField)
@@ -229,11 +231,11 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
                     updateUIWhenEndEditingTextField(passwordTextField)
                     break
                 case .passwordTooShort:
-                    showAlert(withTitle: "Error", withMessage: "Passwords too short, please try another time")
                     break
                 case .emptyConfirmPassword:
                     break
                 case .confirmPassword:
+                    showAlert(withTitle: "Oops", withMessage: "Invalid passsword")
                     break
                 case .picture:
                     break
@@ -380,6 +382,7 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
         } else if textField == phoneTextField{
+            passwordStaticLabel.isHidden = false
             resetTextField(phoneView, phoneStaticLabel)
             updateOtherTextFieldWhenToggle(otherTextField: firstNameTestField, parentView: viewFirstName, textFieldTitle: firstNameStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: lastNameTextField, parentView: viewLastName, textFieldTitle: lastNameStaticLabel, isHidden: true)
@@ -400,6 +403,33 @@ extension UpdateProfileViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateUIWhenEndEditingTextField(textField)
         print("TextField did end editing method called")
+    }
+    
+}
+
+
+extension UpdateProfileViewController {
+    
+    func getProfile() {
+        if let token = AccountManager.shared.token {
+            AuthenticationService.sharedInstance.getUserProfile(token: token) {[weak self] data in
+                guard let this = self else {return}
+                if let data = data {
+                    if let done = data.result, done == true {
+                        AccountManager.shared.profile = data.data
+                        this.navigationController?.popViewController(animated: true)
+                    } else {
+                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again") {
+                            this.expireSession(isExppired: true)
+                        }
+                    }
+                } else {
+                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again") {
+                        this.expireSession(isExppired: true)
+                    }
+                }
+            }
+        }
     }
     
 }

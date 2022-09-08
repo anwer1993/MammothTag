@@ -56,7 +56,12 @@ class ContactTableViewCell: UITableViewCell {
         contactNameLbl.text = contact.name
         addedDateLbl.text = contact.createdAt?.stringFromDate
         addIcon.isHidden = true
-//        addedDateLbl.text = ""
+        if let picture = contact.picture, picture.isEmptyString == false {
+            let url = URL(string: picture)
+            contactImage.kf.setImage(with: url)
+        } else {
+            contactImage.image = UIImage(named: "avatar")
+        }
     }
 
     @objc func deleteContactOrRequest(_gesture: UITapGestureRecognizer? = nil) {

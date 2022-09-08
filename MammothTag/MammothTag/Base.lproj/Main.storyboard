@@ -1079,13 +1079,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LI7-Er-SF2">
                                                                         <rect key="frame" x="10" y="10" width="348" height="48"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxZ-Xq-vhX">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxZ-Xq-vhX">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="348" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New password*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lVg-47-KJi" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter your password*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lVg-47-KJi" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="14.5" width="348" height="33.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>

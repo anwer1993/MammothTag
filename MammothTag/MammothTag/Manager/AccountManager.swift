@@ -26,6 +26,25 @@ class AccountManager {
         }
     }
     
+    var profile: DataClassProfile? {
+        get {
+            let defaults = UserDefaults.standard
+            if let savedProfile = defaults.object(forKey: "Profile") as? Data {
+                let decoder = JSONDecoder()
+                return try? decoder.decode(DataClassProfile.self, from: savedProfile)
+            }
+            return nil
+        }
+        set {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(newValue) {
+                let defaults = UserDefaults.standard
+                defaults.set(encoded, forKey: "Profile")
+                defaults.synchronize()
+            }
+        }
+    }
+    
     var token: String? {
         get {
             return UserDefaults.standard.string(forKey: "token")
