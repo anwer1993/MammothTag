@@ -56,6 +56,7 @@
 "LOGOUT" = "تسجيل الخروج";
 "MY_INFO" = "معلوماتي";
 "CHANGE_PASSWORD" = "تغيير كلمة المرور" ;
+"DELETE_ACCOUNT" = "حذف الحساب";
 
 
 // Contact

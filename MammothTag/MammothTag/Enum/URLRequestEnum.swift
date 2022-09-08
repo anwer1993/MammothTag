@@ -44,6 +44,8 @@ enum URLRequest: String {
     case DELETE_CONTACT
     case GET_USER_BY_ID_URL
     
+    case DELETE_ACCOUNT_URL
+    
     var url: String {
         switch self {
         case .REGISTER_URL:
@@ -106,6 +108,8 @@ enum URLRequest: String {
             return "http://mubadiroun.com/Mammouth/public/api/v1/user/profile/nfc/en?token="
         case .ADD_USER_URL:
             return "http://mubadiroun.com/Mammouth/public/api/v1/contact/add/en"
+        case .DELETE_ACCOUNT_URL:
+            return "http://mubadiroun.com/Mammouth/public/api/v1/user/remove/en"
         }
     }
 }

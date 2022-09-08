@@ -1523,7 +1523,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbu-6V-qlc">
                                         <rect key="frame" x="24" y="53" width="80" height="80"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo2" translatesAutoresizingMaskIntoConstraints="NO" id="ULn-vE-Twr">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ULn-vE-Twr">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             </imageView>
                                         </subviews>
@@ -1732,7 +1732,6 @@
         <image name="home-TopBg" width="412" height="144"/>
         <image name="ic_platform_instagram" width="198" height="198"/>
         <image name="mamooth_tag" width="111" height="111"/>
-        <image name="photo2" width="226" height="223"/>
         <image name="suscribe_bg" width="412" height="778"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

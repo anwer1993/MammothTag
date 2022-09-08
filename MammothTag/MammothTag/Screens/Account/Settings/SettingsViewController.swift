@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController, Storyboarded {
     var viewModel = SettingsViewModel()
     var profile: DataClassProfile?
     
-    var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "LOGOUT".localized]
+    var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "LOGOUT".localized, "DELETE_ACCOUNT".localized]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,7 +119,7 @@ class SettingsViewController: UIViewController, Storyboarded {
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return settingsArray.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -147,6 +147,17 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             Router.shared.push(with: self.navigationController, screen: .Terms(source: .none), animated: true)
         } else if indexPath.row == 4 {
             logout()
+        } else {
+            let alert = UIAlertController(title: "Please confirm", message: "You want to delete this account ?", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                AccountManager.shared.email = ""
+                AccountManager.shared.password = ""
+                self.deleteAccount()
+            }
+            alert.addAction(cancelAction)
+            alert.addAction(confirmAction)
+            self.present(alert, animated: true)
         }
     }
     

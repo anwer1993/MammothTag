@@ -132,7 +132,13 @@ class AuthenticationService {
         AF.request(URLRequest.ADD_USER_URL.url, method: .post, parameters: parameters, headers: headers).validate().responseDecodable(of: AddUserServerResponseModel.self) { data in
             completion(data.value)
         }
-
+    }
+    
+    func  deleteAccount(token: String, completion: @escaping(LoginServerResponseData?) -> Void) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: token)]
+        AF.request(URLRequest.DELETE_ACCOUNT_URL.url, method: .post, headers: headers).validate().responseDecodable(of: LoginServerResponseData.self) { data in
+            completion(data.value)
+        }
     }
     
     func updateUser(userModel: RegisterModel, token: String, completion: @escaping(ServerResponseModel<ProfileModel>) -> Void) {

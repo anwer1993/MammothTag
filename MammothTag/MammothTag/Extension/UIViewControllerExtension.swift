@@ -106,4 +106,29 @@ extension UIViewController {
         })
     }
     
+    func deleteAccount() {
+        if let token = AccountManager.shared.token {
+            self.showOrHideLoader(done: false)
+            AuthenticationService.sharedInstance.deleteAccount(token: token) { [weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let resp = resp {
+                    if let done = resp.result, done == true {
+                        let domain = Bundle.main.bundleIdentifier!
+                        UserDefaults.standard.removePersistentDomain(forName: domain)
+                        UserDefaults.standard.synchronize()
+                        Contstant.updateRootVC()
+                    }
+                } else {
+                    this.showOrHideLoader(done: true)
+                    AccountManager.shared.token = nil
+                    AccountManager.shared.isApproved = false
+                    Contstant.updateRootVC()
+                }
+            }
+        }
+    }
+    
+    
+    
 }
