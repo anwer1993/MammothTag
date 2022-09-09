@@ -61,15 +61,15 @@ extension ContactDetailsViewController {
                             this.socielMediaCollectionView.reloadData()
                             this.cardsTableView.reloadData()
                         }else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired"){
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired"){
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }

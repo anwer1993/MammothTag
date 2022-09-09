@@ -27,12 +27,12 @@ extension ContactListViewController {
                             this.showAlertWithOk(withTitle: "Error", withMessage: message)
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }
@@ -57,12 +57,12 @@ extension ContactListViewController {
                             this.showAlertWithOk(withTitle: "Error", withMessage: message)
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }
@@ -85,15 +85,15 @@ extension ContactListViewController {
                                 this.getRequestList()
                             }
                         }else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }
@@ -116,15 +116,15 @@ extension ContactListViewController {
                                 this.getRequestList()
                             }
                         }else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }
@@ -147,15 +147,15 @@ extension ContactListViewController {
                                 this.getRequestList()
                             }
                         }else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again"){
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }
@@ -175,15 +175,15 @@ extension ContactListViewController {
                             let user_id = data.id ?? 0
                             this.AddUser(user_id: "\(user_id)")
                         }else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }
@@ -202,15 +202,15 @@ extension ContactListViewController {
                         if done {
                             this.getContactList()
                         }else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }
@@ -225,9 +225,9 @@ extension ContactListViewController {
 extension ContactListViewController: contactProtocol {
     
     func deleteRequest(request: DatumListRequest) {
-        let alert = UIAlertController(title: "Please confirm", message: "You want to delete this request ?", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+        let alert = UIAlertController(title: "PLEASE_CONFIRM".localized, message: "DELETE_REQUEST_ALERT".localized, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "CANCEL".localized, style: .cancel)
+        let confirmAction = UIAlertAction(title: "DELETE".localized, style: .destructive) { _ in
             self.deleteRequest(user_id: "\(request.id ?? 0)")
         }
         alert.addAction(cancelAction)
@@ -240,9 +240,9 @@ extension ContactListViewController: contactProtocol {
     }
     
     func deleteContact(contact: DatumListContact) {
-        let alert = UIAlertController(title: "Please confirm", message: "You want to delete this contact ?", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+        let alert = UIAlertController(title: "PLEASE_CONFIRM".localized, message: "DELETE_CONTACT_ALERT".localized, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "CANCEL".localized, style: .cancel)
+        let confirmAction = UIAlertAction(title: "DELETE".localized, style: .destructive) { _ in
             self.deleteContact(user_id: "\(contact.id ?? 0)")
         }
         alert.addAction(cancelAction)

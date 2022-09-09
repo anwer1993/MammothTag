@@ -10,7 +10,8 @@ import Foundation
 extension String {
     
     var localized: String {
-        return NSLocalizedString(self, comment: "")
+        return LocalizationSystem.sharedInstance.localizedStringForKey(key: self, comment: "")
+//        return NSLocalizedString(self, comment: "")
     }
     
     var isEmptyString: Bool {

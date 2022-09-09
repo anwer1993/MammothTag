@@ -46,6 +46,8 @@ struct UpdateProfileViewModel {
             AuthenticationService.sharedInstance.updateUser(userModel: registerModel, token: token) { response in
                 if let message = response.message, let isDone = response.result {
                     updateUIWhenRegister(isDone, message)
+                } else {
+                    updateUIWhenRegister(false, "Fail")
                 }
             }
         }

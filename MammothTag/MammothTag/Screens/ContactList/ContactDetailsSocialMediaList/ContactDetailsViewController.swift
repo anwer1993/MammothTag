@@ -150,27 +150,27 @@ extension ContactDetailsViewController: UICollectionViewDelegate, UICollectionVi
         let network = cardNetworkList[indexPath.row]
         if network.socialNetworkID == "1" {
             Contstant.openFb(username: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "2" {
             Contstant.openInstagram(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "3" {
             Contstant.openLinkedIn(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "4" {
             Contstant.openPaypal(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "5" {
             Contstant.openSkype(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             } installSkypeCompletion: {
-                let alert = UIAlertController(title: "Skype app not found", message: "Would you like to unstall it ?", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-                let confirmAction = UIAlertAction(title: "Proceed", style: .destructive) { _ in
+                let alert = UIAlertController(title: "SKYPE_NOT_FOUND".localized, message: "INSTALL_SKYPE".localized, preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "CANCEL".localized, style: .cancel)
+                let confirmAction = UIAlertAction(title: "PROCEED".localized, style: .destructive) { _ in
                     if let webURL = URL(string: "http://itunes.com/apps/skype/skype") {
                         UIApplication.shared.open(webURL)
                     }
@@ -182,39 +182,39 @@ extension ContactDetailsViewController: UICollectionViewDelegate, UICollectionVi
 
         } else if network.socialNetworkID == "6" {
             Contstant.openSnapshat(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "7" {
             Contstant.openTiktok(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "8" {
             Contstant.openTwitch(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "9" {
             Contstant.openTwitter(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "10" {
             Contstant.openEmail(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "11" {
             Contstant.openWebsite(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The website url does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "URL_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "12" {
             Contstant.openTelegram(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "13" {
             Contstant.openFaceTime(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "FaceTime does not available")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "FACETIME_NOT_AVAILABLE".localized)
             }
         } else if network.socialNetworkID == "14" {
             Contstant.openYoutube(link: network.link ?? "") {
-                self.showAlert(withTitle: "Oops", withMessage: "The link does not found")
+                self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
             }
         } else if network.socialNetworkID == "15" {
             Contstant.openPhone(link: network.link ?? "") {

@@ -103,6 +103,8 @@
 		A6DD488128A2945500747B01 /* RegisterViewConntroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD488028A2945500747B01 /* RegisterViewConntroller.swift */; };
 		A6DD488328A2946100747B01 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD488228A2946100747B01 /* RegisterViewModel.swift */; };
 		A6E25A3928A5601B009B2D09 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E25A3828A5601B009B2D09 /* HomeViewController.swift */; };
+		A6E7492728CACC1B00FD04E5 /* LanguageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E7492628CACC1B00FD04E5 /* LanguageSystem.swift */; };
+		A6E7492A28CACFCB00FD04E5 /* AppSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E7492928CACFCB00FD04E5 /* AppSettingsVC.swift */; };
 		A6E94DD628AEEE4B00A1D14B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E94DD528AEEE4B00A1D14B /* SettingsViewModel.swift */; };
 		A6E9E98528B6BCDA0074D45D /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9E98428B6BCDA0074D45D /* UpdateProfileViewModel.swift */; };
 		A6E9E98728B6CBAE0074D45D /* CardTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9E98628B6CBAE0074D45D /* CardTypeEnum.swift */; };
@@ -245,6 +247,8 @@
 		A6DD488028A2945500747B01 /* RegisterViewConntroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewConntroller.swift; sourceTree = "<group>"; };
 		A6DD488228A2946100747B01 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		A6E25A3828A5601B009B2D09 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A6E7492628CACC1B00FD04E5 /* LanguageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSystem.swift; sourceTree = "<group>"; };
+		A6E7492928CACFCB00FD04E5 /* AppSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsVC.swift; sourceTree = "<group>"; };
 		A6E94DD528AEEE4B00A1D14B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A6E9E98428B6BCDA0074D45D /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
 		A6E9E98628B6CBAE0074D45D /* CardTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeEnum.swift; sourceTree = "<group>"; };
@@ -470,6 +474,7 @@
 		A68F76A628B44CB50051E0D4 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				A6E7492828CACFB500FD04E5 /* AppSettings */,
 				A6C8495228A4918B00CF7E61 /* Settings */,
 				A640DE3F28B6B0EE004EDB9B /* updateProfile */,
 				A6B72E8E28B2645400D69D8E /* UpdatePassword */,
@@ -528,6 +533,7 @@
 			children = (
 				A6DD487B28A27D5E00747B01 /* AppRouterManager.swift */,
 				A6A6959628A6B8870025A3B2 /* AccountManager.swift */,
+				A6E7492628CACC1B00FD04E5 /* LanguageSystem.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -715,6 +721,14 @@
 				A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A6E7492828CACFB500FD04E5 /* AppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				A6E7492928CACFCB00FD04E5 /* AppSettingsVC.swift */,
+			);
+			path = AppSettings;
 			sourceTree = "<group>";
 		};
 		A6FC613728A02A0100756C74 = {
@@ -1083,6 +1097,7 @@
 				A6511F2428BBEC49003DF731 /* SocialMediaVC.swift in Sources */,
 				A648691328AEC9AF00C059C9 /* URLRequestEnum.swift in Sources */,
 				A6DD487E28A2802E00747B01 /* ForgotPassWordViewModel.swift in Sources */,
+				A6E7492A28CACFCB00FD04E5 /* AppSettingsVC.swift in Sources */,
 				A69B199F28A53A6600BE92F1 /* CustomTabbarView.swift in Sources */,
 				A60A8BB928C172A000B26621 /* UserServerResonse.swift in Sources */,
 				A6D6F28128A1C80700AD3C9C /* Validator.swift in Sources */,
@@ -1101,6 +1116,7 @@
 				A60A8BBE28C175DB00B26621 /* ContactCardsTableViewCell.swift in Sources */,
 				A6D2D7F928B2A23500DDF2A1 /* ChangeForgotPasswordViewModel.swift in Sources */,
 				A6C8494C28A48F3300CF7E61 /* ContactListViewData.swift in Sources */,
+				A6E7492728CACC1B00FD04E5 /* LanguageSystem.swift in Sources */,
 				A6979EB328A46190008C2B60 /* RegisterViewControllerImagePicker.swift in Sources */,
 				A6E25A3928A5601B009B2D09 /* HomeViewController.swift in Sources */,
 				A6A6959728A6B8870025A3B2 /* AccountManager.swift in Sources */,

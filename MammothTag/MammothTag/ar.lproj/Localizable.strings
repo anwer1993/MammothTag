@@ -57,8 +57,34 @@
 "MY_INFO" = "معلوماتي";
 "CHANGE_PASSWORD" = "تغيير كلمة المرور" ;
 "DELETE_ACCOUNT" = "حذف الحساب";
-
-
+"ERROR" = "عفوًا";
+"SESSION_EXPIRED" = "انتهت الجلسة";
+"PLEASE_CONFIRM" = "الرجاء التأكيد";
+"DELETE_REQUEST_ALERT" = "هل أنت متأكد من رغبتك في حذف هذا الطلب؟";
+"CANCEL" = "إلغاء";
+"DELETE" = "حذف";
+"DELETE_CONTACT_ALERT" = "هل أنت متأكد من رغبتك في حذف هذا الصديق ؟";
+"SCANING_NOT_SUPPORTED" = "المسح غير مدعوم";
+"DEVICE_NOT_SUPPORT_SCAN" = "هذا الجهاز لا يدعم فحص العلامات.";
+"OK" = "تمام";
+"LINK_NOT_FOUND" = "لم يتم العثور على الرابط";
+"URL_NOT_FOUND" = "عنوان url لموقع الويب غير موجود";
+"FACETIME_NOT_AVAILABLE" = "FaceTime غير متوفر";
+"SKYPE_NOT_FOUND" = "تطبيق Skype غير موجود";
+"INSTALL_SKYPE" = "هل ترغب في تثبيته؟";
+"PROCEED" = "متابعة";
+"INVALID_PASSWORD" = "كلمة مرور غير صالحة";
+"SUCCESS" = "نجاح";
+"UPDATE_PASSWORD" = "لقد قمت بتحديث كلمة المرور الخاصة بك";
+"ENTER_PASSWORD" = "الرجاء إدخال كلمة المرور القديمة";
+"ENTER_NEW_PASSWORD" = "الرجاء إدخال كلمة المرور الجديدة";
+"CONFIRM_PASSWORD" = "الرجاء تأكيد كلمة المرور الجديدة";
+"PASSWORD_TOO_SHORT" = "كلمة مرورك قصيرة جدًا";
+"PASSWORD_NOT_MATCH" = "تأكيد كلمة المرور غير متطابق";
+"LOGOUT" = "تسجيل الخروج";
+"LOGOUT_ALERT_MESSAGE" = "هل أنت متأكد من رغبتك في الخروج من تطبيق علامة Mammoth";
+"DELETE_ACCOUNT_MESSAGE" = "هل أنت متأكد من رغبتك في حذف هذا الحساب؟";
+"PLEASE_WAIT" = "الرجاء الانتظار ...";
 // Contact
 
 "CONTACTS" = "أصدقائي";

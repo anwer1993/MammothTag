@@ -63,14 +63,14 @@ class ChangeForgotPassword: UIViewController, Storyboarded {
     func updateUIWhenUpdatePassword(done: Bool, message: String) {
         showOrHideLoader(done: true)
         if done {
-            showAlertWithOk(withTitle: "Success", withMessage: "You have updated your password") {
+            showAlertWithOk(withTitle: "SUCCESS".localized, withMessage: "UPDATE_PASSWORD".localized) {
                 self.clearTextField(self.passwordTextField)
                 self.clearTextField(self.confirmPasswordTextField)
                 self.navigationController?.popViewController(animated: true)
                 self.delegate?.backToPreviousViewController()
             }
         } else {
-            showAlertWithOk(withTitle: "Error", withMessage: message)
+            showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
         }
     }
     
@@ -122,10 +122,10 @@ class ChangeForgotPassword: UIViewController, Storyboarded {
                     updateUIWhenEndEditingTextField(confirmPasswordTextField)
                     break
                 case .confirmPassword:
-                    showAlert(withTitle: "Error", withMessage: "Passwords not matched, please try to confirm your password")
+                    showAlertWithOk(withTitle: "ERROR".localized, withMessage: "PASSWORD_NOT_MATCH".localized)
                     break
                 case .passwordTooShort:
-                    showAlert(withTitle: "Error", withMessage: "Passwords too short, please try another time")
+                    showAlertWithOk(withTitle: "ERROR".localized, withMessage: "PASSWORD_TOO_SHORT".localized)
                     break
                 default:
                     break

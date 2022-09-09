@@ -30,7 +30,7 @@ class SettingsViewController: UIViewController, Storyboarded {
     
     var profile: DataClassProfile?
     
-    var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "LOGOUT".localized, "DELETE_ACCOUNT".localized]
+    var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "Settings", "LOGOUT".localized, "DELETE_ACCOUNT".localized]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,11 +124,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 3 {
             Router.shared.push(with: self.navigationController, screen: .Terms(source: .none), animated: true)
         } else if indexPath.row == 4 {
+            Router.shared.push(with: self.navigationController, screen: .AppSettings, animated: true)
+        } else if indexPath.row == 5{
             logout()
         } else {
-            let alert = UIAlertController(title: "Please confirm", message: "You want to delete this account ?", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-            let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            let alert = UIAlertController(title: "PLEASE_CONFIRM".localized, message: "DELETE_ACCOUNT_MESSAGE".localized, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "CANCEL".localized, style: .cancel)
+            let confirmAction = UIAlertAction(title: "DELETE".localized, style: .destructive) { _ in
                 AccountManager.shared.email = ""
                 AccountManager.shared.password = ""
                 self.deleteAccount()
@@ -140,3 +142,5 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+

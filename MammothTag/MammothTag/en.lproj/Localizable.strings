@@ -57,8 +57,34 @@
 "MY_INFO" = "My information";
 "CHANGE_PASSWORD" = "Change passoword";
 "DELETE_ACCOUNT" = "Delete account";
-
-
+"ERROR" = "Oops";
+"SESSION_EXPIRED" = "Session expired";
+"PLEASE_CONFIRM" = "Please confirm";
+"DELETE_REQUEST_ALERT" = "Are you sure you want to delete this request ?";
+"CANCEL" = "Cancel";
+"DELETE" = "Delete";
+"DELETE_CONTACT_ALERT" = "Are you sure you want to delete this contact ?";
+"SCANING_NOT_SUPPORTED" = "Scanning Not Supported";
+"DEVICE_NOT_SUPPORT_SCAN"  = "This device doesn't support tag scanning.";
+"OK" =  "OK";
+"LINK_NOT_FOUND" = "The link does not found";
+"URL_NOT_FOUND" = "The website url does not found";
+"FACETIME_NOT_AVAILABLE" = "FaceTime does not available";
+"SKYPE_NOT_FOUND" = "Skype app not found";
+"INSTALL_SKYPE" = "Would you like to unstall it ?";
+"PROCEED" = "Proceed";
+"INVALID_PASSWORD" = "Invalid passsword";
+"SUCCESS" = "Success";
+"UPDATE_PASSWORD" = "You have updated your password";
+"ENTER_PASSWORD" = "Please enter your old password";
+"ENTER_NEW_PASSWORD" = "Please enter your new password";
+"CONFIRM_PASSWORD" = "Please confirm your new password";
+"PASSWORD_TOO_SHORT" = "Your password is too short";
+"PASSWORD_NOT_MATCH" = "The password confirmation does not match";
+"LOGOUT" = "Logout";
+"LOGOUT_ALERT_MESSAGE" = "Are you sure you want to logout from Mammoth tag application";
+"DELETE_ACCOUNT_MESSAGE" = "Are you sure you want to delete this account ?";
+"PLEASE_WAIT" = "Please wait...";
 // Contact
 
 "CONTACTS" = "My contacts";

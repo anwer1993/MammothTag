@@ -66,11 +66,11 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
     @objc func addUser(_ gesture: UITapGestureRecognizer? = nil) {
         guard NFCNDEFReaderSession.readingAvailable else {
             let alertController = UIAlertController(
-                title: "Scanning Not Supported",
-                message: "This device doesn't support tag scanning.",
+                title: "SCANING_NOT_SUPPORTED".localized,
+                message: "DEVICE_NOT_SUPPORT_SCAN".localized,
                 preferredStyle: .alert
             )
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alertController.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
             return
         }
@@ -82,7 +82,6 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
     @objc func didSwipeAlert(_ sender:UIPanGestureRecognizer) {
         if sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled {
             let location = swipeTap.location(in: segmentView)
-            print("location", location.x)
             if AppSettings().appLanguage == .EN {
                 if location.x > segmentView.frame.width * 0.5 {
                     if selectedItem != 1 {

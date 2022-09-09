@@ -115,7 +115,7 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
                 Router.shared.push(with: self.navigationController, screen: .ChangeForgotPassword(code: forgotPasswordModel.code!, phone: forgotPasswordModel.phone!, delegate: self), animated: true)
             }
         } else {
-            showAlert(withTitle: "Error", withMessage: message)
+            showAlert(withTitle: "ERROR".localized, withMessage: message)
         }
     }
     

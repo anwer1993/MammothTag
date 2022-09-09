@@ -86,7 +86,6 @@ class UpdatePasswordController: UIViewController, Storyboarded {
                 print("passwordTextField hidden")
                 mamouthIconWidth.constant = 80
                 mamouthIconHeight.constant = 80
-//                mamouthIcon.layer.cornerRadius = 40
                 titleLblTopConstrainte.constant = 15
                 passwordStackTopConstraint.constant = 15
             }
@@ -96,7 +95,6 @@ class UpdatePasswordController: UIViewController, Storyboarded {
     @objc func keyboardWillHide(notification: NSNotification) {
         mamouthIconWidth.constant = mamouthIconWidthOriginal
         mamouthIconHeight.constant = mamouthIconHeightOriginal
-//        mamouthIcon.layer.cornerRadius = mamouthIconWidthOriginal * 0.5
         titleLblTopConstrainte.constant = titleLblTopConstrainteOriginal
         passwordStackTopConstraint.constant =  passwordStackTopConstraintOriginal
     }
@@ -150,11 +148,11 @@ class UpdatePasswordController: UIViewController, Storyboarded {
     func updateUIWhenUpdatePassword(done: Bool, message: String) {
         showOrHideLoader(done: true)
         if done {
-            showAlertWithOk(withTitle: "Success", withMessage: "You have updated your password") {
+            showAlertWithOk(withTitle: "SUCCESS".localized, withMessage: "UPDATE_PASSWORD".localized) {
                 self.dismiss(animated: true)
             }
         } else {
-            showAlertWithOk(withTitle: "Error", withMessage: message) {
+            showAlertWithOk(withTitle: "ERROR".localized, withMessage: message) {
                 self.resetTextField(self.viewOfNewPassword, self.newPasswordStaticLabel)
                 self.resetTextField(self.viewOfConfirmPassword, self.confirmPasswordStaticLabel)
                 self.resetTextField(self.viewOfOldPassword, self.oldPasswordStaticLabel)
@@ -162,7 +160,7 @@ class UpdatePasswordController: UIViewController, Storyboarded {
                 self.newPasswordTextField.text = ""
                 self.confirmPasswordTextField.text = ""
             }
-            showAlert(withTitle: "Error", withMessage: message)
+            showAlert(withTitle: "ERROR".localized, withMessage: message)
         }
     }
     
@@ -182,14 +180,19 @@ class UpdatePasswordController: UIViewController, Storyboarded {
             viewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
                 switch Brokenrule {
                 case .emptyOldPassword:
+                    showAlertWithOk(withTitle: "ERROR".localized, withMessage: "ENTER_PASSWORD".localized)
                     break
                 case .emptyPassword:
+                    showAlertWithOk(withTitle: "ERROR".localized, withMessage: "ENTER_NEW_PASSWORD".localized)
                     break
                 case .emptyConfirmPassword:
+                    showAlertWithOk(withTitle: "ERROR".localized, withMessage: "CONFIRM_PASSWORD".localized)
                     break
                 case .passwordTooShort:
+                    showAlertWithOk(withTitle: "ERROR".localized, withMessage: "PASSWORD_TOO_SHORT".localized)
                      break
                 case .confirmPassword:
+                    showAlertWithOk(withTitle: "ERROR".localized, withMessage: "PASSWORD_NOT_MATCH".localized)
                     break
                 default:
                     break

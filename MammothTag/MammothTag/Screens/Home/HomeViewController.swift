@@ -278,7 +278,9 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         if done {
             getProfile()
         } else if done == false && message == "Fail" {
-            showAlertWithOk(withTitle: "Error", withMessage: "Session expired")
+            showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
+                self.expireSession(isExppired: true)
+            }
         } else {
             showAlertWithOk(withTitle: "Error", withMessage: message)
         }

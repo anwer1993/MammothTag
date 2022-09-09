@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SpalchScreen: UIViewController {
+class SpalchScreen: UIViewController, Storyboarded {
     
     
     @IBOutlet weak var mamouthImage: UIImageView!

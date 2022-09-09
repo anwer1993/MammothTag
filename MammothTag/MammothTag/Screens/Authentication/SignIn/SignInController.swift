@@ -275,7 +275,7 @@ class SignInController: UIViewController, Storyboarded {
             AccountManager.shared.password = passwordTextField.text
             Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
         } else {
-            self.showAlert(withTitle: "Error", withMessage: message)
+            self.showAlert(withTitle: "ERROR".localized, withMessage: message)
         }
     }
     

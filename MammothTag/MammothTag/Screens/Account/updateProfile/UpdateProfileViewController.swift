@@ -77,9 +77,6 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         initializeView()
         dateOfBirthTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
-//        passwordTextField.isUserInteractionEnabled = false
-//        passwordTextField.text = AccountManager.shared.password
-//        updateProfileViewModel.password.value = AccountManager.shared.password
         passwordTextField.isSecureTextEntry  = true
         passwordStaticLabel.isHidden = true
         passwordTextField.enablePasswordToggle()
@@ -101,8 +98,12 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
             this.showOrHideLoader(done: true)
             if done {
                 this.getProfile()
+            } else if message.lowercased() != "Fail".lowercased() {
+                this.showAlert(withTitle: "ERROR".localized, withMessage: message)
             } else {
-                this.showAlert(withTitle: "Error", withMessage: message)
+                this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
+                    this.expireSession(isExppired: true)
+                }
             }
         }
     }
@@ -116,8 +117,8 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         emailStaticLbl.text = "EMAIL".localized
         passwordStaticLabel.text = "PASSWORD".localized
         passwordStaticLabel.textColor = .tangerine
-//        passwordStaticLabel.isHidden = true
         sendButton.setTitle("SEND".localized, for: .normal)
+        passwordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
     }
     
     func initializeView() {
@@ -235,7 +236,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
                 case .emptyConfirmPassword:
                     break
                 case .confirmPassword:
-                    showAlert(withTitle: "Oops", withMessage: "Invalid passsword")
+                    showAlert(withTitle: "ERROR".localized, withMessage: "INVALID_PASSWORD".localized)
                     break
                 case .picture:
                     break
@@ -419,12 +420,12 @@ extension UpdateProfileViewController {
                         AccountManager.shared.profile = data.data
                         this.navigationController?.popViewController(animated: true)
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again") {
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again") {
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }

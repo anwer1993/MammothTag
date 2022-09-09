@@ -7,27 +7,6 @@
 //
 import Foundation
 import UIKit
-//
-//struct HomeViewModel {
-//
-//
-//    var cardName: String = ""
-//    var cardTyp: CardTypeEnum = .Digital
-//    var cardPrivacy: CardPrivacy = .Public
-//    var cardId: Int = 0
-//
-//    var updateUIWhenAddCard: (Bool, String) -> () = {_,_ in }
-//    var updateUIWhenDeleteCard: (Bool, String) -> () = {_,_ in }
-//    var updateUIWhenGetCard: (Bool, [DatumCard]?,  String) -> () = {_,_,_ in }
-//
-//    mutating func validateCardName() -> Bool {
-//        return cardName.isEmptyString == false
-//    }
-//
-//
-//
-//
-//}
 
 extension HomeViewController {
     
@@ -102,15 +81,17 @@ extension HomeViewController {
                             this.socialMediaTable.reloadData()
                             
                         } else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                             this.privilageView.isHidden = true
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
+                            this.expireSession(isExppired: true)
+                        }
                         this.privilageView.isHidden = true
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again") {
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                     this.privilageView.isHidden = true
@@ -118,84 +99,6 @@ extension HomeViewController {
             }
         }
     }
-    
-    //    func getData() {
-    ////        getCards { done in
-    ////            if  done {
-    ////                self.getCardNetworks(cardI: "\(self.selectedCard?.id ?? 0)") {
-    ////                }
-    ////            }
-    ////        }
-    //    }
-    
-    //    func getCards(completion: @escaping (_ done: Bool) -> ()) {
-    //        if let token = AccountManager.shared.token {
-    //            showOrHideLoader(done: false)
-    //            CardService.shared.getCards(token: token) {[weak self] resp in
-    //                guard let this = self else {return}
-    //                this.showOrHideLoader(done: true)
-    //                if let response = resp {
-    //                    if let done = response.result, let message = response.message, let data = response.data {
-    //                        this.updateUIWhenGetCard(done: done, message: message, cards: data)
-    //                        completion(true)
-    //                    } else {
-    //                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again")
-    //                        this.privilageView.isHidden = true
-    //                        completion(false)
-    //                    }
-    //
-    //                } else {
-    //                    this.showOrHideLoader(done: true)
-    //                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again") {
-    //                        this.expireSession(isExppired: true)
-    //                    }
-    //                    this.privilageView.isHidden = true
-    //                    completion(false)
-    //                }
-    //            }
-    //        }
-    //    }
-    //
-    //    func getCardNetworks(cardI: String, completion: @escaping () -> ()) {
-    //        if let token = AccountManager.shared.token, let id = selectedCard?.id {
-    //            self.showOrHideLoader(done: false)
-    //            CardService.shared.getListCardNetwork(card_id: "\(id)", token: token) {  [weak self] resp in
-    //                guard let this = self else {return}
-    //                this.showOrHideLoader(done: true)
-    //                if let response = resp {
-    //                    if let done = response.result, let message = response.message, let data = resp?.data {
-    //                        if done {
-    //                            DispatchQueue.main.async {
-    //                                this.listCardNetwork = data.sorted(by: {Int($0.isOpenFirst ?? "1") ?? 1 > Int($1.isOpenFirst ?? "1") ?? 1})
-    //                                if this.listCardNetwork.contains(where: {$0.isOpenFirst ==  "1"}) {
-    //                                    this.selectedItem = 1
-    //                                } else {
-    //                                    this.selectedItem = 0
-    //                                }
-    //                                this.customSegmentControlView.isHidden = false
-    //                                if this.listCardNetwork.isEmpty {
-    //                                    this.addSocialMediaTopConstrainte.constant = -(this.socialMediaTable.frame.height * 0.75)
-    //                                    this.addLblBottomConstrainte.constant = (this.socialMediaTable.frame.height * 0.75)
-    //                                } else {
-    //                                    this.addSocialMediaTopConstrainte.constant = 10.0
-    //                                    this.addLblBottomConstrainte.constant = 20.0
-    //                                }
-    //                                this.socialMediaTable.reloadData()
-    //                            }
-    //                        } else {
-    //                            this.updateUIWhenAddCard(done: false, message: message)
-    //                        }
-    //                    } else {
-    //                        this.updateUIWhenAddCard(done: false, message: "Fail")
-    //                    }
-    //                    completion()
-    //                } else {
-    //                    this.updateUIWhenAddCard(done: false, message: "Fail")
-    //                    completion()
-    //                }
-    //            }
-    //        }
-    //    }
     
     func addCard(cardName: String, cardType: String, cardPrivacy: String) {
         if let token = AccountManager.shared.token {
@@ -226,10 +129,14 @@ extension HomeViewController {
                     if let done = response.result, let message = response.message {
                         this.updateUIDeleteCared(Done: done, message: message)
                     } else {
-                        this.updateUIDeleteCared(Done: false, message: "Fail")
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
+                            this.expireSession(isExppired: true)
+                        }
                     }
                 } else {
-                    this.updateUIDeleteCared(Done: false, message: "Fail")
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
+                        this.expireSession(isExppired: true)
+                    }
                 }
             }
         }
@@ -265,7 +172,7 @@ extension HomeViewController {
                         if done {
                             this.getProfile()
                         } else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
                         this.updateUIWhenAddCard(done: false, message: "Fail")
@@ -288,7 +195,7 @@ extension HomeViewController {
                         if done {
                             this.getProfile()
                         } else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
                         this.updateUIWhenAddCard(done: false, message: "Fail")
@@ -312,7 +219,7 @@ extension HomeViewController {
                         if done {
                             this.getProfile()
                         } else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
                         this.updateUIWhenAddCard(done: false, message: "Fail")
@@ -335,7 +242,7 @@ extension HomeViewController {
                         if done {
                             this.getProfile()
                         } else {
-                            this.showAlertWithOk(withTitle: "Error", withMessage: message)
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
                         this.updateUIWhenAddCard(done: false, message: "Fail")
@@ -363,13 +270,13 @@ extension HomeViewController {
                             this.getProfile()
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                         this.privilageView.isHidden = true
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                     this.privilageView.isHidden = true
@@ -394,13 +301,13 @@ extension HomeViewController {
                             this.getProfile()
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                         this.privilageView.isHidden = true
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "Session expired") {
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                     this.privilageView.isHidden = true

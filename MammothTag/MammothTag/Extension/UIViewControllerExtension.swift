@@ -27,8 +27,8 @@ extension UIViewController {
     
     func showAlert(withTitle title: String, withMessage message: String, confirmAction: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let OkAction = UIAlertAction(title: "Ok", style: .default) { _ in
+        let cancelAction = UIAlertAction(title: "CANCEL".localized, style: .cancel)
+        let OkAction = UIAlertAction(title: "OK".localized, style: .default) { _ in
             if let handler = confirmAction {
                 handler()
             }
@@ -42,7 +42,7 @@ extension UIViewController {
     
     func showAlertWithOk(withTitle title: String, withMessage message: String, confirmAction: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let OkAction = UIAlertAction(title: "Ok", style: .default) { _ in
+        let OkAction = UIAlertAction(title: "OK".localized, style: .default) { _ in
             if let handler = confirmAction {
                 handler()
             }
@@ -55,7 +55,7 @@ extension UIViewController {
         if done {
             dismiss(animated: false, completion: nil)
         } else {
-            let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+            let alert = UIAlertController(title: nil, message: "PLEASE_WAIT".localized, preferredStyle: .alert)
 
             let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
             loadingIndicator.hidesWhenStopped = true
@@ -98,7 +98,7 @@ extension UIViewController {
     }
     
     func logout() {
-        self.showAlert(withTitle: "Logout", withMessage: "Are you sure you want to logout from Mammoth tag application", confirmAction: {[weak self]  in
+        self.showAlert(withTitle: "LOGOUT".localized, withMessage: "LOGOUT_ALERT_MESSAGE".localized, confirmAction: {[weak self]  in
             guard let this = self else {
                 return
             }

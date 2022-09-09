@@ -20,15 +20,15 @@ extension SettingsViewController {
                         if data.result == true {
                             this.updateUIWhenGetProfile(profile: resp)
                         } else if let message = data.message {
-                            this.showAlert(withTitle: "Error", withMessage: message)
+                            this.showAlert(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
-                        this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again") {
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                             this.expireSession(isExppired: true)
                         }
                     }
                 } else {
-                    this.showAlertWithOk(withTitle: "Error", withMessage: "An error occured please try again") {
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
                         this.expireSession(isExppired: true)
                     }
                 }
@@ -37,38 +37,3 @@ extension SettingsViewController {
     }
     
 }
-//
-//struct SettingsViewModel {
-//
-//
-//    var bindViewModelDataToController: (String?,DataClassProfile?, String) -> () = {_,_,_  in}
-//
-//    func getProfile() {
-//        if let profile = AccountManager.shared.profile {
-//            bindViewModelDataToController("success", profile, "")
-//        } else if let token = AccountManager.shared.token {
-//            AuthenticationService.sharedInstance.getUserProfile(token: token) { data in
-//                if let data = data {
-//                    if data.result == true {
-//                        if let resp = data.data {
-//                            bindViewModelDataToController("success", resp, "")
-//                        } else if let message = data.message {
-//                            bindViewModelDataToController("success",nil, message)
-//                            print("Error: \(message)")
-//                        }
-//                    } else if let message = data.message {
-//                        bindViewModelDataToController("success", nil, message)
-//                        print("Error: \(message)")
-//                    }
-//                } else {
-//                    bindViewModelDataToController(nil, nil, "")
-//                }
-//            }
-//        }
-//    }
-//
-//
-//
-//
-//
-//}

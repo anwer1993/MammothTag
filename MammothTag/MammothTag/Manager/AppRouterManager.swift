@@ -32,6 +32,7 @@ enum AppScreen: INaviagtion{
     case UpdateProfile(profile: DataClassProfile?)
     case ContactDetails(user_id: String)
     case ContactDetailsCardList(user_id: String)
+    case AppSettings
 }
 
 /// Class responsible for the routing functionality
@@ -117,6 +118,10 @@ struct Router: IRouter {
             case .ContactDetailsCardList(user_id: let user_id):
                 guard let vc = ContactDetailsCardListViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
                 vc.user_id = user_id
+                viewController = vc
+                break
+            case .AppSettings:
+                guard let vc = AppSettingsVC.instantiate(storyboardName: "Main") else {return UIViewController()}
                 viewController = vc
                 break
             }
