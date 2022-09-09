@@ -29,15 +29,13 @@ class AppSettingsVC: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let image = UIImage(named: "Groupe 469")?.withRenderingMode(.alwaysTemplate)
-        switch AppSettings().appLanguage {
-        case .EN:
-            backBtn.setImage(image, for: .normal)
-            break
-        default:
-            backBtn.setImage(image?.imageFlippedForRightToLeftLayoutDirection(), for: .normal)
-            break
-        }
+        backBtn.flipWhenRTL(image: UIImage(named: "Groupe 469")!)
+        selectLangLbl.text = "SELECT_LANGUAGE".localized
+        englishLbl.text = "ENGLISH".localized
+        arLbl.text =  "ARABIC".localized
+        selectLangLbl.font = UIFont(name: "Lato-Black", size: 20)
+        arLbl.font = UIFont(name: "Lato-Bold", size: 16)
+        englishLbl.font = UIFont(name: "Lato-Bold", size: 16)
         arLbl.tag = 1
         arView.tag = 1
         viewEnglish.tag = 0
@@ -51,9 +49,11 @@ class AppSettingsVC: UIViewController, Storyboarded {
         if LocalizationSystem.sharedInstance.getLanguage() == "ar" {
             selectView(arView, insideView: arSubView)
             deselectView(viewEnglish, insideView: subviewEnglish)
+            selectLangLbl.textAlignment = .right
         } else {
             deselectView(arView, insideView: arSubView)
             selectView(viewEnglish, insideView: subviewEnglish)
+            selectLangLbl.textAlignment = .left
         }
     }
     
@@ -103,6 +103,12 @@ class AppSettingsVC: UIViewController, Storyboarded {
     func selectView(_ view: UIView, insideView: UIView) {
         view.layer.borderColor = UIColor.redBrown.cgColor
         insideView.isHidden = false
+    }
+    
+    
+    
+    @IBAction func backBtnDidTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

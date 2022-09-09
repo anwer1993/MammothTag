@@ -85,6 +85,11 @@
 "LOGOUT_ALERT_MESSAGE" = "Are you sure you want to logout from Mammoth tag application";
 "DELETE_ACCOUNT_MESSAGE" = "Are you sure you want to delete this account ?";
 "PLEASE_WAIT" = "Please wait...";
+
+"SELECT_LANGUAGE" = "Select your language";
+"ENGLISH" = "English";
+"ARABIC" = "Arabic";
+
 // Contact
 
 "CONTACTS" = "My contacts";

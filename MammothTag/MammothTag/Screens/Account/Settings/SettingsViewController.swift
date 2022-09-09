@@ -30,10 +30,15 @@ class SettingsViewController: UIViewController, Storyboarded {
     
     var profile: DataClassProfile?
     
-    var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "Settings", "LOGOUT".localized, "DELETE_ACCOUNT".localized]
+    var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "SETTINGS".localized , "LOGOUT".localized, "DELETE_ACCOUNT".localized]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if LocalizationSystem.sharedInstance.getLanguage() == "en" {
+            UITableView.appearance().semanticContentAttribute = .forceLeftToRight
+        } else {
+            UITableView.appearance().semanticContentAttribute = .forceRightToLeft
+        }
         self.navigationController?.isNavigationBarHidden = true
         setupTableView()
         setupUI()

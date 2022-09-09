@@ -85,6 +85,10 @@
 "LOGOUT_ALERT_MESSAGE" = "هل أنت متأكد من رغبتك في الخروج من تطبيق علامة Mammoth";
 "DELETE_ACCOUNT_MESSAGE" = "هل أنت متأكد من رغبتك في حذف هذا الحساب؟";
 "PLEASE_WAIT" = "الرجاء الانتظار ...";
+
+"SELECT_LANGUAGE" = "حدد لغتك";
+"ENGLISH" = "الإنجليزية";
+"ARABIC" = "العربية";
 // Contact
 
 "CONTACTS" = "أصدقائي";

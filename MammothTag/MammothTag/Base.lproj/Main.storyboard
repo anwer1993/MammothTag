@@ -1724,6 +1724,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button" image="Groupe 469"/>
+                                <connections>
+                                    <action selector="backBtnDidTapped:" destination="Qw8-Dr-HgC" eventType="touchUpInside" id="MJO-BX-JqN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwf-NT-hbr">
                                 <rect key="frame" x="24" y="131" width="366" height="21"/>
