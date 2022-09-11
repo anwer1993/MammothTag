@@ -373,7 +373,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         shareAllLbl.text = "SHARE_ALL".localized
         openFirstLbl.text = "OPEN_FIRST".localized
         socialMediaLabel.text = "SOCIAL_MEDIA_ACCOUNT".localized
-        addSocialeMediaLabel.text = "ADD_SOCIAL_MEDIA".localized
+        addSocialeMediaLabel.text = "SOCIAL_MEDIA_ACCOUNT".localized
     }
     
     func updateSelectedCard(selectedCard: CardProfile) {

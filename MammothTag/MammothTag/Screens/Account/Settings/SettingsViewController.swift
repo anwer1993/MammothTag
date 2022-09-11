@@ -30,10 +30,11 @@ class SettingsViewController: UIViewController, Storyboarded {
     
     var profile: DataClassProfile?
     
-    var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "ABOUT_US".localized, "PRIVACY".localized, "SETTINGS".localized , "LOGOUT".localized, "DELETE_ACCOUNT".localized]
+    var settingsArray = ["MY_INFO".localized, "CHANGE_PASSWORD".localized, "SETTINGS".localized, "ABOUT_US".localized, "PRIVACY".localized, "LOGOUT".localized, "DELETE_ACCOUNT".localized]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ageLbl.isHidden = true
         if LocalizationSystem.sharedInstance.getLanguage() == "en" {
             UITableView.appearance().semanticContentAttribute = .forceLeftToRight
         } else {
@@ -125,11 +126,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 1 {
             Router.shared.present(screen: .UpdatePassword, modalePresentatioinStyle: .fullScreen, completion: nil)
         } else if indexPath.row == 2 {
-            Router.shared.push(with: self.navigationController, screen: .Terms(source: .FromSettings), animated: true)
-        } else if indexPath.row == 3 {
-            Router.shared.push(with: self.navigationController, screen: .Terms(source: .none), animated: true)
-        } else if indexPath.row == 4 {
             Router.shared.push(with: self.navigationController, screen: .AppSettings, animated: true)
+        } else if indexPath.row == 3 {
+            Router.shared.push(with: self.navigationController, screen: .Terms(source: .FromSettings), animated: true)
+        } else if indexPath.row == 4 {
+            Router.shared.push(with: self.navigationController, screen: .Terms(source: .none), animated: true)
         } else if indexPath.row == 5{
             logout()
         } else {

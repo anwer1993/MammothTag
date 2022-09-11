@@ -104,6 +104,9 @@ class UpdatePasswordController: UIViewController, Storyboarded {
         oldPasswordStaticLabel.text = "OLD_PASSWORD".localized
         newPasswordStaticLabel.text = "NEW_PASSWORD".localized
         confirmPasswordStaticLabel.text = "CONFIRM_PASSWORD".localized
+        oldPasswordTextField.placeholder = "OLD_PASSWORD".localized
+        newPasswordTextField.placeholder = "NEW_PASSWORD".localized
+        confirmPasswordTextField.placeholder = "CONFIRM_PASSWORD".localized
         sendButton.setTitle("SEND".localized, for: .normal)
     }
     

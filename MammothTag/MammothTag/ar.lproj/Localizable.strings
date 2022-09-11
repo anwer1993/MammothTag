@@ -8,26 +8,29 @@
 
 "WELCOMELABEL" = "مرحبًا بك في MAMMOTH NFC!";
 "SIGNIN_DESCRIPTION_LABEL" = "شارك عالمك الرقمي بالكامل بلمسة واحدة";
-"EMAIL" = "بريد إلكتروني";
+"EMAIL" = "البريد إلكتروني";
 "PASSWORD" = "كلمة المرور";
 "FORGOT_PASSWORD" = "هل نسيت كلمة المرور؟" ;
 "DONT_HAVE_ACCOUNT" = "ليس لديك حساب؟ إنشاء حساب جديد";
 "CREATE_NEW_ACCOUNT" = "إنشاء حساب جديد";
-"SIGN_IN" = "تسجيل الدخول";
-"RESET_PASSWORD_DISC" = "لإعادة تعيين كلمة المرور الخاصة بك ، الرجاء إدخال عنوان بريدك الإلكتروني";
+"SIGN_IN" = "الدخول";
+"CREATE_PASSWORD" = "إنشاء الرقم السري";
+"RESET_PASSWORD_DISC" = "لتغيير كلمة المرور ،  الرجاء إدخال رقم الهاتف";
 "SEND" = "إرسال";
 "NEW_ACCOUNT" = "حساب جديد";
 "LAST_NAME" = "اللقب";
 "FIRST_NAME" = "الاسم";
 "DATE_OF_BIRTH" = "تاريخ الولادة";
 "PHONE" = "الهاتف";
-"CREATE_PASSWORD" = "إنشاء كلمة مرورك";
+//"CREATE_PASSWORD" = "إنشاء كلمة مرورك";
 "U_HAVE_ACCOUNT" = "لديك حساب؟ تسجيل الدخول الآن";
 "SIGN_IN_NOW" = "تسجيل الدخول الآن";
-"CHECK_TERMS" = "قرأت وأوافق على الشروط والأحكام";
+"CHECK_TERMS" = "اطلعت و وافقت على الشروط والأحكام";
 "TERMS_AND_CONDITION" = "الشروط والأحكام";
 "PRIVACY" = "سياسة الخصوصية";
+"PRIVACY_POLICY" = "سياسة الخصوصية وسرية المعلومات:";
 "ABOUT_US" = "نبذة عنا";
+"ABOUT_MAMMOTH" = "نبذة عن شركة MAMMOTH:";
 "WHY_DO_USE_IT" = "لماذا نستخدمه؟";
 "WHERE_DOES_IT_COME" = "من أين أتت؟";
 "RESET_FIELDS" = "إعادة ضبط الحقول";
@@ -36,7 +39,7 @@
 "CAM_PRMISSION_DENIED" = "لا يمتلك التطبيق حق الوصول إلى الكاميرا الخاصة بك";
 "PHOTOS_PRMISSION_DENIED" = "لا يمتلك التطبيق حق الوصول إلى مكتبة الصور الخاصة بك";
 "ACCESS_DENIED" = "الوصول مرفوض";
-"CONTACT_LIST" = "قائمة الأصدقاء";
+"CONTACT_LIST" = "قائمة التواصل";
 
 
 // Change password
@@ -54,7 +57,7 @@
 
 // Settings
 "LOGOUT" = "تسجيل الخروج";
-"MY_INFO" = "معلوماتي";
+"MY_INFO" = "تغيير البيانات";
 "CHANGE_PASSWORD" = "تغيير كلمة المرور" ;
 "DELETE_ACCOUNT" = "حذف الحساب";
 "ERROR" = "عفوًا";
@@ -67,6 +70,7 @@
 "SCANING_NOT_SUPPORTED" = "المسح غير مدعوم";
 "DEVICE_NOT_SUPPORT_SCAN" = "هذا الجهاز لا يدعم فحص العلامات.";
 "OK" = "تمام";
+"ENTER_PASSWORD" = "الرجاء إدخال كلمة المرور" ;
 "LINK_NOT_FOUND" = "لم يتم العثور على الرابط";
 "URL_NOT_FOUND" = "عنوان url لموقع الويب غير موجود";
 "FACETIME_NOT_AVAILABLE" = "FaceTime غير متوفر";
@@ -78,7 +82,7 @@
 "UPDATE_PASSWORD" = "لقد قمت بتحديث كلمة المرور الخاصة بك";
 "ENTER_PASSWORD" = "الرجاء إدخال كلمة المرور القديمة";
 "ENTER_NEW_PASSWORD" = "الرجاء إدخال كلمة المرور الجديدة";
-"CONFIRM_PASSWORD" = "الرجاء تأكيد كلمة المرور الجديدة";
+//"CONFIRM_PASSWORD" = "الرجاء تأكيد كلمة المرور الجديدة";
 "PASSWORD_TOO_SHORT" = "كلمة مرورك قصيرة جدًا";
 "PASSWORD_NOT_MATCH" = "تأكيد كلمة المرور غير متطابق";
 "LOGOUT" = "تسجيل الخروج";
@@ -98,31 +102,35 @@
 // Contact Details
 
 "EMPTY_DETAILS" = "لم يقم المستخدم الحالي بإضافة أي بطاقة بعد" ;
-"SELECT_CARD" = "حدد بطاقتك";
+"SELECT_CARD" = "إختر بطاقة";
+"CARD_NAME" = "إسم البطاقة";
+"DIGITAL_CARD" = "بطاقة رقمية";
+"Familly_CARD" = "العائلة و الزملاء";
+"BUSINESS_CARD" = "بطاقة رقمية مهنية";
 
 // Home
-"DEACTIVATE_NFC" = "إلغاء تنشيط NFC";
-"ACTIVATE_NFC" = "تنشيط NFC";
-"OPEN_FIRST" = "فتح الاولى فقط";
+//"DEACTIVATE_NFC" = "إلغاء تنشيط NFC";
+//"ACTIVATE_NFC" = "تنشيط NFC";
+"OPEN_FIRST" = "مشاركة محدودة";
 "SHARE_ALL" = "مشاركة الكل";
-"SOCIAL_MEDIA_ACCOUNT" = "حسابات وسائل التواصل الاجتماعي";
+"SOCIAL_MEDIA_ACCOUNT" = "حسابات التواصل الاجتماعي";
 "ADD_SOCIAL_MEDIA" = "أضف الوسائط الاجتماعية الخاصة بك";
-"ACTIVATE_NFC" = "تنشيط NFC";
-"DEACTIVATE_NFC" = "إلغاء تنشيط NFC";
-"ADD_CARD" = "إضافة بطاقة جديدة";
+"ACTIVATE_NFC" = "تفعيل NFC";
+"DEACTIVATE_NFC" = "حذف NFC";
+"ADD_CARD" = "إضافة بطاقة";
 "UPDATE_CARD" = "تحديث البطاقة";
 "DELETE_CARD" = "حذف البطاقة";
 "SHOW_LIST" = "إظهار قائمة البطاقات";
-"RENAME_CARD" = "إعادة تسمية البطاقة";
+"RENAME_CARD" = "تغيير بيانات البطاقة";
 "SCAN_NFC" = "مسح NFC";
 "SCAN_NFC_DESC" = "ضع Mammoth NFC في أعلى الجزء الخلفي من هاتفك لتنشيطه";
-"SELECT_PROFILE" = "حدد وضع ملف التعريف الخاص بك";
+"SELECT_PROFILE" = "إختر نوع الحساب";
 "SAVE" = "حفظ";
-"PUBLIC" = "عام";
-"PRIVATE" = "خاص";
+"PUBLIC" = "شريحة عامة";
+"PRIVATE" = "شريحة خاصة";
 "OPEN" = "فتح";
 "SOCIAL_EDIT_LINK" = "رابط الملف الشخصي / اسم المستخدم *";
 
 "HOME" = "الرئيسية";
-"CONTACT_TABBAR" = "الأصدقاء";
-"ACCOUNT_TABBER" = "الحساب";
+"CONTACT_TABBAR" = "التواصل";
+"ACCOUNT_TABBER" = "حسابي";

@@ -39,16 +39,28 @@ extension HomeViewController {
                             if this.selectedCard == nil {
                                 this.selectedCard = this.cardList.first
                                 this.privilageLabl.text = this.cardList.first?.name ?? "Unknown card"
-                                this.privilageLbl.text = CardPrivacy(rawValue: this.cardList.first?.privacy ?? "")?.rowValue ?? ""
+                                if CardPrivacy(rawValue: this.cardList.first?.privacy ?? "") == .Public {
+                                    this.privilageLbl.text = "PUBLIC".localized
+                                } else {
+                                    this.privilageLbl.text = "PRIVATE".localized
+                                }
                             } else {
                                 if let card = this.cardList.first(where: {$0.id == this.selectedCard?.id}) {
                                     this.selectedCard = card
                                     this.privilageLabl.text = this.selectedCard?.name ?? "Unknown card"
-                                    this.privilageLbl.text = CardPrivacy(rawValue: this.selectedCard?.privacy ?? "")?.rowValue ?? ""
+                                    if CardPrivacy(rawValue: this.cardList.first?.privacy ?? "") == .Public {
+                                        this.privilageLbl.text = "PUBLIC".localized
+                                    } else {
+                                        this.privilageLbl.text = "PRIVATE".localized
+                                    }
                                 } else {
                                     this.selectedCard = this.cardList.first
                                     this.privilageLabl.text = this.cardList.first?.name ?? "Unknown card"
-                                    this.privilageLbl.text = CardPrivacy(rawValue: this.cardList.first?.privacy ?? "")?.rowValue ?? ""
+                                    if CardPrivacy(rawValue: this.cardList.first?.privacy ?? "") == .Public {
+                                        this.privilageLbl.text = "PUBLIC".localized
+                                    } else {
+                                        this.privilageLbl.text = "PRIVATE".localized
+                                    }
                                 }
                             }
                             this.profileModeVC.cards = this.cardList

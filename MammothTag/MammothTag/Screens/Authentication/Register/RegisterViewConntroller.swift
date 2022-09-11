@@ -168,6 +168,14 @@ class RegisterViewController: UIViewController, Storyboarded {
         phoneTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
         passwordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
         confirmPasswordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        firstNameTestField.placeholder = "FIRST_NAME".localized
+        lastNameTextField.placeholder = "LAST_NAME".localized
+        emailTextField.placeholder = "EMAIL".localized
+        dateOfBirthTextField.placeholder = "DATE_OF_BIRTH".localized
+        phoneTextField.placeholder = "PHONE".localized
+        passwordTextField.placeholder = "PASSWORD".localized
+        confirmPasswordTextField.placeholder = "CONFIRM_PASSWORD".localized
+        createPasswordLbl.text = "CREATE_PASSWORD".localized
     }
     
     func setupViewsContainTextField() {

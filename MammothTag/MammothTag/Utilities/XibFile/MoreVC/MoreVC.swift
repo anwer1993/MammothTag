@@ -61,6 +61,7 @@ class MoreVC: UIViewController, SubViewConroller {
         } else {
             activateNFCLbl.text = "ACTIVATE_NFC".localized
         }
+        showCardListStack.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -13,6 +13,7 @@
 "FORGOT_PASSWORD" = "Forgot your password?";
 "DONT_HAVE_ACCOUNT" = "Don't have an account? Create a new account";
 "CREATE_NEW_ACCOUNT" = "Create a new account";
+//"CREATE_PASSWORD" = "Create password";
 "SIGN_IN" = "Sign IN";
 "RESET_PASSWORD_DISC" = "To reset your password, Please enter your phone number";
 "SEND" = "Send";
@@ -28,6 +29,7 @@
 "TERMS_AND_CONDITION" = "Terms & conditions.";
 "PRIVACY" = "Privacy & policy";
 "ABOUT_US" = "About Us";
+"ABOUT_MAMMOTH" = "About MAMMOTH:";
 "WHY_DO_USE_IT" = "Why do we use it?";
 "WHERE_DOES_IT_COME" = "Where does it come from";
 "RESET_FIELDS" = "Reset fields";
@@ -54,7 +56,7 @@
 
 // Settings
 "LOGOUT" = "Logout";
-"MY_INFO" = "My information";
+"MY_INFO" = "Update info";
 "CHANGE_PASSWORD" = "Change passoword";
 "DELETE_ACCOUNT" = "Delete account";
 "ERROR" = "Oops";
@@ -67,6 +69,7 @@
 "SCANING_NOT_SUPPORTED" = "Scanning Not Supported";
 "DEVICE_NOT_SUPPORT_SCAN"  = "This device doesn't support tag scanning.";
 "OK" =  "OK";
+"ENTER_PASSWORD" =  "Please enter your Password";
 "LINK_NOT_FOUND" = "The link does not found";
 "URL_NOT_FOUND" = "The website url does not found";
 "FACETIME_NOT_AVAILABLE" = "FaceTime does not available";
@@ -101,7 +104,10 @@
 
 "EMPTY_DETAILS" = "The current user does not added any card yet";
 "SELECT_CARD" = "Select your card";
-
+"CARD_NAME" = "Card name";
+"DIGITAL_CARD" = "Digital card";
+"Familly_CARD" = "Familly and Colleague";
+"BUSINESS_CARD" = "Digital Business card";
 
 // Home
 "DEACTIVATE_NFC" =  "Deactivate NFC";
@@ -116,7 +122,7 @@
 "UPDATE_CARD" = "Update card";
 "DELETE_CARD" = "Delete card";
 "SHOW_LIST" = "Show card list";
-"RENAME_CARD" = "Rename card";
+"RENAME_CARD" = "Update card";
 "SCAN_NFC" = "Scan NFC";
 "SCAN_NFC_DESC" = "Hold your Mammoth to the vey top the back of your phone to activate it";
 "SAVE" = "Save";

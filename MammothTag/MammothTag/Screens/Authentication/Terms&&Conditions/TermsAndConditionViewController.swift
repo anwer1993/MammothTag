@@ -38,10 +38,12 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
     func setupLocalizedText() {
         if source == .FromSettings {
             termsLabel.text = "ABOUT_US".localized
+            aboutUsTitleLbl.text = "ABOUT_MAMMOTH".localized
             scrollView.isHidden = true
             aboutUsStack.isHidden = false
         } else {
             termsLabel.text = "PRIVACY".localized
+            privacyTitleLbl.text = "PRIVACY".localized
             scrollView.isHidden = false
             aboutUsStack.isHidden = true
         }

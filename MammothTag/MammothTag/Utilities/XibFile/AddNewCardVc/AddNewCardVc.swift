@@ -76,7 +76,11 @@ class AddNewCardVc: UIViewController, SubViewConroller {
             selectedMode = 1
         }
         saveBtn.setTitle("SAVE".localized, for: .normal)
-        
+        cardNameTextField.placeholder = "CARD_NAME".localized
+        cardNameTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        digitalCardLbl.text = "DIGITAL_CARD".localized
+        digitalBusinessCardLbl.text = "BUSINESS_CARD".localized
+        famillyCardLbl.text = "Familly_CARD".localized
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -84,6 +88,7 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     }
     
     func initView() {
+        jobsStack.isHidden = true
         viewControl.addTarget(self, action: #selector(removeView(_:)), for: .touchUpInside)
         viewControl.alpha = 0.5
         closeButton.layer.cornerRadius = closeButton.frame.width * 0.5

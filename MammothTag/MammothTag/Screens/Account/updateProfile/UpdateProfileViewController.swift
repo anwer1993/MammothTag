@@ -109,7 +109,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     }
     
     func setupLocalizedText() {
-        newAccountLbl.text = "UPDATE_PROFILE".localized
+        newAccountLbl.text = "MY_INFO".localized
         lastNameStaticLabel.text = "LAST_NAME".localized
         firstNameStaticLbl.text = "FIRST_NAME".localized
         dateOfBirthStaticLbl.text = "DATE_OF_BIRTH".localized
@@ -119,6 +119,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         passwordStaticLabel.textColor = .tangerine
         sendButton.setTitle("SEND".localized, for: .normal)
         passwordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
+        passwordTextField.placeholder = "ENTER_PASSWORD".localized
     }
     
     func initializeView() {
