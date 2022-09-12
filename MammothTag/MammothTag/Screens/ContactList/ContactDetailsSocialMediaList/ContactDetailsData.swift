@@ -48,12 +48,18 @@ extension ContactDetailsViewController {
                             }
                             
                             let networks = this.selectedCard?.cardNetworks ?? []
+                           
                             if networks.contains(where: {$0.isOpenFirst == "1"}) {
                                 if let item = networks.first(where: {$0.isOpenFirst == "1"}) {
                                     this.cardNetworkList = [item]
                                 }
+                                
                             } else {
                                 this.cardNetworkList = networks
+                            }
+                            
+                            if this.cardNetworkList.count == 1 {
+                                this.openNetwork(network: this.cardNetworkList.first!)
                             }
                             
                             this.socielMediaCollectionView.isHidden = this.cardNetworkList.isEmpty

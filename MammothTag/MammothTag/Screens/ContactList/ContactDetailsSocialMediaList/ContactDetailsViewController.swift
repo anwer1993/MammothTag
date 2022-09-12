@@ -148,6 +148,58 @@ extension ContactDetailsViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let network = cardNetworkList[indexPath.row]
+        openNetwork(network: network)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let totalSpace = flowLayout.sectionInset.left
+            + flowLayout.sectionInset.right
+            + (flowLayout.minimumInteritemSpacing * CGFloat(3 - 1))
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(3))
+        return CGSize(width: size, height: size)
+    }
+
+    
+}
+
+
+extension ContactDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.cards.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SeettingsTableViewCell", for: indexPath) as? SeettingsTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.selectionStyle = .none
+        cell.descriptionLabel.text = cards[indexPath.row].name ?? "Unknown"
+        cell.dropRightArrowIcon.image = UIImage(named: "arrow-dropright")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectedCard = cards[indexPath.row]
+        let networks = self.selectedCard?.cardNetworks ?? []
+        if networks.contains(where: {$0.isOpenFirst == "1"}) {
+            if let item = networks.first(where: {$0.isOpenFirst == "1"}) {
+                self.cardNetworkList = [item]
+            }
+        } else {
+            self.cardNetworkList = networks
+        }
+        self.socielMediaCollectionView.reloadData()
+        self.selectedCardName.text = selectedCard?.name ?? ""
+        selectCardPopup.isHidden = true
+        self.blurView.isHidden = true
+    }
+    
+    
+    func openNetwork(network: CardNetwork) {
         if network.socialNetworkID == "1" {
             Contstant.openFb(username: network.link ?? "") {
                 self.showAlert(withTitle: "ERROR".localized, withMessage: "LINK_NOT_FOUND".localized)
@@ -221,54 +273,6 @@ extension ContactDetailsViewController: UICollectionViewDelegate, UICollectionVi
             }
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let totalSpace = flowLayout.sectionInset.left
-            + flowLayout.sectionInset.right
-            + (flowLayout.minimumInteritemSpacing * CGFloat(3 - 1))
-        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(3))
-        return CGSize(width: size, height: size)
-    }
-
-    
-}
-
-
-extension ContactDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cards.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SeettingsTableViewCell", for: indexPath) as? SeettingsTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.selectionStyle = .none
-        cell.descriptionLabel.text = cards[indexPath.row].name ?? "Unknown"
-        cell.dropRightArrowIcon.image = UIImage(named: "arrow-dropright")
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        selectedCard = cards[indexPath.row]
-        let networks = self.selectedCard?.cardNetworks ?? []
-        if networks.contains(where: {$0.isOpenFirst == "1"}) {
-            if let item = networks.first(where: {$0.isOpenFirst == "1"}) {
-                self.cardNetworkList = [item]
-            }
-        } else {
-            self.cardNetworkList = networks
-        }
-        self.socielMediaCollectionView.reloadData()
-        self.selectedCardName.text = selectedCard?.name ?? ""
-        selectCardPopup.isHidden = true
-        self.blurView.isHidden = true
-    }
-    
     
     
 }

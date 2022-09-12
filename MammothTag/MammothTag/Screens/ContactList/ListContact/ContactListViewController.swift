@@ -25,6 +25,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
     @IBOutlet weak var requestLabel: UILabel!
     @IBOutlet weak var requestView: UIView!
     
+    var from: Int = 0
     
     var selectedItem: Int = 0 {
         didSet {
@@ -112,6 +113,26 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
         initView()
         emptyView.isHidden = true
         getContactList()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if from == 1 {
+            session?.invalidate()
+            guard NFCNDEFReaderSession.readingAvailable else {
+                let alertController = UIAlertController(
+                    title: "SCANING_NOT_SUPPORTED".localized,
+                    message: "DEVICE_NOT_SUPPORT_SCAN".localized,
+                    preferredStyle: .alert
+                )
+                alertController.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                return
+            }
+            session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
+            session?.alertMessage = "SCAN_NFC_DESC".localized
+            session?.begin()
+        }
     }
     
     func setupTableView() {
