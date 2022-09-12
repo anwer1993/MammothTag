@@ -65,6 +65,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
     }
     
     @objc func addUser(_ gesture: UITapGestureRecognizer? = nil) {
+        from  = 0
         guard NFCNDEFReaderSession.readingAvailable else {
             let alertController = UIAlertController(
                 title: "SCANING_NOT_SUPPORTED".localized,
@@ -130,7 +131,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
                 return
             }
             session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
-            session?.alertMessage = "SCAN_NFC_DESC".localized
+//            session?.alertMessage = ""
             session?.begin()
         }
     }

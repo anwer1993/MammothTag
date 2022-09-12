@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CountryPickerView
 
 class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
     
@@ -20,7 +21,11 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
             self.emailTextField.bind(callback: {self.forgotPasswordViewModel.phone.value = $0 })
         }
     }
-    @IBOutlet weak var emailStaticLbl: UILabel!
+    
+    
+    @IBOutlet weak var countryVieew: CountryPickerView!
+    @IBOutlet weak var countryPickerView: UIView!
+//    @IBOutlet weak var emailStaticLbl: UILabel!
     @IBOutlet weak var sendButton: GradientButton!
     
     var forgotPasswordViewModel = ForgotPasswordViewModel()
@@ -37,12 +42,16 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        countryVieew.font = UIFont.systemFont(ofSize: 10)
+        countryVieew.textColor = .black
+        countryVieew.flagSpacingInView = 10
+        countryVieew.setCountryByCode("SA")
     }
     
     func setupLocalizedText() {
         forgotPassswordLbl.text = "FORGOT_PASSWORD".localized
         forgotPasswordDescLbl.text = "RESET_PASSWORD_DISC".localized
-        emailStaticLbl.text = "PHONE".localized
+        emailTextField.placeholder = "PHONE".localized
         sendButton.setTitle("SEND".localized, for: .normal)
     }
     
@@ -54,18 +63,19 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
         sendButton.customizeButton()
         emailTextField.delegate = self
         viewEmail.customizeViewForContainTextField()
-        emailStaticLbl.isHidden = true
+        countryPickerView.customizeViewForContainTextField()
+//        emailStaticLbl.isHidden = true
         forgotPassswordLbl.font = UIFont(name: "Lato-Black", size: 18)
         forgotPasswordDescLbl.font = UIFont(name: "Lato-Regular", size: 18)
         sendButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
         emailTextField.font = UIFont(name: "Lato-Regular", size: 15)
-        emailStaticLbl.font = UIFont(name: "Lato-Regular", size: 14)
+//        emailStaticLbl.font = UIFont(name: "Lato-Regular", size: 14)
         emailTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
     }
     
     func toggleStaticLabelAppearence(_ textField: UITextField, isHidden: Bool) {
         if textField == emailTextField {
-            emailStaticLbl.isHidden = !isHidden
+//            emailStaticLbl.isHidden = !isHidden
             resetTextField()
         }
     }
@@ -73,7 +83,7 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
     func resetTextField() {
         viewEmail.layer.borderColor = UIColor.clear.cgColor
         viewEmail.layer.borderWidth = 0
-        emailStaticLbl.textColor = UIColor.tangerine
+//        emailStaticLbl.textColor = UIColor.tangerine
         sendButton.customizeButton()
         sendButton.setTitle("Send", for: .normal)
     }
@@ -83,13 +93,13 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
             toggleStaticLabelAppearence(textField, isHidden: true)
         } else {
             if textField == emailTextField {
-                emailStaticLbl.isHidden = textField.isEmpty()
+//                emailStaticLbl.isHidden = textField.isEmpty()
                 if !textField.isEmpty() {
                     viewEmail.customizeViewContainTextFieldWhenValid()
-                    emailStaticLbl.customizeLabelWhenValid()
+//                    emailStaticLbl.customizeLabelWhenValid()
                 } else {
                     viewEmail.customizeViewContainTextFieldWhenError()
-                    emailStaticLbl.customizeLabelWhenError()
+//                    emailStaticLbl.customizeLabelWhenError()
                 }
             }
         }
@@ -97,7 +107,7 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
     
     func updateViewAppearenceWhenError() {
         viewEmail.customizeViewContainTextFieldWhenError()
-        emailStaticLbl.customizeLabelWhenError()
+//        emailStaticLbl.customizeLabelWhenError()
         sendButton.customizeButtonWhenError()
         sendButton.setTitle("Reset field", for: .normal)
     }
@@ -131,7 +141,7 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
     @IBAction func sendButtonDidTapped(_ sender: Any) {
         if forgotPasswordViewModel.isValid {
             viewEmail.customizeViewContainTextFieldWhenValid()
-            emailStaticLbl.customizeLabelWhenValid()
+//            emailStaticLbl.customizeLabelWhenValid()
             showOrHideLoader(done: false)
             forgotPasswordViewModel.sendPhone()
         } else {
@@ -164,7 +174,7 @@ extension ForgotPasswordController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print("TextField did begin editing method called")
         updateTextFieldApparence(textField, isStartEditing: true)
-        emailStaticLbl.textColor = UIColor.tangerine
+//        emailStaticLbl.textColor = UIColor.tangerine
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

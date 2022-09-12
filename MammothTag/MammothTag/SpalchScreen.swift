@@ -28,6 +28,9 @@ class SpalchScreen: UIViewController, Storyboarded {
         super.viewDidLoad()
         originalTransform = mamouthImage.transform
         descriptionLbl.alpha = 0
+        descriptionLbl.text = "SPLACH_DESC".localized
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        versionLbl.text = "VERSION".localized.replacingOccurrences(of: "*Versin*", with: appVersion ?? "1.0")
         versionLbl.alpha = 0
     }
     

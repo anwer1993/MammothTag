@@ -61,7 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb else {
             return false
         }
-
         // Confirm that the NSUserActivity object contains a valid NDEF message.
         let ndefMessage = userActivity.ndefMessagePayload
         guard !ndefMessage.records.isEmpty,
@@ -70,17 +69,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         // Send the message to `MessagesTableViewController` for processing.
-        guard let navigationController = window?.rootViewController as? UINavigationController else {
+        guard var navigationController = window?.rootViewController as? UINavigationController else {
             return false
         }
-
+        
         navigationController.popToRootViewController(animated: true)
-//        let messageTableViewController = navigationController.topViewController as? MessagesTableViewController
-//        messageTableViewController?.addMessage(fromUserActivity: ndefMessage)
-
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "ContactListViewController")
+        navigationController = UINavigationController(rootViewController: rootViewController)
         return true
     }
-
 
 }
 

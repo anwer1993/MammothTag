@@ -5,7 +5,8 @@
   Created by Anwar Hajji on 10/08/2022.
   
 */
-
+"SPLACH_DESC" = "Expand your network with one touch";
+"VERSION" = "version *Versin*";
 "WELCOMELABEL" = "Welcome to MAMMOTH NFC!";
 "SIGNIN_DESCRIPTION_LABEL" = "Share your whole digital world with a touch";
 "EMAIL" = "Email";

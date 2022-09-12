@@ -810,35 +810,48 @@ Please enter your email address</string>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQ6-EO-VPQ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Eqp-Ql-8Hi">
                                         <rect key="frame" x="24" y="263.5" width="366" height="58"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OmN-0l-RML">
-                                                <rect key="frame" x="10" y="10" width="346" height="48"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wua-2G-zwN">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="58"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhb-Nu-49m">
-                                                        <rect key="frame" x="0.0" y="0.0" width="346" height="14.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T5w-y1-HPb" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="14.5" width="346" height="33.5"/>
+                                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="nw3-wo-Fpb" customClass="CountryPickerView" customModule="CountryPickerView">
+                                                        <rect key="frame" x="10" y="5" width="80" height="48"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="nw3-wo-Fpb" secondAttribute="bottom" constant="5" id="9ae-0D-afl"/>
+                                                    <constraint firstItem="nw3-wo-Fpb" firstAttribute="leading" secondItem="wua-2G-zwN" secondAttribute="leading" constant="10" id="Hpp-ju-iRl"/>
+                                                    <constraint firstAttribute="trailing" secondItem="nw3-wo-Fpb" secondAttribute="trailing" constant="10" id="k19-qd-Gd0"/>
+                                                    <constraint firstItem="nw3-wo-Fpb" firstAttribute="top" secondItem="wua-2G-zwN" secondAttribute="top" constant="5" id="l1V-jl-uWu"/>
+                                                    <constraint firstAttribute="width" constant="100" id="nOF-bj-yam"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1v-q9-hqv">
+                                                <rect key="frame" x="108" y="0.0" width="258" height="58"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LiG-7W-DBq" customClass="CustomTextField" customModule="MammothTag" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="0.0" width="238" height="58"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
-                                            </stackView>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="LiG-7W-DBq" firstAttribute="leading" secondItem="j1v-q9-hqv" secondAttribute="leading" constant="10" id="HJz-7j-Thy"/>
+                                                    <constraint firstAttribute="bottom" secondItem="LiG-7W-DBq" secondAttribute="bottom" id="hOL-9C-VkP"/>
+                                                    <constraint firstItem="LiG-7W-DBq" firstAttribute="top" secondItem="j1v-q9-hqv" secondAttribute="top" id="jbt-Ni-Rav"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LiG-7W-DBq" secondAttribute="trailing" constant="10" id="vx0-Wi-01p"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="OmN-0l-RML" firstAttribute="leading" secondItem="BQ6-EO-VPQ" secondAttribute="leading" constant="10" id="LdJ-i7-x8J"/>
-                                            <constraint firstAttribute="height" constant="58" id="QT8-WA-TdV"/>
-                                            <constraint firstItem="OmN-0l-RML" firstAttribute="top" secondItem="BQ6-EO-VPQ" secondAttribute="top" constant="10" id="kA1-CQ-aSg"/>
-                                            <constraint firstAttribute="bottom" secondItem="OmN-0l-RML" secondAttribute="bottom" id="tOE-l1-cmP"/>
-                                            <constraint firstAttribute="trailing" secondItem="OmN-0l-RML" secondAttribute="trailing" constant="10" id="zJs-m2-T5e"/>
+                                            <constraint firstAttribute="height" constant="58" id="9ue-Wr-S1A"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puo-be-eH0" customClass="GradientButton" customModule="MammothTag" customModuleProvider="target">
                                         <rect key="frame" x="24" y="361.5" width="366" height="60"/>
                                         <color key="backgroundColor" red="0.94761508699999997" green="0.64004462959999997" blue="0.2351175845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -866,19 +879,19 @@ Please enter your email address</string>
                                 <constraints>
                                     <constraint firstItem="MEr-Yr-0OJ" firstAttribute="top" secondItem="iEw-SX-MB5" secondAttribute="bottom" constant="16" id="1o3-NO-oKt"/>
                                     <constraint firstItem="QE9-kq-UfY" firstAttribute="top" secondItem="jJy-gh-SW8" secondAttribute="top" id="2KR-52-pGC"/>
+                                    <constraint firstAttribute="trailing" secondItem="puo-be-eH0" secondAttribute="trailing" constant="24" id="4Kz-eg-mvx"/>
+                                    <constraint firstItem="Eqp-Ql-8Hi" firstAttribute="top" secondItem="MEr-Yr-0OJ" secondAttribute="bottom" constant="28" id="4hv-S8-25B"/>
                                     <constraint firstItem="yma-Gb-4qG" firstAttribute="leading" secondItem="jJy-gh-SW8" secondAttribute="leading" constant="24" id="9CY-X3-I8X"/>
-                                    <constraint firstItem="puo-be-eH0" firstAttribute="leading" secondItem="BQ6-EO-VPQ" secondAttribute="leading" id="BHw-Xy-Jcv"/>
+                                    <constraint firstItem="puo-be-eH0" firstAttribute="leading" secondItem="jJy-gh-SW8" secondAttribute="leading" constant="24" id="AVi-97-dHT"/>
+                                    <constraint firstItem="Eqp-Ql-8Hi" firstAttribute="leading" secondItem="jJy-gh-SW8" secondAttribute="leading" constant="24" id="Chf-Lv-u59"/>
                                     <constraint firstItem="iEw-SX-MB5" firstAttribute="top" secondItem="jJy-gh-SW8" secondAttribute="top" id="I6Q-Z8-9gw"/>
                                     <constraint firstAttribute="trailing" secondItem="QE9-kq-UfY" secondAttribute="trailing" id="J5e-0t-2ww"/>
                                     <constraint firstAttribute="bottom" secondItem="QE9-kq-UfY" secondAttribute="bottom" id="KZg-ZU-b42"/>
                                     <constraint firstItem="yma-Gb-4qG" firstAttribute="top" secondItem="jJy-gh-SW8" secondAttribute="top" constant="24" id="Mio-yk-B7X"/>
-                                    <constraint firstAttribute="trailing" secondItem="BQ6-EO-VPQ" secondAttribute="trailing" constant="24" id="Sv4-iR-ozv"/>
-                                    <constraint firstItem="BQ6-EO-VPQ" firstAttribute="leading" secondItem="jJy-gh-SW8" secondAttribute="leading" constant="24" id="ZXL-Am-hg6"/>
+                                    <constraint firstItem="puo-be-eH0" firstAttribute="top" secondItem="Eqp-Ql-8Hi" secondAttribute="bottom" constant="40" id="SF1-6d-SLD"/>
                                     <constraint firstItem="iEw-SX-MB5" firstAttribute="centerX" secondItem="jJy-gh-SW8" secondAttribute="centerX" id="aiX-8Y-iB5"/>
-                                    <constraint firstItem="BQ6-EO-VPQ" firstAttribute="top" secondItem="MEr-Yr-0OJ" secondAttribute="bottom" constant="28" id="ltJ-mA-gQL"/>
-                                    <constraint firstItem="puo-be-eH0" firstAttribute="top" secondItem="BQ6-EO-VPQ" secondAttribute="bottom" constant="40" id="naS-1u-IwC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Eqp-Ql-8Hi" secondAttribute="trailing" constant="24" id="kJO-CK-BV3"/>
                                     <constraint firstItem="MEr-Yr-0OJ" firstAttribute="leading" secondItem="jJy-gh-SW8" secondAttribute="leading" constant="24" id="ozQ-00-uN5"/>
-                                    <constraint firstItem="puo-be-eH0" firstAttribute="trailing" secondItem="BQ6-EO-VPQ" secondAttribute="trailing" id="reU-cM-aLD"/>
                                     <constraint firstItem="QE9-kq-UfY" firstAttribute="leading" secondItem="jJy-gh-SW8" secondAttribute="leading" id="u2D-sh-LTL"/>
                                     <constraint firstAttribute="trailing" secondItem="MEr-Yr-0OJ" secondAttribute="trailing" constant="29" id="x8X-WX-0Dw"/>
                                 </constraints>
@@ -896,12 +909,13 @@ Please enter your email address</string>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="yma-Gb-4qG" id="nHa-IV-IHj"/>
-                        <outlet property="emailStaticLbl" destination="Nhb-Nu-49m" id="qVr-i0-0Ln"/>
-                        <outlet property="emailTextField" destination="T5w-y1-HPb" id="ANt-DX-IOl"/>
+                        <outlet property="countryPickerView" destination="wua-2G-zwN" id="Sbn-wH-J8e"/>
+                        <outlet property="countryVieew" destination="nw3-wo-Fpb" id="S44-Ab-mOc"/>
+                        <outlet property="emailTextField" destination="LiG-7W-DBq" id="VrL-vR-lbP"/>
                         <outlet property="forgotPassswordLbl" destination="MYK-xh-ajI" id="tQ9-nt-Emd"/>
                         <outlet property="forgotPasswordDescLbl" destination="oUD-gb-3Yl" id="LEt-tt-lfa"/>
                         <outlet property="sendButton" destination="puo-be-eH0" id="mAT-zj-Vp3"/>
-                        <outlet property="viewEmail" destination="BQ6-EO-VPQ" id="Z7o-Ry-376"/>
+                        <outlet property="viewEmail" destination="j1v-q9-hqv" id="I5B-yP-xVD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFK-Nl-Ccv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
