@@ -75,8 +75,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navigationController.popToRootViewController(animated: true)
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "ContactListViewController")
-        navigationController = UINavigationController(rootViewController: rootViewController)
+        if let rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "ContactListViewController") as? ContactListViewController {
+            rootViewController.from = 1
+            navigationController = UINavigationController(rootViewController: rootViewController)
+        }
+        
         return true
     }
 
