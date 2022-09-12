@@ -173,12 +173,7 @@ extension ContactListViewController {
                     if let done = resp.result, let message = resp.message, let data = resp.data{
                         if done {
                             let user_id = data.id ?? 0
-                            if this.from == 0 {
-                                this.AddUser(user_id: "\(user_id)")
-                            } else {
-                                Router.shared.push(with: this.navigationController, screen: .ContactDetails(user_id: "\(user_id)"), animated: true)
-                            }
-                            
+                            this.AddUser(user_id: "\(user_id)")
                         }else {
                             this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
@@ -205,7 +200,11 @@ extension ContactListViewController {
                 if let resp = resp {
                     if let done = resp.result, let message = resp.message{
                         if done {
-                            this.getContactList()
+                            if this.from == 0 {
+                                this.getContactList()
+                            } else {
+                                Router.shared.push(with: this.navigationController, screen: .ContactDetails(user_id: "\(user_id)"), animated: true)
+                            }  
                         }else {
                             this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
