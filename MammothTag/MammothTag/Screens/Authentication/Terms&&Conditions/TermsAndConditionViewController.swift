@@ -49,6 +49,7 @@ class TermsAndConditionViewController: UIViewController, Storyboarded {
         }
         privacyTitleLbl.font = UIFont(name: "Lato-Black", size: 22)
         privacyTitleLbl.textColor = .redBrown
+        aboutUsTitleLbl.textColor = .redBrown
         termsLabel.font = UIFont(name: "Lato-Black", size: 22)
         aboutUsTitleLbl.font = UIFont(name: "Lato-Black", size: 22)
         firstLabel.font = UIFont(name: "Lato-Regular", size: 16)

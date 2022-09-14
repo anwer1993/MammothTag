@@ -125,7 +125,7 @@
 "SHOW_LIST" = "Show card list";
 "RENAME_CARD" = "Update card";
 "SCAN_NFC" = "Scan NFC";
-"SCAN_NFC_DESC" = "Hold your Mammoth to the vey top the back of your phone to activate it";
+"SCAN_NFC_DESC" = "Hold your MAMMOTH TAG on the top of the back of your phone or on the front camera to activate it";
 "SAVE" = "Save";
 "SELECT_PROFILE" = "Select you profile mode";
 "PUBLIC" = "Public";

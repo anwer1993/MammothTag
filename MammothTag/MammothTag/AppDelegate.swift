@@ -62,11 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         // Confirm that the NSUserActivity object contains a valid NDEF message.
-        let ndefMessage = userActivity.ndefMessagePayload
-        guard !ndefMessage.records.isEmpty,
-            ndefMessage.records[0].typeNameFormat != .empty else {
-                return false
-        }
+//        let ndefMessage = userActivity.ndefMessagePayload
+//        guard !ndefMessage.records.isEmpty,
+//            ndefMessage.records[0].typeNameFormat != .empty else {
+//                return false
+//        }
 
         // Send the message to `MessagesTableViewController` for processing.
         guard var navigationController = window?.rootViewController as? UINavigationController else {
