@@ -5,6 +5,9 @@
   Created by Anwar Hajji on 10/08/2022.
   
 */
+"PLEASE_CONFIRM" = "Please confirm";
+"CONFIRM" = "Confirm";
+"DELETE_NFC_TAG" = "Are you sure,  you want to deactivate the NFC tag ?";
 "SPLACH_DESC" = "Expand your network with one touch";
 "VERSION" = "version *Versin*";
 "WELCOMELABEL" = "Welcome to MAMMOTH NFC!";

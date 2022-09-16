@@ -5,6 +5,9 @@
   Created by Anwar Hajji on 10/08/2022.
   
 */
+"PLEASE_CONFIRM" = "يرجى التأكيد";
+"DELETE_NFC_TAG" = "هل أنت متأكد من أنك تريد إلغاء تنشيط علامة NFC؟";
+"CONFIRM" = "تأكيد";
 "SPLACH_DESC" = "قم بتوسيع شبكتك بلمسة واحدة";
 "VERSION" = "الاصدار *Versin*";
 "WELCOMELABEL" = "مرحبًا بك في MAMMOTH NFC!";

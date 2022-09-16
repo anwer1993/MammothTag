@@ -42,6 +42,7 @@
 		A6511F2828BBED15003DF731 /* SocialMediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2728BBED15003DF731 /* SocialMediaCollectionCell.swift */; };
 		A6511F2A28BBF6F4003DF731 /* SocialMediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */; };
 		A6511F2D28BBFE06003DF731 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2C28BBFE06003DF731 /* Constant.swift */; };
+		A67E082628D5016300B0D7C6 /* HomeWriteNFCTAg.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67E082528D5016300B0D7C6 /* HomeWriteNFCTAg.swift */; };
 		A67FAB3F28C6A84900BAB96B /* ProfileServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67FAB3E28C6A84900BAB96B /* ProfileServerResponseModel.swift */; };
 		A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0428AFAD210010AE54 /* DateExtension.swift */; };
 		A688ED0928AFEFF00010AE54 /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0828AFEFF00010AE54 /* CardService.swift */; };
@@ -181,6 +182,7 @@
 		A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaModel.swift; sourceTree = "<group>"; };
 		A6511F2C28BBFE06003DF731 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A66FEEE828A47D980062D754 /* MammothTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MammothTag.entitlements; sourceTree = "<group>"; };
+		A67E082528D5016300B0D7C6 /* HomeWriteNFCTAg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWriteNFCTAg.swift; sourceTree = "<group>"; };
 		A67FAB3E28C6A84900BAB96B /* ProfileServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServerResponseModel.swift; sourceTree = "<group>"; };
 		A688ED0428AFAD210010AE54 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A688ED0828AFEFF00010AE54 /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 			isa = PBXGroup;
 			children = (
 				A6E25A3828A5601B009B2D09 /* HomeViewController.swift */,
+				A67E082528D5016300B0D7C6 /* HomeWriteNFCTAg.swift */,
 				A6ECC61528BEB337007E2536 /* HomeCollectionViewVC.swift */,
 				A6ECC61728BEB3B1007E2536 /* SocialMediaCollectionViewCell.swift */,
 				A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */,
@@ -1073,6 +1076,7 @@
 				A6FC614828A02A0100756C74 /* SpalchScreen.swift in Sources */,
 				A688ED0D28AFF1810010AE54 /* ServerResponseModel.swift in Sources */,
 				A6D2D7F028B274EC00DDF2A1 /* UpdatePasswordViewModel.swift in Sources */,
+				A67E082628D5016300B0D7C6 /* HomeWriteNFCTAg.swift in Sources */,
 				A6D2D7F228B284E900DDF2A1 /* SettingsModel.swift in Sources */,
 				A6D6F27F28A1C7AB00AD3C9C /* SignInViewModel.swift in Sources */,
 				A6D6F28428A1CCBF00AD3C9C /* SignInModels.swift in Sources */,

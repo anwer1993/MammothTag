@@ -42,7 +42,8 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
     var cards: [Card] = []
     var selectedCard: Card?
     let profileModeVC = UpdateProfileModeVC(nibName: "UpdateProfileModeVC", bundle: nil)
-    
+    var sourceController: Int = 0
+    var nfcTag: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -58,11 +59,24 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let image = UIImage(named: "Groupe 469")?.withRenderingMode(.alwaysTemplate)
+        switch AppSettings().appLanguage {
+        case .EN:
+            backBtn.setImage(image, for: .normal)
+            break
+        default:
+            backBtn.setImage(image?.imageFlippedForRightToLeftLayoutDirection(), for: .normal)
+            break
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getUser()
+        if sourceController == 0 {
+            getUser()
+        } else {
+            getUserByNFCTag(nfc_tag: nfcTag)
+        }
     }
     
     @objc func showCardsList(_ gesture: UITapGestureRecognizer? = nil) {
@@ -75,15 +89,6 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
         profileImage.layer.cornerRadius = 40
         socielMediaCollectionView.delegate = self
         socielMediaCollectionView.dataSource = self
-        let image = UIImage(named: "Groupe 469")?.withRenderingMode(.alwaysTemplate)
-        switch AppSettings().appLanguage {
-        case .EN:
-            backBtn.setImage(image, for: .normal)
-            break
-        default:
-            backBtn.setImage(image?.imageFlippedForRightToLeftLayoutDirection(), for: .normal)
-            break
-        }
         backBtn.tintColor = UIColor.white
         selectedCardView.layer.cornerRadius = 15.0
         selectedCardView.layer.borderColor = UIColor.white.cgColor
@@ -124,7 +129,12 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
     @IBAction func backBtnDidTapped(_ sender: Any) {
         selectCardPopup.isHidden = true
         self.blurView.isHidden = true
-        self.navigationController?.popViewController(animated: true)
+        if sourceController == 0 {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            Contstant.updateRootVC()
+        }
+        
     }
 
 }

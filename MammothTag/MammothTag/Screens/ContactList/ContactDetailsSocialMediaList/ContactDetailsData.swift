@@ -11,6 +11,60 @@ import Kingfisher
 
 extension ContactDetailsViewController {
     
+    func getUserByNFCTag(nfc_tag: String) {
+        if let token = AccountManager.shared.token {
+            showOrHideLoader(done: false)
+            AuthenticationService.sharedInstance.getUserByNFCTag(nfc_tag: nfc_tag, token: token) {[weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let resp = resp {
+                    if let done = resp.result, let message = resp.message, let data = resp.data{
+                        if done {
+                            this.user_id = "\(data.id ?? 0)"
+                            this.AddUser(user_id: this.user_id)
+                        }else {
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
+                        }
+                    } else {
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
+                            this.expireSession(isExppired: true)
+                        }
+                    }
+                } else {
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
+                        this.expireSession(isExppired: true)
+                    }
+                }
+            }
+        }
+    }
+    
+    func AddUser(user_id: String) {
+        if let token = AccountManager.shared.token {
+            showOrHideLoader(done: false)
+            AuthenticationService.sharedInstance.addUser(user_id: user_id, token: token) { [weak self] resp in
+                guard let this = self else {return}
+                this.showOrHideLoader(done: true)
+                if let resp = resp {
+                    if let done = resp.result, let message = resp.message{
+                        if done {
+                            this.getUser()
+                        }else {
+                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
+                        }
+                    } else {
+                        this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
+                            this.expireSession(isExppired: true)
+                        }
+                    }
+                } else {
+                    this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
+                        this.expireSession(isExppired: true)
+                    }
+                }
+            }
+        }
+    }
     
     func getUser() {
         if let token = AccountManager.shared.token {
