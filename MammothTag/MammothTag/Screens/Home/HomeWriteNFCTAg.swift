@@ -29,7 +29,11 @@ extension HomeViewController: NFCNDEFReaderSessionDelegate{
         }
         
         // Connect to the found tag and write an NDEF message to it.
-        let tag = tags.first!
+        guard let tag = tags.first else {
+            session.alertMessage = "Unable to connect to tag."
+            session.invalidate()
+            return
+        }
         session.connect(to: tag, completionHandler: { (error: Error?) in
             if nil != error {
                 session.alertMessage = "Unable to connect to tag."
