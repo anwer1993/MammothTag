@@ -34,22 +34,61 @@ class SpalchScreen: UIViewController, Storyboarded {
         versionLbl.alpha = 0
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-        animateImage {
-            self.translateImage {
-                self.showLabels {
-                    self.hideLabel {
-                        if let token = AccountManager.shared.token , !token.isEmptyString {
-                            Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
-                        } else {
-                            Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
+    func checkUpdates() {
+        AuthenticationService.sharedInstance.checkAppUpdateAvailability { status in
+            if status  {
+                self.showAlertWithOk(withTitle: "NEW_UPDATE".localized, withMessage: "NEW_UPDATE_MESSAGE".localized) {
+                    if let token = AccountManager.shared.token , !token.isEmptyString {
+                        Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
+                    } else {
+                        Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
+                    }
+                    if let url = URL(string: "https://apps.apple.com/us/app/mammothtag/id1643783069") {
+                        UIApplication.shared.open(url)
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.animateImage {
+                        self.translateImage {
+                            self.showLabels {
+                                self.hideLabel {
+                                    if let token = AccountManager.shared.token , !token.isEmptyString {
+                                        Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
+                                    } else {
+                                        Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } onError: { status in
+            DispatchQueue.main.async {
+                self.animateImage {
+                    self.translateImage {
+                        self.showLabels {
+                            self.hideLabel {
+                                if let token = AccountManager.shared.token , !token.isEmptyString {
+                                    Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
+                                } else {
+                                    Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        checkUpdates()
+        
     }
     
     func animateImage(onFinished: @escaping() -> ()) {

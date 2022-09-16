@@ -13,6 +13,36 @@ class AuthenticationService {
     
     static var sharedInstance = AuthenticationService()
     
+    func checkAppUpdateAvailability(onSuccess: @escaping (Bool) -> Void, onError: @escaping (Bool) -> Void) {
+            guard let info = Bundle.main.infoDictionary,
+                  let curentVersion = info["CFBundleShortVersionString"] as? String,
+                  let url = URL(string: "http://itunes.apple.com/lookup?bundleId=com.MammothTag.123.MammothTag") else {
+                return onError(true)
+            }
+            do {
+                let data = try Data(contentsOf: url)
+                guard let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any] else {
+                   return onError(true)
+                }
+                if let result = (json["results"] as? [Any])?.first as? [String: Any], let appStoreVersion = result["version"] as? String {
+                    print("version in app store", appStoreVersion," current Version ",curentVersion);
+                    let versionCompare = curentVersion.compare(appStoreVersion, options: .numeric)
+                    if versionCompare == .orderedSame {
+                        onSuccess(false)
+                    } else if versionCompare == .orderedAscending {
+                        onSuccess(true)
+                        // 2.0.0 to 3.0.0 is ascending order, so ask user to update
+                    } else {
+                        onSuccess(false)
+                    }
+                } else {
+                    onSuccess(false)
+                }
+            } catch {
+                onError(true)
+            }
+        }
+    
     func register(userModel: RegisterModel, completion: @escaping(ServerResponseModel<ProfileModel>) -> Void) {
         let parameters: Parameters?
         if userModel.picture == nil {

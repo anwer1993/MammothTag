@@ -10,6 +10,17 @@ import UIKit
 
 extension HomeViewController {
     
+    func checkUpdates() {
+        AuthenticationService.sharedInstance.checkAppUpdateAvailability { status in
+            if status  {
+                self.showAlert(withTitle: "Update", withMessage: "New update is available please update the application")
+            }
+        } onError: { status in
+            
+        }
+
+    }
+    
     func getProfile() {
         if let token  = AccountManager.shared.token  {
             DispatchQueue.main.async {
