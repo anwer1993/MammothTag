@@ -5,6 +5,7 @@
   Created by Anwar Hajji on 10/08/2022.
   
 */
+"DONE" = "تأكيد";
 "NEW_UPDATE" = "تحديث جديد";
 "NEW_UPDATE_MESSAGE" = "يتوفر تحديث جديد ، يرجى تحديث التطبيق";
 "PLEASE_CONFIRM" = "يرجى التأكيد";

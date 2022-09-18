@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (5.6.2)
+  - Branch (1.43.2)
   - CountryPickerView (3.2.0)
   - Kingfisher (7.3.2)
 
 DEPENDENCIES:
   - Alamofire
+  - Branch
   - CountryPickerView (~> 3.2.0)
   - Kingfisher
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Branch
     - CountryPickerView
     - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Branch: 74cc856025984f691833c8fa332834ac38a0cf4e
   CountryPickerView: 9b093bfffb4b06a69ba6185a798cadbf863720e7
   Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
 
-PODFILE CHECKSUM: 06b2be279cda8a35bdf64db341c086adbbc53d6e
+PODFILE CHECKSUM: 02d6ea782c13881fd53ce8c496cfa9e04aa1dc13
 
 COCOAPODS: 1.11.2

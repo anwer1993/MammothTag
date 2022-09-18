@@ -76,10 +76,29 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         super.viewDidLoad()
         initializeView()
         dateOfBirthTextField.inputView = datePicker
+        datePicker.preferredDatePickerStyle = .wheels
         datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "DONE".localized, style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "CANCEL".localized, style: .plain, target: self, action: #selector(cancelDatePicker));
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        dateOfBirthTextField.inputAccessoryView = toolbar
         passwordTextField.isSecureTextEntry  = true
         passwordStaticLabel.isHidden = true
         passwordTextField.enablePasswordToggle()
+    }
+    
+    @objc func donedatePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        dateOfBirthTextField.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
     }
     
     @objc func handleDatePicker(sender: UIDatePicker) {

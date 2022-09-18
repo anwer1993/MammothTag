@@ -44,5 +44,9 @@
 		<string>Lato-Regular.ttf</string>
 		<string>Lato-Semibold.ttf</string>
 	</array>
+	<key>branch_app_domain</key>
+	<string>ap7gh.app.link</string>
+	<key>branch_key</key>
+	<string>key_live_pm9Yrhg7bDWPEN0CCMDMUcahwAopImlH</string>
 </dict>
 </plist>

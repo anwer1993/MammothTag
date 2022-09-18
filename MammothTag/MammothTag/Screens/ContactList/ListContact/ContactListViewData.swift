@@ -203,7 +203,7 @@ extension ContactListViewController {
                             if this.from == 0 {
                                 this.getContactList()
                             } else {
-                                Router.shared.push(with: this.navigationController, screen: .ContactDetails(user_id: "\(user_id)"), animated: true)
+                                Router.shared.push(with: this.navigationController, screen: .ContactDetails(user_id: "\(user_id)", nfcTag: "", sourceController: 0), animated: true)
                             }  
                         }else {
                             this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)

@@ -41,6 +41,8 @@ class SignInController: UIViewController, Storyboarded {
     var identityStackTopContrainteOriginal: CGFloat = 0.0
     
     var signInViewModel = SignInViewModel()
+    var sourceController = 0
+    var nfcTagId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -271,9 +273,20 @@ class SignInController: UIViewController, Storyboarded {
     
     func updateUIWhenLogin(isLoggedIn: Bool, message: String) {
         if isLoggedIn {
+            if sourceController == 0 {
+                Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
+            } else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let rootViewController = storyboard.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController {
+                    rootViewController.nfcTag = nfcTagId
+                    rootViewController.sourceController = 1
+                    UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = rootViewController
+                    UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.makeKeyAndVisible()
+                }
+            }
             AccountManager.shared.email = emailTextField.text
             AccountManager.shared.password = passwordTextField.text
-            Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
+            
         } else {
             self.showAlert(withTitle: "ERROR".localized, withMessage: message)
         }

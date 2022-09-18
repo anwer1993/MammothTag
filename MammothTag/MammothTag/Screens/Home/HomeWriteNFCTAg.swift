@@ -8,6 +8,7 @@
 import Foundation
 import CoreNFC
 import UIKit
+import Branch
 
 
 extension HomeViewController: NFCNDEFReaderSessionDelegate{
@@ -58,7 +59,7 @@ extension HomeViewController: NFCNDEFReaderSessionDelegate{
                 case .readWrite:
                     self.UIID = UUID().uuidString
                     let uriPayloadFromURL = NFCNDEFPayload.wellKnownTypeURIPayload(
-                        url: URL(string: "MaMMoth://Vacation?index=\(self.UIID)")!
+                        url: URL(string: "https://ap7gh.app.link/yAJpDf18otb=\(self.UIID)?bnc_validate=true")!
                     )!
                     let messge = NFCNDEFMessage(records: [(uriPayloadFromURL)])
                     tag.writeNDEF(messge, completionHandler: { (error: Error?) in
@@ -69,7 +70,7 @@ extension HomeViewController: NFCNDEFReaderSessionDelegate{
                                 if self.isActivateBtnTapped  {
                                     self.activateNFCTag(nfc_tag: self.UIID)
                                 } else {
-                                    
+
                                 }
                             }
                         }

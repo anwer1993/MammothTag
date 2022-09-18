@@ -5,6 +5,7 @@
   Created by Anwar Hajji on 10/08/2022.
   
 */
+"DONE" = "Done";
 "NEW_UPDATE" = "New Update";
 "NEW_UPDATE_MESSAGE" = "New update is available please update the application";
 "PLEASE_CONFIRM" = "Please confirm";

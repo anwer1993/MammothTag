@@ -78,10 +78,10 @@ class RegisterViewController: UIViewController, Storyboarded {
     var isTermedChecked: Bool = false
     
     private lazy var datePicker: UIDatePicker = {
-      let datePicker = UIDatePicker(frame: .zero)
-      datePicker.datePickerMode = .date
-      datePicker.timeZone = TimeZone.current
-      return datePicker
+        let datePicker = UIDatePicker(frame: .zero)
+        datePicker.datePickerMode = .date
+        datePicker.timeZone = TimeZone.current
+        return datePicker
     }()
     
     override func viewDidLoad() {
@@ -94,15 +94,36 @@ class RegisterViewController: UIViewController, Storyboarded {
         uHaveAccountLbl.addTagGesture(signInTap)
         addPicImage.addTagGesture(addPicTap)
         dateOfBirthTextField.inputView = datePicker
+        datePicker.preferredDatePickerStyle = .wheels
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "DONE".localized, style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "CANCEL".localized, style: .plain, target: self, action: #selector(cancelDatePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        dateOfBirthTextField.inputAccessoryView = toolbar
         datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
     }
     
+    @objc func donedatePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        dateOfBirthTextField.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+    
     @objc func handleDatePicker(sender: UIDatePicker) {
-          let dateFormatter = DateFormatter()
-          dateFormatter.dateFormat = "yyyy-MM-dd"
-          dateOfBirthTextField.text = dateFormatter.string(from: sender.date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateOfBirthTextField.text = dateFormatter.string(from: sender.date)
         registerViewModel.dateOfBirth.value = dateOfBirthTextField.text
-     }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

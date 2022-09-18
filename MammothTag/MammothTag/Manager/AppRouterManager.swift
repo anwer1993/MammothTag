@@ -20,7 +20,7 @@ protocol INaviagtion{}
 
 /// the enumaration that define the different view controller in the app
 enum AppScreen: INaviagtion{
-    case Login
+    case Login(sourceController: Int)
     case ForgotPassword
     case Register
     case Terms(source: SourceController? = nil)
@@ -30,7 +30,7 @@ enum AppScreen: INaviagtion{
     case UpdatePassword
     case ChangeForgotPassword(code: String, phone: String, delegate: Navigatable)
     case UpdateProfile(profile: DataClassProfile?)
-    case ContactDetails(user_id: String)
+    case ContactDetails(user_id: String, nfcTag: String, sourceController: Int)
     case ContactDetailsCardList(user_id: String)
     case AppSettings
 }
@@ -65,7 +65,7 @@ struct Router: IRouter {
         var viewController = UIViewController()
         if let screen = screen as? AppScreen {
             switch screen {
-            case .Login:
+            case .Login(sourceController: let sourceCotroller):
                 guard let vc = SignInController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
                 viewController = vc
                 break
@@ -110,9 +110,11 @@ struct Router: IRouter {
                 vc.profile = profile
                 viewController = vc
                 break
-            case .ContactDetails(user_id: let user_id):
+            case .ContactDetails(user_id: let user_id, nfcTag: let nfcTag, sourceController: let sourceController):
                 guard let vc = ContactDetailsViewController.instantiate(storyboardName: "Main") else {return UIViewController()}
                 vc.user_id = user_id
+                vc.nfcTag = nfcTag
+                vc.sourceController = sourceController
                 viewController = vc
                 break
             case .ContactDetailsCardList(user_id: let user_id):

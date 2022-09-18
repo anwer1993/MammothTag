@@ -10,7 +10,8 @@ target 'MammothTag' do
   pod 'Alamofire'
   pod 'CountryPickerView', '~> 3.2.0'
   pod 'Kingfisher'
-
+  pod 'Branch'
+  
 
   target 'MammothTagTests' do
     inherit! :search_paths

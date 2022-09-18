@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Branch
+import CoreNFC
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,7 +15,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb else {
+            return false
+        }
+
+        // Confirm that the NSUserActivity object contains a valid NDEF message.
+        let ndefMessage = userActivity.ndefMessagePayload
+        guard !ndefMessage.records.isEmpty,
+            ndefMessage.records[0].typeNameFormat != .empty else {
+                return false
+        }
+        guard let payload = ndefMessage.records.first else {return false}
+        switch payload.typeNameFormat {
+        case .nfcWellKnown:
+            if let type = String(data: payload.type, encoding: .utf8) {
+                if let url = payload.wellKnownTypeURIPayload() {
+                    print("\(payload.typeNameFormat.description): \(type), \(url.absoluteString)")
+                    let lastPath = url.lastPathComponent
+                    if let startIndex = lastPath.firstIndex(of: "=") {
+                        let indeex = lastPath.index(startIndex, offsetBy: 1)
+                        let UUID = String(lastPath[indeex...])
+                        print(UUID)
+                        if let token = AccountManager.shared.token {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            if let rootViewController = storyboard.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController {
+                                rootViewController.nfcTag = UUID
+                                rootViewController.sourceController = 1
+                                self.window?.rootViewController = rootViewController
+                                self.window?.makeKeyAndVisible()
+                                return true
+                            } else {
+                                return false
+                            }
+                        } else {
+                            let storyboard = UIStoryboard(name: "Authentification", bundle: nil)
+                            if let rootViewController = storyboard.instantiateViewController(withIdentifier: "SignInController") as? SignInController {
+                                rootViewController.sourceController = 1
+                                rootViewController.nfcTagId = UUID
+                                self.window?.rootViewController = rootViewController
+                                self.window?.makeKeyAndVisible()
+                                return true
+                            } else {
+                                return false
+                            }
+                        }
+                        
+                    } else {
+                        return false
+                    }
+                }
+            }
+        case .absoluteURI:
+            break
+        case .media:
+            break
+        case .nfcExternal, .empty, .unknown, .unchanged:
+            fallthrough
+        @unknown default:
+            break
+        }
+      return true
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // if you are using the TEST key
+          Branch.setUseTestBranchKey(true)
+          // listener for Branch Deep Link data
+          Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
+          }
+
         // Override point for customization after application launch
         if let applanguage = AppSettings().appLanguage {
             switch applanguage {
@@ -25,8 +99,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 break
             }
         }
-        //        AccountManager.shared.token = nil
-        //        UIView.appearance().semanticContentAttribute = .forceLeftToRight
         
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
@@ -59,6 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:] ) -> Bool {
         // Process the URL.
+        Branch.getInstance().application(application, open: url, options: options)
         guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
               let params = components.queryItems else {
             print("Invalid URL or profilId missing")

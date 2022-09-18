@@ -41,7 +41,7 @@ class SpalchScreen: UIViewController, Storyboarded {
                     if let token = AccountManager.shared.token , !token.isEmptyString {
                         Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
                     } else {
-                        Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
+                        Router.shared.push(with: self.navigationController, screen: .Login(sourceController: 0), animated: true)
                     }
                     if let url = URL(string: "https://apps.apple.com/us/app/mammothtag/id1643783069") {
                         UIApplication.shared.open(url)
@@ -56,7 +56,7 @@ class SpalchScreen: UIViewController, Storyboarded {
                                     if let token = AccountManager.shared.token , !token.isEmptyString {
                                         Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
                                     } else {
-                                        Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
+                                        Router.shared.push(with: self.navigationController, screen: .Login(sourceController: 0), animated: true)
                                     }
                                 }
                             }
@@ -73,7 +73,7 @@ class SpalchScreen: UIViewController, Storyboarded {
                                 if let token = AccountManager.shared.token , !token.isEmptyString {
                                     Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
                                 } else {
-                                    Router.shared.push(with: self.navigationController, screen: .Login, animated: true)
+                                    Router.shared.push(with: self.navigationController, screen: .Login(sourceController: 0), animated: true)
                                 }
                             }
                         }
