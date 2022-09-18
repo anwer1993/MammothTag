@@ -93,6 +93,7 @@ class RegisterViewController: UIViewController, Storyboarded {
         readTermsLabel.addTagGesture(showTermsTap)
         uHaveAccountLbl.addTagGesture(signInTap)
         addPicImage.addTagGesture(addPicTap)
+        datePicker.locale = Locale(identifier: "ar_DZ")
         dateOfBirthTextField.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
         let toolbar = UIToolbar()
@@ -110,6 +111,7 @@ class RegisterViewController: UIViewController, Storyboarded {
     @objc func donedatePicker(){
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale(identifier: "ar_DZ")
         dateOfBirthTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
@@ -121,6 +123,7 @@ class RegisterViewController: UIViewController, Storyboarded {
     @objc func handleDatePicker(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "ar_DZ")
         dateOfBirthTextField.text = dateFormatter.string(from: sender.date)
         registerViewModel.dateOfBirth.value = dateOfBirthTextField.text
     }

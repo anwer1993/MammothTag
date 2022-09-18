@@ -66,15 +66,16 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     var profile: DataClassProfile?
     
     private lazy var datePicker: UIDatePicker = {
-      let datePicker = UIDatePicker(frame: .zero)
-      datePicker.datePickerMode = .date
-      datePicker.timeZone = TimeZone.current
-      return datePicker
+        let datePicker = UIDatePicker(frame: .zero)
+        datePicker.datePickerMode = .date
+        datePicker.timeZone = TimeZone.current
+        return datePicker
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeView()
+        datePicker.locale = Locale(identifier: "ar_DZ")
         dateOfBirthTextField.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
@@ -93,6 +94,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     @objc func donedatePicker(){
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale(identifier: "ar_DZ")
         dateOfBirthTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
@@ -102,11 +104,12 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     }
     
     @objc func handleDatePicker(sender: UIDatePicker) {
-          let dateFormatter = DateFormatter()
-          dateFormatter.dateFormat = "yyyy-MM-dd"
-          dateOfBirthTextField.text = dateFormatter.string(from: sender.date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ar_DZ")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateOfBirthTextField.text = dateFormatter.string(from: sender.date)
         updateProfileViewModel.dateOfBirth.value = dateOfBirthTextField.text
-     }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -170,7 +173,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         phoneStaticLabel.font = UIFont(name: "Lato-Regular", size: 12)
         passwordTextField.font = UIFont(name: "Lato-Regular", size: 15)
         passwordStaticLabel.font = UIFont(name: "Lato-Regular", size: 12)
-
+        
         if let profile = profile {
             firstNameTestField.text = profile.name
             lastNameTextField.text = profile.username
