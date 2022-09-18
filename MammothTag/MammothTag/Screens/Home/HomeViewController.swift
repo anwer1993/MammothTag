@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreNFC
+import Branch
 
 class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -90,6 +91,8 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     var addSocialMediaTopConstrainteOriginal: CGFloat = 0.0
     var addLblBottomConstrainteOriginal: CGFloat = 0.0
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -105,7 +108,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         addView.addTagGesture(AddCardTap)
         activateNFCImage.addTagGesture(scanNFCGesture)
         activateNFCLabel.addTagGesture(scanNFCGesture)
-        let AddshowSocialTap = UITapGestureRecognizer(target: self, action: #selector(showSocialMediaList(_:)))
+        let AddshowSocialTap = UITapGestureRecognizer(target: self, action: #selector(shareLink(_:)))
         addSocialeMediaImage.addTagGesture(AddshowSocialTap)
         initView()
         configMoreVC()
@@ -120,6 +123,36 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         customSegmentControlView.isUserInteractionEnabled = true
         swipeTap.delegate = self
         customSegmentControlView.addGestureRecognizer(swipeTap)
+    }
+    
+    @objc func shareLink(_ sender: UITapGestureRecognizer? = nil) {
+        let branchUniversalObject: BranchUniversalObject = BranchUniversalObject(canonicalIdentifier: "content/12345")
+        branchUniversalObject.title = "anwer"
+        branchUniversalObject.imageUrl = "sellerImage"
+        branchUniversalObject.contentMetadata.customMetadata = ["id": "4"]
+        let lp = BranchLinkProperties()
+        lp.channel = "Mammoth"
+        lp.feature = "sharing"
+        lp.campaign = "content 123 launch"
+        lp.stage  = "newUser"
+        lp.controlParams = ["id": "4"]
+        branchUniversalObject.getShortUrl(with: lp) { url, error in
+            if error == nil {
+                print(branchUniversalObject.contentMetadata.customMetadata)
+                print(url)
+            }
+        }
+        
+        print(branchUniversalObject.getShortUrl(with: lp))
+        
+        
+        branchUniversalObject.showShareSheet(withShareText: "Meem") { (activityType, completed) in
+            if (completed) {
+              print(String(format: "Completed sharing!"))
+            } else {
+              print("Link sharing cancelled")
+            }
+        }
     }
     
     @objc func didSwipeAlert(_ sender:UIPanGestureRecognizer) {

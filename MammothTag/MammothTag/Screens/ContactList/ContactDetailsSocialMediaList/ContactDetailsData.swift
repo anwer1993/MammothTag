@@ -41,16 +41,12 @@ extension ContactDetailsViewController {
     
     func AddUser(user_id: String) {
         if let token = AccountManager.shared.token {
-            showOrHideLoader(done: false)
             AuthenticationService.sharedInstance.addUser(user_id: user_id, token: token) { [weak self] resp in
                 guard let this = self else {return}
-                this.showOrHideLoader(done: true)
                 if let resp = resp {
                     if let done = resp.result, let message = resp.message{
                         if done {
-                            this.getUser()
                         }else {
-                            this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
                         }
                     } else {
                         this.showAlertWithOk(withTitle: "ERROR".localized, withMessage: "SESSION_EXPIRED".localized) {
@@ -77,6 +73,7 @@ extension ContactDetailsViewController {
                 if let resp = resp {
                     if let done = resp.result, let message = resp.message, let data = resp.data {
                         if done {
+                            this.AddUser(user_id: this.user_id)
                             this.userData = data
                             this.profileNameLbl.text = "\(data.name ?? "") \(data.username ?? "")"
                             this.emailLbl.text = data.email

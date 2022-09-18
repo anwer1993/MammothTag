@@ -48,7 +48,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
     var contactList = [DatumListContact]()
     
     var swipeTap = UIPanGestureRecognizer()
-    var session: NFCTagReaderSession?
+    var session: NFCNDEFReaderSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +76,7 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
             self.present(alertController, animated: true, completion: nil)
             return
         }
-        session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
+        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
         session?.alertMessage = "SCAN_NFC_DESC".localized
         session?.begin()
     }
@@ -118,22 +118,6 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if from == 1 {
-            session?.invalidate()
-            guard NFCNDEFReaderSession.readingAvailable else {
-                let alertController = UIAlertController(
-                    title: "SCANING_NOT_SUPPORTED".localized,
-                    message: "DEVICE_NOT_SUPPORT_SCAN".localized,
-                    preferredStyle: .alert
-                )
-                alertController.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-                return
-            }
-            session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
-//            session?.alertMessage = ""
-            session?.begin()
-        }
     }
     
     func setupTableView() {
@@ -241,32 +225,79 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 
-extension ContactListViewController: NFCTagReaderSessionDelegate {
+extension ContactListViewController: NFCNDEFReaderSessionDelegate {
+    
+    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+        
+    }
+    
+    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+        
+    }
+    
     
     func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
         print("session did begin")
     }
     
-    func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
-        print("error invalide session", error.localizedDescription)
-    }
-    
-    func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
-        print("connect nfc tag")
+    func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
+        if tags.count > 1 {
+            // Restart polling in 500ms
+            let retryInterval = DispatchTimeInterval.milliseconds(500)
+            session.alertMessage = "More than 1 tag is detected, please remove all tags and try again."
+            DispatchQueue.global().asyncAfter(deadline: .now() + retryInterval, execute: {
+                session.restartPolling()
+            })
+            return
+        }
+        
+        // Connect to the found tag and perform NDEF message reading
         let tag = tags.first!
-        session.connect(to: tag) { error in
-            if let error = error {
-                print("error connaction", error.localizedDescription)
+        session.connect(to: tag, completionHandler: { (error: Error?) in
+            if nil != error {
+                session.alertMessage = "Unable to connect to tag."
+                session.invalidate()
+                return
             }
-        }
-        if case let .miFare(stag) = tag {
-            let uiid = stag.identifier.map({String(format: "%.2hhx", $0)}).joined()
-            print("UIId", uiid)
-            session.invalidate()
-            DispatchQueue.main.async {
-                self.getUserByNFCTag(nfc_tag: uiid)
-            }
-        }
+            
+            tag.queryNDEFStatus(completionHandler: { (ndefStatus: NFCNDEFStatus, capacity: Int, error: Error?) in
+                if .notSupported == ndefStatus {
+                    session.alertMessage = "Tag is not NDEF compliant"
+                    session.invalidate()
+                    return
+                } else if nil != error {
+                    session.alertMessage = "Unable to query NDEF status of tag"
+                    session.invalidate()
+                    return
+                }
+                
+                tag.readNDEF(completionHandler: { (message: NFCNDEFMessage?, error: Error?) in
+                    var statusMessage: String
+                    if nil != error || nil == message {
+                        statusMessage = "Fail to read NDEF from tag"
+                    } else {
+                        guard let payload = message!.records.first else {return}
+                        switch payload.typeNameFormat {
+                        case .nfcWellKnown:
+                            if let user_id = payload.wellKnownTypeURIPayload()?.absoluteString {
+                                DispatchQueue.main.async {
+                                    self.getUserByNFCTag(nfc_tag: user_id)
+                                }
+                            }
+                        case .absoluteURI:
+                            break
+                        case .media:
+                            break
+                        case .nfcExternal, .empty, .unknown, .unchanged:
+                            fallthrough
+                        @unknown default:
+                            break
+                        }
+                    }
+                    session.invalidate()
+                })
+            })
+        })
     }
     
     

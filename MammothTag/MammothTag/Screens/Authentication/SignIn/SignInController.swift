@@ -42,7 +42,7 @@ class SignInController: UIViewController, Storyboarded {
     
     var signInViewModel = SignInViewModel()
     var sourceController = 0
-    var nfcTagId = ""
+    var user_id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -278,7 +278,7 @@ class SignInController: UIViewController, Storyboarded {
             } else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let rootViewController = storyboard.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController {
-                    rootViewController.nfcTag = nfcTagId
+                    rootViewController.user_id = user_id
                     rootViewController.sourceController = 1
                     UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = rootViewController
                     UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.makeKeyAndVisible()

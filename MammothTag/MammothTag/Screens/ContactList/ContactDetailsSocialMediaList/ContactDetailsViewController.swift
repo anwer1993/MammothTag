@@ -72,11 +72,7 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if sourceController == 0 {
-            getUser()
-        } else {
-            getUserByNFCTag(nfc_tag: nfcTag)
-        }
+        getUser()
     }
     
     @objc func showCardsList(_ gesture: UITapGestureRecognizer? = nil) {

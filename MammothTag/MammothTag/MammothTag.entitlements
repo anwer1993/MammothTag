@@ -4,8 +4,8 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:ap7gh.app.link</string>
-		<string>applinks:ap7gh-alternate.app.link</string>
+		<string>mammothtag.app.link</string>
+		<string>mammothtag-alternate.app.link</string>
 	</array>
 	<key>com.apple.developer.nfc.readersession.formats</key>
 	<array>

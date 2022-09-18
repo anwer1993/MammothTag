@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             let storyboard = UIStoryboard(name: "Authentification", bundle: nil)
                             if let rootViewController = storyboard.instantiateViewController(withIdentifier: "SignInController") as? SignInController {
                                 rootViewController.sourceController = 1
-                                rootViewController.nfcTagId = UUID
+                                rootViewController.user_id = UUID
                                 self.window?.rootViewController = rootViewController
                                 self.window?.makeKeyAndVisible()
                                 return true
@@ -83,10 +83,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // if you are using the TEST key
-          Branch.setUseTestBranchKey(true)
-          // listener for Branch Deep Link data
-          Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
-          }
+        let branch: Branch = Branch.getInstance()
+        Branch.useTestBranchKey()
+        branch.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: {params, error in
+            if error == nil {
+                if let id = params?["id"] as? String {
+                    if AccountManager.shared.token != nil {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        if let rootViewController = storyboard.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController {
+                            rootViewController.user_id = id
+                            rootViewController.sourceController = 1
+                            self.window?.rootViewController = rootViewController
+                            self.window?.makeKeyAndVisible()
+                        }
+                    } else {
+                        let storyboard = UIStoryboard(name: "Authentification", bundle: nil)
+                        if let rootViewController = storyboard.instantiateViewController(withIdentifier: "SignInController") as? SignInController {
+                            rootViewController.sourceController = 1
+                            rootViewController.user_id = id
+                            self.window?.rootViewController = rootViewController
+                            self.window?.makeKeyAndVisible()
+                        }
+                    }
+                }
+            }
+        })
 
         // Override point for customization after application launch
         if let applanguage = AppSettings().appLanguage {

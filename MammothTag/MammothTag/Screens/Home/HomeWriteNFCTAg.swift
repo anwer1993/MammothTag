@@ -57,25 +57,42 @@ extension HomeViewController: NFCNDEFReaderSessionDelegate{
                     session.alertMessage = "Tag is read only."
                     session.invalidate()
                 case .readWrite:
-                    self.UIID = UUID().uuidString
-                    let uriPayloadFromURL = NFCNDEFPayload.wellKnownTypeURIPayload(
-                        url: URL(string: "https://ap7gh.app.link/yAJpDf18otb=\(self.UIID)?bnc_validate=true")!
-                    )!
-                    let messge = NFCNDEFMessage(records: [(uriPayloadFromURL)])
-                    tag.writeNDEF(messge, completionHandler: { (error: Error?) in
-                        if nil != error {
-                            session.alertMessage = "Write NDEF message fail: \(error!)"
-                        } else {
-                            DispatchQueue.main.async {
-                                if self.isActivateBtnTapped  {
-                                    self.activateNFCTag(nfc_tag: self.UIID)
+                    let branchUniversalObject: BranchUniversalObject = BranchUniversalObject(canonicalIdentifier: "content/12345")
+                    branchUniversalObject.title = "anwer"
+                    branchUniversalObject.imageUrl = "sellerImage"
+                    branchUniversalObject.contentMetadata.customMetadata = ["id": "4"]
+                    let lp = BranchLinkProperties()
+                    lp.channel = "Mammoth"
+                    lp.feature = "sharing"
+                    lp.campaign = "content 123 launch"
+                    lp.stage  = "newUser"
+                    lp.controlParams = ["id": "\(self.profile?.id ?? 0)"]
+                    lp.controlParams["$web_only"] = false
+                    branchUniversalObject.getShortUrl(with: lp) { url, error in
+                        if error == nil {
+                            print("url", url)
+                            let uriPayloadFromURL = NFCNDEFPayload.wellKnownTypeURIPayload(
+                                url: URL(string: (url ?? ""))!
+                            )!
+                            let messge = NFCNDEFMessage(records: [(uriPayloadFromURL)])
+                            tag.writeNDEF(messge, completionHandler: { (error: Error?) in
+                                if nil != error {
+                                    session.alertMessage = "Write NDEF message fail: \(error!)"
                                 } else {
-
+                                    DispatchQueue.main.async {
+                                        if self.isActivateBtnTapped  {
+                                            self.activateNFCTag(nfc_tag: url ?? "")
+                                        } else {
+                                            session.alertMessage = "NFC TAG Activated"
+                                        }
+                                        session.invalidate()
+                                    }
+                                    session.alertMessage = "NFC TAG Activated"
                                 }
-                            }
+                                session.invalidate()
+                            })
                         }
-                        session.invalidate()
-                    })
+                    }
                 @unknown default:
                     session.alertMessage = "Unknown NDEF tag status."
                     session.invalidate()
