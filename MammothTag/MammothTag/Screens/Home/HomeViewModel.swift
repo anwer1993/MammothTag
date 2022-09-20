@@ -308,12 +308,12 @@ extension HomeViewController {
         }
     }
     
-    func activateNFCTag(nfc_tag: String) {
+    func activateNFCTag(nfc_tag: String, branch_link: String) {
         if let token = AccountManager.shared.token {
             DispatchQueue.main.async {
                 self.showOrHideLoader(done: false)
             }
-            AuthenticationService.sharedInstance.activateNFCTag(nfc_tag: nfc_tag, token: token) { [weak self] resp in
+            AuthenticationService.sharedInstance.activateNFCTag(nfc_tag: nfc_tag, branch_link: branch_link, token: token) { [weak self] resp in
                 guard let this = self else {return}
                 DispatchQueue.main.async {
                     this.showOrHideLoader(done: true)

@@ -60,7 +60,7 @@ extension HomeViewController: NFCNDEFReaderSessionDelegate{
                     let branchUniversalObject: BranchUniversalObject = BranchUniversalObject(canonicalIdentifier: "content/12345")
                     branchUniversalObject.title = "anwer"
                     branchUniversalObject.imageUrl = "sellerImage"
-                    branchUniversalObject.contentMetadata.customMetadata = ["id": "4"]
+                    branchUniversalObject.contentMetadata.customMetadata = ["id": "\(self.profile?.id ?? 0)"]
                     let lp = BranchLinkProperties()
                     lp.channel = "Mammoth"
                     lp.feature = "sharing"
@@ -81,7 +81,8 @@ extension HomeViewController: NFCNDEFReaderSessionDelegate{
                                 } else {
                                     DispatchQueue.main.async {
                                         if self.isActivateBtnTapped  {
-                                            self.activateNFCTag(nfc_tag: url ?? "")
+                                            let nfc_id = UUID().uuidString
+                                            self.activateNFCTag(nfc_tag: nfc_id, branch_link: url ??  "")
                                         } else {
                                             session.alertMessage = "NFC TAG Activated"
                                         }

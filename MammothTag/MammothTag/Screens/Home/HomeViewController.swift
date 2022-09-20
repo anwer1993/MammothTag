@@ -61,7 +61,6 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     var sessionWriter: NFCNDEFReaderSession?
-    var UIID: String   = ""
     var cardList = [CardProfile]()
     var listCardNetwork = [CardNetworkProfile]()
     var selectedCard: CardProfile?

@@ -142,8 +142,9 @@ class AuthenticationService {
         }
     }
     
-    func activateNFCTag(nfc_tag: String, token: String, completion: @escaping(ProfileServerResponseModel?) -> Void) {
-        let parameters = ["nfc_tag" : nfc_tag] as Parameters
+    func activateNFCTag(nfc_tag: String, branch_link: String, token: String, completion: @escaping(ProfileServerResponseModel?) -> Void) {
+        let parameters = ["nfc_tag" : nfc_tag,
+                          "branch_link": branch_link] as Parameters
         let headers: HTTPHeaders = [.authorization(bearerToken: token)]
         AF.request("\(URLRequest.ACTIVATE_NFC_URL.url)\(token)", method: .put, parameters: parameters, headers: headers).validate().responseDecodable(of: ProfileServerResponseModel.self) { data in
             completion(data.value)
