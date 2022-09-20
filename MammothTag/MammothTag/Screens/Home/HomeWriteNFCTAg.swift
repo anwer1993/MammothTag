@@ -58,16 +58,18 @@ extension HomeViewController: NFCNDEFReaderSessionDelegate{
                     session.invalidate()
                 case .readWrite:
                     let branchUniversalObject: BranchUniversalObject = BranchUniversalObject(canonicalIdentifier: "content/12345")
-                    branchUniversalObject.title = "anwer"
-                    branchUniversalObject.imageUrl = "sellerImage"
+                    branchUniversalObject.title = self.profile?.name  ?? ""
+                    branchUniversalObject.imageUrl = self.profile?.picture ?? ""
                     branchUniversalObject.contentMetadata.customMetadata = ["id": "\(self.profile?.id ?? 0)"]
                     let lp = BranchLinkProperties()
                     lp.channel = "Mammoth"
                     lp.feature = "sharing"
-                    lp.campaign = "content 123 launch"
+                    lp.campaign = "" + "\(self.profile?.id ?? 0)"
                     lp.stage  = "newUser"
                     lp.controlParams = ["id": "\(self.profile?.id ?? 0)"]
                     lp.controlParams["$web_only"] = false
+                    lp.addControlParam("$desktop_url", withValue: "https://mammoth-app.net/mobile/public/profil")
+                    lp.addControlParam("id", withValue: "\(self.profile?.id ?? 0)")
                     branchUniversalObject.getShortUrl(with: lp) { url, error in
                         if error == nil {
                             print("url", url)
