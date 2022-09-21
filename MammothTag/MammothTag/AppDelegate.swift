@@ -87,7 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Branch.useTestBranchKey()
         branch.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: {params, error in
             if error == nil {
-                if let id = params?["id"] as? String {
+                params?.forEach({ (key: AnyHashable, value: Any) in
+                    print(key, value)
+                })
+                if let id = params?["id"] as? String, let isFirstSession = params?["+is_first_session"] as? Int, isFirstSession  ==  0 {
                     if AccountManager.shared.token != nil {
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         if let rootViewController = storyboard.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController {
@@ -106,6 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                 }
+                
             }
         })
 

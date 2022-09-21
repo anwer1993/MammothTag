@@ -107,7 +107,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         addView.addTagGesture(AddCardTap)
         activateNFCImage.addTagGesture(scanNFCGesture)
         activateNFCLabel.addTagGesture(scanNFCGesture)
-        let AddshowSocialTap = UITapGestureRecognizer(target: self, action: #selector(shareLink(_:)))
+        let AddshowSocialTap = UITapGestureRecognizer(target: self, action: #selector(showSocialMediaList(_:)))
         addSocialeMediaImage.addTagGesture(AddshowSocialTap)
         initView()
         configMoreVC()

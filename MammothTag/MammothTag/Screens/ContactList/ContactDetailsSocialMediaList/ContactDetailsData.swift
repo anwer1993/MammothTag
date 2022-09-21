@@ -78,8 +78,9 @@ extension ContactDetailsViewController {
                             this.profileNameLbl.text = "\(data.name ?? "") \(data.username ?? "")"
                             this.emailLbl.text = data.email
                             if let picture = data.picture, picture.isEmptyString == false {
-                                let url = URL(string: picture)
+                                let url = URL(string: "https://mammoth-app.net/mobile/public/\(picture)")
                                 this.profileImage.kf.setImage(with: url)
+                                this.profileImage.contentMode = .scaleAspectFill
                             } else {
                                 this.profileImage.image = UIImage(named: "avatar")
                             }

@@ -81,8 +81,8 @@ class ContactDetailsViewController: UIViewController, Storyboarded {
     }
     
     func setupUI() {
-        viewProfileImage.layer.cornerRadius = 40
-        profileImage.layer.cornerRadius = 40
+        viewProfileImage.layer.cornerRadius = 45
+        profileImage.layer.cornerRadius = 45
         socielMediaCollectionView.delegate = self
         socielMediaCollectionView.dataSource = self
         backBtn.tintColor = UIColor.white
@@ -194,6 +194,7 @@ extension ContactDetailsViewController: UITableViewDelegate, UITableViewDataSour
         if networks.contains(where: {$0.isOpenFirst == "1"}) {
             if let item = networks.first(where: {$0.isOpenFirst == "1"}) {
                 self.cardNetworkList = [item]
+                openNetwork(network: item)
             }
         } else {
             self.cardNetworkList = networks
@@ -229,7 +230,7 @@ extension ContactDetailsViewController: UITableViewDelegate, UITableViewDataSour
                 let alert = UIAlertController(title: "SKYPE_NOT_FOUND".localized, message: "INSTALL_SKYPE".localized, preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "CANCEL".localized, style: .cancel)
                 let confirmAction = UIAlertAction(title: "PROCEED".localized, style: .destructive) { _ in
-                    if let webURL = URL(string: "http://itunes.com/apps/skype/skype") {
+                    if let webURL = URL(string: "https://apps.apple.com/us/app/skype/id304878510") {
                         UIApplication.shared.open(webURL)
                     }
                 }

@@ -113,11 +113,12 @@ class ContactListViewController: UIViewController, UIGestureRecognizerDelegate,S
         super.viewWillAppear(animated)
         initView()
         emptyView.isHidden = true
-        getContactList()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        getContactList()
     }
     
     func setupTableView() {

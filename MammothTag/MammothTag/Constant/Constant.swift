@@ -74,7 +74,7 @@ class Contstant {
     }
     
     static func openFb(username: String, errorCompletion: () -> ()) {
-        guard let appURL = URL(string: "fb://profile/\(username)") else {
+        guard let appURL = URL(string: "fb://profile/\(username)/?id=\(username)") else {
             errorCompletion()
             return
         }
@@ -244,7 +244,7 @@ class Contstant {
     }
     
     static func openLinkedIn(link: String, errorCompletion: () -> ()) {
-        guard let appURL = URL(string: "linkedin://profile/binance\(link)") else {
+        guard let appURL = URL(string: "linkedin://profile/\(link)") else {
             errorCompletion()
             return
         }

@@ -49,67 +49,67 @@ enum URLRequest: String {
     var url: String {
         switch self {
         case .REGISTER_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/register/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/user/register/en"
         case .LOGIN_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/login/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/user/login/en"
         case .LOGOUT_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/logout/en?token="
+            return "https://mammoth-app.net/mobile/public/api/v1/user/logout/en?token="
         case .GET_USER_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/en?token="
+            return "https://mammoth-app.net/mobile/public/api/v1/user/en?token="
         case .UPDATE_USER_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/update/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/user/update/en"
         case .GET_CARDS_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/en?token="
+            return "https://mammoth-app.net/mobile/public/api/v1/card/en?token="
         case .ADD_CARDS_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/add/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/card/add/en"
         case .EDIT_CARDS_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/edit/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/card/edit/en"
         case .DELETE_CARDS_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/delete/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/card/delete/en"
         case .UPDATE_PASSWORD:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/change_pass/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/user/change_pass/en"
         case .SETTINGS:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/general/settings/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/general/settings/en"
         case .FORGOT_PASSWORD:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/forgot_pass/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/user/forgot_pass/en"
         case .CHANGE_FORGOT_PASSWORD:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/forgot_change_pass/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/user/forgot_change_pass/en"
         case .ADD_CARD_NETWORK:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/add/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/card/network/add/en"
         case .EDIT_CARD_NETWORK:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/edit/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/card/network/edit/en"
         case .DELETE_CARD_NETWORK:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/delete/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/card/network/delete/en"
         case .LIST_CARD_NETWORK:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/"
+            return "https://mammoth-app.net/mobile/public/api/v1/card/"
         case .LIST_REQUESTS:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/requests/en?token="
+            return "https://mammoth-app.net/mobile/public/api/v1/contact/requests/en?token="
         case .ADD_REQUEST:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/request/add/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/contact/request/add/en"
         case .ACCEPT_REQUEST:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/request/accept/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/contact/request/accept/en"
         case .DELETE_REQUEST:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/request/delete/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/contact/request/delete/en"
         case .LIST_CONTACT_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/en?token="
+            return "https://mammoth-app.net/mobile/public/api/v1/contact/en?token="
         case .DELETE_CONTACT:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/delete/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/contact/delete/en"
         case .GET_USER_BY_ID_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/profile/en?token="
+            return "https://mammoth-app.net/mobile/public/api/v1/user/profile/en?token="
         case .PUPBLIC_ALL_CARD:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/all/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/card/network/all/en"
         case .OPEN_FIRST:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/card/network/first/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/card/network/first/en"
         case .DEACTIVATE_NFC_URL:
-            return  "http://mubadiroun.com/Mammouth/public/api/v1/user/nfc/delete/en"
+            return  "https://mammoth-app.net/mobile/public/api/v1/user/nfc/delete/en"
         case .ACTIVATE_NFC_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/nfc/update/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/user/nfc/update/en"
         case .USER_BY_NFC_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/profile/nfc/en?token="
+            return "https://mammoth-app.net/mobile/public/api/v1/user/profile/nfc/en?token="
         case .ADD_USER_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/contact/add/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/contact/add/en"
         case .DELETE_ACCOUNT_URL:
-            return "http://mubadiroun.com/Mammouth/public/api/v1/user/remove/en"
+            return "https://mammoth-app.net/mobile/public/api/v1/user/remove/en"
         }
     }
 }

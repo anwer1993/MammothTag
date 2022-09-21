@@ -274,7 +274,7 @@ class SignInController: UIViewController, Storyboarded {
     func updateUIWhenLogin(isLoggedIn: Bool, message: String) {
         if isLoggedIn {
             if sourceController == 0 {
-                Router.shared.push(with: self.navigationController, screen: .Tabbar, animated: true)
+                Contstant.updateRootVC()
             } else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let rootViewController = storyboard.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController {

@@ -62,7 +62,7 @@ extension HomeViewController: NFCNDEFReaderSessionDelegate{
                     branchUniversalObject.imageUrl = self.profile?.picture ?? ""
                     branchUniversalObject.contentMetadata.customMetadata = ["id": "\(self.profile?.id ?? 0)"]
                     let lp = BranchLinkProperties()
-                    lp.channel = "Mammoth"
+                    lp.channel = "ios"
                     lp.feature = "sharing"
                     lp.campaign = "" + "\(self.profile?.id ?? 0)"
                     lp.stage  = "newUser"

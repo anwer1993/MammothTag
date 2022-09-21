@@ -186,8 +186,9 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
             updateProfileViewModel.dateOfBirth.value = profile.birthday
             updateProfileViewModel.phone.value = profile.phone
             if let picture = profile.picture, picture.isEmptyString == false {
-                let url = URL(string: picture)
+                let url = URL(string: "https://mammoth-app.net/mobile/public/\(picture)")
                 profilePicture.kf.setImage(with: url)
+                profilePicture.contentMode = .scaleAspectFill
             } else {
                 profilePicture.image = UIImage(named: "avatar")
             }

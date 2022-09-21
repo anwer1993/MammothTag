@@ -57,8 +57,9 @@ class ContactTableViewCell: UITableViewCell {
         addedDateLbl.text = contact.createdAt?.stringFromDate
         addIcon.isHidden = true
         if let picture = contact.picture, picture.isEmptyString == false {
-            let url = URL(string: picture)
+            let url = URL(string: "https://mammoth-app.net/mobile/public/\(picture)")
             contactImage.kf.setImage(with: url)
+            contactImage.contentMode = .scaleAspectFill
         } else {
             contactImage.image = UIImage(named: "avatar")
         }

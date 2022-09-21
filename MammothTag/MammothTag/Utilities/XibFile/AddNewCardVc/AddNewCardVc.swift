@@ -37,6 +37,7 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     @IBOutlet weak var viewControl: UIControl!
     @IBOutlet var viewContainer: UIView!
     
+    @IBOutlet weak var menuViewBottomConstrainte: NSLayoutConstraint!
     var handleTapWhenDismiss: () -> Void = {}
     var handleTapWhenSave: (String, String) -> Void = {_,_ in}
     
@@ -51,6 +52,8 @@ class AddNewCardVc: UIViewController, SubViewConroller {
         }
     }
     
+    var menuViewBottomConstrainnteOriginal: CGFloat = 0.0
+    
     var cardName = ""
     
     var isUpdateAction: Bool = false
@@ -61,6 +64,8 @@ class AddNewCardVc: UIViewController, SubViewConroller {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         initView()
     }
     
@@ -70,6 +75,7 @@ class AddNewCardVc: UIViewController, SubViewConroller {
             addNewCardLbl.text = "UPDATE_CARD".localized
             selectedMode = Int(card.type ?? "1") ?? 1
             cardNameTextField.text = card.name ?? ""
+            cardName = card.name ?? ""
         } else {
             addNewCardLbl.text = "ADD_CARD".localized
             cardNameTextField.text = ""
@@ -83,8 +89,28 @@ class AddNewCardVc: UIViewController, SubViewConroller {
         famillyCardLbl.text = "Familly_CARD".localized
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        menuViewBottomConstrainnteOriginal = menuViewBottomConstrainte.constant
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            print(keyboardSize.origin.y)
+            if self.menuView.frame.origin.y + self.menuView.frame.height > keyboardSize.origin.y {
+                print("passwordTextField hidden")
+                menuViewBottomConstrainte.constant = keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        menuViewBottomConstrainte.constant = menuViewBottomConstrainnteOriginal
     }
     
     func initView() {

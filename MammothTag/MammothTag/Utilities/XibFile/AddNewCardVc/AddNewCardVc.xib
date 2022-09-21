@@ -32,6 +32,7 @@
                 <outlet property="jobsStack" destination="5GM-LC-YxS" id="mBJ-P6-850"/>
                 <outlet property="meenuStack" destination="XIc-a2-rGI" id="Ahv-O6-gjd"/>
                 <outlet property="menuView" destination="ooi-23-kL9" id="xOM-YZ-VEO"/>
+                <outlet property="menuViewBottomConstrainte" destination="AlM-g0-jP7" id="rEF-ER-MaL"/>
                 <outlet property="saveBtn" destination="HUu-tp-KhT" id="jaa-wi-aDR"/>
                 <outlet property="view" destination="XMZ-kI-j8w" id="f2A-4k-H8K"/>
                 <outlet property="viewContainer" destination="XMZ-kI-j8w" id="yA3-Vb-o8p"/>

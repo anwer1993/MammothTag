@@ -75,7 +75,7 @@ class CardService {
                           "status": status,
                           "card_network_id": card_network_id] as Parameters
         let headers: HTTPHeaders = [.authorization(bearerToken: token)]
-        AF.request(URLRequest.ADD_CARD_NETWORK.url, method: .post, parameters: parameters, headers: headers)
+        AF.request(URLRequest.EDIT_CARD_NETWORK.url, method: .post, parameters: parameters, headers: headers)
             .validate()
             .responseDecodable(of: EditCardNetworkServerResponseModel.self) { data in
                 completion(data.value)
