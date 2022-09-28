@@ -138,7 +138,9 @@ class RegisterViewController: UIViewController, Storyboarded {
         registerViewModel.updateUIWhenRegister =  {done, message in
             self.showOrHideLoader(done: true)
             if done == true {
-                self.navigationController?.popViewController(animated: true)
+                self.showAlertWithOk(withTitle: "SUCCESS".localized, withMessage: "SUCCESSFULLY_REGISTRED_MESSAGE".localized) {
+                    self.navigationController?.popViewController(animated: true)
+                }
             } else {
                 self.showAlert(withTitle: "Error", withMessage: message)
             }
@@ -277,16 +279,16 @@ class RegisterViewController: UIViewController, Storyboarded {
                     updateUIWhenEndEditingTextField(passwordTextField)
                     break
                 case .passwordTooShort:
-                    showAlert(withTitle: "Error", withMessage: "Passwords too short, please try another time")
+                    showAlert(withTitle: "ERROR".localized, withMessage: "PASSWORD_TOO_SHORT".localized)
                     break
                 case .emptyConfirmPassword:
                     updateUIWhenEndEditingTextField(confirmPasswordTextField)
                     break
                 case .confirmPassword:
-                    showAlert(withTitle: "Error", withMessage: "Passwords not matched, please try to confirm your password")
+                    showAlert(withTitle: "ERROR".localized, withMessage: "PASSWORD_NOT_MATCHED".localized)
                     break
                 case .picture:
-                    showAlert(withTitle: "Error", withMessage: "Please select your profile picture")
+                    showAlert(withTitle: "ERROR".localized, withMessage: "SELECT_PROFILE_PIC".localized)
                     break
                 case .emptyOldPassword:
                     break

@@ -28,6 +28,7 @@ enum AppScreen: INaviagtion{
     case Settings
     case Tabbar
     case UpdatePassword
+    case ForgotPasswordOTP(code: String, phone: String, delegate: Navigatable)
     case ChangeForgotPassword(code: String, phone: String, delegate: Navigatable)
     case UpdateProfile(profile: DataClassProfile?)
     case ContactDetails(user_id: String, nfcTag: String, sourceController: Int)
@@ -126,6 +127,12 @@ struct Router: IRouter {
                 guard let vc = AppSettingsVC.instantiate(storyboardName: "Main") else {return UIViewController()}
                 viewController = vc
                 break
+            case .ForgotPasswordOTP(code: let code, phone: let phone, delegate: let delegate):
+                guard let vc = ForgotPasswordOTPViewController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
+                vc.delegate = delegate
+                vc.phone = phone
+                vc.code = code
+                viewController = vc
             }
         }
         if modalePresentatioinStyle != nil {

@@ -70,6 +70,7 @@
 		A6B4D85C28A7225800E73ACD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */; };
 		A6B72E9028B2646C00D69D8E /* UpdatePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B72E8F28B2646C00D69D8E /* UpdatePasswordController.swift */; };
 		A6B7360128A17AAC00C09A3C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7360028A17AAC00C09A3C /* UIColor.swift */; };
+		A6B8C19628E4E8F000440D46 /* ForgotPasswordOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8C19528E4E8F000440D46 /* ForgotPasswordOTPViewController.swift */; };
 		A6B8C9D228A7087B0003C408 /* ScanNFCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B8C9D128A7087B0003C408 /* ScanNFCVC.xib */; };
 		A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8C9D528A7088E0003C408 /* ScanNFCVC.swift */; };
 		A6C0CE5128A4804A00084D86 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CE4C28A4804900084D86 /* Lato-Medium.ttf */; };
@@ -215,6 +216,7 @@
 		A6B4D85B28A7225800E73ACD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A6B72E8F28B2646C00D69D8E /* UpdatePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordController.swift; sourceTree = "<group>"; };
 		A6B7360028A17AAC00C09A3C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A6B8C19528E4E8F000440D46 /* ForgotPasswordOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordOTPViewController.swift; sourceTree = "<group>"; };
 		A6B8C9D128A7087B0003C408 /* ScanNFCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanNFCVC.xib; sourceTree = "<group>"; };
 		A6B8C9D528A7088E0003C408 /* ScanNFCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanNFCVC.swift; sourceTree = "<group>"; };
 		A6C0CE4C28A4804900084D86 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				A6D6F27B28A1C2E100AD3C9C /* SignIn */,
 				A60305F028A31EE40028F085 /* Terms&&Conditions */,
 				A6DD487828A275A900747B01 /* ForgotPassword */,
+				A6B8C19428E4E8D000440D46 /* ForgotPasswordOTP */,
 				A6D2D7F528B297FC00DDF2A1 /* ChangeForgotPassword */,
 			);
 			path = Authentication;
@@ -556,6 +559,14 @@
 				A6D2D7EF28B274EC00DDF2A1 /* UpdatePasswordViewModel.swift */,
 			);
 			path = UpdatePassword;
+			sourceTree = "<group>";
+		};
+		A6B8C19428E4E8D000440D46 /* ForgotPasswordOTP */ = {
+			isa = PBXGroup;
+			children = (
+				A6B8C19528E4E8F000440D46 /* ForgotPasswordOTPViewController.swift */,
+			);
+			path = ForgotPasswordOTP;
 			sourceTree = "<group>";
 		};
 		A6B8C9D028A708530003C408 /* ScanNFCVC */ = {
@@ -1143,6 +1154,7 @@
 				A60305F228A31F000028F085 /* TermsAndConditionViewController.swift in Sources */,
 				A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */,
 				A6C79C1B28A5584500229739 /* UIDeviceExtension.swift in Sources */,
+				A6B8C19628E4E8F000440D46 /* ForgotPasswordOTPViewController.swift in Sources */,
 				A603242C28C424D300BD3CAD /* ContactDetailsData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

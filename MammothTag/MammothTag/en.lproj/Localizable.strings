@@ -23,6 +23,7 @@
 //"CREATE_PASSWORD" = "Create password";
 "SIGN_IN" = "Sign IN";
 "RESET_PASSWORD_DISC" = "To reset your password, Please enter your phone number";
+"RESET_PASSWORD_DISC" = "To reset your password, Please enter the code received from your phone";
 "SEND" = "Send";
 "NEW_ACCOUNT" = "New account";
 "LAST_NAME" = "Last name";
@@ -60,6 +61,9 @@
 
 "UPDATE_PROFILE"  = "Update profile";
 
+"PASSWORD_TOO_SHORT" = "Passwords too short, please try another time";
+"PASSWORD_NOT_MATCHED" = "Passwords not matched, please try to confirm your password";
+"SELECT_PROFILE_PIC" =  "Please select your profile picture";
 
 // Settings
 "LOGOUT" = "Logout";
@@ -85,6 +89,7 @@
 "PROCEED" = "Proceed";
 "INVALID_PASSWORD" = "Invalid passsword";
 "SUCCESS" = "Success";
+"SUCCESSFULLY_REGISTRED_MESSAGE" = "Your account was successfully created";
 "UPDATE_PASSWORD" = "You have updated your password";
 "ENTER_PASSWORD" = "Please enter your old password";
 "ENTER_NEW_PASSWORD" = "Please enter your new password";
