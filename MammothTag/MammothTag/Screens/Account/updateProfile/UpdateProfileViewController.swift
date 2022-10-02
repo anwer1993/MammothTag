@@ -75,7 +75,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeView()
-        datePicker.locale = Locale(identifier: "ar_DZ")
+        datePicker.locale = Locale(identifier: "ar_LY")
         dateOfBirthTextField.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)

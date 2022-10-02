@@ -93,7 +93,7 @@ class RegisterViewController: UIViewController, Storyboarded {
         readTermsLabel.addTagGesture(showTermsTap)
         uHaveAccountLbl.addTagGesture(signInTap)
         addPicImage.addTagGesture(addPicTap)
-        datePicker.locale = Locale(identifier: "ar_DZ")
+        datePicker.locale = Locale(identifier: "ar_LY")
         dateOfBirthTextField.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
         let toolbar = UIToolbar()
