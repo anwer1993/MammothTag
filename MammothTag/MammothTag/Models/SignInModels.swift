@@ -23,3 +23,11 @@ struct LoginServerResponseData: Codable {
         case token = "token"
     }
 }
+
+
+struct LoginWithSocialMediaModel: Codable {
+    let name: String
+    let lastName: String
+    let email: String
+    let url_Picture: String
+}

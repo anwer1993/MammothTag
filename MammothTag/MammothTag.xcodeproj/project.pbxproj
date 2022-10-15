@@ -42,6 +42,13 @@
 		A6511F2828BBED15003DF731 /* SocialMediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2728BBED15003DF731 /* SocialMediaCollectionCell.swift */; };
 		A6511F2A28BBF6F4003DF731 /* SocialMediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */; };
 		A6511F2D28BBFE06003DF731 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2C28BBFE06003DF731 /* Constant.swift */; };
+		A67908A228FA122C00CB368B /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = A67908A128FA122C00CB368B /* FacebookCore */; };
+		A67908A428FA122C00CB368B /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = A67908A328FA122C00CB368B /* FacebookGamingServices */; };
+		A67908A628FA122C00CB368B /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = A67908A528FA122C00CB368B /* FacebookLogin */; };
+		A67908A828FA122C00CB368B /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = A67908A728FA122C00CB368B /* FacebookShare */; };
+		A67908AA28FA14F300CB368B /* LoginWithFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67908A928FA14F300CB368B /* LoginWithFacebook.swift */; };
+		A67908AC28FA26D500CB368B /* LoginWithTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67908AB28FA26D500CB368B /* LoginWithTwitter.swift */; };
+		A67908AF28FB56BF00CB368B /* LoginWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67908AE28FB56BF00CB368B /* LoginWithApple.swift */; };
 		A67E082628D5016300B0D7C6 /* HomeWriteNFCTAg.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67E082528D5016300B0D7C6 /* HomeWriteNFCTAg.swift */; };
 		A67FAB3F28C6A84900BAB96B /* ProfileServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67FAB3E28C6A84900BAB96B /* ProfileServerResponseModel.swift */; };
 		A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0428AFAD210010AE54 /* DateExtension.swift */; };
@@ -51,6 +58,7 @@
 		A688ED0F28AFF2310010AE54 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688ED0E28AFF2310010AE54 /* ProfileModel.swift */; };
 		A68F436828C1676000E42284 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F436728C1676000E42284 /* ContactDetailsViewController.swift */; };
 		A68F76A828B44DA80051E0D4 /* SourceControllerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F76A728B44DA80051E0D4 /* SourceControllerEnum.swift */; };
+		A695E4F328F8E75600A377B8 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A695E4F228F8E75600A377B8 /* Tools.swift */; };
 		A6979E9F28A3D63C008C2B60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979E9E28A3D63C008C2B60 /* StringExtension.swift */; };
 		A6979EA428A3DE92008C2B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6979EA228A3DE92008C2B60 /* Localizable.strings */; };
 		A6979EAF28A3F5AD008C2B60 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979EAE28A3F5AD008C2B60 /* AppSettings.swift */; };
@@ -58,6 +66,8 @@
 		A6979EB328A46190008C2B60 /* RegisterViewControllerImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979EB228A46190008C2B60 /* RegisterViewControllerImagePicker.swift */; };
 		A6979EB628A474C7008C2B60 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6979EB528A474C7008C2B60 /* ContactTableViewCell.xib */; };
 		A6979EB828A474DD008C2B60 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6979EB728A474DD008C2B60 /* ContactTableViewCell.swift */; };
+		A69B050628F8B53500912B7C /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B050528F8B53500912B7C /* LoginType.swift */; };
+		A69B050828F8BDA200912B7C /* LoginWithGmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B050728F8BDA200912B7C /* LoginWithGmail.swift */; };
 		A69B199828A52DA700BE92F1 /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B199728A52DA700BE92F1 /* MainTabbarViewController.swift */; };
 		A69B199A28A5303E00BE92F1 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B199928A5303E00BE92F1 /* TabItem.swift */; };
 		A69B199C28A5304B00BE92F1 /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B199B28A5304B00BE92F1 /* TabNavigationMenu.swift */; };
@@ -89,6 +99,7 @@
 		A6C8494F28A4903D00CF7E61 /* SeettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */; };
 		A6C8495128A4904C00CF7E61 /* SeettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8495028A4904C00CF7E61 /* SeettingsTableViewCell.swift */; };
 		A6C8495428A491A700CF7E61 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8495328A491A700CF7E61 /* SettingsViewController.swift */; };
+		A6CD41D928F7678E0085FF3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6CD41D828F7678E0085FF3D /* GoogleService-Info.plist */; };
 		A6D2D7F028B274EC00DDF2A1 /* UpdatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D2D7EF28B274EC00DDF2A1 /* UpdatePasswordViewModel.swift */; };
 		A6D2D7F228B284E900DDF2A1 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D2D7F128B284E900DDF2A1 /* SettingsModel.swift */; };
 		A6D2D7F428B286F600DDF2A1 /* ForgotPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D2D7F328B286F600DDF2A1 /* ForgotPasswordModel.swift */; };
@@ -183,6 +194,9 @@
 		A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaModel.swift; sourceTree = "<group>"; };
 		A6511F2C28BBFE06003DF731 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A66FEEE828A47D980062D754 /* MammothTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MammothTag.entitlements; sourceTree = "<group>"; };
+		A67908A928FA14F300CB368B /* LoginWithFacebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithFacebook.swift; sourceTree = "<group>"; };
+		A67908AB28FA26D500CB368B /* LoginWithTwitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithTwitter.swift; sourceTree = "<group>"; };
+		A67908AE28FB56BF00CB368B /* LoginWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithApple.swift; sourceTree = "<group>"; };
 		A67E082528D5016300B0D7C6 /* HomeWriteNFCTAg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWriteNFCTAg.swift; sourceTree = "<group>"; };
 		A67FAB3E28C6A84900BAB96B /* ProfileServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServerResponseModel.swift; sourceTree = "<group>"; };
 		A688ED0428AFAD210010AE54 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -192,6 +206,7 @@
 		A688ED0E28AFF2310010AE54 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		A68F436728C1676000E42284 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		A68F76A728B44DA80051E0D4 /* SourceControllerEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceControllerEnum.swift; sourceTree = "<group>"; };
+		A695E4F228F8E75600A377B8 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		A6979E9E28A3D63C008C2B60 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A6979EA028A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		A6979EA128A3DE12008C2B60 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -204,6 +219,8 @@
 		A6979EB228A46190008C2B60 /* RegisterViewControllerImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerImagePicker.swift; sourceTree = "<group>"; };
 		A6979EB528A474C7008C2B60 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		A6979EB728A474DD008C2B60 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		A69B050528F8B53500912B7C /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
+		A69B050728F8BDA200912B7C /* LoginWithGmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithGmail.swift; sourceTree = "<group>"; };
 		A69B199728A52DA700BE92F1 /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
 		A69B199928A5303E00BE92F1 /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		A69B199B28A5304B00BE92F1 /* TabNavigationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
@@ -235,6 +252,7 @@
 		A6C8494E28A4903D00CF7E61 /* SeettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeettingsTableViewCell.xib; sourceTree = "<group>"; };
 		A6C8495028A4904C00CF7E61 /* SeettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeettingsTableViewCell.swift; sourceTree = "<group>"; };
 		A6C8495328A491A700CF7E61 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A6CD41D828F7678E0085FF3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6D2D7EF28B274EC00DDF2A1 /* UpdatePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewModel.swift; sourceTree = "<group>"; };
 		A6D2D7F128B284E900DDF2A1 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		A6D2D7F328B286F600DDF2A1 /* ForgotPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModel.swift; sourceTree = "<group>"; };
@@ -279,7 +297,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67908A628FA122C00CB368B /* FacebookLogin in Frameworks */,
+				A67908A428FA122C00CB368B /* FacebookGamingServices in Frameworks */,
 				DD96984181916BD0AAEFA5A1 /* Pods_MammothTag.framework in Frameworks */,
+				A67908A828FA122C00CB368B /* FacebookShare in Frameworks */,
+				A67908A228FA122C00CB368B /* FacebookCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +388,7 @@
 				A6D6F28028A1C80700AD3C9C /* Validator.swift */,
 				A6D6F27C28A1C6C600AD3C9C /* DynamicType.swift */,
 				A648400B28A190BD000D040D /* CustomTextField.swift */,
+				A695E4F228F8E75600A377B8 /* Tools.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -419,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				A648691228AEC9AF00C059C9 /* URLRequestEnum.swift */,
+				A69B050528F8B53500912B7C /* LoginType.swift */,
 				A6E9E98628B6CBAE0074D45D /* CardTypeEnum.swift */,
 				A68F76A728B44DA80051E0D4 /* SourceControllerEnum.swift */,
 			);
@@ -442,6 +466,17 @@
 				A6511F2C28BBFE06003DF731 /* Constant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		A67908AD28FB3F9900CB368B /* LoginWithSocialMedia */ = {
+			isa = PBXGroup;
+			children = (
+				A69B050728F8BDA200912B7C /* LoginWithGmail.swift */,
+				A67908AE28FB56BF00CB368B /* LoginWithApple.swift */,
+				A67908A928FA14F300CB368B /* LoginWithFacebook.swift */,
+				A67908AB28FA26D500CB368B /* LoginWithTwitter.swift */,
+			);
+			path = LoginWithSocialMedia;
 			sourceTree = "<group>";
 		};
 		A68F436528C1673300E42284 /* ListContact */ = {
@@ -658,6 +693,7 @@
 			isa = PBXGroup;
 			children = (
 				A60B312E28A033800037F0B3 /* SignInController.swift */,
+				A67908AD28FB3F9900CB368B /* LoginWithSocialMedia */,
 				A6D6F27E28A1C7AB00AD3C9C /* SignInViewModel.swift */,
 			);
 			path = SignIn;
@@ -770,6 +806,7 @@
 		A6FC614228A02A0100756C74 /* MammothTag */ = {
 			isa = PBXGroup;
 			children = (
+				A6CD41D828F7678E0085FF3D /* GoogleService-Info.plist */,
 				A66FEEE828A47D980062D754 /* MammothTag.entitlements */,
 				A6FC614328A02A0100756C74 /* AppDelegate.swift */,
 				A6FC614528A02A0100756C74 /* SceneDelegate.swift */,
@@ -822,12 +859,19 @@
 				A6FC613D28A02A0100756C74 /* Frameworks */,
 				A6FC613E28A02A0100756C74 /* Resources */,
 				AC307716C5D5F9117800F39F /* [CP] Embed Pods Frameworks */,
+				629CE3C9C7740BBC9DEB9783 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MammothTag;
+			packageProductDependencies = (
+				A67908A128FA122C00CB368B /* FacebookCore */,
+				A67908A328FA122C00CB368B /* FacebookGamingServices */,
+				A67908A528FA122C00CB368B /* FacebookLogin */,
+				A67908A728FA122C00CB368B /* FacebookShare */,
+			);
 			productName = MammothTag;
 			productReference = A6FC614028A02A0100756C74 /* MammothTag.app */;
 			productType = "com.apple.product-type.application";
@@ -860,6 +904,7 @@
 				A6FC615D28A02A0300756C74 /* Frameworks */,
 				A6FC615E28A02A0300756C74 /* Resources */,
 				55E9471EEE35548216B768C7 /* [CP] Embed Pods Frameworks */,
+				545ECEFF9DF027049540844F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -904,6 +949,9 @@
 				ar,
 			);
 			mainGroup = A6FC613728A02A0100756C74;
+			packageReferences = (
+				A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = A6FC614128A02A0100756C74 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -937,6 +985,7 @@
 				A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */,
 				A69B19A128A53A8D00BE92F1 /* CustomTabbarView.xib in Resources */,
 				A62B1BE028AA903800948860 /* MoreVC.xib in Resources */,
+				A6CD41D928F7678E0085FF3D /* GoogleService-Info.plist in Resources */,
 				A6C79C2028A55B1F00229739 /* CustomSegmentControlView.xib in Resources */,
 				A6511F2228BBEC41003DF731 /* SocialMediaVC.xib in Resources */,
 				A62E776D28C39B0D00DC2DD2 /* PrivilageCardView.xib in Resources */,
@@ -963,6 +1012,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		545ECEFF9DF027049540844F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MammothTag-MammothTagUITests/Pods-MammothTag-MammothTagUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MammothTag-MammothTagUITests/Pods-MammothTag-MammothTagUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MammothTag-MammothTagUITests/Pods-MammothTag-MammothTagUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		55E9471EEE35548216B768C7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -978,6 +1044,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MammothTag-MammothTagUITests/Pods-MammothTag-MammothTagUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		629CE3C9C7740BBC9DEB9783 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MammothTag/Pods-MammothTag-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MammothTag/Pods-MammothTag-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MammothTag/Pods-MammothTag-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AC307716C5D5F9117800F39F /* [CP] Embed Pods Frameworks */ = {
@@ -1082,6 +1165,7 @@
 				A645798428C0162200D56196 /* ContactModels.swift in Sources */,
 				A688ED0F28AFF2310010AE54 /* ProfileModel.swift in Sources */,
 				A6D2D7F428B286F600DDF2A1 /* ForgotPasswordModel.swift in Sources */,
+				A69B050828F8BDA200912B7C /* LoginWithGmail.swift in Sources */,
 				A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */,
 				A6C833B628C3A97A007418A7 /* OpenFirstServerResponseModel.swift in Sources */,
 				A6FC614828A02A0100756C74 /* SpalchScreen.swift in Sources */,
@@ -1108,6 +1192,7 @@
 				A6A6959928A6BDB90025A3B2 /* UIViewControllerExtension.swift in Sources */,
 				A6DD487C28A27D5E00747B01 /* AppRouterManager.swift in Sources */,
 				A6138D5328BAB26900DA71F9 /* CardServerResponseModel.swift in Sources */,
+				A67908AC28FA26D500CB368B /* LoginWithTwitter.swift in Sources */,
 				A6511F2A28BBF6F4003DF731 /* SocialMediaModel.swift in Sources */,
 				A6511F2428BBEC49003DF731 /* SocialMediaVC.swift in Sources */,
 				A648691328AEC9AF00C059C9 /* URLRequestEnum.swift in Sources */,
@@ -1125,6 +1210,7 @@
 				A6B8C9D628A7088E0003C408 /* ScanNFCVC.swift in Sources */,
 				A645798228C0154B00D56196 /* ContactService.swift in Sources */,
 				A60A8BBC28C173BD00B26621 /* ContactDetailsCardListViewController.swift in Sources */,
+				A69B050628F8B53500912B7C /* LoginType.swift in Sources */,
 				A6D2D7F728B2981400DDF2A1 /* ChangeForgotPassword.swift in Sources */,
 				A68F436828C1676000E42284 /* ContactDetailsViewController.swift in Sources */,
 				A6E9E98528B6BCDA0074D45D /* UpdateProfileViewModel.swift in Sources */,
@@ -1139,6 +1225,7 @@
 				A6C79C1E28A55B0000229739 /* CustomSegmentControlView.swift in Sources */,
 				A648400C28A190BD000D040D /* CustomTextField.swift in Sources */,
 				A6E9E98728B6CBAE0074D45D /* CardTypeEnum.swift in Sources */,
+				A67908AA28FA14F300CB368B /* LoginWithFacebook.swift in Sources */,
 				A62B1BDE28AA902300948860 /* MoreVC.swift in Sources */,
 				A60B312F28A033800037F0B3 /* SignInController.swift in Sources */,
 				A6E94DD628AEEE4B00A1D14B /* SettingsViewModel.swift in Sources */,
@@ -1148,6 +1235,7 @@
 				A688ED0528AFAD210010AE54 /* DateExtension.swift in Sources */,
 				A6D6F27D28A1C6C600AD3C9C /* DynamicType.swift in Sources */,
 				A6C8495428A491A700CF7E61 /* SettingsViewController.swift in Sources */,
+				A695E4F328F8E75600A377B8 /* Tools.swift in Sources */,
 				A6FC614428A02A0100756C74 /* AppDelegate.swift in Sources */,
 				A6979EAF28A3F5AD008C2B60 /* AppSettings.swift in Sources */,
 				A6D6F28728A1CFEA00AD3C9C /* AuthenticationService.swift in Sources */,
@@ -1155,6 +1243,7 @@
 				A6FC614628A02A0100756C74 /* SceneDelegate.swift in Sources */,
 				A6C79C1B28A5584500229739 /* UIDeviceExtension.swift in Sources */,
 				A6B8C19628E4E8F000440D46 /* ForgotPasswordOTPViewController.swift in Sources */,
+				A67908AF28FB56BF00CB368B /* LoginWithApple.swift in Sources */,
 				A603242C28C424D300BD3CAD /* ContactDetailsData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1371,6 +1460,90 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.4;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AppAuth\"",
+					"-framework",
+					"\"Branch\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreServices\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"CountryPickerView\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreInternal\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMAppAuth\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleSignIn\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"LocalAuthentication\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebKit\"",
+					"-framework",
+					"\"absl\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"grpcpp\"",
+					"-framework",
+					"\"iAd\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl_grpc\"",
+					"-framework",
+					"\"uv\"",
+					"-weak_framework",
+					"\"AuthenticationServices\"",
+					"-weak_framework",
+					"\"Combine\"",
+					"-weak_framework",
+					"\"LinkPresentation\"",
+					"-weak_framework",
+					"\"SwiftUI\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MammothTag.123.MammothTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1411,6 +1584,90 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.4;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AppAuth\"",
+					"-framework",
+					"\"Branch\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreServices\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"CountryPickerView\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreInternal\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMAppAuth\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleSignIn\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"LocalAuthentication\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebKit\"",
+					"-framework",
+					"\"absl\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"grpcpp\"",
+					"-framework",
+					"\"iAd\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl_grpc\"",
+					"-framework",
+					"\"uv\"",
+					"-weak_framework",
+					"\"AuthenticationServices\"",
+					"-weak_framework",
+					"\"Combine\"",
+					"-weak_framework",
+					"\"LinkPresentation\"",
+					"-weak_framework",
+					"\"SwiftUI\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MammothTag.123.MammothTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1539,6 +1796,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A67908A128FA122C00CB368B /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		A67908A328FA122C00CB368B /* FacebookGamingServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookGamingServices;
+		};
+		A67908A528FA122C00CB368B /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		A67908A728FA122C00CB368B /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A6FC613828A02A0100756C74 /* Project object */;
 }

@@ -17,6 +17,9 @@ protocol contactProtocol {
 
 class Contstant {
     
+    static var TWITTER_API_KEY = "3knQjDvZNX7FMnc2LSrHKL5gP"
+    static var TWITTER_SECRET_KEY = "zhmMVzPTijQQkWzBOau8i5qnwcRUavIdOW2x6kp5JZznJdSYCH"
+    
     static var faceBookId = "1"
     static var instagramId = "2"
     static var linkedinId = "3"

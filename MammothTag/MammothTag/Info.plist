@@ -5,37 +5,32 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>com.MammothTag.123.MammothTag</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>MaMMoth</string>
+				<string>fb406134068205437</string>
+				<string>twitterkit-3knQjDvZNX7FMnc2LSrHKL5gP</string>
+				<string>com.googleusercontent.apps.153436727826-o80j61nttd606jrnqt1umhn8thoj6gi4</string>
 			</array>
 		</dict>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>fb</string>
-		<string>linkedin</string>
-		<string>skype</string>
-		<string>paypal</string>
-		<string>googlegmail</string>
-		<string>instagram</string>
-		<string>snapchat</string>
-		<string>youtube</string>
-		<string>facetime</string>
-		<string>tg</string>
-		<string>twitch</string>
-		<string>paypal</string>
-		<string>skype</string>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+		<string>twitter</string>
+		<string>twitterauth</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>FacebookAppID</key>
+	<string>406134068205437</string>
+	<key>FacebookDisplayName</key>
+	<string>MAMMOTH TAG</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Black.ttf</string>

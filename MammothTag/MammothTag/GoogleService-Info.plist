@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>153436727826-o80j61nttd606jrnqt1umhn8thoj6gi4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.153436727826-o80j61nttd606jrnqt1umhn8thoj6gi4</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>153436727826-gd2lcofhf97itobj3m2ang3989jcffd2.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBEH_nQ1I_P--w0sLO8D_knAFjf34EkXJ8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>153436727826</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.MammothTag.123.MammothTag</string>
+	<key>PROJECT_ID</key>
+	<string>mammothtag-cec2b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mammothtag-cec2b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:153436727826:ios:95c4dde35fa004e52d06cb</string>
+</dict>
+</plist>

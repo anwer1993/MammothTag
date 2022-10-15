@@ -11,7 +11,10 @@ target 'MammothTag' do
   pod 'CountryPickerView', '~> 3.2.0'
   pod 'Kingfisher'
   pod 'Branch'
-  
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
+  pod 'GoogleSignIn'
+  pod 'TwitterKit'
 
   target 'MammothTagTests' do
     inherit! :search_paths

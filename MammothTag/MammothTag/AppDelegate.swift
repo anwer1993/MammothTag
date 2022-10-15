@@ -8,6 +8,10 @@
 import UIKit
 import Branch
 import CoreNFC
+import FirebaseCore
+import GoogleSignIn
+import FacebookCore
+import TwitterKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,18 +19,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    func application(_ application: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any])
+    -> Bool {
+        ApplicationDelegate.shared.application(
+            application,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
+        
+        TWTRTwitter.sharedInstance().application(application, open: url, options: options)
+        
+        return GIDSignIn.sharedInstance.handle(url)
+    }
+    
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         Branch.getInstance().continue(userActivity)
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb else {
             return false
         }
-
+        
         // Confirm that the NSUserActivity object contains a valid NDEF message.
         let ndefMessage = userActivity.ndefMessagePayload
         guard !ndefMessage.records.isEmpty,
-            ndefMessage.records[0].typeNameFormat != .empty else {
-                return false
+              ndefMessage.records[0].typeNameFormat != .empty else {
+            return false
         }
         guard let payload = ndefMessage.records.first else {return false}
         switch payload.typeNameFormat {
@@ -77,11 +96,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         @unknown default:
             break
         }
-      return true
+        return true
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        TWTRTwitter.sharedInstance().start(withConsumerKey: Contstant.TWITTER_API_KEY, consumerSecret: Contstant.TWITTER_SECRET_KEY)
+        
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
+        
+        FirebaseApp.configure()
         // if you are using the TEST key
         let branch: Branch = Branch.getInstance()
         Branch.useTestBranchKey()
@@ -112,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             }
         })
-
+        
         // Override point for customization after application launch
         if let applanguage = AppSettings().appLanguage {
             switch applanguage {
@@ -150,43 +177,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         return true
-    }
-    
-    func application(_ application: UIApplication,
-                     open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey : Any] = [:] ) -> Bool {
-        // Process the URL.
-        Branch.getInstance().application(application, open: url, options: options)
-        guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
-              let params = components.queryItems else {
-            print("Invalid URL or profilId missing")
-            return false
-        }
-        
-        if let applanguage = AppSettings().appLanguage {
-            switch applanguage {
-            case .AR :
-                UIView.appearance().semanticContentAttribute = .forceRightToLeft
-                break
-            case .EN:
-                UIView.appearance().semanticContentAttribute = .forceLeftToRight
-                break
-            }
-        }
-        
-        if let profilId = params.first(where: { $0.name == "index" })?.value {
-            print("photoIndex = \(profilId)")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let rootViewController = storyboard.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController {
-                rootViewController.nfcTag = profilId
-                rootViewController.sourceController = 1
-                self.window?.rootViewController = rootViewController
-                self.window?.makeKeyAndVisible()
-            }
-            return true
-        } else {
-            return false
-        }
     }
     
 }

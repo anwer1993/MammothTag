@@ -212,8 +212,19 @@ extension GradientButton {
     
 }
 
+extension UIControl {
+    func setupControlButton() {
+        self.layer.cornerRadius = self.frame.width * 0.5
+        self.applySketchShadow(color: UIColor.black25, alpha: 1, x: 0, y: 5, blur: 20, spread: 0)
+    }
+}
 
 extension UIButton {
+    
+    func setupButton() {
+        self.layer.cornerRadius = self.frame.width * 0.5
+        self.applySketchShadow(color: UIColor.black25, alpha: 1, x: 0, y: 5, blur: 20, spread: 0)
+    }
     
     func flipWhenRTL(image: UIImage) {
         switch AppSettings().appLanguage {

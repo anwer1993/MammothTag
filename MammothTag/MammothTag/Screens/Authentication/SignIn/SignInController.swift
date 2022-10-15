@@ -8,17 +8,27 @@
 import Foundation
 import UIKit
 import AVFoundation
+import FirebaseAuth
+import GoogleSignIn
+import FirebaseCore
+import  AuthenticationServices
+import FacebookLogin
+import TwitterKit
 
 class SignInController: UIViewController, Storyboarded {
     
     
-    @IBOutlet weak var descStackTopConstrainte: NSLayoutConstraint!
-    @IBOutlet weak var identityStackTopContrainte: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var twitterBtn: UIButton!
+    @IBOutlet weak var facebookBtn: UIButton!
+    @IBOutlet weak var googleBtn: UIButton!
+    @IBOutlet weak var appleeBtn: UIButton!
+    @IBOutlet weak var orLbl: UILabel!
+    @IBOutlet weak var signupWithLbl: UILabel!
     @IBOutlet weak var identityStack: UIStackView!
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var groupedImage: UIImageView!
-    @IBOutlet weak var welcomeLbl: UILabel!
-    @IBOutlet weak var discLbl: UILabel!
     @IBOutlet weak var emailTextField: CustomTextField! {
         didSet {
             self.emailTextField.bind(callback: {self.signInViewModel.email.value = $0 })
@@ -44,6 +54,9 @@ class SignInController: UIViewController, Storyboarded {
     var sourceController = 0
     var user_id = ""
     
+    var  currentNonce: String = ""
+    var twitter_session: TWTRSession?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let forgotPasswordTap = UITapGestureRecognizer(target: self, action: #selector(showForgotPasswordScreen(_:)))
@@ -51,7 +64,10 @@ class SignInController: UIViewController, Storyboarded {
         forgotPasswordLbl.addTagGesture(forgotPasswordTap)
         createNewAccountLbl.addTagGesture(registerTap)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        appleeBtn.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
+        facebookBtn.addTarget(self, action: #selector(loginWithFb), for: .touchUpInside)
+        twitterBtn.addTarget(self, action: #selector(loginWithTwitter), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,8 +83,8 @@ class SignInController: UIViewController, Storyboarded {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        descStackTopConstrainteOriginal = descStackTopConstrainte.constant
-        identityStackTopContrainteOriginal = identityStackTopContrainte.constant
+        //        descStackTopConstrainteOriginal = descStackTopConstrainte.constant
+        //        identityStackTopContrainteOriginal = identityStackTopContrainte.constant
     }
     
     deinit {
@@ -82,15 +98,15 @@ class SignInController: UIViewController, Storyboarded {
             print(keyboardSize.origin.y)
             if self.identityStack.frame.origin.y + self.identityStack.frame.height > keyboardSize.origin.y {
                 print("passwordTextField hidden")
-                descStackTopConstrainte.constant = 15
-                identityStackTopContrainte.constant = 15
+                //                descStackTopConstrainte.constant = 15
+                //                identityStackTopContrainte.constant = 15
             }
         }
     }
-
+    
     @objc func keyboardWillHide(notification: NSNotification) {
-        descStackTopConstrainte.constant = descStackTopConstrainteOriginal
-        identityStackTopContrainte.constant = identityStackTopContrainteOriginal
+        //        descStackTopConstrainte.constant = descStackTopConstrainteOriginal
+        //        identityStackTopContrainte.constant = identityStackTopContrainteOriginal
     }
     
     func linkViewModelToController() {
@@ -105,9 +121,11 @@ class SignInController: UIViewController, Storyboarded {
         setupLocalizedText()
         groupedImage.flipWhenRTL(image: UIImage(named: "Groupe 454")!)
         bgImage.flipWhenRTL(image: UIImage(named: "bg")!)
-        welcomeLbl.textColor = UIColor.chestnut
-        discLbl.textColor = UIColor.greyishBrown
         initializeSignInBtn()
+        appleeBtn.setupButton()
+        googleBtn.setupButton()
+        facebookBtn.setupButton()
+        twitterBtn.setupButton()
         emailTextField.delegate = self
         emailTextField.keyboardType = .emailAddress
         passwordTextField.delegate = self
@@ -120,17 +138,15 @@ class SignInController: UIViewController, Storyboarded {
     }
     
     func setupLocalizedText() {
-        welcomeLbl.text = "WELCOMELABEL".localized
-        discLbl.text = "SIGNIN_DESCRIPTION_LABEL".localized
         emailStaticLbl.text = "EMAIL".localized
         passwordStaticLabl.text = "PASSWORD".localized
         forgotPasswordLbl.text = "FORGOT_PASSWORD".localized
         createNewAccountLbl.text = "DONT_HAVE_ACCOUNT".localized
         passwordStaticLabl.text = "PASSWORD".localized
         signInButton.setTitle("SIGN_IN".localized, for: .normal)
-        welcomeLbl.font = UIFont(name: "Lato-Black", size: 18)
-        discLbl.font = UIFont(name: "Lato-Regular", size: 18)
         forgotPasswordLbl.font = UIFont(name: "Lato-Regular", size: 16)
+        signupWithLbl.font = UIFont(name: "Lato-Bold", size: 16)
+        orLbl.font = UIFont(name: "Lato-Bold", size: 16)
         signInButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
         createNewAccountLbl.font = UIFont(name: "Lato-Regular", size: 16)
         forgotPasswordLbl.attributedText = forgotPasswordLbl.customizeTextLabel(stringToColor: "FORGOT_PASSWORD".localized, color: UIColor.black, isUnderline: true)
@@ -248,6 +264,12 @@ class SignInController: UIViewController, Storyboarded {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    @IBAction func signUpWithGoogleBtnDidTapped(_ sender: Any) {
+        signupWithGoogle()
+    }
+    
+    
     
     @IBAction func signInButtonDidTapped(_ sender: UIButton) {
         if signInViewModel.isValid {

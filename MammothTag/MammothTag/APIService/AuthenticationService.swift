@@ -43,6 +43,15 @@ class AuthenticationService {
             }
         }
     
+    func register(with loginType: LoginType, completion: @escaping(RegisterServerResponse) -> Void) {
+        print(loginType.parameter)
+        AF.request(URLRequest.REGISTER_URL.url, method: .post, parameters: loginType.parameter).validate().responseDecodable(of: RegisterServerResponse.self) { data in
+            if let data = data.value {
+                completion(data)
+            }
+        }
+    }
+    
     func register(userModel: RegisterModel, completion: @escaping(ServerResponseModel<ProfileModel>) -> Void) {
         let parameters: Parameters?
         if userModel.picture == nil {
