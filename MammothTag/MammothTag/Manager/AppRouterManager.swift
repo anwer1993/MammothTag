@@ -28,8 +28,8 @@ enum AppScreen: INaviagtion{
     case Settings
     case Tabbar
     case UpdatePassword
-    case ForgotPasswordOTP(code: String, phone: String, delegate: Navigatable)
-    case ChangeForgotPassword(code: String, phone: String, delegate: Navigatable)
+    case ForgotPasswordOTP(email: String, delegate: Navigatable)
+    case ChangeForgotPassword(email: String, delegate: Navigatable)
     case UpdateProfile(profile: DataClassProfile?)
     case ContactDetails(user_id: String, nfcTag: String, sourceController: Int)
     case ContactDetailsCardList(user_id: String)
@@ -99,10 +99,9 @@ struct Router: IRouter {
                 guard let vc = UpdatePasswordController.instantiate(storyboardName: "Main") else {return UIViewController()}
                 viewController = vc
                 break
-            case .ChangeForgotPassword(code: let code, phone: let phone, delegate: let delegate):
+            case .ChangeForgotPassword(email: let email, delegate: let delegate):
                 guard let vc = ChangeForgotPassword.instantiate(storyboardName: "Authentification") else {return UIViewController()}
-                vc.code = code
-                vc.phone = phone
+                vc.email = email
                 vc.delegate = delegate
                 viewController = vc
                 break
@@ -127,11 +126,10 @@ struct Router: IRouter {
                 guard let vc = AppSettingsVC.instantiate(storyboardName: "Main") else {return UIViewController()}
                 viewController = vc
                 break
-            case .ForgotPasswordOTP(code: let code, phone: let phone, delegate: let delegate):
+            case .ForgotPasswordOTP(email: let email, delegate: let delegate):
                 guard let vc = ForgotPasswordOTPViewController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
                 vc.delegate = delegate
-                vc.phone = phone
-                vc.code = code
+                vc.email = email
                 viewController = vc
             }
         }

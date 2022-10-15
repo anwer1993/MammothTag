@@ -30,7 +30,7 @@ class ChangeForgotPassword: UIViewController, Storyboarded {
     @IBOutlet weak var confirmPasswordView: UIView!
     
     var viewModel = ChangeForgotPasswordViewModel()
-    var phone: String?
+    var email: String?
     var code: String?
     var delegate: Navigatable?
     
@@ -66,8 +66,7 @@ class ChangeForgotPassword: UIViewController, Storyboarded {
             showAlertWithOk(withTitle: "SUCCESS".localized, withMessage: "UPDATE_PASSWORD".localized) {
                 self.clearTextField(self.passwordTextField)
                 self.clearTextField(self.confirmPasswordTextField)
-                self.navigationController?.popViewController(animated: true)
-                self.delegate?.backToPreviousViewController()
+                Contstant.updateRootVC(fromChangePassword: true)
             }
         } else {
             showAlertWithOk(withTitle: "ERROR".localized, withMessage: message)
@@ -111,7 +110,7 @@ class ChangeForgotPassword: UIViewController, Storyboarded {
     @IBAction func sendButtonDidTapped(_ sender: Any) {
         if viewModel.isValid {
             showOrHideLoader(done: false)
-            viewModel.changePassword(code: code!, phone: phone!)
+            viewModel.changePassword(code: code!, email: email!)
         } else {
             viewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
                 switch Brokenrule {

@@ -33,7 +33,7 @@ struct ForgotPasswordViewModel {
     }
     
     func sendPhone() {
-        AuthenticationService.sharedInstance.forgotPassword(phone: phone.value!) { response in
+        AuthenticationService.sharedInstance.forgotPassword(email: phone.value!) { response in
             if let done = response.result, let message = response.message {
                 if done {
                     self.bindViewModelDataToController(true, response.data?.first, message)

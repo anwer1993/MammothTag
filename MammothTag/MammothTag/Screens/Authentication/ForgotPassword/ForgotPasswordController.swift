@@ -21,11 +21,6 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
             self.emailTextField.bind(callback: {self.forgotPasswordViewModel.phone.value = $0 })
         }
     }
-    
-    
-    @IBOutlet weak var countryVieew: CountryPickerView!
-    @IBOutlet weak var countryPickerView: UIView!
-//    @IBOutlet weak var emailStaticLbl: UILabel!
     @IBOutlet weak var sendButton: GradientButton!
     
     var forgotPasswordViewModel = ForgotPasswordViewModel()
@@ -42,16 +37,12 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        countryVieew.font = UIFont.systemFont(ofSize: 10)
-        countryVieew.textColor = .black
-        countryVieew.flagSpacingInView = 10
-        countryVieew.setCountryByCode("SA")
     }
     
     func setupLocalizedText() {
         forgotPassswordLbl.text = "FORGOT_PASSWORD".localized
         forgotPasswordDescLbl.text = "RESET_PASSWORD_DISC".localized
-        emailTextField.placeholder = "PHONE".localized
+        emailTextField.placeholder = "EMAIL".localized
         sendButton.setTitle("SEND".localized, for: .normal)
     }
     
@@ -63,7 +54,6 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
         sendButton.customizeButton()
         emailTextField.delegate = self
         viewEmail.customizeViewForContainTextField()
-        countryPickerView.customizeViewForContainTextField()
         forgotPassswordLbl.font = UIFont(name: "Lato-Black", size: 18)
         forgotPasswordDescLbl.font = UIFont(name: "Lato-Regular", size: 18)
         sendButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
@@ -114,7 +104,7 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
         if done {
             if let forgotPasswordModel = forgotPasswordModel {
                 clearTextField()
-                Router.shared.push(with: self.navigationController, screen: .ForgotPasswordOTP(code: forgotPasswordModel.code!, phone: forgotPasswordModel.phone!, delegate: self), animated: true)
+                Router.shared.push(with: self.navigationController, screen: .ForgotPasswordOTP(email: forgotPasswordModel.email!, delegate: self), animated: true)
             }
         } else {
             showAlert(withTitle: "ERROR".localized, withMessage: message)
@@ -133,7 +123,6 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
     @IBAction func sendButtonDidTapped(_ sender: Any) {
         if forgotPasswordViewModel.isValid {
             viewEmail.customizeViewContainTextFieldWhenValid()
-//            emailStaticLbl.customizeLabelWhenValid()
             showOrHideLoader(done: false)
             forgotPasswordViewModel.sendPhone()
         } else {

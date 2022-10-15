@@ -53,8 +53,8 @@ struct ChangeForgotPasswordViewModel {
         
     }
     
-    func changePassword(code: String, phone: String) {
-        AuthenticationService.sharedInstance.changeForgotPassword(phone: phone, code: code, password: password.value!) { response in
+    func changePassword(code: String, email: String) {
+        AuthenticationService.sharedInstance.changeForgotPassword(email: email, code: code, password: password.value!) { response in
             if let done = response.result, let message = response.message {
                 if done {
                     self.bindViewModelDataToController(true, message)

@@ -22,8 +22,8 @@
 "CREATE_NEW_ACCOUNT" = "Create a new account";
 //"CREATE_PASSWORD" = "Create password";
 "SIGN_IN" = "Sign IN";
-"RESET_PASSWORD_DISC" = "To reset your password, Please enter your phone number";
-"RESET_PASSWORD_DISC" = "To reset your password, Please enter the code received from your phone";
+"RESET_PASSWORD_DISC" = "To reset your password, Please enter your email address";
+"RESET_PASSWORD_DISC" = "To reset your password, Please enter the code received from your email address";
 "SEND" = "Send";
 "NEW_ACCOUNT" = "New account";
 "LAST_NAME" = "Last name";

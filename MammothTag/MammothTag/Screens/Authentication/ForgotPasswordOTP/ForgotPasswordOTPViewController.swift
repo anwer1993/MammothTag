@@ -7,7 +7,12 @@
 
 import UIKit
 
-class ForgotPasswordOTPViewController: UIViewController, Storyboarded {
+class ForgotPasswordOTPViewController: UIViewController, Storyboarded, Navigatable {
+    
+    func backToPreviousViewController() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
     
     
@@ -25,8 +30,8 @@ class ForgotPasswordOTPViewController: UIViewController, Storyboarded {
     @IBOutlet weak var codeTextField: CustomTextField!
     @IBOutlet weak var sendBtn: GradientButton!
     
-    var  code: String = ""
-    var phone: String = ""
+    var code: String = ""
+    var email: String = ""
     var delegate: Navigatable?
     
     override func viewDidLoad() {
@@ -37,7 +42,7 @@ class ForgotPasswordOTPViewController: UIViewController, Storyboarded {
     func setupLocalizedText() {
         screenTitle.text = "FORGOT_PASSWORD".localized
         descriptionLabel.text = "RESET_PASSWORD_DISC".localized
-        codeTextField.placeholder = "PHONE".localized
+        codeTextField.placeholder = "CODE".localized
         sendBtn.setTitle("SEND".localized, for: .normal)
     }
     
@@ -58,10 +63,10 @@ class ForgotPasswordOTPViewController: UIViewController, Storyboarded {
     
 
     @IBAction func sendBtnDidTapped(_ sender: Any) {
-        if codeTextField.text?.isEmptyString == false {
-            
+        if code.isEmptyString == false {
+            Router.shared.push(with: self.navigationController, screen: .ChangeForgotPassword(email: email, delegate: self), animated: true)
         } else {
-            
+            showAlertWithOk(withTitle: "ERROR".localized, withMessage: "RESET_PASSWORD_DISC".localized)
         }
     }
     
@@ -103,6 +108,7 @@ extension ForgotPasswordOTPViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        code = textField.text ?? ""
         updateTextFieldApparence(textField, isStartEditing: false)
         return true;
     }
@@ -114,6 +120,7 @@ extension ForgotPasswordOTPViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("TextField did end editing method called")
+        code  = textField.text ?? ""
         updateTextFieldApparence(textField, isStartEditing: false)
     }
     

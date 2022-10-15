@@ -116,8 +116,8 @@ class AuthenticationService {
         }
     }
     
-    func forgotPassword(phone: String, completion: @escaping(ServerResponseModel<[ForgotPasswordModel]>) -> Void) {
-        let parameters = ["phone": phone] as Parameters
+    func forgotPassword(email: String, completion: @escaping(ServerResponseModel<[ForgotPasswordModel]>) -> Void) {
+        let parameters = ["email": email] as Parameters
         AF.request("\(URLRequest.FORGOT_PASSWORD.url)", method: .post, parameters: parameters).validate().responseDecodable(of: ServerResponseModel<[ForgotPasswordModel]>.self) { data in
             if let data = data.value {
                 completion(data)
@@ -125,8 +125,8 @@ class AuthenticationService {
         }
     }
     
-    func changeForgotPassword(phone: String, code: String, password: String, completion: @escaping(ServerResponseModel<ForgotPasswordModel>) -> Void) {
-        let parameters = ["phone": phone,
+    func changeForgotPassword(email: String, code: String, password: String, completion: @escaping(ServerResponseModel<ForgotPasswordModel>) -> Void) {
+        let parameters = ["email": email,
                           "code": code,
                           "password": password] as Parameters
         AF.request("\(URLRequest.CHANGE_FORGOT_PASSWORD.url)", method: .post, parameters: parameters).validate().responseDecodable(of: ServerResponseModel<ForgotPasswordModel>.self) { data in

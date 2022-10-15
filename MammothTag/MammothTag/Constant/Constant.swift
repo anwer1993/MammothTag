@@ -52,7 +52,7 @@ class Contstant {
         SocialMediaModel(imageName: "youtube", socialMediaName: "Youtube", socialMediaId: 14),
         SocialMediaModel(imageName: "contact_card", socialMediaName: "Phone", socialMediaId: 15)]
     
-    static func updateRootVC() {
+    static func updateRootVC(fromChangePassword: Bool = false) {
         let status: Bool?
         var rootVC : UIViewController?
         
@@ -64,7 +64,9 @@ class Contstant {
         
         if(status == true){
             rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabbarViewController") as? MainTabbarViewController
-        } else{
+        } else if fromChangePassword == true {
+            rootVC = UIStoryboard(name: "Authentification", bundle: nil).instantiateViewController(withIdentifier: "SignInController") as? SignInController
+        }else{
             rootVC = UIStoryboard(name: "Authentification", bundle: nil).instantiateViewController(withIdentifier: "SpalchScreen") as? SpalchScreen
         }
         

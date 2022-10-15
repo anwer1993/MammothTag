@@ -20,11 +20,11 @@ struct ForgotPasswordResponse: Codable {
 }
 
 struct ForgotPasswordModel: Codable {
-    let phone: String?
+    let email: String?
     let code: String?
 
     enum CodingKeys: String, CodingKey {
-        case phone = "phone"
+        case email = "email"
         case code = "code"
     }
 }
