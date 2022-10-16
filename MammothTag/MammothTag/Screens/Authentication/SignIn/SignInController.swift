@@ -54,7 +54,7 @@ class SignInController: UIViewController, Storyboarded {
     var sourceController = 0
     var user_id = ""
     
-    var  currentNonce: String = ""
+    var  currentNonce: String?
     var twitter_session: TWTRSession?
     
     override func viewDidLoad() {

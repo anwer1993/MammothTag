@@ -18,7 +18,7 @@ struct AppSettings {
     var appLanguage : AppLanguage? {
         get {
             
-            let appLang = Locale.current.languageCode ?? "en"
+            let appLang = LocalizationSystem.sharedInstance.getLanguage()
             if appLang.lowercased().starts(with: "ar") {
                 return .AR
             } else {

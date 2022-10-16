@@ -38,32 +38,32 @@ enum LoginType {
                         "email": userModel.email,
                         "password": userModel.password,
                         "picture": userModel.picture!,
-                        "login_with": "0"] as Parameters
+                        "login_with": 0] as Parameters
             }
         case .loginWithGmail(userModel: let userModel):
             return ["name": userModel.name,
                     "username": userModel.lastName,
                     "email": userModel.email,
                     "url_picture_social_network": userModel.url_Picture,
-                    "login_with": "1"] as Parameters
+                    "login_with": 1] as Parameters
         case .loginWithFacebook(userModel: let userModel):
             return ["name": userModel.name,
                     "username": userModel.lastName,
                     "email": userModel.email,
                     "url_picture_social_network": userModel.url_Picture,
-                    "login_with": "2"] as Parameters
+                    "login_with": 2] as Parameters
         case .loginWithApple(userModel: let userModel):
             return ["name": userModel.name,
                     "username": userModel.lastName,
                     "email": userModel.email,
                     "url_picture_social_network": userModel.url_Picture,
-                    "login_with": "3"] as Parameters
+                    "login_with": 3] as Parameters
         case .loginWithTwitter(userModel: let userModel):
             return ["name": userModel.name,
                     "username": userModel.lastName,
                     "email": userModel.email,
                     "url_picture_social_network": userModel.url_Picture,
-                    "login_with": "4"] as Parameters
+                    "login_with": 4] as Parameters
         }
     }
     

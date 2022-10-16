@@ -31,6 +31,19 @@ extension String {
         return dateFormatter.string(from: date)
     }
     
+    
+    func subString() -> (String, String){
+        let str = self
+        if str.contains(" ") {
+            let index = str.firstIndex(of: " ")!
+            let first_name_end_index = str.index(index, offsetBy: -1)
+            let last_name_start_index = str.index(index, offsetBy: 1)
+            var first_name = String(str [...first_name_end_index])
+            let last_name  = String(str [last_name_start_index...])
+            return (first_name, last_name)
+        }
+        return ("","")
+    }
 }
 
 

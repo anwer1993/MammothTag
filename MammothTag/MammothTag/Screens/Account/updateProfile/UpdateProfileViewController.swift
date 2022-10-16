@@ -94,7 +94,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     @objc func donedatePicker(){
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        formatter.locale = Locale(identifier: "ar_DZ")
+        formatter.locale = Locale(identifier: "ar_LY")
         dateOfBirthTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
@@ -105,7 +105,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     
     @objc func handleDatePicker(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ar_DZ")
+        dateFormatter.locale = Locale(identifier: "ar_LY")
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateOfBirthTextField.text = dateFormatter.string(from: sender.date)
         updateProfileViewModel.dateOfBirth.value = dateOfBirthTextField.text

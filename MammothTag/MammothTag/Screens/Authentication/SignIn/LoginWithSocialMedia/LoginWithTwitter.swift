@@ -45,10 +45,11 @@ extension SignInController {
             guard let user = result?.user else {return}
             self?.fetchEmail(completion: { email in
                 if let email = email {
-                    let full_name = user.displayName ?? ""
+                    let first_name = (user.displayName ?? "").subString().0
+                    let last_name = (user.displayName ?? "").subString().1
                     let email = email
                     let profile_picture_url = user.photoURL?.absoluteString ?? ""
-                    let loginModel = LoginWithSocialMediaModel(name: full_name, lastName: "", email: email, url_Picture : profile_picture_url)
+                    let loginModel = LoginWithSocialMediaModel(name: first_name, lastName: last_name, email: email, url_Picture : profile_picture_url)
                     self?.register(With: .loginWithTwitter(userModel: loginModel))
                 }
             })

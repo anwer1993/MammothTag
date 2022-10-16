@@ -14,9 +14,12 @@ extension SignInController: ASAuthorizationControllerDelegate {
     
     @objc
     func handleAuthorizationAppleIDButtonPress() {
+        let nonce = Tools.randomNonceString()
+        currentNonce = nonce
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
+        request.nonce = Tools.sha256(nonce)
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
@@ -26,6 +29,9 @@ extension SignInController: ASAuthorizationControllerDelegate {
     /// - Tag: did_complete_authorization
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            guard let nonce = currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
             guard let appleIDToken = appleIDCredential.identityToken else {
                 print("Unable to fetch identity token")
                 return
@@ -36,17 +42,18 @@ extension SignInController: ASAuthorizationControllerDelegate {
             }
             let credential = OAuthProvider.credential(withProviderID: "apple.com",
                                                       idToken: idTokenString,
-                                                      rawNonce: Tools.randomNonceString())
+                                                      rawNonce: nonce)
             Auth.auth().signIn(with: credential) {[weak self] (authResult, error) in
                 guard  error == nil else {
                     print(error!.localizedDescription)
                     return
                 }
                 guard let result = authResult else {return}
-                let first_name = result.user.displayName ?? ""
+                let first_name = (Auth.auth().currentUser?.displayName ?? "").subString().0
+                let last_name = (Auth.auth().currentUser?.displayName ?? "").subString().1
                 let email = result.user.email ?? ""
                 let profile_picture_url = result.user.photoURL?.absoluteString ?? ""
-                let loginModel = LoginWithSocialMediaModel(name: first_name, lastName: "", email: email, url_Picture: profile_picture_url)
+                let loginModel = LoginWithSocialMediaModel(name: first_name, lastName: last_name, email: email, url_Picture: profile_picture_url)
                 self?.register(With: .loginWithApple(userModel: loginModel))
             }
         }
@@ -55,6 +62,7 @@ extension SignInController: ASAuthorizationControllerDelegate {
     /// - Tag: did_complete_error
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
+        print("Sign in with Apple errored: \(error)")
     }
     
 }
