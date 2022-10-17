@@ -57,6 +57,7 @@
 "OLD_PASSWORD" = "كلمة المرور القديمة";
 "NEW_PASSWORD" = "كلمة المرور الجديدة";
 "CONFIRM_PASSWORD" = "تأكيد كلمة المرور";
+"INVALID_EMAIL_ADDRESS" = "عنوان بريد إلكتروني غير صالح";
 "CODE" = "Code";
 
 

@@ -292,6 +292,8 @@ class RegisterViewController: UIViewController, Storyboarded {
                     break
                 case .emptyOldPassword:
                     break
+                default:
+                    break
                 }
             }
         }

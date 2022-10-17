@@ -58,6 +58,7 @@
 "OLD_PASSWORD" = "Old password";
 "NEW_PASSWORD" = "New password";
 "CONFIRMATION_PASSWORD" = "Confirm password";
+"INVALID_EMAIL_ADDRESS" = "Invalid email address";
 "CODE" = "Code";
 
 // Update Profile

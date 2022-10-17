@@ -110,7 +110,7 @@ class ChangeForgotPassword: UIViewController, Storyboarded {
     @IBAction func sendButtonDidTapped(_ sender: Any) {
         if viewModel.isValid {
             showOrHideLoader(done: false)
-            viewModel.changePassword(code: code!, email: email!)
+            viewModel.changePassword(code: code ?? "", email: email!)
         } else {
             viewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
                 switch Brokenrule {

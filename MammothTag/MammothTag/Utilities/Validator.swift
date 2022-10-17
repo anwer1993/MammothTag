@@ -23,6 +23,7 @@ enum BrokenRulesEnum {
     case phone
     case picture
     case emptyOldPassword
+    case invalidEmail
 }
 
 //protocol ValidatorProtocol {

@@ -29,7 +29,7 @@ enum AppScreen: INaviagtion{
     case Tabbar
     case UpdatePassword
     case ForgotPasswordOTP(email: String, delegate: Navigatable)
-    case ChangeForgotPassword(email: String, delegate: Navigatable)
+    case ChangeForgotPassword(email: String, code: String, delegate: Navigatable)
     case UpdateProfile(profile: DataClassProfile?)
     case ContactDetails(user_id: String, nfcTag: String, sourceController: Int)
     case ContactDetailsCardList(user_id: String)
@@ -99,9 +99,10 @@ struct Router: IRouter {
                 guard let vc = UpdatePasswordController.instantiate(storyboardName: "Main") else {return UIViewController()}
                 viewController = vc
                 break
-            case .ChangeForgotPassword(email: let email, delegate: let delegate):
+            case .ChangeForgotPassword(email: let email, code: let code, delegate: let delegate):
                 guard let vc = ChangeForgotPassword.instantiate(storyboardName: "Authentification") else {return UIViewController()}
                 vc.email = email
+                vc.code = code
                 vc.delegate = delegate
                 viewController = vc
                 break

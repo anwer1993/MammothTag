@@ -18,7 +18,7 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
     @IBOutlet weak var viewEmail: UIView!
     @IBOutlet weak var emailTextField: CustomTextField! {
         didSet {
-            self.emailTextField.bind(callback: {self.forgotPasswordViewModel.phone.value = $0 })
+            self.emailTextField.bind(callback: {self.forgotPasswordViewModel.email.value = $0 })
         }
     }
     @IBOutlet weak var sendButton: GradientButton!
@@ -128,8 +128,11 @@ class ForgotPasswordController: UIViewController, Storyboarded, Navigatable {
         } else {
             forgotPasswordViewModel.brokenRules.map({$0.propertyName}).forEach { Brokenrule in
                 switch Brokenrule {
-                case .phone:
+                case .email:
                     updateViewAppearenceWhenError()
+                    break
+                case .invalidEmail:
+                    showAlert(withTitle: "ERROR".localized, withMessage: "INVALID_EMAIL_ADDRESS".localized)
                     break
                 default:
                     break

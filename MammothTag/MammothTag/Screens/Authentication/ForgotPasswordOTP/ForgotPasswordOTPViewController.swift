@@ -63,8 +63,9 @@ class ForgotPasswordOTPViewController: UIViewController, Storyboarded, Navigatab
     
 
     @IBAction func sendBtnDidTapped(_ sender: Any) {
-        if code.isEmptyString == false {
-            Router.shared.push(with: self.navigationController, screen: .ChangeForgotPassword(email: email, delegate: self), animated: true)
+        
+        if codeTextField.text.isEmptyString == false {
+            Router.shared.push(with: self.navigationController, screen: .ChangeForgotPassword(email: email, code: codeTextField.text ?? "", delegate: self), animated: true)
         } else {
             showAlertWithOk(withTitle: "ERROR".localized, withMessage: "RESET_PASSWORD_DISC".localized)
         }
