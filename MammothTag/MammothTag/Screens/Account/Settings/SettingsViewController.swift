@@ -35,10 +35,10 @@ class SettingsViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         ageLbl.isHidden = true
-        if LocalizationSystem.sharedInstance.getLanguage() == "en" {
-            UITableView.appearance().semanticContentAttribute = .forceLeftToRight
-        } else {
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar" {
             UITableView.appearance().semanticContentAttribute = .forceRightToLeft
+        } else {
+            UITableView.appearance().semanticContentAttribute = .forceLeftToRight
         }
         self.navigationController?.isNavigationBarHidden = true
         setupTableView()
