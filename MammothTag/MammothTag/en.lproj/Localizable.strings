@@ -57,7 +57,7 @@
 "CHANGE_PASSWORD" = "Change password";
 "OLD_PASSWORD" = "Old password";
 "NEW_PASSWORD" = "New password";
-"CONFIRM_PASSWORD" = "Confirm password";
+"CONFIRMATION_PASSWORD" = "Confirm password";
 "CODE" = "Code";
 
 // Update Profile
@@ -83,7 +83,7 @@
 "SCANING_NOT_SUPPORTED" = "Scanning Not Supported";
 "DEVICE_NOT_SUPPORT_SCAN"  = "This device doesn't support tag scanning.";
 "OK" =  "OK";
-"ENTER_PASSWORD" =  "Please enter your Password";
+"ENTER_NEW_PASSWORD" =  "Please enter your Password";
 "LINK_NOT_FOUND" = "The link does not found";
 "URL_NOT_FOUND" = "The website url does not found";
 "FACETIME_NOT_AVAILABLE" = "FaceTime does not available";
@@ -96,7 +96,7 @@
 "UPDATE_PASSWORD" = "You have updated your password";
 "ENTER_PASSWORD" = "Please enter your old password";
 "ENTER_NEW_PASSWORD" = "Please enter your new password";
-"CONFIRM_PASSWORD" = "Please confirm your new password";
+"CONFIRM_PASSWORD" = "Please confirm your password";
 "PASSWORD_TOO_SHORT" = "Your password is too short";
 "PASSWORD_NOT_MATCH" = "The password confirmation does not match";
 "LOGOUT" = "Logout";

@@ -16,7 +16,7 @@ struct RegisterViewModel {
     
     var brokenRules: [BrokenRule] = [BrokenRule]()
     
-    var updateUIWhenRegister: ((Bool, String) -> Void) = {_,_  in}
+    var updateUIWhenRegister: ((Bool, String, String) -> Void) = {_,_,_  in}
     
     var firstName = Dynamic<String>("")
     var LastName = Dynamic<String>("")
@@ -45,8 +45,8 @@ struct RegisterViewModel {
     
     func register() {
         AuthenticationService.sharedInstance.register(userModel: self.registerModel) { data in
-            if let message = data.message, let isDone = data.result {
-                updateUIWhenRegister(isDone, message)
+            if let message = data.message, let isDone = data.result , let tokenn = data.token{
+                updateUIWhenRegister(isDone, message, tokenn)
             }
         }
     }

@@ -113,6 +113,7 @@ class RegisterViewController: UIViewController, Storyboarded {
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.locale = Locale(identifier: "ar_LY")
         dateOfBirthTextField.text = formatter.string(from: datePicker.date)
+        registerViewModel.dateOfBirth.value = dateOfBirthTextField.text
         self.view.endEditing(true)
     }
     
@@ -135,12 +136,11 @@ class RegisterViewController: UIViewController, Storyboarded {
         countryCodeView.flagSpacingInView = 10
         countryCodeView.setCountryByCode("SA")
         registerViewModel.updateRegisterModel(withcountryCode: countryCodeView.selectedCountry.phoneCode)
-        registerViewModel.updateUIWhenRegister =  {done, message in
+        registerViewModel.updateUIWhenRegister =  {done, message, token in
             self.showOrHideLoader(done: true)
             if done == true {
-                self.showAlertWithOk(withTitle: "SUCCESS".localized, withMessage: "SUCCESSFULLY_REGISTRED_MESSAGE".localized) {
-                    self.navigationController?.popViewController(animated: true)
-                }
+                AccountManager.shared.token = token
+                Contstant.updateRootVC()
             } else {
                 self.showAlert(withTitle: "Error", withMessage: message)
             }
@@ -200,7 +200,7 @@ class RegisterViewController: UIViewController, Storyboarded {
         dateOfBirthTextField.placeholder = "DATE_OF_BIRTH".localized
         phoneTextField.placeholder = "PHONE".localized
         passwordTextField.placeholder = "PASSWORD".localized
-        confirmPasswordTextField.placeholder = "CONFIRM_PASSWORD".localized
+        confirmPasswordTextField.placeholder = "CONFIRMATION_PASSWORD".localized
         createPasswordLbl.text = "CREATE_PASSWORD".localized
     }
     

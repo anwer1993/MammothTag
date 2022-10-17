@@ -21,6 +21,7 @@
 		A60B313228A173D20037F0B3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313128A173D20037F0B3 /* UIViewExtension.swift */; };
 		A60B313528A175D70037F0B3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B313428A175D70037F0B3 /* GradientView.swift */; };
 		A6138D5328BAB26900DA71F9 /* CardServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6138D5228BAB26900DA71F9 /* CardServerResponseModel.swift */; };
+		A613E88C28FDF2500092CBDE /* UpdateProfileImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A613E88B28FDF2500092CBDE /* UpdateProfileImagePicker.swift */; };
 		A627DAAB28A02F2100F0D54E /* Authentification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A627DAAA28A02F2100F0D54E /* Authentification.storyboard */; };
 		A628D52828BFDFFB002099B7 /* AddSocialMediaVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A628D52728BFDFFB002099B7 /* AddSocialMediaVc.swift */; };
 		A628D52A28BFE008002099B7 /* AddSocialMediaVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = A628D52928BFE008002099B7 /* AddSocialMediaVc.xib */; };
@@ -172,6 +173,7 @@
 		A60B313128A173D20037F0B3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A60B313428A175D70037F0B3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		A6138D5228BAB26900DA71F9 /* CardServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardServerResponseModel.swift; sourceTree = "<group>"; };
+		A613E88B28FDF2500092CBDE /* UpdateProfileImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileImagePicker.swift; sourceTree = "<group>"; };
 		A627DAAA28A02F2100F0D54E /* Authentification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentification.storyboard; sourceTree = "<group>"; };
 		A628D52728BFDFFB002099B7 /* AddSocialMediaVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSocialMediaVc.swift; sourceTree = "<group>"; };
 		A628D52928BFE008002099B7 /* AddSocialMediaVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSocialMediaVc.xib; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				A640DE4028B6B105004EDB9B /* UpdateProfileViewController.swift */,
+				A613E88B28FDF2500092CBDE /* UpdateProfileImagePicker.swift */,
 				A6E9E98428B6BCDA0074D45D /* UpdateProfileViewModel.swift */,
 			);
 			path = updateProfile;
@@ -1169,6 +1172,7 @@
 				A688ED0B28AFF1410010AE54 /* CardModel.swift in Sources */,
 				A6C833B628C3A97A007418A7 /* OpenFirstServerResponseModel.swift in Sources */,
 				A6FC614828A02A0100756C74 /* SpalchScreen.swift in Sources */,
+				A613E88C28FDF2500092CBDE /* UpdateProfileImagePicker.swift in Sources */,
 				A688ED0D28AFF1810010AE54 /* ServerResponseModel.swift in Sources */,
 				A6D2D7F028B274EC00DDF2A1 /* UpdatePasswordViewModel.swift in Sources */,
 				A67E082628D5016300B0D7C6 /* HomeWriteNFCTAg.swift in Sources */,

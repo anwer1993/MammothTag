@@ -1,8 +1,8 @@
 //
-//  RegisterViewControllerImagePicker.swift
+//  UpdateProfileImagePicker.swift
 //  MammothTag
 //
-//  Created by Anwar Hajji on 10/08/2022.
+//  Created by Anwar Hajji on 17/10/2022.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Photos
 
-extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension UpdateProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -18,9 +18,9 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
-            profileImage.image = image
-            profileImage.contentMode = .scaleAspectFill
-            self.registerViewModel.picturee = profileImage.image?.jpegData(compressionQuality: 0.3)
+            profilePicture.image = image
+            profilePicture.contentMode = .scaleAspectFill
+            self.updateProfileViewModel.picturee = profilePicture.image?.jpegData(compressionQuality: 0.3)
         }else{
             print("Something went wrong")
         }
@@ -34,14 +34,14 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
          instead of `UIImagePickerControllerEditedImage`
          */
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
-            self.profileImage.image = editedImage
+            self.profilePicture.image = editedImage
         }
         dismiss(animated: true, completion: nil)
     }
     
 }
 
-extension RegisterViewController {
+extension UpdateProfileViewController {
     
     @objc func showActionSheet(_ sender: UITapGestureRecognizer? = nil) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -138,3 +138,4 @@ extension RegisterViewController {
     }
     
 }
+

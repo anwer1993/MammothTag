@@ -13,6 +13,15 @@ import Kingfisher
 class UpdateProfileViewController : UIViewController, Storyboarded {
     
     
+    @IBOutlet weak var confirmPasswordTextField: CustomTextField! {
+        didSet {
+            self.confirmPasswordTextField.bind(callback: {self.updateProfileViewModel.connfirmPassword.value = $0 })
+        }
+    }
+    @IBOutlet weak var confirmPasswordLbl: UILabel!
+    @IBOutlet weak var confirmPasswordStackView: UIStackView!
+    @IBOutlet weak var viewConfirmPassword: UIView!
+    @IBOutlet weak var addPicImage: UIImageView!
     @IBOutlet weak var viewProfilePic: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var backButton: UIButton!
@@ -75,6 +84,8 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeView()
+        let addPicTap = UITapGestureRecognizer(target: self, action: #selector(showActionSheet(_:)))
+        addPicImage.addTagGesture(addPicTap)
         datePicker.locale = Locale(identifier: AppSettings().appLanguage == .AR ? "ar_LY" : "en_US")
         dateOfBirthTextField.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
@@ -87,8 +98,10 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
         dateOfBirthTextField.inputAccessoryView = toolbar
         passwordTextField.isSecureTextEntry  = true
-        passwordStaticLabel.isHidden = true
         passwordTextField.enablePasswordToggle()
+        confirmPasswordTextField.isSecureTextEntry  = true
+        confirmPasswordTextField.enablePasswordToggle()
+        confirmPasswordTextField.delegate = self
     }
     
     @objc func donedatePicker(){
@@ -96,6 +109,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.locale = Locale(identifier: "ar_LY")
         dateOfBirthTextField.text = formatter.string(from: datePicker.date)
+        updateProfileViewModel.dateOfBirth.value = dateOfBirthTextField.text
         self.view.endEditing(true)
     }
     
@@ -138,10 +152,12 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         phoneStaticLabel.text = "PHONE".localized
         emailStaticLbl.text = "EMAIL".localized
         passwordStaticLabel.text = "PASSWORD".localized
+        confirmPasswordLbl.text = "CONFIRMATION_PASSWORD".localized
         passwordStaticLabel.textColor = .tangerine
         sendButton.setTitle("SEND".localized, for: .normal)
         passwordTextField.textAlignment = AppSettings().appLanguage == .AR ? .right : .left
-        passwordTextField.placeholder = "ENTER_PASSWORD".localized
+        passwordTextField.placeholder = "PASSWORD".localized
+        confirmPasswordTextField.placeholder = "CONFIRMATION_PASSWORD".localized
     }
     
     func initializeView() {
@@ -149,6 +165,10 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         viewProfilePic.layer.cornerRadius = 50
         viewProfilePic.layer.borderColor = UIColor.tangerine.cgColor
         viewProfilePic.layer.borderWidth = 3
+        addPicImage.layer.cornerRadius = 15
+        addPicImage.layer.backgroundColor = UIColor.chestnut.cgColor
+        addPicImage.layer.borderColor = UIColor.white.cgColor
+        addPicImage.layer.borderWidth = 1
         setupLocalizedText()
         backButton.flipWhenRTL(image: UIImage(named: "Groupe 469")!)
         sendButton.customizeButton()
@@ -157,6 +177,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         sendButton.layer.cornerRadius = 15
         sendButton.customizeButton()
         viewPassword.customizeViewForContainTextField()
+        viewConfirmPassword.customizeViewForContainTextField()
         newAccountLbl.font = UIFont(name: "Lato-Black", size: 18)
         newAccountLbl.textColor = .chestnut
         sendButton.titleLabel?.font = UIFont(name: "Lato-SemiBold", size: 16)
@@ -185,24 +206,17 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
             updateProfileViewModel.email.value = profile.email
             updateProfileViewModel.dateOfBirth.value = profile.birthday
             updateProfileViewModel.phone.value = profile.phone
-            if profile.loginWith == LoginWith.simpleLogin.rawValue {
-                if let picture = profile.picture, picture.isEmptyString == false {
-                    let url = URL(string: "https://mammoth-app.net/mobile/public/\(picture)")
-                    profilePicture.kf.setImage(with: url)
-                    profilePicture.contentMode = .scaleAspectFill
-                } else {
-                    profilePicture.image = UIImage(named: "avatar")
-                }
+            if let picture = profile.urlPicture, picture.isEmptyString == false {
+                let url = URL(string: picture)
+                profilePicture.kf.setImage(with: url)
+                profilePicture.contentMode = .scaleAspectFill
+            } else if let picture = profile.picture, picture.isEmptyString == false {
+                let url = URL(string: "https://mammoth-app.net/mobile/public/\(picture)")
+                profilePicture.kf.setImage(with: url)
+                profilePicture.contentMode = .scaleAspectFill
             } else {
-                if let picture = profile.urlPicture, picture.isEmptyString == false {
-                    let url = URL(string: picture)
-                    profilePicture.kf.setImage(with: url)
-                    profilePicture.contentMode = .scaleAspectFill
-                } else {
-                    profilePicture.image = UIImage(named: "avatar")
-                }
+                profilePicture.image = UIImage(named: "avatar")
             }
-            
         }
         
         
@@ -233,6 +247,7 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
         firstNameStaticLbl.textColor = .tangerine
         lastNameStaticLabel.textColor = .tangerine
         emailStaticLbl.textColor = .tangerine
+        confirmPasswordLbl.textColor = .tangerine
         dateOfBirthStaticLbl.textColor = .tangerine
         phoneStaticLabel.textColor = .tangerine
     }
@@ -267,15 +282,15 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
                     updateUIWhenEndEditingTextField(passwordTextField)
                     break
                 case .passwordTooShort:
+                    showAlert(withTitle: "ERROR".localized, withMessage: "PASSWORD_TOO_SHORT".localized)
                     break
                 case .emptyConfirmPassword:
+                    updateUIWhenEndEditingTextField(confirmPasswordTextField)
                     break
                 case .confirmPassword:
-                    showAlert(withTitle: "ERROR".localized, withMessage: "INVALID_PASSWORD".localized)
+                    showAlert(withTitle: "ERROR".localized, withMessage: "PASSWORD_NOT_MATCHED".localized)
                     break
-                case .picture:
-                    break
-                case .emptyOldPassword:
+                default:
                     break
                 }
             }
@@ -374,6 +389,12 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             } else {
                 updateViewAppearenceWhenError(viewPassword, passwordStaticLabel)
             }
+        } else if textField == confirmPasswordTextField {
+            if !textField.isEmpty() {
+                updateViewAppearenceWhenValid(viewConfirmPassword, confirmPasswordLbl)
+            } else {
+                updateViewAppearenceWhenError(viewConfirmPassword, confirmPasswordLbl)
+            }
         }
     }
     
@@ -392,6 +413,7 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: viewConfirmPassword, textFieldTitle: confirmPasswordLbl, isHidden: true)
         } else if textField == lastNameTextField {
             lastNameStaticLabel.isHidden = false
             resetTextField(viewLastName, lastNameStaticLabel)
@@ -400,6 +422,7 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: viewConfirmPassword, textFieldTitle: confirmPasswordLbl, isHidden: true)
         } else if textField == emailTextField {
             updateProfileViewModel.registerModel.email = textField.text ?? ""
             emailStaticLbl.isHidden = false
@@ -409,6 +432,7 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: viewConfirmPassword, textFieldTitle: confirmPasswordLbl, isHidden: true)
         } else if textField == dateOfBirthTextField {
             dateOfBirthStaticLbl.isHidden = false
             resetTextField(dateOfBirthView, dateOfBirthStaticLbl)
@@ -417,6 +441,7 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: emailTextField, parentView: emailView, textFieldTitle: emailStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: UILabel(), isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: viewConfirmPassword, textFieldTitle: confirmPasswordLbl, isHidden: true)
         } else if textField == phoneTextField{
             passwordStaticLabel.isHidden = false
             resetTextField(phoneView, phoneStaticLabel)
@@ -425,6 +450,7 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: emailTextField, parentView: emailView, textFieldTitle: emailStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: viewConfirmPassword, textFieldTitle: confirmPasswordLbl, isHidden: true)
         } else if textField == passwordTextField{
             resetTextField(viewPassword, passwordStaticLabel)
             updateOtherTextFieldWhenToggle(otherTextField: firstNameTestField, parentView: viewFirstName, textFieldTitle: firstNameStaticLbl, isHidden: true)
@@ -432,6 +458,15 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: emailTextField, parentView: emailView, textFieldTitle: emailStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: phoneStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: viewConfirmPassword, textFieldTitle: confirmPasswordLbl, isHidden: true)
+        } else if textField == passwordTextField{
+            resetTextField(viewConfirmPassword, confirmPasswordLbl)
+            updateOtherTextFieldWhenToggle(otherTextField: firstNameTestField, parentView: viewFirstName, textFieldTitle: firstNameStaticLbl, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: lastNameTextField, parentView: viewLastName, textFieldTitle: lastNameStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: emailTextField, parentView: emailView, textFieldTitle: emailStaticLbl, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: phoneStaticLabel, isHidden: true)
+            updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
         }
         print("TextField did begin editing method called")
     }

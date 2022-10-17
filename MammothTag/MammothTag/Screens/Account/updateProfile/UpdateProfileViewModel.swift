@@ -24,6 +24,8 @@ struct UpdateProfileViewModel {
     var dateOfBirth = Dynamic<String>("")
     var phone = Dynamic<String>("")
     var password = Dynamic<String>("")
+    var connfirmPassword = Dynamic<String>("")
+    var picturee: Data? = nil
     
     var isValid :Bool {
         mutating get {
@@ -95,13 +97,25 @@ extension UpdateProfileViewModel {
             return
         }
         
-        if password != AccountManager.shared.password {
+        guard let confirmPassword = connfirmPassword.value, confirmPassword.isEmptyString == false else {
+            let brokenRule = BrokenRule(propertyName: .emptyConfirmPassword)
+            self.brokenRules.append(brokenRule)
+            return
+        }
+        
+        guard password == confirmPassword else {
             let brokenRule = BrokenRule(propertyName: .confirmPassword)
             self.brokenRules.append(brokenRule)
             return
         }
         
-        registerModel = RegisterModel(firstName: firstName, LastName: lastName, email: email, dateOfBirth: dateOfBirth, countryCode: "", phone: phone, password: password, picture: nil)
+        if password.count < 8 {
+            let brokenRule = BrokenRule(propertyName: .passwordTooShort)
+            self.brokenRules.append(brokenRule)
+            return
+        }
+        
+        registerModel = RegisterModel(firstName: firstName, LastName: lastName, email: email, dateOfBirth: dateOfBirth, countryCode: "", phone: phone, password: password, picture: picturee)
         
     }
     

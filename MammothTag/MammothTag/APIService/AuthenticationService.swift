@@ -14,34 +14,34 @@ class AuthenticationService {
     static var sharedInstance = AuthenticationService()
     
     func checkAppUpdateAvailability(onSuccess: @escaping (Bool) -> Void, onError: @escaping (Bool) -> Void) {
-            guard let info = Bundle.main.infoDictionary,
-                  let curentVersion = info["CFBundleShortVersionString"] as? String,
-                  let url = URL(string: "http://itunes.apple.com/lookup?bundleId=com.MammothTag.123.MammothTag") else {
+        guard let info = Bundle.main.infoDictionary,
+              let curentVersion = info["CFBundleShortVersionString"] as? String,
+              let url = URL(string: "http://itunes.apple.com/lookup?bundleId=com.MammothTag.123.MammothTag") else {
+            return onError(true)
+        }
+        do {
+            let data = try Data(contentsOf: url)
+            guard let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any] else {
                 return onError(true)
             }
-            do {
-                let data = try Data(contentsOf: url)
-                guard let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any] else {
-                   return onError(true)
-                }
-                if let result = (json["results"] as? [Any])?.first as? [String: Any], let appStoreVersion = result["version"] as? String {
-                    print("version in app store", appStoreVersion," current Version ",curentVersion);
-                    let versionCompare = curentVersion.compare(appStoreVersion, options: .numeric)
-                    if versionCompare == .orderedSame {
-                        onSuccess(false)
-                    } else if versionCompare == .orderedAscending {
-                        onSuccess(true)
-                        // 2.0.0 to 3.0.0 is ascending order, so ask user to update
-                    } else {
-                        onSuccess(false)
-                    }
+            if let result = (json["results"] as? [Any])?.first as? [String: Any], let appStoreVersion = result["version"] as? String {
+                print("version in app store", appStoreVersion," current Version ",curentVersion);
+                let versionCompare = curentVersion.compare(appStoreVersion, options: .numeric)
+                if versionCompare == .orderedSame {
+                    onSuccess(false)
+                } else if versionCompare == .orderedAscending {
+                    onSuccess(true)
+                    // 2.0.0 to 3.0.0 is ascending order, so ask user to update
                 } else {
                     onSuccess(false)
                 }
-            } catch {
-                onError(true)
+            } else {
+                onSuccess(false)
             }
+        } catch {
+            onError(true)
         }
+    }
     
     func register(with loginType: LoginType, completion: @escaping(RegisterServerResponse) -> Void) {
         print(loginType.parameter)
@@ -52,26 +52,24 @@ class AuthenticationService {
         }
     }
     
-    func register(userModel: RegisterModel, completion: @escaping(ServerResponseModel<ProfileModel>) -> Void) {
-        let parameters: Parameters?
-        if userModel.picture == nil {
-            parameters = ["name": userModel.firstName,
-                                                "username": userModel.LastName,
-                                                "birthday": userModel.dateOfBirth,
-                                                "phone": userModel.phone,
-                                                "email": userModel.email,
-                                                "password": userModel.password] as Parameters
-        } else {
-            parameters = ["name": userModel.firstName,
-                                                "username": userModel.LastName,
-                                                "birthday": userModel.dateOfBirth,
-                                                "phone": userModel.phone,
-                                                "email": userModel.email,
-                                                "password": userModel.password,
-                                               "picture": userModel.picture!] as Parameters
-        }
-        
-        AF.request(URLRequest.REGISTER_URL.url, method: .post, parameters: parameters).validate().responseDecodable(of: ServerResponseModel<ProfileModel>.self) { data in
+    func register(userModel: RegisterModel, completion: @escaping(RegisterServerResponse) -> Void) {
+        let parameters = ["name": userModel.firstName,
+                          "username": userModel.LastName,
+                          "birthday": userModel.dateOfBirth,
+                          "phone": userModel.phone,
+                          "email": userModel.email,
+                          "password": userModel.password]
+        AF.upload(multipartFormData: { multipartFormData in
+            parameters.forEach { (key: String, value: String) in
+                multipartFormData.append(value.data(using: .utf8) ?? Data(), withName: key)
+            }
+            if let picture = userModel.picture {
+                multipartFormData.append(picture, withName: "picture", fileName: "\(Date().timeIntervalSince1970).jpeg", mimeType: "image/jpeg")
+            }
+            
+        }, to: URLRequest.REGISTER_URL.url, method: .post)
+        .validate()
+        .responseDecodable(of: RegisterServerResponse.self) { data in
             if let data = data.value {
                 completion(data)
             }
@@ -187,11 +185,19 @@ class AuthenticationService {
                           "birthday": userModel.dateOfBirth,
                           "phone": userModel.phone,
                           "email": userModel.email,
-                          "password": userModel.password] as Parameters
+                          "password": userModel.password]
         let headers: HTTPHeaders = [.authorization(bearerToken: token)]
-        AF.request(URLRequest.UPDATE_USER_URL.url, method: .put, parameters: parameters, headers: headers)
-            .validate()
-            .responseDecodable(of: ServerResponseModel<ProfileModel>.self) { data in
+        AF.upload(multipartFormData: { multipartFormData in
+            parameters.forEach { (key: String, value: String) in
+                multipartFormData.append(value.data(using: .utf8) ?? Data(), withName: key)
+            }
+            if let picture = userModel.picture {
+                multipartFormData.append(picture, withName: "picture", fileName: "\(Date().timeIntervalSince1970).jpeg", mimeType: "image/jpeg")
+            }
+            
+        }, to: URLRequest.UPDATE_USER_URL.url, method: .post, headers: headers)
+        .validate()
+        .responseDecodable(of: ServerResponseModel<ProfileModel>.self.self) { data in
             if let data = data.value {
                 completion(data)
             }
