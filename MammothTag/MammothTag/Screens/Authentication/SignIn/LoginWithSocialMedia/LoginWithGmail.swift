@@ -19,6 +19,18 @@ extension SignInController {
             this.showOrHideLoader(done: true)
             if let token = resp.token, let success = resp.result, success == true {
                 AccountManager.shared.token = token
+                switch loginType {
+                case .simpleLogin(_):
+                    AccountManager.shared.loginType = .simpleLogin
+                case .loginWithGmail(_):
+                    AccountManager.shared.loginType = .loginWithGmail
+                case .loginWithFacebook(_):
+                    AccountManager.shared.loginType = .loginWithFacebook
+                case .loginWithApple(_):
+                    AccountManager.shared.loginType = .loginWithApple
+                case .loginWithTwitter(_):
+                    AccountManager.shared.loginType = .loginWithTwitter
+                }
                 if this.sourceController == 0 {
                     Contstant.updateRootVC()
                 } else {

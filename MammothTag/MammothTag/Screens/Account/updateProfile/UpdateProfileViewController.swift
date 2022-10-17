@@ -185,13 +185,24 @@ class UpdateProfileViewController : UIViewController, Storyboarded {
             updateProfileViewModel.email.value = profile.email
             updateProfileViewModel.dateOfBirth.value = profile.birthday
             updateProfileViewModel.phone.value = profile.phone
-            if let picture = profile.picture, picture.isEmptyString == false {
-                let url = URL(string: "https://mammoth-app.net/mobile/public/\(picture)")
-                profilePicture.kf.setImage(with: url)
-                profilePicture.contentMode = .scaleAspectFill
+            if profile.loginWith == LoginWith.simpleLogin.rawValue {
+                if let picture = profile.picture, picture.isEmptyString == false {
+                    let url = URL(string: "https://mammoth-app.net/mobile/public/\(picture)")
+                    profilePicture.kf.setImage(with: url)
+                    profilePicture.contentMode = .scaleAspectFill
+                } else {
+                    profilePicture.image = UIImage(named: "avatar")
+                }
             } else {
-                profilePicture.image = UIImage(named: "avatar")
+                if let picture = profile.urlPicture, picture.isEmptyString == false {
+                    let url = URL(string: picture)
+                    profilePicture.kf.setImage(with: url)
+                    profilePicture.contentMode = .scaleAspectFill
+                } else {
+                    profilePicture.image = UIImage(named: "avatar")
+                }
             }
+            
         }
         
         

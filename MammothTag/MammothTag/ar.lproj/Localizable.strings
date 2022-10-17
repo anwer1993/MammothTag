@@ -5,6 +5,8 @@
   Created by Anwar Hajji on 10/08/2022.
   
 */
+"SIGN_IN_WITH" = "تسجيل الدخول باستخدام";
+"OR" = "أو";
 "DONE" = "تأكيد";
 "NEW_UPDATE" = "تحديث جديد";
 "NEW_UPDATE_MESSAGE" = "يتوفر تحديث جديد ، يرجى تحديث التطبيق";

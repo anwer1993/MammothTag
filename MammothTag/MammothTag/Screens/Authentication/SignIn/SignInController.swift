@@ -23,7 +23,7 @@ class SignInController: UIViewController, Storyboarded {
     @IBOutlet weak var twitterBtn: UIButton!
     @IBOutlet weak var facebookBtn: UIButton!
     @IBOutlet weak var googleBtn: UIButton!
-    @IBOutlet weak var appleeBtn: UIButton!
+    @IBOutlet weak var appleeBtn: ASAuthorizationAppleIDButton!
     @IBOutlet weak var orLbl: UILabel!
     @IBOutlet weak var signupWithLbl: UILabel!
     @IBOutlet weak var identityStack: UIStackView!
@@ -122,7 +122,9 @@ class SignInController: UIViewController, Storyboarded {
         groupedImage.flipWhenRTL(image: UIImage(named: "Groupe 454")!)
         bgImage.flipWhenRTL(image: UIImage(named: "bg")!)
         initializeSignInBtn()
-        appleeBtn.setupButton()
+        appleeBtn.cornerRadius = 30
+        appleeBtn.contentMode = .scaleAspectFit
+        appleeBtn.applySketchShadow(color: UIColor.black25, alpha: 1, x: 0, y: 5, blur: 20, spread: 0)
         googleBtn.setupButton()
         facebookBtn.setupButton()
         twitterBtn.setupButton()
@@ -143,6 +145,8 @@ class SignInController: UIViewController, Storyboarded {
         forgotPasswordLbl.text = "FORGOT_PASSWORD".localized
         createNewAccountLbl.text = "DONT_HAVE_ACCOUNT".localized
         passwordStaticLabl.text = "PASSWORD".localized
+        orLbl.text = "OR".localized
+        signupWithLbl.text = "SIGN_IN_WITH".localized
         signInButton.setTitle("SIGN_IN".localized, for: .normal)
         forgotPasswordLbl.font = UIFont(name: "Lato-Regular", size: 16)
         signupWithLbl.font = UIFont(name: "Lato-Bold", size: 16)

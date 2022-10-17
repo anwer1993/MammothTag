@@ -38,9 +38,12 @@ struct DataClassProfile: Codable {
     let email: String?
     let phone: String?
     let picture: String?
+    let urlPicture: String?
+    let loginWith: String?
     let deviceToken: String?
     let code: String?
     let nfcTag: String?
+    let branchLink: String?
     let isApproved: String?
     let isBanned: String?
     let isNotifiable: String?
@@ -57,9 +60,12 @@ struct DataClassProfile: Codable {
         case email = "email"
         case phone = "phone"
         case picture = "picture"
+        case urlPicture = "url_picture_social_network"
+        case loginWith = "login_with"
         case deviceToken = "device_token"
         case code = "code"
         case nfcTag = "nfc_tag"
+        case branchLink = "branch_link"
         case isApproved = "is_approved"
         case isBanned = "is_banned"
         case isNotifiable = "is_notifiable"

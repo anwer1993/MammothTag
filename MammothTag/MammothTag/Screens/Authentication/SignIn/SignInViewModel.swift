@@ -29,6 +29,7 @@ struct SignInViewModel {
             if data.result == true {
                 if let token = data.token {
                     AccountManager.shared.token = token
+                    AccountManager.shared.loginType  = .simpleLogin
                     bindViewModelDataToController(true, "")
                 } else if let message = data.message {
                     bindViewModelDataToController(false, message)

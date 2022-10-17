@@ -51,7 +51,7 @@ extension SignInController: ASAuthorizationControllerDelegate {
                 guard let result = authResult else {return}
                 let first_name = (Auth.auth().currentUser?.displayName ?? "").subString().0
                 let last_name = (Auth.auth().currentUser?.displayName ?? "").subString().1
-                let email = result.user.email ?? ""
+                let email = (result.additionalUserInfo?.profile?["email"] as? String) ?? ""
                 let profile_picture_url = result.user.photoURL?.absoluteString ?? ""
                 let loginModel = LoginWithSocialMediaModel(name: first_name, lastName: last_name, email: email, url_Picture: profile_picture_url)
                 self?.register(With: .loginWithApple(userModel: loginModel))

@@ -89,13 +89,24 @@ class SettingsViewController: UIViewController, Storyboarded {
         if let dob = profile?.birthday?.dateFromString, let age = dob.age {
             ageLbl.text = "\(age)"
         }
-        if let picture = profile?.picture, picture.isEmptyString == false {
-            let url = URL(string: "https://mammoth-app.net/mobile/public/\(picture)")
-            profileImage.kf.setImage(with: url)
-            profileImage.contentMode = .scaleAspectFill
+        if self.profile?.loginWith == LoginWith.simpleLogin.rawValue {
+            if let picture = profile?.picture, picture.isEmptyString == false {
+                let url = URL(string: "https://mammoth-app.net/mobile/public/\(picture)")
+                profileImage.kf.setImage(with: url)
+                profileImage.contentMode = .scaleAspectFill
+            } else {
+                profileImage.image = UIImage(named: "avatar")
+            }
         } else {
-            profileImage.image = UIImage(named: "avatar")
+            if let picture = profile?.urlPicture, picture.isEmptyString == false {
+                let url = URL(string: picture)
+                profileImage.kf.setImage(with: url)
+                profileImage.contentMode = .scaleAspectFill
+            } else {
+                profileImage.image = UIImage(named: "avatar")
+            }
         }
+        
     }
     
 }

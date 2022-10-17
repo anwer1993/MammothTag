@@ -59,7 +59,12 @@ extension HomeViewController: NFCNDEFReaderSessionDelegate{
                 case .readWrite:
                     let branchUniversalObject: BranchUniversalObject = BranchUniversalObject(canonicalIdentifier: "content/12345")
                     branchUniversalObject.title = self.profile?.name  ?? ""
-                    branchUniversalObject.imageUrl = self.profile?.picture ?? ""
+                    if self.profile?.loginWith == LoginWith.simpleLogin.rawValue {
+                        branchUniversalObject.imageUrl = self.profile?.picture ?? ""
+                    } else {
+                        branchUniversalObject.imageUrl = self.profile?.urlPicture ?? ""
+                    }
+                    
                     branchUniversalObject.contentMetadata.customMetadata = ["id": "\(self.profile?.id ?? 0)"]
                     let lp = BranchLinkProperties()
                     lp.channel = "ios"

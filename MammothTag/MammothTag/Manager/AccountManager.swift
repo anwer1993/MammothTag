@@ -75,6 +75,8 @@ class AccountManager {
         }
     }
     
+    var loginType: LoginWith = .simpleLogin
+    
     var isApproved: Bool =  false
     
     var selectedOption: Int = 0

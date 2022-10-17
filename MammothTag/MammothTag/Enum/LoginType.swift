@@ -76,3 +76,13 @@ enum LoginType {
     }
     
 }
+
+enum LoginWith: String {
+case simpleLogin  = "0"
+case loginWithGmail  = "1"
+case loginWithFacebook = "2"
+case loginWithApple = "3"
+case loginWithTwitter = "4"
+    
+    
+}
