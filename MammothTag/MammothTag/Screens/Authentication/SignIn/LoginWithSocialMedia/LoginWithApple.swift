@@ -49,11 +49,20 @@ extension SignInController: ASAuthorizationControllerDelegate {
                     return
                 }
                 guard let result = authResult else {return}
-                let first_name = (Auth.auth().currentUser?.displayName ?? "").subString().0
-                let last_name = (Auth.auth().currentUser?.displayName ?? "").subString().1
+                var first_name: String  = ""
+                var last_name: String = ""
+                if let firstName = appleIDCredential.fullName?.givenName {
+                    first_name = firstName
+                } else {
+                    first_name = (Auth.auth().currentUser?.displayName ?? "").subString().0
+                }
+                if let lastName = appleIDCredential.fullName?.familyName {
+                    last_name = lastName
+                } else {
+                    last_name = (Auth.auth().currentUser?.displayName ?? "").subString().1
+                }
                 let email = (result.additionalUserInfo?.profile?["email"] as? String) ?? ""
-                let profile_picture_url = result.user.photoURL?.absoluteString ?? ""
-                let loginModel = LoginWithSocialMediaModel(name: first_name, lastName: last_name, email: email, url_Picture: profile_picture_url)
+                let loginModel = LoginWithSocialMediaModel(name: first_name, lastName: last_name, email: email, url_Picture: "")
                 self?.register(With: .loginWithApple(userModel: loginModel))
             }
         }

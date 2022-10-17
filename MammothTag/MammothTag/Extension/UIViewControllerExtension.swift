@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 extension UIViewController {
     
@@ -72,6 +73,12 @@ extension UIViewController {
             if let token = AccountManager.shared.token {
                 AuthenticationService.sharedInstance.logout(token: token) { data in
                     self.showOrHideLoader(done: true)
+                    let firebaseAuth = Auth.auth()
+                    do {
+                      try firebaseAuth.signOut()
+                    } catch let signOutError as NSError {
+                      print("Error signing out: %@", signOutError)
+                    }
                     if let done = data.success, done == true {
                         AccountManager.shared.token = nil
                         AccountManager.shared.isApproved = false
