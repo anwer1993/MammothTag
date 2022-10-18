@@ -22,7 +22,7 @@ protocol INaviagtion{}
 enum AppScreen: INaviagtion{
     case Login(sourceController: Int)
     case ForgotPassword
-    case Register
+    case Register(user_id: String, sourceController: Int)
     case Terms(source: SourceController? = nil)
     case ContactList
     case Settings
@@ -74,8 +74,10 @@ struct Router: IRouter {
                 guard let vc = ForgotPasswordController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
                 viewController = vc
                 break
-            case .Register:
+            case .Register(user_id: let user_id, sourceController: let sourceController):
                 guard let vc = RegisterViewController.instantiate(storyboardName: "Authentification") else {return UIViewController()}
+                vc.user_id = user_id
+                vc.sourceController = sourceController
                 viewController = vc
                 break
             case .Terms(source: let source):

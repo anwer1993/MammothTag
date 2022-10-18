@@ -76,6 +76,8 @@ class RegisterViewController: UIViewController, Storyboarded {
     
     var registerViewModel = RegisterViewModel()
     var isTermedChecked: Bool = false
+    var sourceController = 0
+    var user_id = ""
     
     private lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker(frame: .zero)
@@ -136,13 +138,24 @@ class RegisterViewController: UIViewController, Storyboarded {
         countryCodeView.flagSpacingInView = 10
         countryCodeView.setCountryByCode("SA")
         registerViewModel.updateRegisterModel(withcountryCode: countryCodeView.selectedCountry.phoneCode)
-        registerViewModel.updateUIWhenRegister =  {done, message, token in
-            self.showOrHideLoader(done: true)
+        registerViewModel.updateUIWhenRegister =  {[weak self] done, message, token in
+            guard let this = self else {return}
+            this.showOrHideLoader(done: true)
             if done == true {
                 AccountManager.shared.token = token
-                Contstant.updateRootVC()
+                if this.sourceController == 0 {
+                    Contstant.updateRootVC()
+                } else {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    if let rootViewController = storyboard.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController {
+                        rootViewController.user_id = this.user_id
+                        rootViewController.sourceController = 1
+                        UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = rootViewController
+                        UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.makeKeyAndVisible()
+                    }
+                }
             } else {
-                self.showAlert(withTitle: "Error", withMessage: message)
+                this.showAlert(withTitle: "Error", withMessage: message)
             }
         }
     }
@@ -471,6 +484,7 @@ extension RegisterViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: passwordTextField, parentView: viewPassword, textFieldTitle: passwordStaticLabel, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: confirmPasswordView, textFieldTitle: confirmPasswordSstaticLbl, isHidden: true)
         } else if textField == confirmPasswordTextField {
+            confirmPasswordSstaticLbl.isHidden = false
             confirmPasswordView.isHidden = false
             resetTextField(confirmPasswordView, confirmPasswordSstaticLbl)
             updateOtherTextFieldWhenToggle(otherTextField: firstNameTestField, parentView: viewFirstName, textFieldTitle: firstNameStaticLbl, isHidden: true)

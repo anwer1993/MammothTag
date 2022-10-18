@@ -18,8 +18,8 @@ import TwitterKit
 class SignInController: UIViewController, Storyboarded {
     
     
-    
-    
+    @IBOutlet weak var infoStackViewToTopConstarinte: NSLayoutConstraint!
+    @IBOutlet weak var socialMediaBtn: UIStackView!
     @IBOutlet weak var twitterBtn: UIButton!
     @IBOutlet weak var facebookBtn: UIButton!
     @IBOutlet weak var googleBtn: UIButton!
@@ -47,8 +47,7 @@ class SignInController: UIViewController, Storyboarded {
     @IBOutlet weak var viewPassword: UIView!
     @IBOutlet weak var passwordStaticLabl: UILabel!
     
-    var descStackTopConstrainteOriginal: CGFloat = 0.0
-    var identityStackTopContrainteOriginal: CGFloat = 0.0
+    var infoStackToTopConstrainteOriginal: CGFloat = 0.0
     
     var signInViewModel = SignInViewModel()
     var sourceController = 0
@@ -83,8 +82,7 @@ class SignInController: UIViewController, Storyboarded {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //        descStackTopConstrainteOriginal = descStackTopConstrainte.constant
-        //        identityStackTopContrainteOriginal = identityStackTopContrainte.constant
+        infoStackToTopConstrainteOriginal = infoStackViewToTopConstarinte.constant
     }
     
     deinit {
@@ -98,15 +96,15 @@ class SignInController: UIViewController, Storyboarded {
             print(keyboardSize.origin.y)
             if self.identityStack.frame.origin.y + self.identityStack.frame.height > keyboardSize.origin.y {
                 print("passwordTextField hidden")
-                //                descStackTopConstrainte.constant = 15
-                //                identityStackTopContrainte.constant = 15
+                infoStackViewToTopConstarinte.constant = -70
+                socialMediaBtn.isHidden = true
             }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        //        descStackTopConstrainte.constant = descStackTopConstrainteOriginal
-        //        identityStackTopContrainte.constant = identityStackTopContrainteOriginal
+        infoStackViewToTopConstarinte.constant = infoStackToTopConstrainteOriginal
+        socialMediaBtn.isHidden = false
     }
     
     func linkViewModelToController() {
@@ -319,13 +317,29 @@ class SignInController: UIViewController, Storyboarded {
     }
     
     @objc func showForgotPasswordScreen(_ sender: UITapGestureRecognizer? = nil) {
-        Router.shared.push(with: self.navigationController, screen: .ForgotPassword, animated: true)
+        if let nav = self.navigationController {
+            Router.shared.push(with: nav, screen: .ForgotPassword, animated: true)
+        } else {
+            let nav = UINavigationController(rootViewController: self)
+            Router.shared.push(with: nav, screen: .ForgotPassword, animated: true)
+        }
+        
     }
     
     @objc func showRegistrationScreen(_ sender: UITapGestureRecognizer? = nil) {
         clearTextField(passwordTextField)
         clearTextField(emailTextField)
-        Router.shared.push(with: self.navigationController, screen: .Register, animated: true)
+        if let nav = self.navigationController {
+            Router.shared.push(with: nav, screen: .Register(user_id: user_id, sourceController: sourceController), animated: true)
+        } else {
+            let storyboard = UIStoryboard(name: "Authentification", bundle: nil)
+            if let rootViewController = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController {
+                rootViewController.user_id = user_id
+                rootViewController.sourceController = 1
+                UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = rootViewController
+                UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.makeKeyAndVisible()
+            }
+        }
     }
     
     func clearTextField(_ textField: UITextField) {
