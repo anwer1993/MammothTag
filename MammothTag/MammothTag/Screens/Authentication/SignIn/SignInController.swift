@@ -54,6 +54,8 @@ class SignInController: UIViewController, Storyboarded {
     var user_id = ""
     
     var  currentNonce: String?
+    let authUI: Auth? = Auth.auth()
+    var provider = OAuthProvider(providerID: "twitter.com")
 //    var twitter_session: TWTRSession?
     
     override func viewDidLoad() {
@@ -66,8 +68,8 @@ class SignInController: UIViewController, Storyboarded {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         appleeBtn.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
         facebookBtn.addTarget(self, action: #selector(loginWithFb), for: .touchUpInside)
-//        twitterBtn.addTarget(self, action: #selector(loginWithTwitter), for: .touchUpInside)
-        twitterBtn.isHidden  = true
+        twitterBtn.addTarget(self, action: #selector(loginWithTwitter), for: .touchUpInside)
+//        twitterBtn.isHidden  = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

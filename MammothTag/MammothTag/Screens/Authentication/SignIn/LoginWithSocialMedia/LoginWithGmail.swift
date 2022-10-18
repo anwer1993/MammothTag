@@ -12,8 +12,10 @@ import FirebaseCore
 
 extension SignInController {
     
-    func register(With loginType: LoginType) {
-        showOrHideLoader(done: false)
+    func register(With loginType: LoginType, isFromTwitterLogin: Bool = false) {
+        if isFromTwitterLogin == false {
+            showOrHideLoader(done: false)
+        }
         AuthenticationService.sharedInstance.register(with: loginType) { [weak self] resp in
             guard let this = self else {return}
             this.showOrHideLoader(done: true)
