@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import FacebookCore
-import FacebookLogin
+import FBSDKLoginKit
+import FBSDKCoreKit
 import FirebaseCore
 import FirebaseAuth
 
@@ -17,7 +17,7 @@ extension SignInController {
     
     @objc
     func loginWithFb() {
-        LoginManager.init().logIn(permissions: [Permission.publicProfile, Permission.email, Permission.publicProfile], viewController: self) { (loginResult) in
+        LoginManager.init().logIn(viewController: self, configuration: LoginConfiguration(permissions: [Permission.publicProfile, Permission.email, Permission.publicProfile], tracking: LoginTracking.enabled)) { loginResult in
             switch loginResult {
             case .success(_, _, _):
                 let requestedFields = "email, first_name, last_name, picture.type(large)"

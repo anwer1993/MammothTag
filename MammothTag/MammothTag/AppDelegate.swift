@@ -10,7 +10,7 @@ import Branch
 import CoreNFC
 import FirebaseCore
 import GoogleSignIn
-import FacebookCore
+import FBSDKLoginKit
 import TwitterKit
 
 @main

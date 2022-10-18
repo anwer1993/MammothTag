@@ -15,6 +15,9 @@ target 'MammothTag' do
   pod 'FirebaseFirestore'
   pod 'GoogleSignIn'
   pod 'TwitterKit'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
 
   target 'MammothTagTests' do
     inherit! :search_paths

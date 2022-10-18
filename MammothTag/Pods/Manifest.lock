@@ -611,6 +611,16 @@ PODS:
   - BoringSSL-GRPC/Interface (0.0.24)
   - Branch (1.43.2)
   - CountryPickerView (3.2.0)
+  - FBAEMKit (15.0.0):
+    - FBSDKCoreKit_Basics (= 15.0.0)
+  - FBSDKCoreKit (15.0.0):
+    - FBAEMKit (= 15.0.0)
+    - FBSDKCoreKit_Basics (= 15.0.0)
+  - FBSDKCoreKit_Basics (15.0.0)
+  - FBSDKLoginKit (15.0.0):
+    - FBSDKCoreKit (= 15.0.0)
+  - FBSDKShareKit (15.0.0):
+    - FBSDKCoreKit (= 15.0.0)
   - FirebaseAuth (10.0.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
@@ -731,6 +741,9 @@ DEPENDENCIES:
   - Alamofire
   - Branch
   - CountryPickerView (~> 3.2.0)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
   - FirebaseAuth
   - FirebaseFirestore
   - GoogleSignIn
@@ -745,6 +758,11 @@ SPEC REPOS:
     - BoringSSL-GRPC
     - Branch
     - CountryPickerView
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FBSDKLoginKit
+    - FBSDKShareKit
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreInternal
@@ -770,6 +788,11 @@ SPEC CHECKSUMS:
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   Branch: 74cc856025984f691833c8fa332834ac38a0cf4e
   CountryPickerView: 9b093bfffb4b06a69ba6185a798cadbf863720e7
+  FBAEMKit: d8312d8451ead46282adc7f3565ffc4965e3a4a7
+  FBSDKCoreKit: 81879058dd06208c0820fc713d054ca54903e8ba
+  FBSDKCoreKit_Basics: eebc9bb69a0e5d133b92dca53a20716227faa454
+  FBSDKLoginKit: 11995469cd7da16fd4d5245e8d2ec61060479270
+  FBSDKShareKit: 9501792c3024580809f811a8a549868699d9bd32
   FirebaseAuth: 493382cf533cc45e2862b00e9aa4cfe4c98daf71
   FirebaseCore: 97f48a3a567a72b8d4daa0f03c3aadb78df4e995
   FirebaseCoreInternal: 5eb3960335da5ea30115d57d39db6988c4ad06f3
@@ -788,6 +811,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 9a6ba229eaf0c72c032834411eabe10f543ff3bc
+PODFILE CHECKSUM: 777421343ad3f14399eedb56e45a54d7459e0ea0
 
 COCOAPODS: 1.11.2

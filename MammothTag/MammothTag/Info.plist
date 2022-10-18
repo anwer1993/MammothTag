@@ -17,6 +17,8 @@
 	<string>406134068205437</string>
 	<key>FacebookDisplayName</key>
 	<string>MAMMOTH TAG</string>
+	<key>FacebookClientToken</key>
+	<string>1ce4ece54d8948a9568fb761ce73e3da</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

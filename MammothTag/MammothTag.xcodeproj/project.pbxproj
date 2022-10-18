@@ -43,10 +43,6 @@
 		A6511F2828BBED15003DF731 /* SocialMediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2728BBED15003DF731 /* SocialMediaCollectionCell.swift */; };
 		A6511F2A28BBF6F4003DF731 /* SocialMediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2928BBF6F4003DF731 /* SocialMediaModel.swift */; };
 		A6511F2D28BBFE06003DF731 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511F2C28BBFE06003DF731 /* Constant.swift */; };
-		A67908A228FA122C00CB368B /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = A67908A128FA122C00CB368B /* FacebookCore */; };
-		A67908A428FA122C00CB368B /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = A67908A328FA122C00CB368B /* FacebookGamingServices */; };
-		A67908A628FA122C00CB368B /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = A67908A528FA122C00CB368B /* FacebookLogin */; };
-		A67908A828FA122C00CB368B /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = A67908A728FA122C00CB368B /* FacebookShare */; };
 		A67908AA28FA14F300CB368B /* LoginWithFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67908A928FA14F300CB368B /* LoginWithFacebook.swift */; };
 		A67908AC28FA26D500CB368B /* LoginWithTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67908AB28FA26D500CB368B /* LoginWithTwitter.swift */; };
 		A67908AF28FB56BF00CB368B /* LoginWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67908AE28FB56BF00CB368B /* LoginWithApple.swift */; };
@@ -299,11 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A67908A628FA122C00CB368B /* FacebookLogin in Frameworks */,
-				A67908A428FA122C00CB368B /* FacebookGamingServices in Frameworks */,
 				DD96984181916BD0AAEFA5A1 /* Pods_MammothTag.framework in Frameworks */,
-				A67908A828FA122C00CB368B /* FacebookShare in Frameworks */,
-				A67908A228FA122C00CB368B /* FacebookCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,10 +862,6 @@
 			);
 			name = MammothTag;
 			packageProductDependencies = (
-				A67908A128FA122C00CB368B /* FacebookCore */,
-				A67908A328FA122C00CB368B /* FacebookGamingServices */,
-				A67908A528FA122C00CB368B /* FacebookLogin */,
-				A67908A728FA122C00CB368B /* FacebookShare */,
 			);
 			productName = MammothTag;
 			productReference = A6FC614028A02A0100756C74 /* MammothTag.app */;
@@ -953,7 +941,6 @@
 			);
 			mainGroup = A6FC613728A02A0100756C74;
 			packageReferences = (
-				A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = A6FC614128A02A0100756C74 /* Products */;
 			projectDirPath = "";
@@ -1442,11 +1429,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = KQ663356A4;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MammothTag/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MAMMOTHTAG;
 				INFOPLIST_KEY_NFCReaderUsageDescription = "NFC tag to scan it";
 				INFOPLIST_KEY_NSCameraUsageDescription = "MAMMOTH TAG uses this access to make you the possibility to take and upload your profile picture. You can always change this in your settings.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MAMMOTHTAG utilises an SDK that access your location";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "MAMMOTH TAG uses this access to make you the possibility to choose and upload your profile picture. You can always change this in your settings.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MAMMOTH TAG uses this access to make you the possibility to choose and upload your profile picture. You can always change this in your settings.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1463,7 +1452,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-l\"c++\"",
@@ -1566,11 +1555,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = KQ663356A4;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MammothTag/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MAMMOTHTAG;
 				INFOPLIST_KEY_NFCReaderUsageDescription = "NFC tag to scan it";
 				INFOPLIST_KEY_NSCameraUsageDescription = "MAMMOTH TAG uses this access to make you the possibility to take and upload your profile picture. You can always change this in your settings.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MAMMOTHTAG utilises an SDK that access your location";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "MAMMOTH TAG uses this access to make you the possibility to choose and upload your profile picture. You can always change this in your settings.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MAMMOTH TAG uses this access to make you the possibility to choose and upload your profile picture. You can always change this in your settings.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1587,7 +1578,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-l\"c++\"",
@@ -1800,40 +1791,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A67908A128FA122C00CB368B /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		A67908A328FA122C00CB368B /* FacebookGamingServices */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookGamingServices;
-		};
-		A67908A528FA122C00CB368B /* FacebookLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookLogin;
-		};
-		A67908A728FA122C00CB368B /* FacebookShare */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A67908A028FA122B00CB368B /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookShare;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A6FC613828A02A0100756C74 /* Project object */;
 }

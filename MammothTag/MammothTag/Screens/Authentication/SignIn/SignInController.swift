@@ -11,8 +11,8 @@ import AVFoundation
 import FirebaseAuth
 import GoogleSignIn
 import FirebaseCore
-import  AuthenticationServices
-import FacebookLogin
+import AuthenticationServices
+import FBSDKCoreKit
 import TwitterKit
 
 class SignInController: UIViewController, Storyboarded {
