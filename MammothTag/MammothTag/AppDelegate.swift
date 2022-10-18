@@ -11,7 +11,7 @@ import CoreNFC
 import FirebaseCore
 import GoogleSignIn
 import FBSDKLoginKit
-import TwitterKit
+//import TwitterKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             annotation: options[UIApplication.OpenURLOptionsKey.annotation]
         )
         
-        TWTRTwitter.sharedInstance().application(application, open: url, options: options)
+//        TWTRTwitter.sharedInstance().application(application, open: url, options: options)
         
         return GIDSignIn.sharedInstance.handle(url)
     }
@@ -101,7 +101,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        TWTRTwitter.sharedInstance().start(withConsumerKey: Contstant.TWITTER_API_KEY, consumerSecret: Contstant.TWITTER_SECRET_KEY)
+//        TWTRTwitter.sharedInstance().start(withConsumerKey: Contstant.TWITTER_API_KEY, consumerSecret: Contstant.TWITTER_SECRET_KEY)
+        
         
         ApplicationDelegate.shared.application(
             application,
@@ -175,7 +176,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = navigationController
         
         self.window!.makeKeyAndVisible()
-        
+        UIApplication.shared.unregisterForRemoteNotifications()
         return true
     }
     

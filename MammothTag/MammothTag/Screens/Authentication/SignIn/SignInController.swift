@@ -13,7 +13,7 @@ import GoogleSignIn
 import FirebaseCore
 import AuthenticationServices
 import FBSDKCoreKit
-import TwitterKit
+//import TwitterKit
 
 class SignInController: UIViewController, Storyboarded {
     
@@ -54,7 +54,7 @@ class SignInController: UIViewController, Storyboarded {
     var user_id = ""
     
     var  currentNonce: String?
-    var twitter_session: TWTRSession?
+//    var twitter_session: TWTRSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,8 @@ class SignInController: UIViewController, Storyboarded {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         appleeBtn.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
         facebookBtn.addTarget(self, action: #selector(loginWithFb), for: .touchUpInside)
-        twitterBtn.addTarget(self, action: #selector(loginWithTwitter), for: .touchUpInside)
+//        twitterBtn.addTarget(self, action: #selector(loginWithTwitter), for: .touchUpInside)
+        twitterBtn.isHidden  = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

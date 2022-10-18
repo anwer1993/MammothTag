@@ -459,7 +459,8 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             updateOtherTextFieldWhenToggle(otherTextField: dateOfBirthTextField, parentView: dateOfBirthView, textFieldTitle: dateOfBirthStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: phoneTextField, parentView: phoneView, textFieldTitle: phoneStaticLabel, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: confirmPasswordTextField, parentView: viewConfirmPassword, textFieldTitle: confirmPasswordLbl, isHidden: true)
-        } else if textField == passwordTextField{
+        } else if textField == confirmPasswordTextField{
+            confirmPasswordLbl.isHidden = false
             resetTextField(viewConfirmPassword, confirmPasswordLbl)
             updateOtherTextFieldWhenToggle(otherTextField: firstNameTestField, parentView: viewFirstName, textFieldTitle: firstNameStaticLbl, isHidden: true)
             updateOtherTextFieldWhenToggle(otherTextField: lastNameTextField, parentView: viewLastName, textFieldTitle: lastNameStaticLabel, isHidden: true)
