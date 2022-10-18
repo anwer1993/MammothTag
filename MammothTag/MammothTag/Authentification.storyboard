@@ -40,21 +40,22 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mamooth_tag" translatesAutoresizingMaskIntoConstraints="NO" id="yEA-Wd-8kO">
-                                        <rect key="frame" x="97" y="297" width="220" height="220"/>
+                                        <rect key="frame" x="97" y="277" width="220" height="220"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="220" id="1gY-uf-PoW"/>
                                             <constraint firstAttribute="height" constant="220" id="h3I-OZ-nGe"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expand your network with one touch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzm-7V-EYm">
-                                        <rect key="frame" x="40" y="517" width="334" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expand your network with one touch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzm-7V-EYm">
+                                        <rect key="frame" x="40" y="497" width="334" height="21.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCM-Vk-UIz">
-                                        <rect key="frame" x="166.5" y="728" width="81" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="170.5" y="528.5" width="73" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -68,8 +69,8 @@
                                     <constraint firstItem="gzm-7V-EYm" firstAttribute="top" secondItem="yEA-Wd-8kO" secondAttribute="bottom" id="OUa-VD-WBP"/>
                                     <constraint firstItem="Ktd-s0-gI0" firstAttribute="top" secondItem="8XP-nJ-2l7" secondAttribute="top" id="Q2o-pH-5ka"/>
                                     <constraint firstItem="gzm-7V-EYm" firstAttribute="leading" secondItem="8XP-nJ-2l7" secondAttribute="leading" constant="40" id="Z9e-AR-J4v"/>
-                                    <constraint firstItem="yEA-Wd-8kO" firstAttribute="centerY" secondItem="8XP-nJ-2l7" secondAttribute="centerY" constant="20" id="lCn-sL-5zg"/>
-                                    <constraint firstAttribute="bottom" secondItem="SCM-Vk-UIz" secondAttribute="bottom" constant="25" id="mHZ-Ba-aFw"/>
+                                    <constraint firstItem="yEA-Wd-8kO" firstAttribute="centerY" secondItem="8XP-nJ-2l7" secondAttribute="centerY" id="lCn-sL-5zg"/>
+                                    <constraint firstItem="SCM-Vk-UIz" firstAttribute="top" secondItem="gzm-7V-EYm" secondAttribute="bottom" constant="10" id="nUf-h8-50F"/>
                                     <constraint firstAttribute="bottom" secondItem="Ktd-s0-gI0" secondAttribute="bottom" id="u3O-FU-ra6"/>
                                     <constraint firstItem="Ktd-s0-gI0" firstAttribute="leading" secondItem="8XP-nJ-2l7" secondAttribute="leading" id="zBM-Wf-PdT"/>
                                 </constraints>

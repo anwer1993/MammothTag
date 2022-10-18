@@ -28,10 +28,11 @@ class SpalchScreen: UIViewController, Storyboarded {
         super.viewDidLoad()
         originalTransform = mamouthImage.transform
         descriptionLbl.alpha = 0
-        descriptionLbl.text = "\("WELCOMELABEL".localized) \n \("SIGNIN_DESCRIPTION_LABEL".localized)"
-        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-        versionLbl.text = "VERSION".localized.replacingOccurrences(of: "*Versin*", with: appVersion ?? "1.0")
+        descriptionLbl.text = "WELCOMELABEL".localized
+        versionLbl.text = "SIGNIN_DESCRIPTION_LABEL".localized
         versionLbl.alpha = 0
+        descriptionLbl.font = UIFont(name: "Lato-Bold", size: 17)
+        versionLbl.font = UIFont(name: "Lato-Regular", size: 15)
     }
     
     func checkUpdates() {
@@ -106,6 +107,7 @@ class SpalchScreen: UIViewController, Storyboarded {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
             self.mamouthImage.transform = scaledAndTranslatedTransform
             self.descriptionLbl.transform = CGAffineTransform(translationX: 0, y: -120)
+            self.versionLbl.transform = CGAffineTransform(translationX: 0, y: -130)
         } completion: { _ in
             onFinished()
         }
